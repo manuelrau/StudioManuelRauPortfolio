@@ -8,10 +8,10 @@ function LandingPage() {
     return(
             <>
                 <div>
-                    <h1>{story.name}</h1>
                     <h2>{story.content?.body[0].headline}</h2>
-                    <p>{story.published_at}</p>
                     <p>{story.content?.text}</p>
+
+                    <img src={story.content?.header.filename} alt={story.content?.header.alt} />
                 </div>
             </>
     )
