@@ -3,7 +3,9 @@ import { storyblokInit, apiPlugin} from '@storyblok/react'
 import './App.css'
 import LandingPage from './Components/LandingPage/index.jsx'
 import Header from './Components/Header'
+import Categories from "./Components/Categories/index.jsx";
 import {GlobalStyle} from './styles.js'
+
 
 const components = {};
 
@@ -20,6 +22,7 @@ function App() {
         <GlobalStyle />
         <Header />
         <LandingPage />
+        <Categories />
     </>
   )
 }

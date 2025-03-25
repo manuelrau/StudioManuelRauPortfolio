@@ -1,8 +1,10 @@
 import react from 'react';
 import {H1, Wrapper} from './styles.js'
+import { useStoryblok } from "@storyblok/react";
 
 
 const Header = () => {
+    const story = useStoryblok("category", {version: "draft"})
 
     return (
         <div>
