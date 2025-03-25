@@ -1,5 +1,6 @@
 import react from 'react'
 import {useStoryblok} from "@storyblok/react";
+import {Wrapper} from "./styles.js";
 
 const Categories = () => {
     const cat = useStoryblok("stories", {version: "draft"})
@@ -7,7 +8,9 @@ const Categories = () => {
 
     return(
         <>
-            <p>Test</p>
+            <Wrapper>
+                <p>Test</p>
+            </Wrapper>
         </>
     )
 }
