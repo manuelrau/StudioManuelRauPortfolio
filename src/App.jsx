@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { storyblokInit, apiPlugin} from '@storyblok/react'
 import './App.css'
 import LandingPage from './Components/LandingPage/index.jsx'
+import Header from './Components/Header'
+import {GlobalStyle} from './styles.js'
 
 const components = {};
 
@@ -15,6 +17,8 @@ function App() {
 
   return (
     <>
+        <GlobalStyle />
+        <Header />
         <LandingPage />
     </>
   )
