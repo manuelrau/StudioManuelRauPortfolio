@@ -13,3 +13,9 @@ export const Wrapper = styled.div`
     display: flex;
     padding: 0 40px 0 40px;
 `
+
+export const HeaderLogo = styled.img`
+    height: 10vh;
+    width: auto;
+    padding: 20px;
+`
