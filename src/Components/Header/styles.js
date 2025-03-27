@@ -8,14 +8,22 @@ export const H1 = styled.h1`
 `
 
 export const Wrapper = styled.div`
+    width: 100%; 
+    height: 100%;
+    gap: 174px; 
+    display: inline-flex;
     justify-content: flex-start;
     align-items: center;
-    display: flex;
-    padding: 0 40px 0 40px;
+    text-transform: uppercase;
+`
+export const Link = styled.a`
+
+    text-decoration: none;
+    color: black;
 `
 
 export const HeaderLogo = styled.img`
-    height: 10vh;
+    height: 5vh;
     width: auto;
-    padding: 20px;
+    padding: 20px 0 20px 0;
 `

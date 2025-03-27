@@ -5,7 +5,7 @@ import LandingPage from './Components/LandingPage/index.jsx'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Categories from "./Components/Categories/index.jsx";
-import {GlobalStyle} from './styles.js'
+import {GlobalStyle, FooterContainer} from './styles.js'
 
 
 
@@ -26,6 +26,9 @@ function App() {
         <Header />
         <LandingPage />
         <Categories />
+        <FooterContainer>
+            <Footer />
+        </FooterContainer>
     </>
   )
 }
