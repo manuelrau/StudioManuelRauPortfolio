@@ -3,7 +3,7 @@ import {useStoryblok} from "@storyblok/react";
 import {Img, Wrapper} from './styles.js'
 
 const WorkExamples = () => {
-    const story = useStoryblok("Workexamples", {"draft"})
+    //const story = useStoryblok("Workexamples", {"draft"})
 
     if(!story) return <p> Laden... </p>;
     return (

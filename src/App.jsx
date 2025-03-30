@@ -1,11 +1,8 @@
-import { useState } from 'react'
 import { storyblokInit, apiPlugin} from '@storyblok/react'
+import { Outlet } from 'react-router-dom'
 import './App.css'
-import LandingPage from './Components/LandingPage/index.jsx'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import Categories from "./Components/Categories/index.jsx";
-import {GlobalStyle, FooterContainer} from './styles.js'
 
 
 
@@ -22,13 +19,7 @@ function App() {
 
   return (
     <>
-        <GlobalStyle />
-        <Header />
-        <LandingPage />
-        <Categories />
-        <FooterContainer>
-            <Footer />
-        </FooterContainer>
+        <Outlet />
     </>
   )
 }

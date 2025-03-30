@@ -12,7 +12,7 @@ const Footer = () => {
                 <p>{story.content?.Body[0].Text}</p>
                 <SocialContainer>
                     <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>
-                    <SocialMedia href={story.content?.Body[0].SocialMedia.url}>Instagram</SocialMedia>
+                    <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">Instagram</SocialMedia>
                 </SocialContainer>
 
             </Container>

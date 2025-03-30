@@ -1,5 +1,5 @@
-import react from 'react';
-import {H1, Wrapper, HeaderLogo, Link} from './styles.js'
+import { Link } from 'react-router-dom';
+import {H1, Wrapper, HeaderLogo, } from './styles.js'
 import { useStoryblok } from "@storyblok/react";
 
 
@@ -12,7 +12,7 @@ const Header = () => {
             <div>
                 <Wrapper>
                     <HeaderLogo src={story.content?.Body[0].Logo.filename}/>
-                    <Link href={story.content?.Body[0].Link.id}>{story.content?.Body[0].Link.cached_url}</Link>
+                    <Link to={`/${story.content?.Body[0].Link.cached_url}`}>{story.content?.Body[0].Link.cached_url}</Link>
                 </Wrapper>
             </div>
         </header>
