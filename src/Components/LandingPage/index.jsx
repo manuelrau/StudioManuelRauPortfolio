@@ -5,7 +5,7 @@ import {HeaderImage} from "./styles.js";
 function LandingPage() {
     const story = useStoryblok("home", {version: "draft"})
 
-    if (!story) return <p>Laden...</p>;
+    if (!story.content) return <p>Laden...</p>;
     return(
             <>
                 <div>

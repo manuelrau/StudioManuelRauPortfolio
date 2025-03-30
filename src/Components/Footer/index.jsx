@@ -1,10 +1,12 @@
 import react from 'react';
 import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon} from "./styles.js"
+import React from "react";
 
 const Footer = () => {
     const story = useStoryblok("footer", {version: "draft"})
     console.log(story)
+    if (!story.content) return <p>Laden...</p>;
     return(
 
             <Container>
