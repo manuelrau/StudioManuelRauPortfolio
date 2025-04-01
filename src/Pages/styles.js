@@ -16,3 +16,9 @@ export const AboutPtag = styled.p `
     
 
 `
+
+export const Link = styled.a`
+
+    text-decoration: none;
+    color: black;
+`
