@@ -18,6 +18,7 @@ const Header = () => {
                     </Link>
 
                     <Link to={`/${story.content?.Body[0].Link.cached_url}`}>{story.content?.Body[0].Link.cached_url}</Link>
+                    <Link to={`/${story.content?.Body[0].Index.cached_url}`}>{story.content?.Body[0].Index.cached_url} </Link>
                 </Wrapper>
             </div>
         </header>

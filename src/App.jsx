@@ -4,6 +4,7 @@ import './App.css'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import About from './Pages/About.jsx'
+import Index from './Pages/Index.jsx'
 
 
 
@@ -14,6 +15,7 @@ storyblokInit({
         header: Header,
         footer: Footer,
         about: About,
+        index: Index,
     },
 });
 

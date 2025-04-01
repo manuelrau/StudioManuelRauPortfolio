@@ -2,7 +2,7 @@ import {AboutSection, Wrapper} from './styles.js'
 import Header from '../Components/Header'
 import Footer from "../Components/Footer/index.jsx";
 import { useStoryblok } from "@storyblok/react";
-import { AboutPtag} from "./styles.js"
+import { AboutPtag } from "./styles.js"
 import React from "react";
 
 

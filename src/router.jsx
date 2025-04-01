@@ -3,6 +3,7 @@ import About from "./Pages/About.jsx";
 import Home from "./Pages/Home.jsx"
 import App from "./App.jsx";
 import NotFound from "./Pages/NotFound.jsx";
+import Index from "./Pages/index.jsx";
 
 const router = createBrowserRouter ([
     {
@@ -17,6 +18,10 @@ const router = createBrowserRouter ([
             {
                 path: "about",
                 element: <About slug="about" />
+            },
+            {
+                path: "index",
+                element: <Index slug="index" />,
             },
             {
                 path: "*",
