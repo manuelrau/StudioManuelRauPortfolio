@@ -70,7 +70,7 @@ function Index () {
             <Header />
 
                 {titles.map((t) => (
-                    <Link to={`/${t.full?.slug}`}>{t.name}</Link>
+                    <Link to={`/artikel/${t.full?.slug}`}>{t.name}</Link>
                 ))}
 
             <Footer />
