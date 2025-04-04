@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import About from "./Pages/About.jsx";
-import Home from "./Pages/Home.jsx"
+import About from "./Pages/About/About.jsx";
+import Home from "./Pages/Home/Home.jsx"
 import App from "./App.jsx";
-import NotFound from "./Pages/NotFound.jsx";
-import ArticlePage from "./Pages/ArticlePage.jsx";
-import Index from "./Pages/index.jsx";
+import NotFound from "./Pages/NotFound/NotFound.jsx";
+import ArticlePage from "./Pages/ArticlePage/ArticlePage.jsx";
+import Index from "./Pages/Index/index.jsx";
 
 const router = createBrowserRouter ([
     {

@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom'
 import './App.css'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
-import About from './Pages/About.jsx'
-import Index from './Pages/Index.jsx'
+import About from './Pages/About/About.jsx'
+import Index from './Pages/Index/index.jsx'
 
 
 

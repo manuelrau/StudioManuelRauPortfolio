@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import {storyblokInit, useStoryblok} from "@storyblok/react";
 import StoryblokClient  from "storyblok-js-client";
-import Header from "../Components/Header/index.jsx"
-import Footer from "../Components/Footer/index.jsx";
-import { GlobalStyle } from "../styles.js";
+import Header from "../../Components/Header/index.jsx"
+import Footer from "../../Components/Footer/index.jsx";
+import { GlobalStyle } from "../../styles.js";
 import { Link } from 'react-router-dom';
+import {IndexWrapper, StyledLink} from "../styles.js";
 
 const SbClient = new StoryblokClient ({
     accessToken: "k25cvE9zCKOuhJ3vCQgCCAtt",
@@ -69,9 +70,14 @@ function Index () {
             <GlobalStyle />
             <Header />
 
-                {titles.map((t) => (
-                    <Link to={`/artikel/${t.full?.slug}`}>{t.name}</Link>
-                ))}
+                <IndexWrapper>
+                        {titles.map((t) => (
+                            <Link className="LinkClass" to={`/artikel/${t.full?.slug}`}>{t.name}</Link>
+
+                                ))}
+
+
+                </IndexWrapper>
 
             <Footer />
         </>

@@ -1,9 +1,10 @@
-import {AboutSection, Wrapper} from './styles.js'
-import Header from '../Components/Header'
-import Footer from "../Components/Footer/index.jsx";
+import {AboutSection, Wrapper} from '../styles.js'
+import Header from '../../Components/Header/index.jsx'
+import Footer from "../../Components/Footer/index.jsx";
 import { useStoryblok } from "@storyblok/react";
-import { AboutPtag } from "./styles.js"
+import { AboutPtag } from "../styles.js"
 import React from "react";
+import {GlobalStyle} from "../../styles.js";
 
 
 const About = () => {
@@ -12,7 +13,9 @@ const About = () => {
     if (!story.content) return <p>Laden...</p>;
        return (
            <>
+               <GlobalStyle />
                <Wrapper>
+
                    <Header />
                    <AboutSection>
                        <AboutPtag>{story.content.Text.content[0].content[0].text}</AboutPtag>

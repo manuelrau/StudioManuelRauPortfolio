@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../Components/Header'
-import Footer from '../Components/Footer'
-import LandingPage from '../Components/LandingPage/index.jsx'
-import {GlobalStyle, FooterContainer} from '../styles.js'
+import Header from '../../Components/Header/index.jsx'
+import Footer from '../../Components/Footer/index.jsx'
+import LandingPage from '../../Components/LandingPage/index.jsx'
+import {GlobalStyle, FooterContainer} from '../../styles.js'
 
 function Home() {
 

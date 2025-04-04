@@ -12,6 +12,11 @@ export const GlobalStyle = createGlobalStyle `
         color: #1a1a1a;
         overflow: visible;
         background-color: #D6D6D6 ;
+        
+    }
+    a {
+        text-decoration: none;
+        color: black;
     }
     #root {
         height: auto;

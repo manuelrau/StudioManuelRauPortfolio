@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import StoryblokClient from "storyblok-js-client";
 import { useEffect, useState } from "react";
-import Header from "../Components/Header/index.jsx";
-import {GlobalStyle} from "../styles.js";
-import Footer from "../Components/Footer/index.jsx";
+import Header from "../../Components/Header/index.jsx";
+import { GlobalStyle } from "../../styles.js";
+import Footer from "../../Components/Footer/index.jsx";
+import {Artikle} from "../styles.js";
 
 
 const sb = new StoryblokClient({
@@ -34,9 +35,12 @@ export default function ArticlePage() {
     console.log(article);
     return (
         <>
-            <GlobalStyle />
-            <Header />
-            <Footer />
+            <GlobalStyle/>
+            <Header/>
+            <img src={article.content.Header.filename} height="550px"/>
+            <h1>{article.name}</h1>
+            <Artikle>{article.content.Text.content[0].content[0].text} </Artikle>
+            <Footer/>
         </>
     )
 }
