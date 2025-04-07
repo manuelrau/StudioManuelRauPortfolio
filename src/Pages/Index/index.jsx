@@ -15,12 +15,11 @@ function Index () {
     const [draftTitles, setDraftTitles] = useState([]);
     const [publishedTitles, setPublishedTitles] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
-
+    console.log(story)
     useEffect(() => {
         const fetchTitles = async () => {
 
             const uuidsRaw = story?.content?.body?.[0]?.Title;
-            console.log("UUIDS", story?.content?.body?.[0]?.Title);
 
             const isReady = Array.isArray(uuidsRaw) && uuidsRaw.length > 0;
 
@@ -29,19 +28,17 @@ function Index () {
             const [draft, published] = await Promise.all([
                 getDataByVersion(uuidsRaw,"draft"),
                 getDataByVersion(uuidsRaw, "published"),
-                setHasLoaded(true),
+
 
             ]);
-            setDraftTitles(draft);
-            setPublishedTitles(published);
-            setTitles(draft); // oder published, je nach Bedarf
+            setTitles(draft);
+            setHasLoaded(true);
 
         };
         fetchTitles();
     }, [story, hasLoaded]);
 
     if (!story.content?.body) return <p>Laden...</p>;
-    console.log(titles)
 
     return (
         <>
