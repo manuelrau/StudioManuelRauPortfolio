@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react';
 import {storyblokInit, useStoryblok} from "@storyblok/react";
-import StoryblokClient  from "storyblok-js-client";
 import Header from "../../Components/Header/index.jsx"
 import Footer from "../../Components/Footer/index.jsx";
 import { GlobalStyle } from "../../styles.js";
 import { Link } from 'react-router-dom';
 import {IndexWrapper, StyledLink} from "../styles.js";
 
-const SbClient = new StoryblokClient ({
-    accessToken: "k25cvE9zCKOuhJ3vCQgCCAtt",
-})
-
+import { getDataByVersion } from "../../Services/fetchingAPI.js"
 
 function Index () {
 
@@ -23,41 +19,22 @@ function Index () {
     useEffect(() => {
         const fetchTitles = async () => {
 
-            const uuids = story?.content?.body?.[0].Title;
+            const uuidsRaw = story?.content?.body?.[0]?.Title;
+            console.log("UUIDS", story?.content?.body?.[0]?.Title);
 
-            if (!uuids || !Array.isArray(uuids) || hasLoaded) {
-                return;
-            }
-            const getTitlesByVersion = async (version) => {
-                const titlePromises = uuids.map(async (uuid) => {
-                    try {
-                        const res = await SbClient.get(`cdn/stories/${uuid}`, {
-                            version,
-                            find_by: "uuid",
-                        });
+            const isReady = Array.isArray(uuidsRaw) && uuidsRaw.length > 0;
 
-                        return {
-                            name: res.data.story.name,
-                            full: res.data.story,
-                        };
-                    } catch (err) {
-                        console.error(`Fehler bei UUID ${uuid} (${version}) :`, err);
-                        return {
-                            name: ` Fehler bei ${uuid}`,
-                            full: null,
-                };
-                    }
-                });
-                const resolvedTitles = await Promise.all(titlePromises);
-                setTitles(resolvedTitles);
-            }
+            if (!isReady || hasLoaded) return;
+
             const [draft, published] = await Promise.all([
-                getTitlesByVersion("draft"),
-                getTitlesByVersion("published"),
+                getDataByVersion(uuidsRaw,"draft"),
+                getDataByVersion(uuidsRaw, "published"),
                 setHasLoaded(true),
+
             ]);
-            setPublishedTitles(published);
             setDraftTitles(draft);
+            setPublishedTitles(published);
+            setTitles(draft); // oder published, je nach Bedarf
 
         };
         fetchTitles();
@@ -65,6 +42,7 @@ function Index () {
 
     if (!story.content?.body) return <p>Laden...</p>;
     console.log(titles)
+
     return (
         <>
             <GlobalStyle />
