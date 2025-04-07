@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { getArticlesWithTags } from "../../Services/fetchingAPI.js"
-import {Wrapper} from "./styles.js";
+import {Wrapper, Tag} from "./styles.js";
 
 
 const Categories = () => {
 
     const [categories, setcategories] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
+    const [handleTagClick, handleTagClicked] = useState([])
 
     useEffect(() => {
 
@@ -31,10 +32,9 @@ const Categories = () => {
     return(
         <>
             <Wrapper>
-                {categories.map((c, idx) => (
-                    <p key={idx}>{c}</p>
+                {categories.map((c) => (
+                    <Tag onClick={() => handleTagClick(c)}>{c}</Tag>
                 ))}
-                <p>Test</p>
             </Wrapper>
         </>
     )

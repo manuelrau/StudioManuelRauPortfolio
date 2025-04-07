@@ -40,14 +40,19 @@ function Index () {
 
     if (!story.content?.body) return <p>Laden...</p>;
 
+    console.log(titles)
     return (
         <>
             <GlobalStyle />
             <Header />
 
                 <IndexWrapper>
-                        {titles.map((t) => (
-                            <Link className="LinkClass" to={`/artikel/${t.full?.slug}`}>{t.name}</Link>
+                        {titles.map((t, indx) => (
+                            console.log(t.tags),
+                            <>
+                                <Link className="LinkClass" to={`/artikel/${t.full?.slug}`}>{t.name} {t.tags}</Link>
+                            </>
+
 
                                 ))}
 
