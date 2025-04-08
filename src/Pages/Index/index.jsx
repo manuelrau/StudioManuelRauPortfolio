@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {storyblokInit, useStoryblok} from "@storyblok/react";
 import Header from "../../Components/Header/index.jsx"
 import Footer from "../../Components/Footer/index.jsx";
-import { GlobalStyle } from "../../styles.js";
+import {FooterContainer, GlobalStyle} from "../../styles.js";
 import { Link } from 'react-router-dom';
 import {IndexWrapper, StyledLink} from "../styles.js";
 import {Tags, Wrapper} from "./styles.js"
@@ -60,8 +60,9 @@ function Index () {
 
 
                 </IndexWrapper>
-
-            <Footer />
+            <FooterContainer>
+                <Footer />
+            </FooterContainer>
         </>
     )
 }

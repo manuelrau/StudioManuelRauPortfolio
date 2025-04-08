@@ -1,6 +1,6 @@
 import react from 'react';
 import { useStoryblok } from "@storyblok/react";
-import {Container, SocialMedia, SocialContainer, Icon} from "./styles.js"
+import {Container, SocialMedia, SocialContainer, Icon, Text} from "./styles.js"
 import React from "react";
 
 const Footer = () => {
@@ -11,10 +11,10 @@ const Footer = () => {
 
             <Container>
 
-                <p>{story.content?.Body[0].Text}</p>
+                <Text>{story.content?.Body[0].Text}</Text>
                 <SocialContainer>
                     <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>
-                    <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">Instagram</SocialMedia>
+                    <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">@manuelrrrau</SocialMedia>
                 </SocialContainer>
 
             </Container>

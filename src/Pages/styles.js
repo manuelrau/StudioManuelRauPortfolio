@@ -1,22 +1,6 @@
 import styled from "styled-components";
 
 
-export const Wrapper = styled.div`
-    background: #FF926E ;
-    height: 100vh;
-    width: 100vw;
-`
-export const AboutSection = styled.div`
-    padding: 20px;
-    height: 100%;
-`
-
-export const AboutPtag = styled.p `
-    font-size: 30px;
-    
-
-`
-
 export const Link = styled.a`
 
     text-decoration: none;
@@ -37,6 +21,7 @@ export const IndexWrapper = styled.div`
 
         color: black;
         padding: 20px 0 20px 0;
+        width: 100%;
 
         &:hover {
             text-decoration: underline;
@@ -46,7 +31,7 @@ export const IndexWrapper = styled.div`
     display: grid;
     color: black;
     font-family: Lars, sans-serif;
-    justify-content: center;
+    justify-content: stretch;
     font-size: 30px;
     padding: 50px;
 `

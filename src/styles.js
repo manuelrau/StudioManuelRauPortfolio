@@ -19,6 +19,30 @@ export const GlobalStyle = createGlobalStyle `
         text-decoration: none;
         color: black;
     }
+    h1 {
+        font-size: 1.8rem;
+        font-weight: 400;
+    }
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { 
+        font-size: 0.875rem; 
+        font-family: Lars, sans-serif;
+    }
+    .text-base { 
+        font-size: 1rem; 
+        line-height: 1.3;
+        color: black;
+    }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .bigText {
+        font-size: 1.6rem;
+        line-height: 1.15;
+        color: black;
+    }
+    .link-base { font-size: 2rem }
+    
     #root {
         height: auto;
     }

@@ -1,10 +1,9 @@
-import {AboutSection, Wrapper} from '../styles.js'
 import Header from '../../Components/Header/index.jsx'
 import Footer from "../../Components/Footer/index.jsx";
 import { useStoryblok } from "@storyblok/react";
-import { AboutPtag } from "../styles.js"
+import {AboutPtag, AboutSection, CenterBox, Wrapper} from "./styles.js"
 import React from "react";
-import {GlobalStyle} from "../../styles.js";
+import {FooterContainer, GlobalStyle} from "../../styles.js";
 
 
 const About = () => {
@@ -18,16 +17,21 @@ const About = () => {
 
                    <Header />
                    <AboutSection>
-                       <AboutPtag>{story.content.Text.content[0].content[0].text}</AboutPtag>
+                       <CenterBox>
+                           <h1>{story.content.Headline}</h1>
+                           <AboutPtag>{story.content.Text.content[0].content[0].text}</AboutPtag>
+                       </CenterBox>
                    </AboutSection>
-
-                   <Footer />
-
                </Wrapper>
+               <FooterContainer>
+                   <Footer/>
+               </FooterContainer>
+
+
            </>
 
-           )
-    }
+       )
+}
 
 
 export default About;
