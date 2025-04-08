@@ -6,6 +6,12 @@ export const H1 = styled.h1`
     font-size: 2.5em;
     text-transform: uppercase;
 `
+export const Header = styled.header`
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #D6D6D6;
+`
 
 export const Wrapper = styled.div`
     width: 100%; 
@@ -23,7 +29,7 @@ export const Link = styled.a`
 `
 
 export const HeaderLogo = styled.img`
-    height: 5vh;
+    height: 3.2vh;
     width: auto;
     padding: 20px 0 20px 0;
 `

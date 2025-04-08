@@ -39,6 +39,7 @@ export default function ArticlePage() {
             <Header/>
             <img src={article.content.Header.filename} height="550px"/>
             <h1>{article.name}</h1>
+            <p>Tags: {article.tag_list}</p>
             <Artikle>{article.content.Text.content[0].content[0].text} </Artikle>
             <Footer/>
         </>

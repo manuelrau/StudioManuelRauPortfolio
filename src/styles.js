@@ -1,17 +1,18 @@
 import styled, {createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle `
+  
     
     body {
+        margin: 0;
+        padding: 0 40px 0 40px;
         height: 100vh;
-        width: 100vw;
-        padding: 40px 0 0 40px;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         font-family: 'Lars', sans-serif;
         color: #1a1a1a;
-        overflow: visible;
-        background-color: #D6D6D6 ;
+        overflow-x: hidden;
+        background-color: #D6D6D6;
         
     }
     a {
@@ -20,7 +21,6 @@ export const GlobalStyle = createGlobalStyle `
     }
     #root {
         height: auto;
-        width: 100vw;
     }
 `
 
