@@ -1,4 +1,3 @@
-import react from 'react';
 import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon, Text} from "./styles.js"
 import React from "react";
