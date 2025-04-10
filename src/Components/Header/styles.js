@@ -13,7 +13,13 @@ export const Header = styled.header`
     background: #D6D6D6;
 `
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div `
+
+    .LinkNameHeader {
+        color: black;
+        font-family: 'Lars-Regular', monospace;
+    }
+    
     width: 100%; 
     height: 100%;
     gap: 174px; 

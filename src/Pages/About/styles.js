@@ -6,7 +6,7 @@ export const AboutSection = styled.div`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    height: 100%;
+    margin: 50px 0 50px 0;
 `
 
 export const CenterBox = styled.div`
@@ -23,8 +23,23 @@ export const AboutPtag = styled.p.attrs(() => ({
 })) `
 
 `
+export const Section = styled.section`
+    display: flex;
+    margin-top: 50px;
+`
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: normal;
+    padding: 0 20px 0 20px;
+`
+export const Images = styled.img` 
+    height: auto;
+    max-width: 80%;
+    object-fit: contain;
+`
 
 export const Wrapper = styled.div`
     background: #FF926E ;
-    height: 100vh;
 `

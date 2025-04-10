@@ -50,7 +50,7 @@ function Index () {
                             console.log(t.tags),
                             <Wrapper>
                                 <Link className="LinkClass" to={`/artikel/${t.full?.slug}`}>{t.name}</Link>
-                                <Tags>{t.tags}</Tags>
+                                <Tags>{t.tags.join(', ')}</Tags>
                             </Wrapper>
 
 

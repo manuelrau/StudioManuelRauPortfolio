@@ -16,8 +16,8 @@ const HeaderBox = () => {
                         <HeaderLogo src={story.content?.Body[0].Logo.filename} />
                     </Link>
 
-                    <Link to={`/${story.content?.Body[0].Link.cached_url}`}>{story.content?.Body[0].Link.cached_url}</Link>
-                    <Link to={`/${story.content?.Body[0].Index.cached_url}`}>{story.content?.Body[0].Index.cached_url} </Link>
+                    <Link to={`/${story.content?.Body[0].Link.cached_url}`} className="LinkNameHeader">{story.content?.Body[0].Link.cached_url}</Link>
+                    <Link to={`/${story.content?.Body[0].Index.cached_url}`} className="LinkNameHeader">{story.content?.Body[0].Index.cached_url} </Link>
                 </Wrapper>
         </Header>
     )

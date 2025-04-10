@@ -12,6 +12,11 @@ export const Tags = styled.div.attrs(() => ({
     className: 'text-base',
 
 }))`
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    white-space: nowrap;
+    width: fit-content;
     display: flex;
+    justify-content: end;
     align-items: center;
 `

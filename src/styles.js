@@ -1,7 +1,6 @@
 import styled, {createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle `
-  
     
     body {
         margin: 0;
@@ -14,6 +13,9 @@ export const GlobalStyle = createGlobalStyle `
         overflow-x: hidden;
         background-color: #D6D6D6;
         
+    }
+    body.orange {
+        background-color: #FF926E ;
     }
     a {
         text-decoration: none;
@@ -42,6 +44,10 @@ export const GlobalStyle = createGlobalStyle `
         color: black;
     }
     .link-base { font-size: 2rem }
+    .link-header { 
+        font-size: 1rem;
+        font-family: Lars Mono, monospace;
+        background-color: black}
     
     #root {
         height: auto;

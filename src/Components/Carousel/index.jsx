@@ -1,4 +1,3 @@
-import react from 'react';
 import {useStoryblok} from "@storyblok/react";
 
 const Carousel = () => {
