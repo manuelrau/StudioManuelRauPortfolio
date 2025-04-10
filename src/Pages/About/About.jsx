@@ -1,7 +1,17 @@
 import Header from '../../Components/Header/index.jsx'
 import Footer from "../../Components/Footer/index.jsx";
 import { useStoryblok } from "@storyblok/react";
-import {AboutPtag, AboutSection, CenterBox, Images, Container, Wrapper, Section} from "./styles.js"
+import {
+    AboutPtag,
+    AboutSection,
+    CenterBox,
+    Images,
+    Container,
+    Wrapper,
+    Section,
+    HeadlineH1,
+    AboutText, HeadlineH3
+} from "./styles.js"
 import React, {useEffect} from "react";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
 
@@ -27,7 +37,7 @@ const About = () => {
                        <CenterBox>
                            {story.content.body.map((section, index) => (
                                <div key={index}>
-                                   {section.Headline && <h1>{section.Headline}</h1>}
+                                   {section.Headline && <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
                                        <AboutPtag>{section.Text.content[0].content[0].text}</AboutPtag>
                                    )}
@@ -39,12 +49,12 @@ const About = () => {
 
                                <Container key ={index}>
 
-                                   {section.Headline && <h3>{section.Headline}</h3>}
+                                   {section.Headline && <HeadlineH3>{section.Headline}</HeadlineH3>}
                                    {section.Asset?.filename && (
                                        <Images src={section.Asset.filename} alt={section.Asset.alt} />
                                    )}
                                    {section.Text && (
-                                       <p>{section.Text}</p>
+                                       <AboutText>{section.Text}</AboutText>
                                    )}
 
                                </Container>

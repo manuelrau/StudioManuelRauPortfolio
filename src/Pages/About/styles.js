@@ -19,9 +19,14 @@ export const CenterBox = styled.div`
     align-items: center;`
 
 export const AboutPtag = styled.p.attrs(() => ({
-    className: 'bigText'
+    className: 'text-lg'
 })) `
 
+`
+
+export const AboutText = styled.p.attrs(() => ({
+    className: 'text-sm'
+}))` 
 `
 export const Section = styled.section`
     display: flex;
@@ -42,4 +47,16 @@ export const Images = styled.img`
 
 export const Wrapper = styled.div`
     background: #FF926E ;
+`
+
+export const HeadlineH1 = styled.h1.attrs(() => ({
+    className: 'headline-h1'
+}))`
+    display: flex;
+    justify-content: center;
+`
+
+export const HeadlineH3 = styled.h3.attrs(() => ({
+    className: 'headline-h3'
+}))`
 `

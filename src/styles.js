@@ -25,17 +25,28 @@ export const GlobalStyle = createGlobalStyle `
         font-size: 1.8rem;
         font-weight: 400;
     }
+    .headline-h1 {
+        font-size: 2rem;
+    }
+    .headline-h3 {
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
     .text-xs { font-size: 0.75rem; }
     .text-sm { 
         font-size: 0.875rem; 
-        font-family: Lars, sans-serif;
+        font-family: 'Lars', sans-serif;
+        line-height: 1.15;
     }
     .text-base { 
         font-size: 1rem; 
         line-height: 1.3;
         color: black;
     }
-    .text-lg { font-size: 1.125rem; }
+    .text-lg { 
+        font-size: 1.125rem;
+        line-height: 1.3;
+    }
     .text-xl { font-size: 1.25rem; }
     .text-2xl { font-size: 1.5rem; }
     .bigText {
