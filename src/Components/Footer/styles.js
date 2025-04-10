@@ -38,3 +38,5 @@ export const Text = styled.p.attrs(() => ({
     color: black;
     max-width: 450px;
 `
+
+

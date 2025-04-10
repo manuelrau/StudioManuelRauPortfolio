@@ -10,8 +10,11 @@ function LandingPage() {
     return(
             <>
                 <div>
-                    <Carousel />
-                    <HeaderImage $src={story.content?.header.filename} $alt={story.content?.header.alt}/>
+                    <HeaderImage>
+                        <Carousel />
+                    </HeaderImage>
+
+
                 </div>
                 <div>
                 </div>

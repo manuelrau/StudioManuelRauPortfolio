@@ -54,7 +54,7 @@ export const GlobalStyle = createGlobalStyle `
         line-height: 1.15;
         color: black;
     }
-    .link-base { font-size: 2rem }
+    .link-base { font-size: 1.25rem }
     .link-header { 
         font-size: 1rem;
         font-family: Lars Mono, monospace;

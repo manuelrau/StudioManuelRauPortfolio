@@ -6,7 +6,7 @@ export const AboutSection = styled.div`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin: 50px 0 50px 0;
+    margin: 0 0 50px 0;
 `
 
 export const CenterBox = styled.div`
@@ -30,7 +30,7 @@ export const AboutText = styled.p.attrs(() => ({
 `
 export const Section = styled.section`
     display: flex;
-    margin-top: 50px;
+    margin: 100px 0 100px 0;
 `
 export const Container = styled.div`
     display: flex;
@@ -54,6 +54,7 @@ export const HeadlineH1 = styled.h1.attrs(() => ({
 }))`
     display: flex;
     justify-content: center;
+    margin: 100px 0 0 0;
 `
 
 export const HeadlineH3 = styled.h3.attrs(() => ({
