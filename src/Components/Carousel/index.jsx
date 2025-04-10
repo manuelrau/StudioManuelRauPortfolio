@@ -1,4 +1,3 @@
-import {AboutPtag, HeadlineH1} from "../../Pages/About/styles.js";
 import React, {useEffect} from "react";
 import { useState} from "react";
 import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer} from "./styles.jsx"

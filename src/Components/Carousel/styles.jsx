@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import useEmblaCarousel from "embla-carousel-react";
 
 
 export const Embla = styled.div` 
@@ -29,7 +28,6 @@ export const ImagesContainer = styled.img`
     width: auto;
     height: 90vh;
     max-width: 100%;
-    objectFit: contain;
     margin: auto;
     border-radius: 10px;
 
