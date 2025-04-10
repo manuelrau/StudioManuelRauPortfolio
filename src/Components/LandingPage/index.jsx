@@ -11,7 +11,7 @@ function LandingPage() {
             <>
                 <div>
                     <HeaderImage>
-                        <Carousel />
+                        <Carousel story={story} />
                     </HeaderImage>
 
 

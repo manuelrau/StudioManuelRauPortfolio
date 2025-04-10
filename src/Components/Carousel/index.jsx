@@ -1,13 +1,11 @@
-import {useStoryblok} from "@storyblok/react";
 import {AboutPtag, HeadlineH1} from "../../Pages/About/styles.js";
 import React, {useEffect} from "react";
 import { useState} from "react";
 import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer} from "./styles.jsx"
 import useEmblaCarousel from "embla-carousel-react";
 
-const Carousel = () => {
-    const story = useStoryblok("home", {version: "draft"})
-    console.log(story)
+
+const Carousel = ({story}) => {
 
     const [emblaRef, embla] = useEmblaCarousel({ loop: true, align: "center" });
     const [selectedIndex, setSelectedIndex] = useState(0);
