@@ -1,9 +1,13 @@
 import {Container, ImageWrapper} from "./styles.js";
+import { Link } from 'react-router-dom';
 
 
 const Images = ({ story , clickedTags }) => {
     const photos = story.content.body[1]?.Images || [];
+
+    const photoData = story.content.body[1]?.ImageData || [];
     console.log(photos);
+    console.log(photoData);
 
     const filterPhots = clickedTags.length > 0 ? photos.filter((photo) =>
 
@@ -19,6 +23,16 @@ const Images = ({ story , clickedTags }) => {
                     </div>
 
 
+                ))}
+
+                {photoData.map((photo, index) => (
+
+                    <div key={index}>
+                        <Link to={photo.link?.cached_url} >
+                            <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || ''} />
+                        </Link>
+
+                    </div>
                 ))}
             </Container>
 
