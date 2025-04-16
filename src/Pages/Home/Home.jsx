@@ -11,7 +11,7 @@ function Home() {
         <>
             <GlobalStyle />
             <Header />
-            <LandingPage />
+            <Categories />
 
             <FooterContainer>
                 <Footer />

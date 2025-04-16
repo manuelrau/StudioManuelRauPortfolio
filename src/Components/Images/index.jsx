@@ -1,16 +1,19 @@
-import react from "react";
 import {Container, ImageWrapper} from "./styles.js";
 
-const Images = ({ story }) => {
 
+const Images = ({ story , clickedTags }) => {
     const photos = story.content.body[1]?.Images || [];
-
     console.log(photos);
+
+    const filterPhots = clickedTags.length > 0 ? photos.filter((photo) =>
+
+    photo.tags?.some((tag) => clickedTags.includes(tag))
+    ) : photos
 
     return (
         <>
             <Container>
-                {photos.map((photo, index) => (
+                {filterPhots.map((photo, index) => (
                     <div key={index}>
                         <ImageWrapper src={photo.filename} alt={photo.alt} />
                     </div>

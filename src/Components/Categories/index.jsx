@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { getArticlesWithTags } from "../../Services/fetchingAPI.js"
 import {Wrapper, Tag} from "./styles.js";
+import LandingPage from "../LandingPage/index.jsx";
 
 
 const Categories = () => {
 
     const [categories, setcategories] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
-    const [handleTagClick, handleTagClicked] = useState([])
+    const [clickedTags, setClickedTags] = useState([])
 
     useEffect(() => {
 
@@ -26,16 +27,29 @@ const Categories = () => {
    fetchCategories();
    }, [setHasLoaded]);
 
+    const handleTagClick = (tag) => {
+        if (clickedTags.includes(tag)) {
+            setClickedTags(clickedTags.filter((t) => t !== tag))
+        }
+        else {
+            setClickedTags([...clickedTags, tag])
+        }
+    }
     if (!hasLoaded) return <p>Lade Kategorien...</p>;
-    console.log(categories);
+
 
     return(
         <>
             <Wrapper>
                 {categories.map((c) => (
-                    <Tag onClick={() => handleTagClick(c)}>{c}</Tag>
+                    <Tag
+                        key={c}
+                        className={clickedTags.includes(c) ? 'selected' : ''}
+                        onClick={() => handleTagClick(c)}>{c}</Tag>
                 ))}
             </Wrapper>
+            {/* Übergabe von daten */}
+            {handleTagClick.length > 0 && <LandingPage clickedTags={clickedTags} />}
         </>
     )
 }
