@@ -49,7 +49,7 @@ function Index () {
                         {titles.map((t, indx) => (
                             console.log(t.tags),
                             <Wrapper>
-                                <Link className="LinkClass" to={`/article/${t.full?.slug}`}>{t.name}</Link>
+                                <Link className="LinkClass" to={`/articles/${t.full?.slug}`}>{t.name}</Link>
                                 <Tags>{t.tags.join(', ')}</Tags>
                             </Wrapper>
 

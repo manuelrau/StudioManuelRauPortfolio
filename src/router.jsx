@@ -21,7 +21,7 @@ const router = createBrowserRouter ([
                 element: <About slug="about" />
             },
             {
-              path: "article/:slug",
+              path: "articles/:slug",
               element: <ArticlePage />
             },
             {
