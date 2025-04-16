@@ -46,9 +46,9 @@ function Index () {
             <Header />
 
                 <IndexWrapper>
-                        {titles.map((t, indx) => (
+                        {titles.map((t, index) => (
                             console.log(t.tags),
-                            <Wrapper>
+                            <Wrapper key={index}>
                                 <Link className="LinkClass" to={`/articles/${t.full?.slug}`}>{t.name}</Link>
                                 <Tags>{t.tags.join(', ')}</Tags>
                             </Wrapper>
