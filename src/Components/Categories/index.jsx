@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import { getArticlesWithTags } from "../../Services/fetchingAPI.js"
 import {Wrapper, Tag} from "./styles.js";
-import LandingPage from "../LandingPage/index.jsx";
+import Images from "../Images/index.jsx";
+import {useStoryblok} from "@storyblok/react";
 
 
 const Categories = () => {
+    const story = useStoryblok("home", {version: "draft"})
 
     const [categories, setcategories] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -44,12 +46,12 @@ const Categories = () => {
                 {categories.map((c) => (
                     <Tag
                         key={c}
-                        className={clickedTags.includes(c) ? 'selected' : ''}
+                        selected={clickedTags.includes(c)}
                         onClick={() => handleTagClick(c)}>{c}</Tag>
                 ))}
             </Wrapper>
             {/* Übergabe von daten */}
-            {handleTagClick.length > 0 && <LandingPage clickedTags={clickedTags} />}
+            {handleTagClick.length > 0 && <Images story={story} clickedTags={clickedTags} />}
         </>
     )
 }

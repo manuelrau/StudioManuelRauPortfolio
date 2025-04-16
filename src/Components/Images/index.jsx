@@ -1,10 +1,10 @@
-import {Container, ImageWrapper} from "./styles.js";
+import {Container, HoverInfo, ImageWrapper, LinkWrapper} from "./styles.js";
 import { Link } from 'react-router-dom';
 
 
-const Images = ({ story , clickedTags }) => {
+const Images = ({ story , clickedTags = [] }) => {
 
-    const photoData = story.content.body[1]?.ImageData || [];
+    const photoData = story.content?.body[1]?.ImageData || [];
 
     console.log(photoData);
 
@@ -18,12 +18,15 @@ const Images = ({ story , clickedTags }) => {
 
                 {filterPhotoData.map((photo, index) => (
 
-                    <div key={index}>
-                        <Link to={photo.link?.cached_url} >
+                    <LinkWrapper key={index}>
+                        <Link to={photo.link?.cached_url} className="LinkClass" >
                             <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || ''} />
+                            <HoverInfo className="hover-info">
+                                {photo.Name || "More"}
+                            </HoverInfo>
                         </Link>
 
-                    </div>
+                    </LinkWrapper>
                 ))}
             </Container>
 
