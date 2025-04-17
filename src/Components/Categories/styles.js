@@ -31,11 +31,10 @@ export const Tag = styled.span`
   padding: 6px 12px;
   margin: 4px;
   border-radius: 20px;
-  font-size: 14px;
   font-weight: 500;
   font-family: monospace;
   font-style: ${({ selected }) => (selected ? 'italic' : 'normal')};
-  font-size: 0.95rem;  
+  font-size: 1.05rem;  
   cursor: pointer;
   transition: all 0.2s ease;
     

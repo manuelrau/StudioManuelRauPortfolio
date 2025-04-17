@@ -18,13 +18,14 @@ export const Wrapper = styled.div `
     .LinkNameHeader {
         color: black;
         font-family: 'Lars-Regular', monospace;
+        padding: 0 40px 0 40px;
     }
     
     width: 100%; 
     height: 100%;
     gap: 174px; 
     display: inline-flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
 `
