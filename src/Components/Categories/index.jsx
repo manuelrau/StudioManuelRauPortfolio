@@ -45,11 +45,13 @@ const Categories = () => {
             <Wrapper>
                 {categories.map((c) => (
                     <Tag
+
                         key={c}
                         tag={c}
                         selected={clickedTags.includes(c)}
                         onClick={() => handleTagClick(c)}>{c}</Tag>
                 ))}
+
             </Wrapper>
             {/* Übergabe von daten */}
             {handleTagClick.length > 0 && <Images story={story} clickedTags={clickedTags} />}
