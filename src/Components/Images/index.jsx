@@ -60,9 +60,19 @@ const Images = ({ story , clickedTags = [] }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.9, delay: index * 0.2 }}
                             >
+                                {photo.Image?.filename.endsWith('.mp4') ? (
+                                        <video
+                                            src={photo.Image.filename}
+                                            autoPlay
+                                            muted
+                                            loop
+                                            playsInline
+                                            style={{ width: '100%', height: 'auto' }}
+                                        />
+                                    ) : (
 
-
-                            <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || ''} />
+                                        <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || ''} />
+                                    )}
                             <HoverInfo className="hover-info">
                                 {photo.Name || "More"}
                             </HoverInfo>
