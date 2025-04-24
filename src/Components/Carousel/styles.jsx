@@ -27,8 +27,9 @@ export const EmblaSlide = styled.div`
 export const ImagesContainer = styled.img`
     width: auto;
     height: 90vh;
+    object-fit: contain;
+    display: block;
     max-width: 100%;
     margin: auto;
     border-radius: 10px;
-
 `

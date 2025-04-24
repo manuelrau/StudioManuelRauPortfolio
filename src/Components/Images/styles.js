@@ -11,6 +11,7 @@ export const ImageWrapper = styled.img`
     margin-bottom: 1rem;
     break-inside: avoid;
     transition: transform 0.3s ease;
+    border-radius: 20px;
     
     
 `
