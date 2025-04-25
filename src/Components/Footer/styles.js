@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { GlobalStyle} from "../../styles.js";
 
-export const Container = styled.div`
+export const Container = styled.div.attrs(() => ({
+    className: 'footer',
+}))`
     display: inline-flex;
     flex-direction: row;
     gap: 0.75rem;
@@ -13,6 +15,10 @@ export const Container = styled.div`
     justify-content: space-between; 
     align-items: flex-end; 
     border-top: solid 1px black;
+
+    &.orange {
+        background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
+    }
 
 `
 

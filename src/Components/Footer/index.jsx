@@ -1,14 +1,32 @@
 import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon, Text} from "./styles.js"
-import React from "react";
+import React, {useRef, useEffect} from "react";
+import {useLocation} from "react-router-dom";
 
 const Footer = () => {
     const story = useStoryblok("footer", {version: "draft"})
+    const footerRef = useRef(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (!story.content) return;
+        const footer = footerRef.current;
+        console.log('FooterRef:', footer);
+        if(!footer) return;
+
+        if(location.pathname ==="/about") {
+            footer.classList.add("orange");
+        } else {
+            footer.classList.remove("orange");
+        }
+    }, [location, story.content])
+
+
     console.log(story)
     if (!story.content) return <p>Laden...</p>;
     return(
 
-        <Container>
+        <Container ref={footerRef}>
 
             <Text>{story.content?.Body[0].Text}</Text>
             <SocialMedia href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>

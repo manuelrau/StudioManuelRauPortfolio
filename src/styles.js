@@ -18,10 +18,6 @@ export const GlobalStyle = createGlobalStyle `
         background-color: #FF926E ;
     }
     
-    header.orange {
-        background-color: #FF926E ;
-    }
-    
     a {
         text-decoration: none;
         color: black;
