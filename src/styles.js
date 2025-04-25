@@ -17,6 +17,11 @@ export const GlobalStyle = createGlobalStyle `
     body.orange {
         background-color: #FF926E ;
     }
+    
+    header.orange {
+        background-color: #FF926E ;
+    }
+    
     a {
         text-decoration: none;
         color: black;

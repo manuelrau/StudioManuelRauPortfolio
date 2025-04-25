@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const Header = styled.header.attrs(() => ({
+    className: 'header',
+}))`
     position: sticky;
     top: 0;
     z-index: 1000;
     background: #D6D6D6;
-`
+
+    &.orange {
+        background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
+    }
+ `
+
 
 export const Wrapper = styled.div `
 

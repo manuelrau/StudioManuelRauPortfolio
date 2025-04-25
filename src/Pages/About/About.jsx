@@ -24,8 +24,9 @@ const About = () => {
     useEffect(() => {
         document.body.classList.add('orange')
 
-        return () =>
-            document.body.classList.remove('orange')
+        return () => {
+            document.body.classList.remove('orange');
+        }
     }, []);
 
     useEffect(() => {
