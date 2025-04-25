@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const H1 = styled.h1`
-    font-family: Lars, sans-serif;
-    font-weight: normal;
-    font-size: 2.5em;
-    text-transform: uppercase;
-`
 export const Header = styled.header`
     position: sticky;
     top: 0;
@@ -20,6 +14,15 @@ export const Wrapper = styled.div `
         font-family: 'Lars-Regular', monospace;
         padding: 0 40px 0 40px;
     }
+    .LinkNameHeader.visited {
+        text-decoration-line: underline;
+        text-decoration-style: dotted;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: 17.5%; /* 3.5px */
+        text-underline-offset: 25%; /* 5px */
+        text-underline-position: from-font;
+        text-transform: uppercase;
+    }
     
     width: 100%; 
     height: 100%;
@@ -28,11 +31,6 @@ export const Wrapper = styled.div `
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-`
-export const Link = styled.a`
-
-    text-decoration: none;
-    color: black;
 `
 
 export const HeaderLogo = styled.img`

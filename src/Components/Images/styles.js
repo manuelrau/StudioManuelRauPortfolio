@@ -15,6 +15,13 @@ export const ImageWrapper = styled.img`
     
     
 `
+
+export const VideoWrapper = styled.video`
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+`
+
 export const LinkWrapper = styled.div`
     position: relative;
     display: inline-block;

@@ -1,4 +1,4 @@
-import {Container, HoverInfo, ImageWrapper, LinkWrapper} from "./styles.js";
+import {Container, HoverInfo, ImageWrapper, LinkWrapper, VideoWrapper} from "./styles.js";
 import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
 import {useEffect, useState} from "react";
@@ -61,13 +61,12 @@ const Images = ({ story , clickedTags = [] }) => {
                                 transition={{ duration: 0.9, delay: index * 0.2 }}
                             >
                                 {photo.Image?.filename.endsWith('.mp4') ? (
-                                        <video
+                                        <VideoWrapper
                                             src={photo.Image.filename}
                                             autoPlay
                                             muted
                                             loop
                                             playsInline
-                                            style={{ width: '100%', height: 'auto' }}
                                         />
                                     ) : (
 

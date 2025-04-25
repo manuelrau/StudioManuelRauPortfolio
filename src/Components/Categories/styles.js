@@ -10,12 +10,12 @@ export const Wrapper = styled.div`
 const getTagColor = (tag) => {
     console.log('getTagColor called with:', tag);
     const tagColors = {
-        Research: '#459832',
-        Typefont: '#FF5733',
-        Poster: '#3366cc',
-        Digital: '#9933ff',
-        Animation: '#f2f543',
-        Website: '#002299',
+        Research: '#FF46CA',
+        Typefont: '#7DE274',
+        Poster: '#FF9400',
+        Digital: '#FFE204',
+        Animation: '#FF6A3B',
+        Website: '#0C6BED',
         Branding: '#999077',
     };
     return tagColors[tag] || '#000000';
