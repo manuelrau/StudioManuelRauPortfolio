@@ -1,30 +1,70 @@
 import React, {useEffect} from "react";
-import { useState} from "react";
+import { useState, useRef} from "react";
 import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer} from "./styles.jsx"
 import useEmblaCarousel from "embla-carousel-react";
 
 
 const Carousel = ({story}) => {
-
-    const [emblaRef, embla] = useEmblaCarousel({ loop: true, align: "center" });
+    const wrapperRef = useRef(null);
+    const [emblaRef, emblaApi] = useEmblaCarousel({ dragFree: true, loop: true, skipSnaps: false,
+        containScroll: 'trimSnaps', align: 'center' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
     const photos = story.content?.body[0]?.BigPhoto || [];
 
+
+
     useEffect(() => {
-        if(!embla) return;
+        if(!emblaApi) return;
 
         const onSelect = () => {
-            setSelectedIndex(embla.selectedScrollSnap());
+            setSelectedIndex(emblaApi.selectedScrollSnap());
         };
-        embla.on('select', onSelect);
-        setScrollSnaps(embla.scrollSnapList());
+        emblaApi.on('select', onSelect);
+        setScrollSnaps(emblaApi.scrollSnapList());
         onSelect();
 
-    }, [embla]);
+    }, [emblaApi]);
+
+    useEffect(() => {
+        const node = wrapperRef.current;
+        if (!node || !emblaApi) return;
+
+        const threshold = 15;
+        let lastScrollTime = 0;
+
+        const onWheel = (e) => {
+            const now = Date.now();
+            console.log('wheel event triggered', e);
+            if (now - lastScrollTime < 300) return;
+
+            const delta =e.deltaX;
+
+            if (Math.abs(delta) > threshold && Math.abs(delta) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+                lastScrollTime = now;
+
+                if (delta > 0) {
+                    if(!emblaApi.canScrollNext()) return;
+                    emblaApi.scrollNext();
+                } else {
+                    if(!emblaApi.canScrollPrev()) return;
+                    emblaApi.scrollPrev();
+                }
+            }
+        };
+        console.log("Embla API:", emblaApi);
+
+        node.addEventListener("wheel", onWheel, { passive: false });
+
+        return () => {
+            node.removeEventListener("wheel", onWheel);
+        };
+    }, [emblaApi]);
+
     return (
         <>
-            <Embla>
+            <Embla ref={wrapperRef}>
                 <EmblaViewport ref={emblaRef}>
                     <EmblaContainer>
                         {
@@ -47,7 +87,7 @@ const Carousel = ({story}) => {
                     {scrollSnaps.map((_, index) => (
                         <button
                             key={index}
-                            onClick={() => embla?.scrollTo(index)}
+                            onClick={() => emblaApi?.scrollTo(index)}
                             style={{
                                 width: '12px',
                                 height: '12px',

@@ -9,8 +9,11 @@ export const Embla = styled.div`
     
 `
 export const EmblaViewport = styled.div`
-overflow: hidden;
-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;            /* Firefox */
+    -ms-overflow-style: none;
 `
 
 export const EmblaContainer = styled.div`
@@ -19,6 +22,7 @@ export const EmblaContainer = styled.div`
 
 export const EmblaSlide = styled.div`
     flex: 0 0 80%;
+    scroll-snap-align: start; /* <--- Slide snappt am Anfang */
     min-width: 0;
     padding: 0 0.5rem;
     box-sizing: border-box;
