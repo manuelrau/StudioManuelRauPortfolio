@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { GlobalStyle} from "../../styles.js";
+
 
 export const Container = styled.div.attrs(() => ({
     className: 'footer',
