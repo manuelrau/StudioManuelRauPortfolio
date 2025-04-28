@@ -1,19 +1,14 @@
 import { useParams } from "react-router-dom";
-import StoryblokClient from "storyblok-js-client";
 import { useEffect, useState } from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
 import {getSlugArticle} from "../../Services/fetchingAPI.js";
-import {Artikle} from "../styles.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
-import { getArticlesWithTags } from "../../Services/fetchingAPI.js";
 import HeaderImage from "../../Components/Article/HeaderImage";
+import Text from "../../Components/Article/Text/index.jsx";
 
 
-const sb = new StoryblokClient({
-    accessToken: "k25cvE9zCKOuhJ3vCQgCCAtt",
-});
 
 export default function ArticlePage() {
     const { slug } = useParams();
@@ -45,6 +40,7 @@ export default function ArticlePage() {
             <HeaderImage story={article.content.Header}/>
 
             <h1>{article.name}</h1>
+            <Text story={article.content.Text}/>
 
             <CarouselCompont/>
             <Footer/>

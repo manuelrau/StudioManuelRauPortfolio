@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer/index.jsx";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
 import { Link } from 'react-router-dom';
 import {IndexWrapper, StyledLink} from "../styles.js";
-import {Tags, Wrapper} from "./styles.js"
+import {Tags, Wrapper, Imagehover} from "./styles.js"
 
 import { getDataByVersion } from "../../Services/fetchingAPI.js"
 
@@ -47,9 +47,11 @@ function Index () {
 
                 <IndexWrapper>
                         {titles.map((t, index) => (
-                            console.log(t.tags),
+                            console.log(t),
                             <Wrapper key={index}>
-                                <Link className="LinkClass" to={`/articles/${t.full?.slug}`}>{t.name}</Link>
+                                <Link className="LinkClass" to={`/articles/${t.full?.slug}`}>{t.name}
+                                <Imagehover src={t.full?.content.Header.filename} alt={t.full?.content.Header.alt} />
+                                </Link>
                                 <Tags>{t.tags.join(', ')}</Tags>
                             </Wrapper>
 

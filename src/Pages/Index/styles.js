@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ export const Wrapper = styled.div`
 `
 
 export const Tags = styled.div.attrs(() => ({
-    className: 'text-base',
+    className: 'text-base', // Style definition Global
 
 }))`
     grid-auto-flow: column;
@@ -20,3 +21,23 @@ export const Tags = styled.div.attrs(() => ({
     justify-content: end;
     align-items: center;
 `
+
+
+export const Imagehover = styled.img `
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    width: 200px; /* Bildgröße anpassen */
+    
+`
+export const StyledLink = styled(Link)`
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover ${Imagehover} {
+    display: block;
+  }
+`;

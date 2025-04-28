@@ -6,7 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 const Carousel = ({story}) => {
     const wrapperRef = useRef(null);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ dragFree: true, loop: true, skipSnaps: false,
+    const [emblaRef, emblaApi] = useEmblaCarousel({ dragFree: true, loop: false, skipSnaps: false,
         containScroll: 'trimSnaps', align: 'center' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
