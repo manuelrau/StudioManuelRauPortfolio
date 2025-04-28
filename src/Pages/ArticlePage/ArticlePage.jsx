@@ -4,7 +4,11 @@ import { useEffect, useState } from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
+import {getSlugArticle} from "../../Services/fetchingAPI.js";
 import {Artikle} from "../styles.js";
+import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
+import { getArticlesWithTags } from "../../Services/fetchingAPI.js";
+import HeaderImage from "../../Components/Article/HeaderImage";
 
 
 const sb = new StoryblokClient({
@@ -16,31 +20,33 @@ export default function ArticlePage() {
     const [article, setArticle] = useState(null);
     const [notFound, setNotFound] = useState(false);
 
+
     useEffect(() => {
-        const fetchArticle = async () => {
+        const loadArticle = async () => {
             try {
-                const res = await sb.get (`cdn/stories/articles/${slug}`, {
-                    version: "draft",
-                });
-                setArticle(res.data.story);
+                const story = await getSlugArticle(slug);
+                setArticle(story);
             } catch (err) {
-                console.error("Artikel nicht gefunden:",err)
                 setNotFound(true);
             }
-        }
-        fetchArticle();
-    }, [slug])
-    if (notFound) return <p>Artikel nicht gefunden </p>;
+        };
+        loadArticle();
+    }, [slug]);
+
+    if (notFound) return <p>Artikel nicht gefunden</p>;
     if (!article) return <p>Lade Artikel...</p>;
+
     console.log(article);
+
     return (
         <>
             <GlobalStyle/>
             <Header/>
-            <img src={article.content.Header.filename} height="550px"/>
+            <HeaderImage story={article.content.Header}/>
+
             <h1>{article.name}</h1>
-            <p>Tags: {article.tag_list}</p>
-            <Artikle>{article.content.Text.content[0].content[0].text} </Artikle>
+
+            <CarouselCompont/>
             <Footer/>
         </>
     )

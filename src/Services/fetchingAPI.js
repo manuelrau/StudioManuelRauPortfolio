@@ -1,4 +1,4 @@
-
+import { useParams } from "react-router-dom";
 import StoryblokClient from "storyblok-js-client";
 
 const SbClient = new StoryblokClient ({
@@ -55,3 +55,16 @@ export const getArticlesWithTags = async () => {
         return [];
     }
 };
+
+export const getSlugArticle = async (slug) => {
+    try {
+        const res = await SbClient.get(`cdn/stories/articles/${slug}`, {
+            version: "draft",
+        });
+        return res.data.story;
+    } catch (err) {
+        console.error("Artikel nicht gefunden:", err);
+        throw err;
+    }
+
+}
