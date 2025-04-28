@@ -30,7 +30,7 @@ const Carousel = ({story}) => {
         const node = wrapperRef.current;
         if (!node || !emblaApi) return;
 
-        const threshold = 15;
+        const threshold = 15; // wie schnell es zappen soll
         let lastScrollTime = 0;
 
         const onWheel = (e) => {

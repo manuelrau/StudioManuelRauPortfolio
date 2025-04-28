@@ -34,6 +34,6 @@ export const ImagesContainer = styled.img`
     object-fit: contain;
     display: block;
     max-width: 100%;
-    margin: auto;
+    margin: 0;
     border-radius: 10px;
 `
