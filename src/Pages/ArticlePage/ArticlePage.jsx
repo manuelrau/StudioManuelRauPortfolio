@@ -7,7 +7,8 @@ import {getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
 import HeaderImage from "../../Components/Article/HeaderImage";
 import Text from "../../Components/Article/Text/index.jsx";
-import {paragraphWrapper, Wrapper} from "./styles.js";
+import {HeadlineThree, Wrapper, WrapperTags} from "./styles.js";
+import RelatedArticle from "../../Components/Article/Related/index.jsx";
 
 
 
@@ -41,13 +42,18 @@ export default function ArticlePage() {
             <HeaderImage story={article.content?.Header}/>
             <Wrapper>
                 <h1>{article.name}</h1>
-                {article.tag_list?.map((tag, index) => (
-                <paragraphWrapper key={index}> {tag}, </paragraphWrapper>
-                ))}
-            </Wrapper>
-            <Text story={article.content.Text}/>
+                <WrapperTags>
+                    {article.tag_list?.map((tag, index) => (
+                        <HeadlineThree key={index}>{tag}</HeadlineThree>
+                    ))}
+                </WrapperTags>
 
-            <CarouselCompont/>
+
+                <Text story={article.content.Text}/>
+
+                <CarouselCompont/>
+                <RelatedArticle story={article} />
+            </Wrapper>
             <Footer/>
         </>
     )
