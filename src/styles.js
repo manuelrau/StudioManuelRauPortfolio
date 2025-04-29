@@ -29,6 +29,10 @@ export const GlobalStyle = createGlobalStyle `
     .headline-h1 {
         font-size: 2rem;
     }
+    .headline-h2 {
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
     .headline-h3 {
         font-size: 1.3rem;
         font-weight: 400;
