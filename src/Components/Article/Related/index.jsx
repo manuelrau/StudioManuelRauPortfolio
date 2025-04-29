@@ -1,5 +1,5 @@
 import React from 'react';
-import {HeadlineTwo, Wrapper} from "./styles.js";
+import {HeadlineTwo, Image, ImageWrapper, Text, TextWrapper, Wrapper} from "./styles.js";
 
 const RelatedArticle = (story) => {
 
@@ -10,8 +10,17 @@ const RelatedArticle = (story) => {
     return(
         <>
             <Wrapper>
-                <HeadlineTwo>Random other Projects</HeadlineTwo>
+                <HeadlineTwo>Other Projects</HeadlineTwo>
+                <ImageWrapper>
+                    <Image />
+                </ImageWrapper>
+                <TextWrapper>
+                    <Text></Text>
+                </TextWrapper>
+
             </Wrapper>
+
+
 
 
         </>

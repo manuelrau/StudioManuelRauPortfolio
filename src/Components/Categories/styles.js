@@ -32,7 +32,7 @@ export const Tag = styled.span`
   margin: 4px;
   border-radius: 20px;
   font-weight: 500;
-  font-family: monospace;
+  font-family: 'Lars Mono', monospace;
   font-style: ${({ selected }) => (selected ? 'italic' : 'normal')};
   font-size: 1.05rem;  
   cursor: pointer;

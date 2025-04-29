@@ -18,7 +18,7 @@ export const Wrapper = styled.div `
 
     .LinkNameHeader {
         color: black;
-        font-family: 'Lars-Regular', monospace;
+        font-family: 'Lars Mono', monospace;
         padding: 0 40px 0 40px;
     }
     .LinkNameHeader.visited {

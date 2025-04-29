@@ -41,7 +41,7 @@ export default function ArticlePage() {
             <Header/>
             <HeaderImage story={article.content?.Header}/>
             <Wrapper>
-                <h1>{article.name}</h1>
+                <h1>{article.content.Headline}</h1>
                 <WrapperTags>
                     {article.tag_list?.map((tag, index) => (
                         <HeadlineThree key={index}>{tag}</HeadlineThree>
