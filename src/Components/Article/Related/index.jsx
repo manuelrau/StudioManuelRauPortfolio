@@ -13,9 +13,6 @@ const RelatedArticle = ({story} ) =>  {
 
     const randomStories = getRandomTwo(story);
 
-
-    console.log(JSON.stringify(story, null, 2))
-
     return(
 
             <Wrapper>
