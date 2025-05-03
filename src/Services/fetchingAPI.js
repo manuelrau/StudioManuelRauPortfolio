@@ -28,9 +28,38 @@ export const getDataByVersion = async (uuids, version) => {
             };
         }
     });
-    console.log(getDataByVersion.name)
-    console.log(getDataByVersion.tags)
-    console.log(getDataByVersion.full)
+    return await Promise.all(titlePromises);
+}
+
+export const fetchArticlePageRandom = async (uuids, version) => {
+    const titlePromises = uuids.map(async (uuid) => {
+        try {
+            const res = await SbClient.get(`cdn/stories/${uuid}`, {
+                version,
+                find_by:"uuid",
+            });
+
+            return {
+                ArticlePage: {
+                    title: res.data.story.name,
+                    image: res.data.story.content.Header.filename,
+                    alt: res.data.story.content.Header.alt,
+                    slug: res.data.story.full_slug
+                }
+            };
+        } catch (err) {
+            console.error(`Fehler bei UUID ${uuid} (${version}) :`, err);
+            return {
+                ArticlePage: {
+                    title: `Fehler bei ${uuid}`,
+                    image: `Fehler bei ${uuid}`,
+                    alt: `Fehler bei ${uuid}`,
+                    slug: `Fehler bei ${uuid}`,
+                }
+
+            };
+        }
+    });
     return await Promise.all(titlePromises);
 }
 
@@ -49,6 +78,8 @@ export const getArticlesWithTags = async () => {
             name: story.name,
             slug: story.slug,
             tags: story.tag_list,
+
+
         }));
     } catch (err) {
         console.error("Fehler beim Laden der Kategorien:", err);

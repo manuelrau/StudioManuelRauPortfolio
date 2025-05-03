@@ -1,29 +1,46 @@
-import React from 'react';
-import {HeadlineTwo, Image, ImageWrapper, Text, TextWrapper, Wrapper} from "./styles.js";
+import React, {PureComponent} from 'react';
+import { Link } from 'react-router-dom';
+import {HeadlineTwo, Image, ImageWrapper, Text, TextWrapper, Wrapper, Section, Component} from "./styles.js";
 
-const RelatedArticle = (story) => {
+const RelatedArticle = ({story} ) =>  {
 
-    const RawData = story.story;
+    // Shuffle-Funktion
+    const getRandomTwo = (arr) => {
+        return [...arr]
+            .sort(() => Math.random() - 0.5) // mischt das Array
+            .slice(0, 2); // nimmt nur zwei Einträge
+    };
 
-    console.log('RawDataRelated:'+ RawData)
+    const randomStories = getRandomTwo(story);
+
+
+    console.log(JSON.stringify(story, null, 2))
 
     return(
-        <>
+
             <Wrapper>
                 <HeadlineTwo>Other Projects</HeadlineTwo>
-                <ImageWrapper>
-                    <Image />
-                </ImageWrapper>
-                <TextWrapper>
-                    <Text></Text>
-                </TextWrapper>
+                <Section>
+                {randomStories.map((story, i) => (
 
+                        <Component>
+                            <Link to={story.ArticlePage.slug}>
+                                <ImageWrapper>
+                                    <Image key={i} src={story.ArticlePage.image} alt={story.ArticlePage.alt}/>
+                                </ImageWrapper>
+                                <p>{story.ArticlePage.title}</p>
+                                <TextWrapper>
+                                    <Text></Text>
+                                </TextWrapper>
+                            </Link>
+                        </Component>
+
+
+                ))}
+                </Section>
             </Wrapper>
 
 
-
-
-        </>
     )
 }
 
