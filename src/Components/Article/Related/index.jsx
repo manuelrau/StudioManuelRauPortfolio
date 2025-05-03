@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import { Link } from 'react-router-dom';
-import {HeadlineTwo, Image, ImageWrapper, Text, TextWrapper, Wrapper, Section, Component} from "./styles.js";
+import {HeadlineTwo, HeadlineFour, Image, ImageWrapper, Wrapper, Section, Component} from "./styles.js";
 
 const RelatedArticle = ({story} ) =>  {
 
@@ -24,14 +24,11 @@ const RelatedArticle = ({story} ) =>  {
                 {randomStories.map((story, i) => (
 
                         <Component>
-                            <Link to={story.ArticlePage.slug}>
+                            <Link to={`/articles/${story.ArticlePage.slug.split('/').pop()}`}>
                                 <ImageWrapper>
                                     <Image key={i} src={story.ArticlePage.image} alt={story.ArticlePage.alt}/>
                                 </ImageWrapper>
-                                <p>{story.ArticlePage.title}</p>
-                                <TextWrapper>
-                                    <Text></Text>
-                                </TextWrapper>
+                                <HeadlineFour>{story.ArticlePage.title}</HeadlineFour>
                             </Link>
                         </Component>
 

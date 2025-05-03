@@ -37,6 +37,10 @@ export const GlobalStyle = createGlobalStyle `
         font-size: 1.3rem;
         font-weight: 400;
     }
+    .headline-h4 {
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
     .text-xs { font-size: 0.75rem; }
     .text-sm { 
         font-size: 0.875rem; 
