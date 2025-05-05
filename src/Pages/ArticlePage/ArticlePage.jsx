@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
-import {fetchArticlePageRandom, getDataByVersion, getSlugArticle} from "../../Services/fetchingAPI.js";
+import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
 import HeaderImage from "../../Components/Article/HeaderImage";
 import Text from "../../Components/Article/Text/index.jsx";
 import {HeadlineThree, Wrapper, WrapperTags} from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import {useStoryblok} from "@storyblok/react";
+import Images from "../../Components/Article/Image/index.jsx";
 
 
 
@@ -20,8 +21,10 @@ export default function ArticlePage() {
 
     const story = useStoryblok("index", {version:"draft"})
     const [titles, setTitles] = useState([]);
-    const [element, setElement] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
+
+    const [imageData, setImageData] = useState(null);
+
     console.log(story)
 
 
@@ -59,6 +62,26 @@ export default function ArticlePage() {
         fetchTitles();
     }, [story, hasLoaded]);
 
+    useEffect(() => {
+        const loadImages = async () => {
+
+            if (!article) return; // Sicherheitscheck
+
+            const Data = article.content
+            console.log(Data)
+            try {
+                const Imageload = await getImagesofArticle(Data)
+                console.log('ImagesLoad was kommt an', Imageload)
+                setImageData(Imageload);
+            }catch (err) {
+                setNotFound(true);
+            }
+
+        };
+        loadImages();
+    }, [article]);
+
+
     if (notFound) return <p>Artikel nicht gefunden</p>;
     if (!article) return <p>Lade Artikel...</p>;
 
@@ -83,6 +106,8 @@ export default function ArticlePage() {
                 <Text story={article.content.Text}/>
 
                 <CarouselCompont/>
+
+                <Images story={imageData}/>
 
                 <RelatedArticle story={titles} />
 

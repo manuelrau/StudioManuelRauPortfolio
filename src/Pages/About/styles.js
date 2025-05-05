@@ -40,7 +40,7 @@ export const Container = styled.div`
     padding: 0 20px 0 20px;
 `
 export const Images = styled.img` 
-    height: auto;
+    height: 40vh;
     max-width: 80%;
     object-fit: contain;
 `

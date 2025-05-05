@@ -13,6 +13,7 @@ const RelatedArticle = ({story} ) =>  {
 
     const randomStories = getRandomTwo(story);
 
+
     return(
 
             <Wrapper>

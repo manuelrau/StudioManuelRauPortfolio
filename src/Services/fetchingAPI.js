@@ -17,14 +17,14 @@ export const getDataByVersion = async (uuids, version) => {
             return {
                 name: res.data.story.name,
                 tags: res.data.story.tag_list,
-                full: res.data.story,
+                //full: res.data.story,
             };
         } catch (err) {
             console.error(`Fehler bei UUID ${uuid} (${version}) :`, err);
             return {
                 name: `Fehler bei ${uuid}`,
                 tags: `Fehler bei ${uuid}`,
-                full: null,
+                //full: null,
             };
         }
     });
@@ -97,5 +97,16 @@ export const getSlugArticle = async (slug) => {
         console.error("Artikel nicht gefunden:", err);
         throw err;
     }
+
+};
+
+export const getImagesofArticle = async (content) => {
+
+    console.log(content)
+    if (!content || !Array.isArray(content.Wrapper)) {
+        return ['no Image'];
+    }
+
+    return content.Wrapper.filter(item => item.component === "ImagesArticle");
 
 }
