@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+
 import StoryblokClient from "storyblok-js-client";
 
 const SbClient = new StoryblokClient ({
