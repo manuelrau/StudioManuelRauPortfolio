@@ -49,8 +49,8 @@ function Index () {
                         {titles.map((t, index) => (
                             console.log(t),
                             <Wrapper key={index}>
-                                <Link className="LinkClass" to={`/articles/${t.full?.slug}`}>{t.name}
-                                <Imagehover src={t.full?.content.Header.filename} alt={t.full?.content.Header.alt} />
+                                <Link className="LinkClass" to={`/articles/${t.slug.split('/').pop()}`}>{t.name}
+
                                 </Link>
                                 <Tags>{t.tags.join(', ')}</Tags>
                             </Wrapper>

@@ -17,6 +17,7 @@ export const getDataByVersion = async (uuids, version) => {
             return {
                 name: res.data.story.name,
                 tags: res.data.story.tag_list,
+                slug: res.data.story.full_slug
                 //full: res.data.story,
             };
         } catch (err) {
@@ -24,6 +25,7 @@ export const getDataByVersion = async (uuids, version) => {
             return {
                 name: `Fehler bei ${uuid}`,
                 tags: `Fehler bei ${uuid}`,
+                slug: `Fehler bei ${uuid}`
                 //full: null,
             };
         }
