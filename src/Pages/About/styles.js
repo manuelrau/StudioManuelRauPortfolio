@@ -7,6 +7,10 @@ export const AboutSection = styled.div`
     align-items: center;
     padding: 20px;
     margin: 0 0 50px 0;
+
+    @media (max-width: 480px) {
+        padding: 0;
+    }
 `
 
 export const CenterBox = styled.div`
@@ -16,7 +20,9 @@ export const CenterBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;`
+    align-items: center;
+    
+`
 
 export const AboutPtag = styled.p.attrs(() => ({
     className: 'text-lg'
@@ -31,6 +37,18 @@ export const AboutText = styled.p.attrs(() => ({
 export const Section = styled.section`
     display: flex;
     margin: 100px 0 100px 0;
+
+    @media (max-width: 1024px) {
+
+    }
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+    
+    @media (max-width: 480px) {
+        flex-direction: column;
+    }
 `
 export const Container = styled.div`
     display: flex;

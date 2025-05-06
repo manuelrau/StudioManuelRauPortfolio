@@ -12,8 +12,8 @@ export const Container = styled.div.attrs(() => ({
     font-size: 26px;
     width: 100%; 
     height: 100%;
-    justify-content: space-between; 
-    align-items: flex-end; 
+    justify-content: space-between;
+    align-items: center;
     border-top: solid 1px black;
 
     &.orange {
@@ -33,6 +33,7 @@ export const Container = styled.div.attrs(() => ({
     @media (max-width: 480px) {
         flex-direction: column;
         align-items: center;
+        padding: 0;
     }
 
 `
@@ -70,6 +71,14 @@ export const Text = styled.p.attrs(() => ({
 })) `
     color: black;
     max-width: 450px;
+    
+
+    @media (max-width: 768px) {
+        max-width: 80%;
+    }
+    @media (max-width: 480px) {
+        max-width: 80%;
+    }
 `
 
 

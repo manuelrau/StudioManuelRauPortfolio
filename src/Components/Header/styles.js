@@ -45,6 +45,11 @@ export const Wrapper = styled.div `
     align-items: center;
     text-transform: uppercase;
     
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 
     @media (max-width: 768px) {
         flex-direction: column;
