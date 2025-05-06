@@ -1,5 +1,5 @@
 import React from 'react';
-import { Img } from "./styles.js";
+import { Img, ImageWrapper } from "./styles.js";
 
 const Image = ({story}) => {
 
@@ -12,18 +12,20 @@ const Image = ({story}) => {
 
     return (
         <>
-            {story.map((s, i) => (
-                s?.Image ? (
-                    <Img
-                        src={s.Image.filename}
-                        alt={s.Image.alt || "Kein Alt-Text"}
-                        key={i}
-                    />
+            <ImageWrapper>
+                {story.map((s, i) => (
+                    s?.Image ? (
+                        <Img
+                            src={s.Image.filename}
+                            alt={s.Image.alt || "Kein Alt-Text"}
+                            key={i}
+                        />
                     ) : (
                         <p key={i}>Kein Bild</p>
-                )
+                    )
 
                 ))}
+            </ImageWrapper>
 
         </>
 

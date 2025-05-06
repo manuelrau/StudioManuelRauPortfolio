@@ -47,7 +47,7 @@ const Images = ({ story , clickedTags = [] }) => {
 
 
     return (
-        <>
+
             <Container>
 
                 {visiblePhotos.map((photo, index) => (
@@ -82,7 +82,7 @@ const Images = ({ story , clickedTags = [] }) => {
                 ))}
             </Container>
 
-        </>
+
     )
 }
 

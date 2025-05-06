@@ -10,6 +10,7 @@ const Carousel = ({story}) => {
         containScroll: 'trimSnaps', align: 'center' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
+    console.log(story);
     const photos = story.content?.body[0]?.BigPhoto || [];
 
 
@@ -70,14 +71,16 @@ const Carousel = ({story}) => {
                         {
                             photos.map((section, index) =>
                                 section.filename ? (
-                                    <EmblaSlide
-                                        key={index}>
-                                        <ImagesContainer src={section.filename}
-                                             alt={`Foto ${index + 1}`}
-                                             className="w-full h-auto rounded shadow"
-                                        />
 
-                                    </EmblaSlide>
+                                        <EmblaSlide
+                                            key={index}>
+                                            <ImagesContainer src={section.filename}
+                                                             alt={`Foto ${index + 1}`}
+                                                             className="w-full h-auto rounded shadow"
+                                            />
+
+                                        </EmblaSlide>
+
                                 ) : null
                             )
                         }

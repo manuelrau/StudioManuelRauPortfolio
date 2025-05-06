@@ -13,6 +13,14 @@ export const GlobalStyle = createGlobalStyle `
         overflow-x: hidden;
         background-color: #D6D6D6;
         
+        @media (max-width: 768px) {
+            padding: 0 20px 0 20px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 0 10px 0 10px;
+        }
+        
     }
     body.orange {
         background-color: #FF926E ;
