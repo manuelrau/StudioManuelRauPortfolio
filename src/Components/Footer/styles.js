@@ -19,6 +19,21 @@ export const Container = styled.div.attrs(() => ({
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        display: flex;
+        padding: 2rem;
+        align-items: center;
+    }
+    
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+    }
 
 `
 
@@ -27,12 +42,24 @@ export const SocialMedia = styled.a.attrs(()=> ({
 }))`
     text-decoration: none;
     color: black;
+    
 `
 
 export const SocialContainer = styled.div`
     gap: 0.7rem;
     display: flex;
     align-items: center;
+
+    @media (max-width: 1024px) {
+        padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 2rem;
+    }
+    @media (max-width: 480px) {
+        padding: 2.5rem;
+    }
 `
 export const Icon = styled.img`
     height: 25px;

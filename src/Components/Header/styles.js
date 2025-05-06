@@ -11,6 +11,12 @@ export const Header = styled.header.attrs(() => ({
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
+
+    @media (max-width: 480px) {
+        header {
+            position: static;
+        }
+    }
  `
 
 
@@ -38,6 +44,17 @@ export const Wrapper = styled.div `
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
+    
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 export const HeaderLogo = styled.img`
