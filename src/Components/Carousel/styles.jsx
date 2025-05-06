@@ -6,6 +6,10 @@ export const Embla = styled.div`
     width: 100%;
     max-width: 100vw;
     margin: 0 auto;
+
+    @media (max-width: 1024px) {
+        max-width: 100%;
+    }
     
 `
 export const EmblaViewport = styled.div`
@@ -36,4 +40,10 @@ export const ImagesContainer = styled.img`
     max-width: 100%;
     margin: 0;
     border-radius: 10px;
+
+    @media (max-width: 1024px) {
+        height: 60vh;
+        object-fit: cover;
+    }
+
 `

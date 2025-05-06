@@ -46,7 +46,6 @@ export const Wrapper = styled.div `
     text-transform: uppercase;
     
     @media (max-width: 1024px) {
-        flex-direction: column;
         align-items: center;
         gap: 10px;
     }
@@ -66,4 +65,20 @@ export const HeaderLogo = styled.img`
     height: 3.2vh;
     width: auto;
     padding: 20px 0 20px 0;
+
+    @media (max-width: 1024px) {
+        width: 100%;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: auto;
+        padding: 10px 0 10px 0;
+    }
+    @media (max-width: 480px) {
+        width: 100%;
+        height: auto;
+        padding: 10px 0 10px 0;
+    }
 `

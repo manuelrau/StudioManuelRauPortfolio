@@ -24,7 +24,6 @@ export const Container = styled.div.attrs(() => ({
         font-size: 1.25rem
     }
     @media (max-width: 1024px) {
-        flex-direction: column;
         display: flex;
         padding: 2rem;
         align-items: center;
@@ -76,6 +75,9 @@ export const Text = styled.p.attrs(() => ({
     color: black;
     max-width: 450px;
     
+    @media (max-width: 1024px) {
+        max-width: 40%;
+    }
 
     @media (max-width: 768px) {
         max-width: 80%;
