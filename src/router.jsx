@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import ArticlePage from "./Pages/ArticlePage/ArticlePage.jsx";
 import Index from "./Pages/Index/index.jsx";
+import Imprint from "./Pages/Imprint/index.jsx";
 
 const router = createBrowserRouter ([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter ([
             {
                 path: "index",
                 element: <Index slug="index" />,
+            },
+            {
+                path: "imprint",
+                element: <Imprint slug="imprint" />,
             },
             {
                 path: "*",

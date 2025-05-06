@@ -2,6 +2,7 @@ import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon, Text} from "./styles.js"
 import React, {useRef, useEffect} from "react";
 import {useLocation} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     const story = useStoryblok("footer", {version: "draft"})
@@ -34,6 +35,7 @@ const Footer = () => {
                 <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>
                 <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">@manuelrrrau</SocialMedia>
             </SocialContainer>
+            <Link to={story.content?.Body[0].Imprint.url}>{story.content?.Body[0].Imprint.cached_url}</Link>
 
         </Container>
 

@@ -18,7 +18,7 @@ export const Container = styled.div`
     @media (max-width: 480px) {
         column-count: 1;
         column-gap: 1rem;
-        padding: 0rem;
+        padding: 0 0 2.5rem 0;
     }
 `
 export const ImageWrapper = styled.img`
