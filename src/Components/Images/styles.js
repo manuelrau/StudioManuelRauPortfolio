@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     column-count: 4;
     column-gap: 3rem;
+    row-gap: 2rem;
     padding: 2rem;
 
     @media (max-width: 1024px) {
@@ -23,7 +24,8 @@ export const Container = styled.div`
 `
 export const ImageWrapper = styled.img`
     width: 100%;
-    margin-bottom: 1rem;
+    margin: 0;
+    display: block;
     break-inside: avoid;
     transition: transform 0.3s ease;
     border-radius: 15px;
@@ -46,17 +48,22 @@ export const ImageWrapper = styled.img`
 export const VideoWrapper = styled.video`
     width: 100%;
     height: auto;
+    display: block;
     border-radius: 15px;
 `
 
 export const LinkWrapper = styled.div`
     position: relative;
     display: block;
+    height: 100%;
+    box-sizing: border-box;
     width: 100%;
+    margin-bottom: 2rem;
 
   &:hover .hover-info {
     opacity: 1;
     visibility: visible;
+    border-radius: 15px;  
   }
     
 `;
