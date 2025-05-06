@@ -41,4 +41,25 @@ export const StyledLink = styled(Link)`
   &:hover ${Imagehover} {
     display: block;
   }
-`;
+`
+
+export const IndexWrapper = styled.div`
+    .LinkClass {
+        text-decoration: none;
+
+        color: black;
+        padding: 20px 0 20px 0;
+        width: 100%;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    display: grid;
+    color: black;
+    font-family: Lars, sans-serif;
+    justify-content: stretch;
+    font-size: 30px;
+    padding: 0
+`

@@ -19,6 +19,10 @@ export const Container = styled.div.attrs(() => ({
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
+    
+    .imprint{
+        font-size: 1.25rem
+    }
     @media (max-width: 1024px) {
         flex-direction: column;
         display: flex;

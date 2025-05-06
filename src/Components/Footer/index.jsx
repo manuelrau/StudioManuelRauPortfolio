@@ -30,7 +30,7 @@ const Footer = () => {
         <Container ref={footerRef}>
 
             <Text>{story.content?.Body[0].Text}</Text>
-            <Link to={story.content?.Body[0].Imprint.url}>{story.content?.Body[0].Imprint.cached_url}</Link>
+            <Link className={story.content?.Body[0].Imprint.cached_url} to={story.content?.Body[0].Imprint.cached_url}>{story.content?.Body[0].Imprint.cached_url}</Link>
             <SocialMedia href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
             <SocialContainer>
                 <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>

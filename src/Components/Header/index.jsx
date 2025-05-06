@@ -31,6 +31,7 @@ const HeaderBox = () => {
 
     const link1Index = `/${story.content?.Body[0].Index.cached_url}`;
     const link2About = `/${story.content?.Body[0].Link.cached_url}`;
+
     return (
         <>
             <Header ref={headerRef}>
