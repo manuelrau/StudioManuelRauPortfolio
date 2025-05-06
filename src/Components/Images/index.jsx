@@ -1,7 +1,7 @@
 import {Container, HoverInfo, ImageWrapper, LinkWrapper, VideoWrapper} from "./styles.js";
 import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {animate} from "motion";
 
 
@@ -9,7 +9,16 @@ import {animate} from "motion";
 const Images = ({ story , clickedTags = [] }) => {
     const photoData = story.content?.body[1]?.ImageData || [];
     const [visiblePhotos, setVisiblePhotos] = useState(photoData);
-    console.log(photoData);
+    const loaderRef = useRef(null)
+
+    const [page, setPage] = useState(1);
+    const itemsPerPage = 2;
+
+    const currentPhotos = visiblePhotos.slice(0, page*itemsPerPage);
+    const maxPage = Math.ceil(visiblePhotos.length / itemsPerPage);
+
+
+    console.log('DATA', photoData, maxPage, visiblePhotos, itemsPerPage);
     useEffect(() => {
         if (photoData.length > 0) {
             setVisiblePhotos(photoData)
@@ -45,12 +54,33 @@ const Images = ({ story , clickedTags = [] }) => {
 
     }, [clickedTags]);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && page < maxPage) {
+                    setPage(prev => prev + 1);
+                }
+            },
+            { threshold: 1
+            }
+        );
+        const currentLoader = loaderRef.current
+        if (currentLoader) {
+            observer.observe(currentLoader)
+        }
+
+        return () => {
+            if (currentLoader) observer.unobserve(currentLoader)
+        }
+
+    }, [page, maxPage])
+
 
     return (
 
             <Container>
 
-                {visiblePhotos.map((photo, index) => (
+                {currentPhotos.map((photo, index) => (
 
                     <LinkWrapper key={photo._uid}>
                         <Link to={photo.link?.cached_url} className="LinkClass" >
@@ -80,6 +110,9 @@ const Images = ({ story , clickedTags = [] }) => {
 
                     </LinkWrapper>
                 ))}
+                {page < maxPage && (
+                    <div ref={loaderRef} style={{ height: '1px' }}></div>
+                )}
             </Container>
 
 
