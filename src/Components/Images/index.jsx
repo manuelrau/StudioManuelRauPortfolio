@@ -8,14 +8,14 @@ import {animate} from "motion";
 
 const Images = ({ story , clickedTags = [] }) => {
     const photoData = story.content?.body[1]?.ImageData || [];
-    const [visiblePhotos, setVisiblePhotos] = useState(photoData);
+    const [allPhotos, setAllPhotos] = useState([]);
+    const [visiblePhotos, setVisiblePhotos] = useState([]);
     const loaderRef = useRef(null)
 
     const [page, setPage] = useState(1);
-    const itemsPerPage = 2;
+    const itemsPerPage = 4; // wie viele elemente sollen immer nachgeladen werden
 
-    const currentPhotos = visiblePhotos.slice(0, page*itemsPerPage);
-    const maxPage = Math.ceil(visiblePhotos.length / itemsPerPage);
+    const maxPage = Math.ceil(allPhotos.length / itemsPerPage);
 
 
     console.log('DATA', photoData, maxPage, visiblePhotos, itemsPerPage);
@@ -33,6 +33,9 @@ const Images = ({ story , clickedTags = [] }) => {
         ) : photoData
 
         // IDs merken
+
+        setAllPhotos(filterPhotoData);
+        setPage(1);
 
         const newIDs = new Set(filterPhotoData.map(photo => photo._uid));
         const exiting = visiblePhotos.filter(photo => !newIDs.has(photo._uid));
@@ -52,7 +55,12 @@ const Images = ({ story , clickedTags = [] }) => {
             setVisiblePhotos(current => [...current, ...added])
         }
 
-    }, [clickedTags]);
+    }, [clickedTags, photoData]);
+
+    useEffect(() => {
+        const newVisible = allPhotos.slice(0, page * itemsPerPage);
+        setVisiblePhotos(newVisible);
+    }, [allPhotos, page]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -80,7 +88,7 @@ const Images = ({ story , clickedTags = [] }) => {
 
             <Container>
 
-                {currentPhotos.map((photo, index) => (
+                {visiblePhotos.map((photo, index) => (
 
                     <LinkWrapper key={photo._uid}>
                         <Link to={photo.link?.cached_url} className="LinkClass" >
