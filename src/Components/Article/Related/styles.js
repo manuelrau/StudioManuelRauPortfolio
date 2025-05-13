@@ -10,14 +10,14 @@ export const ImageWrapper = styled.div`
 
 export const Image = styled.img`
     width: 100%;
-    height: 40vh;
-    border-radius: 20px;
+    height: auto;
+    border-radius: 15px;
 `
 
 export const Section = styled.section`
     display: flex;
-    gap: 80px;
-    margin: 20px 0 50px 0;
+    gap: 25px;
+    margin: 20px 0 75px 0;
 `
 
 export const Component = styled.section`

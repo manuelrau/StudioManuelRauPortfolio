@@ -69,7 +69,7 @@ const Images = ({ story , clickedTags = [] }) => {
                     setPage(prev => prev + 1);
                 }
             },
-            { threshold: 1
+            { threshold: 1 // wie viel viewport sich bewegen muss damit es nachlädt
             }
         );
         const currentLoader = loaderRef.current
