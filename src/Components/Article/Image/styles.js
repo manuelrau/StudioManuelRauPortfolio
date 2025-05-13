@@ -19,6 +19,12 @@ export const Img = styled.img`
     }
 `
 
+export const Video = styled.video`
+    max-width: 100%;
+    height: 60vh;
+    padding: 20px 0 2px 0;
+`
+
 export const ImageWrapper = styled.div`
     display: flex;
     justify-content: space-between;
@@ -37,5 +43,19 @@ export const ImageWrapper = styled.div`
     @media (max-width: 480px) {
         flex-direction: column;
     }
+
+`
+
+export const Wrapper = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start
+`
+
+export const sub = styled.p.attrs(() => ({
+    className: 'text-sub-xs',
+}))`
+        display: flex;
 
 `

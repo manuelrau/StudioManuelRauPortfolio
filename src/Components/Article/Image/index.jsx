@@ -1,5 +1,5 @@
 import React from 'react';
-import { Img, ImageWrapper } from "./styles.js";
+import {Img, ImageWrapper, Video, Wrapper, sub} from "./styles.js";
 
 const Image = ({story}) => {
 
@@ -15,7 +15,7 @@ const Image = ({story}) => {
             <ImageWrapper>
                 {story.map((s, i) => {
 
-
+                    console.log(s);
                     const filename = s?.Image?.filename;
 
                     if(!filename) {
@@ -27,29 +27,39 @@ const Image = ({story}) => {
 
                     if (isImage) {
                         return (
-                            <Img
-                                src={s.Image.filename}
-                                alt={s.Image.alt || "Kein Alt-Text"}
-                                key={i}
-                            />
+                            <Wrapper>
+                                <Img
+                                    src={s.Image.filename}
+                                    alt={s.Image.alt || "Kein Alt-Text"}
+                                    key={i}
+                                />
+                                <sub>{s?.Image?.alt}</sub>
+                            </Wrapper>
                         );
                     }
                         else if(isVideo) {
                         return (
-                            <video
-                                key={i}
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                src={filename}
-                                style={{maxWidth: "100%"}}
-                            >
-                                Dein Browser unterstützt das Video-Tag nicht.
-                            </video>
+                            <Wrapper>
+                                <Video
+                                    key={i}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    src={filename}
+                                    style={{maxWidth: "100%"}}
+                                >
+                                    Dein Browser unterstützt das Video-Tag nicht.
+                                </Video>
+
+                                <sub>{s?.Image?.alt}</sub>
+
+                            </Wrapper>
+
                         );
+
                     } else {
-                            return <p key={i}>unbekanntes Format </p>
+                        return <p key={i}>unbekanntes Format </p>
 
                     }
                 })}

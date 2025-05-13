@@ -49,6 +49,11 @@ export const GlobalStyle = createGlobalStyle `
         font-size: 1.2rem;
         font-weight: 400;
     }
+    .text-sub-xs { 
+        font-size: 0.8rem;
+        font-family: 'Lars Mono', monospace;
+    }
+    
     .text-xs { font-size: 0.75rem; }
     .text-sm { 
         font-size: 0.875rem; 
