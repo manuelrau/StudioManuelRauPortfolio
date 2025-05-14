@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Img = styled.img`
     max-width: 100%;
-    height: 70vh;
+    max-height: 100%;
     padding: 20px 0 20px 0;
+    border-radius: 15px;
     
     
     @media (max-width: 1024px) {
@@ -19,18 +20,22 @@ export const Img = styled.img`
     }
 `
 
+
 export const Video = styled.video`
     max-width: 100%;
-    height: 60vh;
+    max-height: 100%;
     padding: 20px 0 2px 0;
 `
 
 export const ImageWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
     flex-wrap: wrap;
     margin: 50px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    row-gap: 5rem;
+    column-gap: 6rem;
+    padding: 2rem;
 
     @media (max-width: 1024px) {
 
@@ -45,17 +50,26 @@ export const ImageWrapper = styled.div`
     }
 
 `
+export const FullSizeWrapper = styled(ImageWrapper)`
+    grid-column: span 2; /* über beide Spalten */
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 0;
+`
 
 export const Wrapper = styled.div`
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start
+    align-items: flex-start;
+
 `
 
-export const sub = styled.p.attrs(() => ({
+export const ParagraphStyle = styled.p.attrs(() => ({
     className: 'text-sub-xs',
 }))`
-        display: flex;
+    display: flex;
+    margin: 5px 0;
+    text-align: left;
+    align-self: stretch;
 
 `

@@ -50,8 +50,8 @@ export const GlobalStyle = createGlobalStyle `
         font-weight: 400;
     }
     .text-sub-xs { 
-        font-size: 0.8rem;
-        font-family: 'Lars Mono', monospace;
+        font-size: 0.65rem;
+        font-family: Lars Mono, monospace;
     }
     
     .text-xs { font-size: 0.75rem; }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Img, ImageWrapper, Video, Wrapper, sub} from "./styles.js";
+import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper} from "./styles.js";
 
 const Image = ({story}) => {
 
@@ -17,6 +17,7 @@ const Image = ({story}) => {
 
                     console.log(s);
                     const filename = s?.Image?.filename;
+                    const isFullSize = s?.Fullsize;
 
                     if(!filename) {
                         return <p key={i}>Kein Bild</p>
@@ -25,21 +26,24 @@ const Image = ({story}) => {
                     const isImage = /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(filename);
                     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(filename);
 
+                    const WrapperComponent = isFullSize ? FullSizeWrapper : Wrapper;
+                    console.log(WrapperComponent)
+
                     if (isImage) {
                         return (
-                            <Wrapper>
+                            <WrapperComponent>
                                 <Img
                                     src={s.Image.filename}
                                     alt={s.Image.alt || "Kein Alt-Text"}
                                     key={i}
                                 />
-                                <sub>{s?.Image?.alt}</sub>
-                            </Wrapper>
+                                <ParagraphStyle>{s?.Image?.alt}</ParagraphStyle>
+                            </WrapperComponent>
                         );
                     }
                         else if(isVideo) {
                         return (
-                            <Wrapper>
+                            <WrapperComponent>
                                 <Video
                                     key={i}
                                     autoPlay
@@ -52,9 +56,9 @@ const Image = ({story}) => {
                                     Dein Browser unterstützt das Video-Tag nicht.
                                 </Video>
 
-                                <sub>{s?.Image?.alt}</sub>
+                                <ParagraphStyle>{s?.Image?.alt}</ParagraphStyle>
 
-                            </Wrapper>
+                            </WrapperComponent>
 
                         );
 
