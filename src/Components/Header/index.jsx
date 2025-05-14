@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import React, { useRef, useEffect } from "react";
-import { Wrapper, HeaderLogo, Header } from './styles.js'
+import React, { useRef, useEffect, useState} from "react";
+import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation} from './styles.js'
 import { useStoryblok } from "@storyblok/react";
 
 
@@ -8,6 +8,7 @@ const HeaderBox = () => {
     const story = useStoryblok("header", {version: "draft"})
    const headerRef = useRef(null);
     const location = useLocation();
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         if (!story.content) return;
@@ -37,30 +38,41 @@ const HeaderBox = () => {
             <Header ref={headerRef}>
 
                 <Wrapper>
+                    <Navigation>
+                        <Hamburger onClick={() => setIsOpen(!isOpen)}>
+                            <span />
+                            <span />
+                            <span />
+                        </Hamburger>
 
-                    <Link
-                        to={link1Index}
-                        className={getLinkClass(link1Index)}
-                    >
-                        {story.content?.Body[0].Index.cached_url}
-                    </Link>
+                        <Link to="/">
+                            <HeaderLogo src={story.content?.Body[0].Logo.filename} />
+                        </Link>
+
+                        <Menu isOpen={isOpen}>
+                            <Link
+                                to={link1Index}
+                                className={getLinkClass(link1Index)}
+                            >
+                                {story.content?.Body[0].Index.cached_url}
+                            </Link>
 
 
-                    <Link to="/">
-                        <HeaderLogo src={story.content?.Body[0].Logo.filename} />
-                    </Link>
 
-                    <Link
-                        to={link2About}
-                        className={getLinkClass(link2About)}
-                    >
-                        {story.content?.Body[0].Link.cached_url}
-                    </Link>
+                            <Link
+                                to={link2About}
+                                className={getLinkClass(link2About)}
+                            >
+                                {story.content?.Body[0].Link.cached_url}
+                            </Link>
+                        </Menu>
+
+
+                    </Navigation>
 
                 </Wrapper>
             </Header>
         </>
-
     )
 }
 

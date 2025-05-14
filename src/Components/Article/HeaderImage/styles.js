@@ -12,5 +12,5 @@ export const ImageDefinition = styled.img`
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    border-radius: 25px;
+    border-radius: 15px;
 `

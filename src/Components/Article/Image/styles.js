@@ -38,15 +38,18 @@ export const ImageWrapper = styled.div`
     padding: 2rem;
 
     @media (max-width: 1024px) {
-
     }
 
     @media (max-width: 768px) {
-        justify-content: space-between;
+        column-count: 1;
+        padding: 2rem;
+        display: flex;
+        
     }
 
     @media (max-width: 480px) {
-        flex-direction: column;
+        grid-column: span 2;
+        grid-template-columns: repeat(1, 1fr);
     }
 
 `
@@ -61,7 +64,13 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
+    @media (max-width: 768px) {
+        align-items: center;
+        width: auto;
+        height: auto;
 
+    }
 `
 
 export const ParagraphStyle = styled.p.attrs(() => ({

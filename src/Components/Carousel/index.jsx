@@ -76,7 +76,6 @@ const Carousel = ({story}) => {
                                             key={index}>
                                             <ImagesContainer src={section.filename}
                                                              alt={`Foto ${index + 1}`}
-                                                             className="w-full h-auto rounded shadow"
                                             />
 
                                         </EmblaSlide>
