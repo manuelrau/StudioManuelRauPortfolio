@@ -12,11 +12,11 @@ export const Img = styled.img`
     }
     
     @media (max-width: 768px) {
-        height: 50vh
+        height: auto
     }
 
     @media (max-width: 480px) {
-        height: 50vh
+        height: auto
     }
 `
 
@@ -25,6 +25,12 @@ export const Video = styled.video`
     max-width: 100%;
     max-height: 100%;
     padding: 20px 0 2px 0;
+
+    @media (max-width: 768px) {
+        display: block;
+        height: auto
+    }
+
 `
 
 export const ImageWrapper = styled.div`
@@ -42,14 +48,14 @@ export const ImageWrapper = styled.div`
 
     @media (max-width: 768px) {
         column-count: 1;
-        padding: 2rem;
-        display: flex;
+        padding: 0;
+        margin-bottom: 25px;
+        display: block;
         
     }
 
     @media (max-width: 480px) {
-        grid-column: span 2;
-        grid-template-columns: repeat(1, 1fr);
+
     }
 
 `
