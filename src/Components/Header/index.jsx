@@ -45,9 +45,6 @@ const HeaderBox = () => {
                             <span />
                         </Hamburger>
 
-                        <Link to="/">
-                            <HeaderLogo src={story.content?.Body[0].Logo.filename} />
-                        </Link>
 
                         <Menu isOpen={isOpen}>
                             <Link
@@ -57,7 +54,11 @@ const HeaderBox = () => {
                                 {story.content?.Body[0].Index.cached_url}
                             </Link>
 
-
+                        </Menu>
+                        <Link to="/">
+                            <HeaderLogo src={story.content?.Body[0].Logo.filename} />
+                        </Link>
+                        <Menu>
 
                             <Link
                                 to={link2About}
