@@ -64,6 +64,9 @@ export const Wrapper = styled.div `
     @media (max-width: 480px) {
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        padding-top: 12px;
+        padding-bottom: 12px;
     }
 `
 
@@ -84,8 +87,8 @@ export const HeaderLogo = styled.img`
     }
     @media (max-width: 480px) {
         width: 100%;
-        height: auto;
-        padding: 10px 0 10px 0;
+        height: 2vh;
+        justify-content: space-between;
     }
 `
 
@@ -97,6 +100,7 @@ export const Hamburger = styled.div`
     
     span {
         height: 3px;
+        gap: 2px;
         width: 30px;
         background: black;
         margin: 5px 10px;
@@ -136,7 +140,7 @@ export const Menu = styled.div`
       
     position: absolute;
     width: 100vw;  
-    height: 50vh;
+    height: 100vh;
       
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   }

@@ -25,7 +25,7 @@ export const EmblaContainer = styled.div`
 `
 
 export const EmblaSlide = styled.div`
-    flex: 0 0 80%;
+    flex: 0 0 95%;
     scroll-snap-align: start; /* <--- Slide snappt am Anfang */
     min-width: 0;
     padding: 0 0.5rem;
@@ -42,7 +42,8 @@ export const ImagesContainer = styled.img`
     border-radius: 10px;
 
     @media (max-width: 1024px) {
-        height: 60vh;
+        height: 76vh;
+        max-width: 100%;
         object-fit: cover;
     }
 

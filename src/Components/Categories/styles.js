@@ -5,6 +5,16 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     margin: 20px 0 20px 0;
     font-size: 1.4em;
+
+    @media(max-width: 768px) {
+        overflow-x: auto;  
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        ::-webkit-scrollbar{
+            display: none;
+        }
+    }
 `
 
 const getTagColor = (tag) => {
@@ -37,5 +47,6 @@ export const Tag = styled.span`
   font-size: 1.05rem;  
   cursor: pointer;
   transition: all 0.2s ease;
+    
     
 `

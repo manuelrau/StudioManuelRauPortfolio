@@ -39,11 +39,6 @@ const HeaderBox = () => {
 
                 <Wrapper>
                     <Navigation>
-                        <Hamburger onClick={() => setIsOpen(!isOpen)}>
-                            <span />
-                            <span />
-                            <span />
-                        </Hamburger>
 
 
                         <Menu isOpen={isOpen}>
@@ -58,6 +53,11 @@ const HeaderBox = () => {
                         <Link to="/">
                             <HeaderLogo src={story.content?.Body[0].Logo.filename} />
                         </Link>
+                        <Hamburger onClick={() => setIsOpen(!isOpen)}>
+                            <span />
+                            <span />
+                            <span />
+                        </Hamburger>
                         <Menu>
 
                             <Link

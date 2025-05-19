@@ -85,18 +85,18 @@ const Carousel = ({story}) => {
                         }
                     </EmblaContainer>
                 </EmblaViewport>
-                <div style={{display: 'flex', justifyContent: 'end', gap: '8px', marginTop: '1rem'}}>
+                <div style={{display: 'flex', justifyContent: 'start', gap: '10px', marginTop: '1rem'}}>
                     {scrollSnaps.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => emblaApi?.scrollTo(index)}
                             style={{
-                                width: '12px',
-                                height: '12px',
+                                width: '14px',
+                                height: '14px',
                                 borderRadius: '100%',
                                 background: 'transparent',
                                 border: 'none',
-                                outline: `2px solid ${index === selectedIndex ? '#000' : '#ccc'}`,
+                                outline: `1px solid ${index === selectedIndex ? '#000' : '#ccc'}`,
                                 outlineOffset: '-2px', // nach innen versetzen
                                 cursor: 'pointer'
                             }}
