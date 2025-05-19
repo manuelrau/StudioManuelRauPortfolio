@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle `
         -webkit-font-smoothing: antialiased;
         font-family: 'Lars', sans-serif;
         color: #1a1a1a;
-        overflow-x: hidden;
+        overflow-x: hidden; // verhindert horizontales scrollen 
         background-color: #D6D6D6;
         
         @media (max-width: 768px) {

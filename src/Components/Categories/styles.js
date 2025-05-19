@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
     font-size: 1.4em;
 
     @media(max-width: 768px) {
-        overflow-x: auto;  
+        padding: 10px 0;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
 

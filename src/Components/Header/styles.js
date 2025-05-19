@@ -25,7 +25,7 @@ export const Wrapper = styled.div `
     .LinkNameHeader {
         color: black;
         font-family: 'Lars Mono', monospace;
-        padding: 0 40px 0 40px;
+        padding: 40px 0 40px 0;
     }
     .LinkNameHeader.visited {
         text-decoration-line: underline;
@@ -73,7 +73,7 @@ export const Wrapper = styled.div `
 export const HeaderLogo = styled.img`
     height: 3.2vh;
     width: auto;
-    padding: 20px 0 20px 0;
+    padding: 0 20px 0 20px;
 
     @media (max-width: 1024px) {
         width: 100%;
@@ -149,7 +149,7 @@ export const Menu = styled.div`
 export const Navigation = styled.nav.attrs(() => ({
 
 }))`
-    padding: 0 20px;
+    padding: 10px 0;
     width: 100%;
     height: 40px;
     color: white;

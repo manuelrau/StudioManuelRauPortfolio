@@ -33,9 +33,9 @@ export const EmblaSlide = styled.div`
 `
 
 export const ImagesContainer = styled.img`
-    width: auto;
+    width: 110vw;
     height: 90vh;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
     max-width: 100%;
     margin: 0;
