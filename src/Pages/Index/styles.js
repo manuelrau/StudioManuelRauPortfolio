@@ -21,6 +21,10 @@ export const Tags = styled.div.attrs(() => ({
     display: flex;
     justify-content: end;
     align-items: center;
+    
+    @media (max-width: 480px) {
+        display: none;
+    }
 `
 
 
@@ -46,7 +50,6 @@ export const StyledLink = styled(Link)`
 export const IndexWrapper = styled.div`
     .LinkClass {
         text-decoration: none;
-
         color: black;
         padding: 20px 0 20px 0;
         width: 100%;
@@ -55,11 +58,22 @@ export const IndexWrapper = styled.div`
             text-decoration: underline;
         }
     }
-    
+    margin-top: 60px;
     display: grid;
     color: black;
     font-family: Lars, sans-serif;
     justify-content: stretch;
     font-size: 30px;
-    padding: 0
+    padding: 0;
+    
+    @media (max-width: 480px) {
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        justify-content: center;
+        .LinkClass {
+            text-align: center;
+        }
+}
 `

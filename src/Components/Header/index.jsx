@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
-import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuTwo} from './styles.js'
+import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuTwo, Burger} from './styles.js'
 import { useStoryblok } from "@storyblok/react";
 
 
@@ -40,7 +40,12 @@ const HeaderBox = () => {
                 <Wrapper>
                     <Navigation>
 
-
+                        <Link to="/">
+                            <HeaderLogo src={story.content?.Body[0].Logo.filename} />
+                        </Link>
+                        <Hamburger onClick={() => setIsOpen(!isOpen)} >
+                            <Burger src={story.content?.Body[0].Burger.filename}/>
+                        </Hamburger>
                         <Menu isOpen={isOpen}>
                             <Link
                                 to={link1Index}
@@ -49,24 +54,13 @@ const HeaderBox = () => {
                                 {story.content?.Body[0].Index.cached_url}
                             </Link>
 
-                        </Menu>
-                        <Link to="/">
-                            <HeaderLogo src={story.content?.Body[0].Logo.filename} />
-                        </Link>
-                        <Hamburger onClick={() => setIsOpen(!isOpen)}>
-                            <span />
-                            <span />
-                            <span />
-                        </Hamburger>
-                        <MenuTwo isOpen={isOpen}>
-
                             <Link
                                 to={link2About}
                                 className={getLinkClass(link2About)}
                             >
                                 {story.content?.Body[0].Link.cached_url}
                             </Link>
-                        </MenuTwo>
+                        </Menu>
 
 
                     </Navigation>

@@ -3,19 +3,24 @@ import styled from "styled-components";
 export const Header = styled.header.attrs(() => ({
     className: 'header',
 }))`
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 10px;
+    border-radius: 5px;
     z-index: 1000;
-    background: #D6D6D6;
+    width: 95vw;
+    background-color: oklab(0.96 0 0 / 0.7);
+    backdrop-filter: blur(24px);
 
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
 
     @media (max-width: 480px) {
-        header {
-            position: static;
-        }
+            top: auto;
+            bottom: 20px;
+            width: 95%;
+            margin-right: 10px;
+        
     }
  `
 
@@ -54,11 +59,14 @@ export const Wrapper = styled.div `
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        transition: all 1s ease-in-out;
         
         .LinkNameHeader {
-            padding: 40px;
-            max-width: 100%;
-            border-bottom: 2px solid black;
+     
+            font-size: 10rem;
+            margin-top: 50px;
+            padding: 10px;
+            max-width: 80%;
         }
     }
     @media (max-width: 480px) {
@@ -67,29 +75,47 @@ export const Wrapper = styled.div `
         justify-content: space-between;
         padding-top: 5px;
         padding-bottom: 5px;
+        
+        .LinkNameHeader {
+            font-size: 4rem;
+        }
     }
 `
 
 export const HeaderLogo = styled.img`
-    height: 3.2vh;
+    padding-left: 20px;
+    height: 2.55vh;
     width: auto;
-    padding: 0 20px 0 20px;
+    color: oklch(0.2155 0.0182 255.72 / 0.5);
 
     @media (max-width: 1024px) {
-        width: 100%;
+        width: auto;
         height: 3vh;
     }
 
     @media (max-width: 768px) {
         width: 100%;
         height: 2.75vh;
-        padding: 5px 0 5px 0;
+        padding: 5px 0 5px 10px;
     }
     @media (max-width: 480px) {
         width: 100%;
-        height: 2vh;
+        height: 2.1vh;
         justify-content: space-between;
-        padding: 5px 0 5px 0;
+        padding: 5px 5px 5px 15px;
+    }
+`
+export const Burger = styled.img`
+    height: 3.6vh;
+    width: auto;
+
+    @media (max-width: 768px) {
+        height: 4vh;
+        padding:10px 20px;
+    }
+    @media (max-width: 480px) {
+        height: 4.2vh;
+        padding:0 20px;
     }
 `
 
@@ -99,14 +125,6 @@ export const Hamburger = styled.div`
     cursor: pointer;
     z-index: 20;
     
-    span {
-        height: 3px;
-        gap: 2px;
-        width: 30px;
-        background: black;
-        margin: 5px 10px;
-        transition: all 0.2s ease;
-    }
     
     ${({ isOpen }) =>  isOpen && `
     span:nth-child(1) {
@@ -126,9 +144,11 @@ export const Hamburger = styled.div`
 `
 export const Menu = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 90px;
+  padding: 0 20px 0 20px;  
 
   a {
+      
     color: white;
     text-decoration: none;
   }
@@ -136,15 +156,24 @@ export const Menu = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     background: #D6D6D6;  
-    top: 40px;  
+    top: -10px;  
     left: 0;
       
     position: absolute;
     width: 100vw;  
-    height: 100vh;
+    height: 100vh;  
+    transition: transform 2s ease-in-out;
+      
       
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    transform:  ${({ isOpen }) => (isOpen ? 'translate(0)' : 'translate(100%)')};
   }
+  
+  @media (max-width: 480px) {
+      z-index: -1;
+      top: -90vh;
+      
+    }
 `;
 
 export const Navigation = styled.nav.attrs(() => ({
