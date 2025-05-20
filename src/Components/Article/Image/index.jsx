@@ -37,7 +37,7 @@ const Image = ({story}) => {
                                     alt={s.Image.alt || "Kein Alt-Text"}
                                     key={i}
                                 />
-                                <ParagraphStyle>{s?.Image?.alt}</ParagraphStyle>
+                                <ParagraphStyle>{s?.Image?.name}</ParagraphStyle>
                             </WrapperComponent>
                         );
                     }

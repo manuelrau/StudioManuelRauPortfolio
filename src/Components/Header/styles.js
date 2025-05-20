@@ -94,17 +94,17 @@ export const HeaderLogo = styled.img`
 
     @media (max-width: 1024px) {
         width: auto;
-        height: 3vh;
+        height: 2vh;
     }
 
     @media (max-width: 768px) {
         width: 100%;
-        height: 2.75vh;
+        height: 2.55vh;
         padding: 5px 0 5px 10px;
     }
     @media (max-width: 480px) {
         width: 100%;
-        height: 1.5vh;
+        height: 1.75vh;
         justify-content: space-between;
         padding: 5px 5px 5px 15px;
     }
@@ -148,7 +148,7 @@ export const Hamburger = styled.div`
 `
 export const Menu = styled.div`
   display: flex;
-  gap: 90px;
+  gap: 80px;
   padding: 0 20px 0 20px;  
 
   a {
@@ -156,6 +156,9 @@ export const Menu = styled.div`
     color: white;
     text-decoration: none;
   }
+    @media (max-width: 1024px) {
+        gap: 60px;
+    }
 
   @media (max-width: 768px) {
     flex-direction: column;

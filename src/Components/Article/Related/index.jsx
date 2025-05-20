@@ -22,7 +22,9 @@ const RelatedArticle = ({story} ) =>  {
                 {randomStories.map((story, i) => (
 
                         <Component>
-                            <Link to={`/articles/${story.ArticlePage.slug.split('/').pop()}`}>
+                            <Link to={`/articles/${story.ArticlePage.slug.split('/').pop()}`}
+                                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            >
                                 <ImageWrapper>
                                     <Image key={i} src={story.ArticlePage.image} alt={story.ArticlePage.alt}/>
                                 </ImageWrapper>
