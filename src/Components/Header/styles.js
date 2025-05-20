@@ -4,10 +4,12 @@ export const Header = styled.header.attrs(() => ({
     className: 'header',
 }))`
     position: fixed;
+    left: 70%;
+    transform: translateX(-50%);
     top: 10px;
     border-radius: 5px;
     z-index: 1000;
-    width: 95vw;
+    width: 50vw;
     background-color: oklab(0.96 0 0 / 0.7);
     backdrop-filter: blur(24px);
 
@@ -16,9 +18,11 @@ export const Header = styled.header.attrs(() => ({
     }
 
     @media (max-width: 480px) {
-            top: auto;
-            bottom: 20px;
-            width: 95%;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 20px;
+            width: 75%;
             margin-right: 10px;
         
     }
@@ -100,7 +104,7 @@ export const HeaderLogo = styled.img`
     }
     @media (max-width: 480px) {
         width: 100%;
-        height: 2.1vh;
+        height: 1.5vh;
         justify-content: space-between;
         padding: 5px 5px 5px 15px;
     }
@@ -114,7 +118,7 @@ export const Burger = styled.img`
         padding:10px 20px;
     }
     @media (max-width: 480px) {
-        height: 4.2vh;
+        height: 3.6vh;
         padding:0 20px;
     }
 `
