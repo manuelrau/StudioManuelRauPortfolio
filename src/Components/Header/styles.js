@@ -129,58 +129,54 @@ export const Hamburger = styled.div`
     cursor: pointer;
     z-index: 20;
     
-    
-    ${({ isOpen }) =>  isOpen && `
-    span:nth-child(1) {
-      transform: rotate(45deg) translateY(8px);
-    }
-    span:nth-child(2) {
-      opacity: 0;
-    }
-    span:nth-child(3) {
-      transform: rotate(-45deg) translateY(-8px);
-    }
-  `};
     @media (max-width: 768px) {
     display: flex;
 }
     
 `
-export const Menu = styled.div`
+export const MenuDesktop = styled.div`
   display: flex;
-  gap: 80px;
-  padding: 0 20px 0 20px;  
+  gap: 60px;
+  padding: 0 10px 0 10px;
 
   a {
-      
-    color: white;
+    color: black;
     text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
   }
-    @media (max-width: 1024px) {
-        gap: 60px;
-    }
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    background: #D6D6D6;  
-    top: -10px;  
-    left: 0;
-      
-    position: absolute;
-    width: 100vw;  
-    height: 100vh;  
-    transition: transform 2s ease-in-out;
-      
-      
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-    transform:  ${({ isOpen }) => (isOpen ? 'translate(0)' : 'translate(100%)')};
+    display: none;
   }
-  
-  @media (max-width: 480px) {
-      z-index: -1;
-      top: -90vh;
-      
-    }
+`;
+
+export const Menu = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #D6D6D6;
+    z-index: 999;
+    transition: transform 0.4s ease-in-out;
+    transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  a {
+    color: black;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Navigation = styled.nav.attrs(() => ({

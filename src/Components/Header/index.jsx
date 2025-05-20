@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
-import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuTwo, Burger} from './styles.js'
+import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuDesktop, Burger} from './styles.js'
 import { useStoryblok } from "@storyblok/react";
 
 
@@ -37,16 +37,15 @@ const HeaderBox = () => {
         <>
             <Header ref={headerRef}>
 
+
                 <Wrapper>
                     <Navigation>
 
                         <Link to="/">
                             <HeaderLogo src={story.content?.Body[0].Logo.filename} />
                         </Link>
-                        <Hamburger onClick={() => setIsOpen(!isOpen)} >
-                            <Burger src={story.content?.Body[0].Burger.filename}/>
-                        </Hamburger>
-                        <Menu isOpen={isOpen}>
+
+                        <MenuDesktop>
                             <Link
                                 to={link1Index}
                                 className={getLinkClass(link1Index)}
@@ -60,13 +59,35 @@ const HeaderBox = () => {
                             >
                                 {story.content?.Body[0].Link.cached_url}
                             </Link>
-                        </Menu>
+                        </MenuDesktop>
+
+                        <Hamburger onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} >
+                            <Burger src={story.content?.Body[0].Burger.filename}/>
+                        </Hamburger>
 
 
                     </Navigation>
 
                 </Wrapper>
             </Header>
+
+            <Menu isOpen={isOpen} >
+                <Link
+                    to={link1Index}
+                    onClick={() => setIsOpen(false)}
+                    className={getLinkClass(link1Index)}
+                >
+                    {story.content?.Body[0].Index.cached_url}
+                </Link>
+
+                <Link
+                    to={link2About}
+                    onClick={() => setIsOpen(false)}
+                    className={getLinkClass(link2About)}
+                >
+                    {story.content?.Body[0].Link.cached_url}
+                </Link>
+            </Menu>
         </>
     )
 }
