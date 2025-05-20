@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
-import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation} from './styles.js'
+import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuTwo} from './styles.js'
 import { useStoryblok } from "@storyblok/react";
 
 
@@ -58,7 +58,7 @@ const HeaderBox = () => {
                             <span />
                             <span />
                         </Hamburger>
-                        <Menu>
+                        <MenuTwo isOpen={isOpen}>
 
                             <Link
                                 to={link2About}
@@ -66,7 +66,7 @@ const HeaderBox = () => {
                             >
                                 {story.content?.Body[0].Link.cached_url}
                             </Link>
-                        </Menu>
+                        </MenuTwo>
 
 
                     </Navigation>

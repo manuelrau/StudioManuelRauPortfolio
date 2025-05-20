@@ -65,8 +65,8 @@ export const Wrapper = styled.div `
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 `
 
@@ -77,18 +77,19 @@ export const HeaderLogo = styled.img`
 
     @media (max-width: 1024px) {
         width: 100%;
-        height: auto;
+        height: 3vh;
     }
 
     @media (max-width: 768px) {
         width: 100%;
-        height: auto;
-        padding: 10px 0 10px 0;
+        height: 2.75vh;
+        padding: 5px 0 5px 0;
     }
     @media (max-width: 480px) {
         width: 100%;
         height: 2vh;
         justify-content: space-between;
+        padding: 5px 0 5px 0;
     }
 `
 
@@ -136,7 +137,7 @@ export const Menu = styled.div`
     flex-direction: column;
     background: #D6D6D6;  
     top: 40px;  
-    left: 20px;
+    left: 0;
       
     position: absolute;
     width: 100vw;  
@@ -158,4 +159,27 @@ export const Navigation = styled.nav.attrs(() => ({
     align-items: center;
     position: relative;
 
+`
+
+export const MenuTwo = styled.div`
+    display: flex;
+    gap: 20px;
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        background: #D6D6D6;
+        top: 40px;
+        left: 0;
+
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+
+        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    }
 `

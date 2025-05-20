@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import { Link } from 'react-router-dom';
 import { useState, useRef} from "react";
 import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer} from "./styles.jsx"
 import useEmblaCarousel from "embla-carousel-react";
@@ -10,9 +11,10 @@ const Carousel = ({story}) => {
         containScroll: 'trimSnaps', align: 'center' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
-    console.log(story);
-    const photos = story.content?.body[0]?.BigPhoto || [];
-
+    const photos = story.content?.body[0]?.Photo || [];
+    const pho = story.content?.body[0]?.Photo || [];
+    console.log('Data Carousel:'+ pho);
+    console.log('Data Carousel old:'+ photos);
 
 
     useEffect(() => {
@@ -63,6 +65,8 @@ const Carousel = ({story}) => {
         };
     }, [emblaApi]);
 
+    console.log('Data Carousel old:', photos);
+    console.log('Data Carousel:', pho);
     return (
         <>
             <Embla ref={wrapperRef}>
@@ -70,15 +74,17 @@ const Carousel = ({story}) => {
                     <EmblaContainer>
                         {
                             photos.map((section, index) =>
-                                section.filename ? (
 
-                                        <EmblaSlide
-                                            key={index}>
-                                            <ImagesContainer src={section.filename}
-                                                             alt={`Foto ${index + 1}`}
-                                            />
+                                section.Image?.filename ? (
 
-                                        </EmblaSlide>
+                                            <EmblaSlide
+                                                key={index}>
+                                                <Link to={section.link?.cached_url}>
+                                                    <ImagesContainer src={section.Image.filename}
+                                                                     alt={`Foto ${index + 1}`}
+                                                    />
+                                                </Link>
+                                            </EmblaSlide>
 
                                 ) : null
                             )
