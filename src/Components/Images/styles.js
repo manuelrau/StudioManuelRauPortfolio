@@ -28,7 +28,7 @@ export const ImageWrapper = styled.img`
     display: block;
     break-inside: avoid;
     transition: transform 0.3s ease;
-    border-radius: 15px;
+    border-radius: 5px;
 
     @media (max-width: 1024px) {
         
@@ -49,7 +49,7 @@ export const VideoWrapper = styled.video`
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 15px;
+    border-radius: 5px;
 `
 
 export const LinkWrapper = styled.div`
@@ -63,7 +63,7 @@ export const LinkWrapper = styled.div`
   &:hover .hover-info {
     opacity: 1;
     visibility: visible;
-    border-radius: 15px;  
+    border-radius: 5px;  
   }
     
 `;

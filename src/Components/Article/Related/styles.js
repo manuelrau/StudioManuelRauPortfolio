@@ -30,12 +30,6 @@ export const HeadlineTwo = styled.h2.attrs(() => ({
     margin: 0;
 `
 
-export const HeadlineThree = styled.h3.attrs(() => ({
-    className: 'headline-h3',
-}))`
-    margin: 10px 0 10px 0;
-    
-`
 
 export const HeadlineFour = styled.h4.attrs(() => ({
     className: 'headline-h4',

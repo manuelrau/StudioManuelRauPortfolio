@@ -20,14 +20,16 @@ const Categories = () => {
        const articles = await getArticlesWithTags()
 
        const allTags = Array.from(
-           new Set (articles.flatMap((article) => article.tags)),
+           new Set (articles.flatMap((article) => article.tags))
 
        );
        setcategories(allTags);
        setHasLoaded(true);
    };
-   fetchCategories();
-   }, [setHasLoaded]);
+   fetchCategories().catch((error) => {
+       console.error("Fehler beim Laden der Kategorien:", error);
+   });
+   }, [hasLoaded]);
 
     const handleTagClick = (tag) => {
         if (clickedTags.includes(tag)) {

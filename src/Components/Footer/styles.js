@@ -37,6 +37,7 @@ export const Container = styled.div.attrs(() => ({
         flex-direction: column;
         align-items: center;
         padding: 0;
+        margin-bottom: 5rem;
     }
 
 `

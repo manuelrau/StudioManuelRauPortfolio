@@ -57,6 +57,11 @@ export const Wrapper = styled.div `
     @media (max-width: 1024px) {
         align-items: center;
         gap: 10px;
+
+        .LinkNameHeader{
+           font-size: 0.95rem ;
+
+        }
     }
 
     @media (max-width: 768px) {
@@ -67,10 +72,7 @@ export const Wrapper = styled.div `
         
         .LinkNameHeader {
      
-            font-size: 10rem;
-            margin-top: 50px;
-            padding: 10px;
-            max-width: 80%;
+            font-size: 8rem;
         }
     }
     @media (max-width: 480px) {
@@ -90,7 +92,6 @@ export const HeaderLogo = styled.img`
     padding-left: 20px;
     height: 2.55vh;
     width: auto;
-    color: oklch(0.2155 0.0182 255.72 / 0.5);
 
     @media (max-width: 1024px) {
         width: auto;
@@ -110,17 +111,38 @@ export const HeaderLogo = styled.img`
     }
 `
 export const Burger = styled.img`
+    display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
+    height: 3.6vh;
+    width: auto;
+    padding:10px;
+    margin-right: 10px;
+
+    @media (max-width: 768px) {
+        height: 4vh;
+    }
+    @media (max-width: 480px) {
+        height: 3.6vh;
+    }
+`
+
+export const Close = styled.img`
+    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    background: #0000000a;
+    border-radius: 50%;
+    padding: 15px 10px;
+    margin-right: 10px;
+    transition: background .2s ease 0s;
     height: 3.6vh;
     width: auto;
 
     @media (max-width: 768px) {
         height: 4vh;
-        padding:10px 20px;
     }
     @media (max-width: 480px) {
         height: 3.6vh;
-        padding:0 20px;
+   
     }
+    
 `
 
 export const Hamburger = styled.div`
@@ -134,10 +156,24 @@ export const Hamburger = styled.div`
 }
     
 `
+
+export const HamburgerIcon = styled.svg`
+    height: 3.6vh;
+    width: auto;
+
+    @media (max-width: 768px) {
+        height: 4vh;
+        padding:10px 20px;
+    }
+    @media (max-width: 480px) {
+        height: 3.6vh;
+        padding:0 20px;
+    }
+`
 export const MenuDesktop = styled.div`
   display: flex;
-  gap: 60px;
-  padding: 0 10px 0 10px;
+  gap: 70px;
+  padding: 0 30px 0 0px;
 
   a {
     color: black;
@@ -145,6 +181,9 @@ export const MenuDesktop = styled.div`
     font-size: 1rem;
     text-transform: uppercase;
   }
+    @media (max-width: 1024px){
+        gap: 30px;
+    }
 
   @media (max-width: 768px) {
     display: none;
@@ -165,11 +204,12 @@ export const Menu = styled.div`
     height: 100vh;
     background: #D6D6D6;
     z-index: 999;
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease;
     transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   a {
     color: black;
-    font-size: 2rem;
+    font-size: 2.25rem;
+    transition: transform 0.4s ease;  
     text-decoration: none;
     text-transform: uppercase;
   }
@@ -191,27 +231,4 @@ export const Navigation = styled.nav.attrs(() => ({
     align-items: center;
     position: relative;
 
-`
-
-export const MenuTwo = styled.div`
-    display: flex;
-    gap: 20px;
-
-    a {
-        color: white;
-        text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        background: #D6D6D6;
-        top: 40px;
-        left: 0;
-
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-
-        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-    }
 `

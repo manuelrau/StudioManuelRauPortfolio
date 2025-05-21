@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 90vh; /* oder eine andere Höhe, die du brauchst */
+    margin-top: 40px;
     width: 100%;
     overflow: hidden;
 `
