@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     column-count: 4;
-    column-gap: 3rem;
+    column-gap: 2rem;
     row-gap: 2rem;
     padding: 2rem;
 
@@ -18,8 +18,8 @@ export const Container = styled.div`
 
     @media (max-width: 480px) {
         column-count: 1;
-        column-gap: 1rem;
-        padding: 0 0 2.5rem 0;
+        column-gap: 0.5rem;
+        padding: 0 0 .5rem 0;
     }
 `
 export const ImageWrapper = styled.img`
@@ -65,6 +65,10 @@ export const LinkWrapper = styled.div`
     visibility: visible;
     border-radius: 5px;  
   }
+    
+    @media (max-width: 768px) {
+        margin-bottom: 1rem;
+    }
     
 `;
 

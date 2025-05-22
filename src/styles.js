@@ -31,7 +31,7 @@ export const GlobalStyle = createGlobalStyle `
         color: black;
     }
     h1 {
-        font-size: 1.8rem;
+        font-size: 2.5rem;
         font-weight: 400;
     }
     .headline-h1 {

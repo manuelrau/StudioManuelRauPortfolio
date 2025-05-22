@@ -24,7 +24,7 @@ const Footer = () => {
 
 
     console.log(story)
-    if (!story.content) return <p>Laden...</p>;
+    if (!story.content) return <p>Loading content ...</p>;
     return(
         <Wrapper>
             <Container ref={footerRef}>

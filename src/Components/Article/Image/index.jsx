@@ -56,7 +56,7 @@ const Image = ({story}) => {
                                     Dein Browser unterstützt das Video-Tag nicht.
                                 </Video>
 
-                                <ParagraphStyle>{s?.Image?.alt}</ParagraphStyle>
+                                <ParagraphStyle>{s?.Image?.name}</ParagraphStyle>
 
                             </WrapperComponent>
 

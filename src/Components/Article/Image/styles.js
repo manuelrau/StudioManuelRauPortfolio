@@ -35,7 +35,7 @@ export const Video = styled.video`
 
 export const ImageWrapper = styled.div`
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin: 10px 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
@@ -84,6 +84,7 @@ export const ParagraphStyle = styled.p.attrs(() => ({
 }))`
     display: flex;
     margin: 5px 0;
+    width: 100%;
     text-align: left;
     align-self: stretch;
 

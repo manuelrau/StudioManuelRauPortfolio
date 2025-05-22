@@ -6,8 +6,10 @@ export const Wrapper = styled.div.attrs(() => ({
     display: flex;
     width: 100%;
     flex-direction: column;
+    margin-bottom: 2rem;
 
     .imprint{
+        font-size: 0.875rem;
         font-family: 'Lars Mono', monospace;
         text-transform: uppercase;
     }
@@ -65,7 +67,7 @@ export const Container = styled.div`
     height: 100%;
     justify-content: space-between;
     align-items: center;
-    border-top: solid 1px black;
+    border-top: solid 1px #666;
     
     @media (max-width: 768px) {
         justify-content: center;

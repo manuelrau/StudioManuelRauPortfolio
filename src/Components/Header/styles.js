@@ -22,8 +22,8 @@ export const Header = styled.header.attrs(() => ({
         left: 50%;
         transform: translateX(-50%);
         bottom: 20px;
-            width: 75%;
-            margin-right: 10px;
+        width: 75%;
+        margin-right: 10px;
         
     }
  `
@@ -100,8 +100,8 @@ export const HeaderLogo = styled.img`
     }
 
     @media (max-width: 768px) {
-        height: 2.55dvh;
-        padding: 5px 0 5px 10px;
+        height: 1.8dvh;
+        padding: 5px 0 5px 20px;
     }
     @media (max-width: 480px) {
         height: 1.75dvh;
