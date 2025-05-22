@@ -1,9 +1,33 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs(() => ({
+    className: 'footer',
+}))`
     display: flex;
     width: 100%;
     flex-direction: column;
+
+    .imprint{
+        font-family: 'Lars Mono', monospace;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: 1024px) {
+        display: flex;
+        padding: 2rem;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 8rem;
+    }
 `
 export const Wrapp = styled.div`
     display: flex;
@@ -11,11 +35,26 @@ export const Wrapp = styled.div`
     gap: 10rem;
     align-items: center;
     width: 100%;
+
+    @media (max-width: 1024px) {
+        display: flex;
+        align-items: center;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
 `
 
-export const Container = styled.div.attrs(() => ({
-    className: 'footer',
-}))`
+export const Container = styled.div`
     display: inline-flex;
     flex-direction: row;
     gap: 0.75rem;
@@ -27,32 +66,16 @@ export const Container = styled.div.attrs(() => ({
     justify-content: space-between;
     align-items: center;
     border-top: solid 1px black;
+    
+    @media (max-width: 768px) {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
 
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
     
-    .imprint{
-        font-color: orange;
-        font-size: 1.25rem;
-        text-transform: uppercase;
-    }
-    @media (max-width: 1024px) {
-        display: flex;
-        padding: 2rem;
-        align-items: center;
-    }
-    
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-    }
-    @media (max-width: 480px) {
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        margin-bottom: 5rem;
-    }
 
 `
 
@@ -61,18 +84,18 @@ export const SocialMedia = styled.a.attrs(()=> ({
 }))`
     text-decoration: none;
     color: black;
-    padding: 1rem 0;
+    padding: 0.6rem 0;
     
 `
 
 export const SocialContainer = styled.div`
-    gap: 0.7rem;
+    gap: 0.5rem;
     display: flex;
     align-items: center;
     
 `
 export const Icon = styled.img`
-    height: 20px;
+    height: 24px;
 
 `
 export const Text = styled.p.attrs(() => ({
@@ -89,7 +112,7 @@ export const Text = styled.p.attrs(() => ({
         max-width: 80%;
     }
     @media (max-width: 480px) {
-        max-width: 80%;
+        max-width: 90%;
     }
 `
 

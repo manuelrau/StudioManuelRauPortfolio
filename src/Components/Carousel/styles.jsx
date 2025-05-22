@@ -55,7 +55,7 @@ export const ImagesContainer = styled.img`
     }
     
     @media (max-width: 768px) {
-        height: 90dvh;
+        height: 105svh;
         
     }
 

@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle `
     
     body {
         margin: 0;
-        padding: 0 40px 0 40px;
+        padding: 0 20px 0 20px;
         height: 100vh;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle `
         }
 
         @media (max-width: 480px) {
-            padding: 0 10px 0 10px;
+            padding: 0 5px 0 5px;
         }
         
     }
