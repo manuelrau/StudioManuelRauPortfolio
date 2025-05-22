@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+`
+export const Wrapp = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    align-items: center;
+    width: 100%;
+`
 
 export const Container = styled.div.attrs(() => ({
     className: 'footer',
@@ -7,7 +19,7 @@ export const Container = styled.div.attrs(() => ({
     display: inline-flex;
     flex-direction: row;
     gap: 0.75rem;
-    padding: 1.5rem;
+    padding-top: 1.5rem;
     background-color: #D6D6D6;
     font-size: 26px;
     width: 100%; 
@@ -21,7 +33,9 @@ export const Container = styled.div.attrs(() => ({
     }
     
     .imprint{
-        font-size: 1.25rem
+        font-color: orange;
+        font-size: 1.25rem;
+        text-transform: uppercase;
     }
     @media (max-width: 1024px) {
         display: flex;
@@ -43,10 +57,11 @@ export const Container = styled.div.attrs(() => ({
 `
 
 export const SocialMedia = styled.a.attrs(()=> ({
-    className: 'link-base'
+    className: 'text-base'
 }))`
     text-decoration: none;
     color: black;
+    padding: 1rem 0;
     
 `
 
@@ -54,20 +69,10 @@ export const SocialContainer = styled.div`
     gap: 0.7rem;
     display: flex;
     align-items: center;
-
-    @media (max-width: 1024px) {
-        padding: 1rem;
-    }
-
-    @media (max-width: 768px) {
-        padding: 2rem;
-    }
-    @media (max-width: 480px) {
-        padding: 2.5rem;
-    }
+    
 `
 export const Icon = styled.img`
-    height: 25px;
+    height: 20px;
 
 `
 export const Text = styled.p.attrs(() => ({

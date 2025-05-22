@@ -90,22 +90,21 @@ export const Wrapper = styled.div `
 
 export const HeaderLogo = styled.img`
     padding-left: 20px;
-    height: 2.55vh;
+    height: 2.55dvh;
+    max-width: 100%;
+    object-fit: cover;
     width: auto;
 
     @media (max-width: 1024px) {
-        width: auto;
-        height: 2vh;
+        height: 2dvh;
     }
 
     @media (max-width: 768px) {
-        width: 100%;
-        height: 2.55vh;
+        height: 2.55dvh;
         padding: 5px 0 5px 10px;
     }
     @media (max-width: 480px) {
-        width: 100%;
-        height: 1.75vh;
+        height: 1.75dvh;
         justify-content: space-between;
         padding: 5px 5px 5px 15px;
     }

@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Embla = styled.div` 
     overflow: hidden;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100dvw;
     margin: 0 auto;
 
     @media (max-width: 1024px) {
@@ -40,8 +40,8 @@ export const EmblaSlide = styled.div`
 `
 
 export const ImagesContainer = styled.img`
-    width: 110vw;
-    height: 98vh;
+    width: 110dvw;
+    height: 98dvh;
     object-fit: cover;
     display: block;
     max-width: 100%;
@@ -49,13 +49,13 @@ export const ImagesContainer = styled.img`
     border-radius: 0 0 10px 10px;
 
     @media (max-width: 1024px) {
-        height: 76vh;
+        height: 76dvh;
         max-width: 100%;
         object-fit: cover;
     }
     
     @media (max-width: 768px) {
-        height: 90vh;
+        height: 90dvh;
         
     }
 

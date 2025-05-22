@@ -13,7 +13,7 @@ const Images = ({ story , clickedTags = [] }) => {
     const loaderRef = useRef(null)
 
     const [page, setPage] = useState(1);
-    const itemsPerPage = 4; // wie viele elemente sollen immer nachgeladen werden
+    const itemsPerPage = 6; // wie viele elemente sollen immer nachgeladen werden
 
     const maxPage = Math.ceil(allPhotos.length / itemsPerPage);
 
@@ -96,7 +96,7 @@ const Images = ({ story , clickedTags = [] }) => {
                                 id={`photo-${photo._uid}`}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.9, delay: index * 0.2 }}
+                                transition={{ duration: 0.7, delay: index * 0.1 }}
                             >
                                 {photo.Image?.filename.endsWith('.mp4') ? (
                                         <VideoWrapper
