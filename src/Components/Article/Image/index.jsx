@@ -1,5 +1,5 @@
 import React from 'react';
-import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper} from "./styles.js";
+import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper, RightWrapper, VerticalWrapper} from "./styles.js";
 
 const Image = ({story}) => {
 
@@ -18,6 +18,8 @@ const Image = ({story}) => {
                     console.log(s);
                     const filename = s?.Image?.filename;
                     const isFullSize = s?.Fullsize;
+                    const isRight = s?.right;
+                    const isVertical = s?.vertical;
 
                     if(!filename) {
                         return <p key={i}>Kein Bild</p>
@@ -26,7 +28,7 @@ const Image = ({story}) => {
                     const isImage = /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(filename);
                     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(filename);
 
-                    const WrapperComponent = isFullSize ? FullSizeWrapper : Wrapper;
+                    const WrapperComponent = isFullSize ? FullSizeWrapper : isRight ? RightWrapper : (isVertical ? VerticalWrapper : Wrapper);
                     console.log(WrapperComponent)
 
                     if (isImage) {

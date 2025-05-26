@@ -39,6 +39,7 @@ export const ImageWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
+    align-items: center;
     row-gap: 5rem;
     column-gap: 6rem;
     padding: 2rem;
@@ -64,7 +65,16 @@ export const FullSizeWrapper = styled(ImageWrapper)`
     grid-template-columns: repeat(1, 1fr);
     row-gap: 0;
 `
-
+export const RightWrapper = styled(ImageWrapper)` 
+    grid-column: span 2;
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 60%;
+    justify-self: end;
+`
+export const VerticalWrapper = styled(ImageWrapper)`
+    width: 75%;
+    display: flex;
+`
 export const Wrapper = styled.div`
 
     display: flex;
