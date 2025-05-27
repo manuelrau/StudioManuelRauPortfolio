@@ -53,7 +53,8 @@ export const Section = styled.section`
     }
     
     @media (max-width: 480px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+        margin: 50px 0 20px 0;
     }
 `
 export const Container = styled.div`
@@ -63,6 +64,11 @@ export const Container = styled.div`
     align-items: normal;
     margin-bottom: 5rem;
     padding: 0 20px 0 20px;
+
+    @media (max-width: 480px) {
+        margin-bottom: 3rem;
+        padding: 0;
+    }
 `
 export const Images = styled.img`
     max-width: 100%;
@@ -85,6 +91,14 @@ export const HeadlineH1 = styled.h1.attrs(() => ({
     display: flex;
     justify-content: center;
     margin: 100px 0 0 0;
+    
+    @media (max-width: 768px) {
+        margin: 75px 0 0 0;
+    }
+
+    @media (max-width: 480px) {
+        margin: 25px 0 0 0;
+    }
 `
 
 export const HeadlineH3 = styled.h3.attrs(() => ({

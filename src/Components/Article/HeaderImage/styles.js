@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
     margin-top: 40px;
     width: 100%;
     overflow: hidden;
+    
+    @media (max-width: 480px) {
+        height: 70vh;
+    }
 `
 export const ImageDefinition = styled.img`
     max-width: 100%;

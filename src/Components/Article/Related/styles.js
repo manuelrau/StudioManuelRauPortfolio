@@ -15,9 +15,15 @@ export const Image = styled.img`
 `
 
 export const Section = styled.section`
-    display: flex;
-    gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 85%;
+    gap: 10%;
     margin: 20px 0 75px 0;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `
 
 export const Component = styled.section`

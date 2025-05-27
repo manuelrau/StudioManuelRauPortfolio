@@ -96,11 +96,11 @@ export const HeaderLogo = styled.img`
     width: auto;
 
     @media (max-width: 1024px) {
-        height: 2dvh;
+        height: 1.8dvh;
     }
 
     @media (max-width: 768px) {
-        height: 1.8dvh;
+        height: 1.7dvh;
         padding: 5px 0 5px 20px;
     }
     @media (max-width: 480px) {
@@ -118,6 +118,7 @@ export const Burger = styled.img`
 
     @media (max-width: 768px) {
         height: 4vh;
+        padding: 5px;
     }
     @media (max-width: 480px) {
         height: 3.6vh;
@@ -136,6 +137,7 @@ export const Close = styled.img`
 
     @media (max-width: 768px) {
         height: 4vh;
+        padding: 5px;
     }
     @media (max-width: 480px) {
         height: 3.6vh;
@@ -213,7 +215,7 @@ export const Menu = styled.div`
     text-transform: uppercase;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: none;
   }
 `;
