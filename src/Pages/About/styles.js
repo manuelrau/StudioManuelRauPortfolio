@@ -80,13 +80,22 @@ export const Images = styled.img`
     border-radius: 5px;
     object-fit: cover;
 `
+export const Video = styled.video`
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+    display: block;
+    break-inside: avoid;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+    object-fit: cover;`
 
 export const Wrapper = styled.div`
     background: #FF926E ;
 `
 
-export const HeadlineH1 = styled.h1.attrs(() => ({
-    className: 'headline-h1'
+export const HeadlineH1 = styled.h2.attrs(() => ({
+    className: 'headline-h2'
 }))`
     display: flex;
     justify-content: center;

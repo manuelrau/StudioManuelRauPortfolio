@@ -6,6 +6,7 @@ import {
     AboutSection,
     CenterBox,
     Images,
+    Video,
     Container,
     Wrapper,
     Section,
@@ -44,6 +45,8 @@ const About = () => {
 
     if (!story.content) return <p>Laden...</p>;
 
+    const content = story.content.body[1].OverviewComponent
+
        return (
            <>
                <GlobalStyle />
@@ -57,27 +60,52 @@ const About = () => {
                                    {section.Headline &&
                                        <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
-                                       <AboutPtag className="container-animate">{section.Text.content[0].content[0].text}</AboutPtag>
+                                       <>
+                                           <AboutPtag className="container-animate">{section.Text.content[0].content[0].text}</AboutPtag>
+                                       </>
                                    )}
                                </div>
                            ))}
                        </CenterBox>
                        <Section>
-                           {story.content.body[1].OverviewComponent.map((section, index) => (
+                           {content.map((section, index) => {
+                               console.log(section)
+                               const filename = section?.Asset?.filename;
+                               const isImage = /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(filename);
+                               const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(filename);
 
+                               if (isImage) {
+                                   return (
+                                       <Container key={index} className="container-animate">
+                                           <HeadlineH3>{section.Headline}</HeadlineH3>
+                                           <Images key={index} src={section?.Asset?.filename} />
+                                           <AboutText>{section.Text}</AboutText>
+                                       </Container>
+
+                                   )
+                               } else if(isVideo) {
+
+                                   return (
+                                       <Container key={index} className="container-animate">
+                                           <HeadlineH3>{section.Headline}</HeadlineH3>
+                                           <Video
+                                               key={index}
+                                               src={section?.Asset?.filename}
+                                               autoPlay
+                                               muted
+                                               loop
+                                               playsInline
+                                           />
+                                           <AboutText>{section.Text}</AboutText>
+                                       </Container>
+                                       )
+
+                               }
                                <Container key={index} className="container-animate">
-
-                                   {section.Headline &&
-                                       <HeadlineH3>{section.Headline}</HeadlineH3>}
-                                   {section.Asset?.filename && (
-                                       <Images src={section.Asset.filename} alt={section.Asset.alt}/>
-                                   )}
-                                   {section.Text && (
-                                       <AboutText>{section.Text}</AboutText>
-                                   )}
-
+                                   <HeadlineH3>{section.Headline}</HeadlineH3>
+                                   <AboutText>{section.Text}</AboutText>
                                </Container>
-                           ))}
+                           })}
                        </Section>
                    </AboutSection>
                </Wrapper>

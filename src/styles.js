@@ -36,9 +36,14 @@ export const GlobalStyle = createGlobalStyle `
     }
     .headline-h1 {
         font-size: 4rem;
+        font-weight: 400;
+        
+        @media (max-width: 768px) {
+            font-size: 2.5rem;
+        }
     }
     .headline-h2 {
-        font-size: 1.6rem;
+        font-size: 2.5rem;
         font-weight: 400;
     }
     .headline-h3 {

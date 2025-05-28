@@ -97,10 +97,10 @@ export default function ArticlePage() {
             <HeaderImage story={article.content?.Header}/>
             <Wrapper>
                 <ScrollLetterSpacing
-                    scrollStartEffect={300}  // Beginnt etwas später
+                    scrollStartEffect={100}  // Beginnt etwas später
                     scrollEndEffect={800}    // Effekt dauert länger an
                     minLetterSpacing={0.5}   // Kleiner Startabstand
-                    maxLetterSpacing={90}    // Größerer maximaler Abstand
+                    maxLetterSpacing={20}    // Größerer maximaler Abstand
                     >
                     {article.content.Headline}
                 </ScrollLetterSpacing>

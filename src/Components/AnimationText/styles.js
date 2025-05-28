@@ -7,6 +7,10 @@ export const  DynamicStyledText = styled.h1.attrs(() => ({
     /* Wichtig: letter-spacing wird durch Props dynamisch gesetzt */
     letter-spacing: ${props => props.currentLetterSpacing}px;
     color: #000;
+    
+    @media (max-width: 768px) {
+        
+    }
 `
 
 export const ScrollPlaceholder = styled.div`
