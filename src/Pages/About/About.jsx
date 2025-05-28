@@ -54,7 +54,8 @@ const About = () => {
                        <CenterBox className="container-animate">
                            {story.content.body.map((section, index) => (
                                <div key={index}>
-                                   {section.Headline && <HeadlineH1>{section.Headline}</HeadlineH1>}
+                                   {section.Headline &&
+                                       <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
                                        <AboutPtag className="container-animate">{section.Text.content[0].content[0].text}</AboutPtag>
                                    )}
@@ -66,7 +67,8 @@ const About = () => {
 
                                <Container key={index} className="container-animate">
 
-                                   {section.Headline && <HeadlineH3>{section.Headline}</HeadlineH3>}
+                                   {section.Headline &&
+                                       <HeadlineH3>{section.Headline}</HeadlineH3>}
                                    {section.Asset?.filename && (
                                        <Images src={section.Asset.filename} alt={section.Asset.alt}/>
                                    )}

@@ -9,6 +9,7 @@ import HeaderImage from "../../Components/Article/HeaderImage";
 import Text from "../../Components/Article/Text/index.jsx";
 import {HeadlineThree, Wrapper, WrapperTags} from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
+import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
 
@@ -95,7 +96,14 @@ export default function ArticlePage() {
             <Header/>
             <HeaderImage story={article.content?.Header}/>
             <Wrapper>
-                <h1>{article.content.Headline}</h1>
+                <ScrollLetterSpacing
+                    scrollStartEffect={300}  // Beginnt etwas später
+                    scrollEndEffect={800}    // Effekt dauert länger an
+                    minLetterSpacing={0.5}   // Kleiner Startabstand
+                    maxLetterSpacing={90}    // Größerer maximaler Abstand
+                    >
+                    {article.content.Headline}
+                </ScrollLetterSpacing>
                 <WrapperTags>
                     {article.tag_list?.map((tag, index) => (
                         <HeadlineThree key={index}>{tag}</HeadlineThree>
