@@ -12,6 +12,7 @@ import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
+import {animate, stagger} from "motion";
 
 
 
@@ -25,8 +26,6 @@ export default function ArticlePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
 
     const [imageData, setImageData] = useState(null);
-
-    console.log(story)
 
 
     useEffect(() => {
@@ -83,8 +82,10 @@ export default function ArticlePage() {
     }, [article]);
 
 
+
     if (notFound) return <p>Artikel nicht gefunden</p>;
     if (!article) return <p>Lade Artikel...</p>;
+
 
     console.log(article);
     console.log(setTitles);
@@ -94,6 +95,7 @@ export default function ArticlePage() {
         <>
             <GlobalStyle/>
             <Header/>
+
             <HeaderImage story={article.content?.Header}/>
             <Wrapper>
                 <ScrollLetterSpacing
@@ -117,7 +119,7 @@ export default function ArticlePage() {
 
                 <Images story={imageData}/>
 
-                <RelatedArticle story={titles} />
+                <RelatedArticle story={titles}/>
 
             </Wrapper>
             <Footer/>

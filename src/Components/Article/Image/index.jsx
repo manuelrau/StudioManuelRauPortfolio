@@ -1,18 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper, RightWrapper, VerticalWrapper} from "./styles.js";
+import {animate, stagger} from "motion";
+
 
 const Image = ({story}) => {
-
+    useEffect(() => {
+        if (!story || !story.Image?.filename) {
+            return; // Frühzeitiger Ausstieg, wenn keine Daten vorhanden sind
+        }
+        animate(
+            ".container-animate",
+            { opacity: [0, 1], y: [50, 0] },
+            {
+                delay: stagger(0.1),
+                duration: 1.0,
+                easing: "ease-in"
+            }
+        );
+    }, [story]);
 
     console.log('Test ob daten da sind', story);
 
     if (!Array.isArray(story)) {
         return <p>Keine Bilddaten vorhanden.</p>;
     }
-
     return (
         <>
-            <ImageWrapper>
+            <ImageWrapper className="container-animate">
                 {story.map((s, i) => {
 
                     console.log(s);

@@ -1,8 +1,9 @@
 import {Container, HoverInfo, ImageWrapper, LinkWrapper, VideoWrapper} from "./styles.js";
 import { Link } from 'react-router-dom';
-import { motion } from "motion/react"
 import {useEffect, useRef, useState} from "react";
 import {animate} from "motion";
+import { motion } from "framer-motion"
+
 
 
 

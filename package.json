@@ -12,6 +12,7 @@
   "dependencies": {
     "@storyblok/react": "^4.5.1",
     "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.15.0",
     "motion": "^12.6.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
