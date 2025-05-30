@@ -8,7 +8,6 @@ export const Img = styled.img`
     
     
     @media (max-width: 1024px) {
-        height: 40vh
     }
     
     @media (max-width: 768px) {

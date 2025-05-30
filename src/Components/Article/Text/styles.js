@@ -35,6 +35,7 @@ export const LinkWrapper = styled.div`
     padding: 50px 0 50px 0;
     max-width: 25%;
     align-items: flex-start;
+    overflow-wrap: break-word;
 
     @media (max-width: 768px) {
         padding: 0 10px;

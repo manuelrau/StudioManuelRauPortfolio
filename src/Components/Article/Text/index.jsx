@@ -29,7 +29,7 @@ const Text = ({story, links}) => {
         <TextWrapper>
             <LinkWrapper>
                 <SVGStyling src="../../../public/lsicon_arrow-down-filled.svg" alt="Arrow horizontal"/>
-                <Tag href={links?.cached_url}>{links?.cached_url}</Tag>
+                <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
             </LinkWrapper>
             <Wrapper className="container-animate">
                 <TextStyle>{rawData.text}</TextStyle>

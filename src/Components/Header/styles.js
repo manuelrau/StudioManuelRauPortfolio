@@ -16,6 +16,10 @@ export const Header = styled.header.attrs(() => ({
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
+    @media (max-width: 1024px) {
+        left: 65%;
+        width: 60vw;
+    }
 
     @media (max-width: 480px) {
         top: auto;
@@ -96,7 +100,7 @@ export const HeaderLogo = styled.img`
     width: auto;
 
     @media (max-width: 1024px) {
-        height: 1.8dvh;
+        height: 1.6dvh;
     }
 
     @media (max-width: 768px) {
