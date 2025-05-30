@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import {paragraphText, Wrapper} from "./styles.js";
+import {TextStyle, Wrapper, Tag, LinkWrapper, SVGStyling, TextWrapper} from "./styles.js";
 import {animate, stagger} from "motion";
 
-const Text = ( story ) => {
+const Text = ({story, links}) => {
 
-    const rawData = story.story.content[0].content[0]
+    console.log(story);
+    const rawData = story.content[0].content[0]
 
     console.log('rawTextData', rawData)
 
@@ -23,13 +24,18 @@ const Text = ( story ) => {
         );
     }, [rawData]);
 
-
+    console.log("Links:", links)
     return(
-        <>
+        <TextWrapper>
+            <LinkWrapper>
+                <SVGStyling src="../../../public/lsicon_arrow-down-filled.svg" alt="Arrow horizontal"/>
+                <Tag href={links?.cached_url}>{links?.cached_url}</Tag>
+            </LinkWrapper>
             <Wrapper className="container-animate">
-                <paragraphText>{rawData.text}</paragraphText>
+                <TextStyle>{rawData.text}</TextStyle>
             </Wrapper>
-        </>
+
+        </TextWrapper>
     )
 }
 

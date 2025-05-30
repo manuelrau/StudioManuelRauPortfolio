@@ -87,7 +87,7 @@ export default function ArticlePage() {
     if (!article) return <p>Lade Artikel...</p>;
 
 
-    console.log(article);
+    console.log("Article:", article.content?.Link);
     console.log(setTitles);
 
 
@@ -113,7 +113,9 @@ export default function ArticlePage() {
                 </WrapperTags>
 
 
-                <Text story={article.content.Text}/>
+                <Text story = {article?.content?.Text}
+                      links = {article.content?.Link}
+                />
 
                 <CarouselCompont/>
 

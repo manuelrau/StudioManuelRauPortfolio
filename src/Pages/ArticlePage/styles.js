@@ -32,4 +32,5 @@ export const WrapperTags = styled.div`
 export const HeadlineThree = styled.h3.attrs(()=> ({
     className: 'headline-h3',
 }))`
+    font-family: Lars Mono, monospace;
 `

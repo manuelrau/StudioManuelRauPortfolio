@@ -81,11 +81,14 @@ export const GlobalStyle = createGlobalStyle `
         line-height: 1.15;
         color: black;
     }
-    .link-base { font-size: 1.25rem }
+    .link-base { 
+        font-size: 1.0rem;
+        font-family: Lars Mono, monospace;
+    }
     .link-header { 
         font-size: 1rem;
         font-family: Lars Mono, monospace;
-        background-color: black}
+       }
     
     #root {
         height: auto;
