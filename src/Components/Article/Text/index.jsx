@@ -27,10 +27,12 @@ const Text = ({story, links}) => {
     console.log("Links:", links)
     return(
         <TextWrapper>
+            {links?.cached_url ? (
             <LinkWrapper>
                 <SVGStyling src="../../../public/lsicon_arrow-down-filled.svg" alt="Arrow horizontal"/>
                 <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
             </LinkWrapper>
+            ) : null}
             <Wrapper className="container-animate">
                 <TextStyle>{rawData.text}</TextStyle>
             </Wrapper>

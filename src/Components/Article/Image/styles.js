@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Img = styled.img`
     max-width: 100%;
     max-height: 100%;
-    padding: 20px 0 20px 0;
-    border-radius: 15px;
+    border-radius: 5px;
     
     
     @media (max-width: 1024px) {
@@ -23,8 +22,7 @@ export const Img = styled.img`
 export const Video = styled.video`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 15px;
-    padding: 20px 0 2px 0;
+    border-radius: 5px;
 
     @media (max-width: 768px) {
         display: block;
@@ -40,7 +38,7 @@ export const ImageWrapper = styled.div`
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
-    row-gap: 5rem;
+    row-gap: .5rem;
     column-gap: 6rem;
     padding: 2rem;
 

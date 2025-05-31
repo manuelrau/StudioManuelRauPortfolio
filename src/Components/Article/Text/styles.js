@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div.attrs(() => ({
     className: "text-lg",
 }))`
-    width: 55%;
+    width: 60%;
 
     margin-left: auto;
     margin-right: 50px;
