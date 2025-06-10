@@ -4,13 +4,15 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh; /* oder eine andere Höhe, die du brauchst */
+    height: 80dvh; /* oder eine andere Höhe, die du brauchst */
     margin-top: 40px;
     width: 100%;
     overflow: hidden;
+    object-fit: cover;
     
     @media (max-width: 480px) {
-        height: 70vh;
+        margin-top: 10px;
+        height:  ${window.innerHeight}px ;
     }
 `
 export const ImageDefinition = styled.img`

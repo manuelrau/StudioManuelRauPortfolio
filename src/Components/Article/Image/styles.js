@@ -10,7 +10,8 @@ export const Img = styled.img`
     }
     
     @media (max-width: 768px) {
-        height: auto
+        height: auto;
+        
     }
 
     @media (max-width: 480px) {
@@ -47,6 +48,7 @@ export const ImageWrapper = styled.div`
 
     @media (max-width: 768px) {
         column-count: 1;
+
         padding: 0;
         margin-bottom: 25px;
         display: block;
@@ -57,21 +59,49 @@ export const ImageWrapper = styled.div`
 
     }
 
+    
+`
+
+export const WrapperComponentPackage = styled.div`
+
+    @media (max-width: 1024px) {
+        
+    }
+
+    @media (max-width: 768px) {
+
+        margin-bottom: 25px;
+
+    }
+
+    @media (max-width: 480px) {
+        
+        margin-bottom: 40px;
+    }
 `
 export const FullSizeWrapper = styled(ImageWrapper)`
     grid-column: span 2; /* über beide Spalten */
     grid-template-columns: repeat(1, 1fr);
     row-gap: 0;
+    
 `
 export const RightWrapper = styled(ImageWrapper)` 
     grid-column: span 2;
     grid-template-columns: repeat(1, 1fr);
     max-width: 60%;
     justify-self: end;
+    
+    @media (max-width: 480px)  {
+        width: 100%;
+    }
 `
 export const VerticalWrapper = styled(ImageWrapper)`
     width: 75%;
     display: flex;
+    
+    @media (max-width: 480px)  {
+        width: 100%;
+    }
 `
 export const Wrapper = styled.div`
 
@@ -95,5 +125,9 @@ export const ParagraphStyle = styled.p.attrs(() => ({
     width: 100%;
     text-align: left;
     align-self: stretch;
+
+    @media (max-width: 480px)  {
+        line-height: 1.45;
+    }
 
 `

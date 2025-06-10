@@ -107,14 +107,14 @@ export const Text = styled.p.attrs(() => ({
     max-width: 450px;
     
     @media (max-width: 1024px) {
-        max-width: 40%;
+        max-width: 70%;
     }
 
     @media (max-width: 768px) {
         max-width: 80%;
     }
     @media (max-width: 480px) {
-        max-width: 90%;
+        max-width: 100%;
     }
 `
 

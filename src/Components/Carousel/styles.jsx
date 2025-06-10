@@ -59,4 +59,10 @@ export const ImagesContainer = styled.img`
         
     }
 
+    @media (max-width: 480px) {
+
+        height: ${window.innerHeight}px;
+
+    }
+
 `

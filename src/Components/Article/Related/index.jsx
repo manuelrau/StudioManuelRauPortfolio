@@ -41,7 +41,7 @@ const RelatedArticle = ({story} ) =>  {
 
     if (!randomStories || randomStories.length === 0) {
         // Optional: Ladezustand oder nichts anzeigen, wenn keine Stories da sind
-        return <p>Lade verwandte Artikel...</p>
+        return <p>Loading article ...</p>
     }
 
 

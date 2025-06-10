@@ -28,6 +28,10 @@ export const TextStyle = styled.p.attrs(() => ({
     @media (max-width: 768px) {
         font-size: 1rem;
     }
+    
+    @media (max-width: 480px) {
+      
+    }
 `
 export const LinkWrapper = styled.div` 
     display: flex;
@@ -44,6 +48,7 @@ export const LinkWrapper = styled.div`
 export const Tag = styled.a.attrs(()=> ({
     className: 'link-base',
 }))`
+    
 `
 
 export const SVGStyling = styled.img`

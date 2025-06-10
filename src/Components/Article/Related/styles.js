@@ -23,6 +23,7 @@ export const Section = styled.section`
     
     @media (max-width: 768px) {
         grid-template-columns: repeat(1, 1fr);
+        max-width: 100%;
     }
 `
 

@@ -22,6 +22,7 @@ const HeaderImage = (story) => {
         );
     }, [rawData]);
 
+
     return(
         <>
             <Wrapper className="container-animate">

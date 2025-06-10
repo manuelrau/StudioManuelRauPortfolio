@@ -26,7 +26,7 @@ export const Header = styled.header.attrs(() => ({
         left: 50%;
         transform: translateX(-50%);
         bottom: 20px;
-        width: 75%;
+        width: 90%;
         margin-right: 10px;
         
     }
@@ -94,6 +94,8 @@ export const Wrapper = styled.div `
 
 export const HeaderLogo = styled.img`
     padding-left: 20px;
+    background-attachment: fixed;
+    background-size: cover;
     height: 2.55dvh;
     max-width: 100%;
     object-fit: cover;
@@ -108,7 +110,7 @@ export const HeaderLogo = styled.img`
         padding: 5px 0 5px 20px;
     }
     @media (max-width: 480px) {
-        height: 1.75dvh;
+        height: ${window.innerHeight/40}px;
         justify-content: space-between;
         padding: 5px 5px 5px 15px;
     }

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper, RightWrapper, VerticalWrapper} from "./styles.js";
+import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper, RightWrapper, VerticalWrapper, WrapperComponentPackage} from "./styles.js";
 import {animate, stagger} from "motion";
 
 
@@ -48,12 +48,16 @@ const Image = ({story}) => {
                     if (isImage) {
                         return (
                             <WrapperComponent>
+                                <WrapperComponentPackage>
+
+
                                 <Img
                                     src={s.Image.filename}
-                                    alt={s.Image.alt || "Kein Alt-Text"}
+                                    alt={s.Image.alt || "No Alt-text"}
                                     key={i}
                                 />
                                 <ParagraphStyle>{s?.Image?.name}</ParagraphStyle>
+                                </WrapperComponentPackage>
                             </WrapperComponent>
                         );
                     }

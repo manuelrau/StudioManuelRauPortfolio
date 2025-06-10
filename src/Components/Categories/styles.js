@@ -49,5 +49,10 @@ export const Tag = styled.span`
   cursor: pointer;
   transition: all 0.2s ease;
     
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+        padding: 6px 9px;
+    }
+    
     
 `
