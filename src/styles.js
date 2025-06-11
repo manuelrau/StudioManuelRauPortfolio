@@ -58,7 +58,11 @@ export const GlobalStyle = createGlobalStyle `
         font-size: 0.75rem;
         font-family: Lars Mono, monospace;
     }
-    
+    .text-sub-sm-mono {
+        font-size: .9rem;
+        color: #404040;
+        font-family: Lars Mono, monospace;
+    }
     .text-xs { font-size: 0.75rem; }
     .text-sm { 
         font-size: 0.875rem; 
@@ -75,7 +79,11 @@ export const GlobalStyle = createGlobalStyle `
         line-height: 1.3;
     }
     .text-xl { font-size: 1.25rem; }
-    .text-2xl { font-size: 1.5rem; }
+    .text-2xl { 
+        font-size: clamp(1rem, .94rem + .26vw, 1.5rem)
+    }
+    
+    
     .bigText {
         font-size: 1.6rem;
         line-height: 1.15;

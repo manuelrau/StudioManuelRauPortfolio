@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Img = styled.img`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     
     
     @media (max-width: 1024px) {
@@ -56,7 +56,7 @@ export const ImageWrapper = styled.div`
     }
 
     @media (max-width: 480px) {
-
+        margin-bottom: 40px;
     }
 
     
@@ -76,7 +76,7 @@ export const WrapperComponentPackage = styled.div`
 
     @media (max-width: 480px) {
         
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 `
 export const FullSizeWrapper = styled(ImageWrapper)`
@@ -90,9 +90,15 @@ export const RightWrapper = styled(ImageWrapper)`
     grid-template-columns: repeat(1, 1fr);
     max-width: 60%;
     justify-self: end;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px)  {
+        max-width: 100%;
+    }
     
     @media (max-width: 480px)  {
-        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
     }
 `
 export const VerticalWrapper = styled(ImageWrapper)`
@@ -118,7 +124,7 @@ export const Wrapper = styled.div`
 `
 
 export const ParagraphStyle = styled.p.attrs(() => ({
-    className: 'text-sub-xs',
+    className: 'text-sub-sm-mono',
 }))`
     display: flex;
     margin: 5px 0;

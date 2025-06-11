@@ -25,12 +25,22 @@ export const WrapperTags = styled.div`
     }
     
     @media (max-width: 480px) {
-        justify-content: left;
-        gap: 20px;
+        gap: 0;
+        
     }
 `
 export const HeadlineThree = styled.h3.attrs(()=> ({
     className: 'headline-h3',
 }))`
     font-family: Lars Mono, monospace;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: center;
+    }
 `

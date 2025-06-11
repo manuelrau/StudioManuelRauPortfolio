@@ -18,6 +18,7 @@ export const Wrapper = styled.div.attrs(() => ({
     }
 
     @media (max-width: 480px) {
+        padding: 20px 0 20px 0;
         flex-direction: column;
     }
 `

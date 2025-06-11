@@ -4,11 +4,17 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80dvh; /* oder eine andere Höhe, die du brauchst */
+    height: ${window.innerHeight*.8}px; /* oder eine andere Höhe, die du brauchst */
     margin-top: 40px;
     width: 100%;
     overflow: hidden;
     object-fit: cover;
+    
+    @media (max-width: 1024px) {
+        margin-top: 10px;
+        height:  ${window.innerHeight*.8}px ;
+    }
+    
     
     @media (max-width: 480px) {
         margin-top: 10px;

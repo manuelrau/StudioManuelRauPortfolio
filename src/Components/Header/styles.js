@@ -12,9 +12,11 @@ export const Header = styled.header.attrs(() => ({
     width: 50vw;
     background-color: oklab(0.96 0 0 / 0.7);
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); // für Safari
 
     &.orange {
-        background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
+        background-color: oklab(0.96 0 0 / 0.7);
+        backdrop-filter: blur(24px); /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
     @media (max-width: 1024px) {
         left: 65%;
@@ -96,21 +98,21 @@ export const HeaderLogo = styled.img`
     padding-left: 20px;
     background-attachment: fixed;
     background-size: cover;
-    height: 2.55dvh;
+    height: ${window.innerHeight*.0205}px;
     max-width: 100%;
     object-fit: cover;
     width: auto;
 
     @media (max-width: 1024px) {
-        height: 1.6dvh;
+        height: ${window.innerHeight*.02}px;
     }
 
     @media (max-width: 768px) {
-        height: 1.7dvh;
+        height: ${window.innerHeight*.02}px;
         padding: 5px 0 5px 20px;
     }
     @media (max-width: 480px) {
-        height: ${window.innerHeight/40}px;
+        height: ${window.innerHeight*.02}px;
         justify-content: space-between;
         padding: 5px 5px 5px 15px;
     }
@@ -237,5 +239,10 @@ export const Navigation = styled.nav.attrs(() => ({
     justify-content: space-between;
     align-items: center;
     position: relative;
+    
+    @media (max-width: 480px) {
+        height: 30px;
+        
+    }
 
 `
