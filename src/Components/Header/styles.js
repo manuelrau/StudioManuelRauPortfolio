@@ -112,7 +112,7 @@ export const HeaderLogo = styled.img`
         padding: 5px 0 5px 20px;
     }
     @media (max-width: 480px) {
-        height: ${window.innerHeight*.02}px;
+        height: ${window.innerHeight*.024}px;
         justify-content: space-between;
         padding: 5px 5px 5px 15px;
     }

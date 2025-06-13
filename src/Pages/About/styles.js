@@ -16,7 +16,7 @@ export const AboutSection = styled.div`
 export const CenterBox = styled.div`
     width: 100%;
     max-width: 550px;
-    padding: 20px;
+    padding: 0; // abstände 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,14 @@ export const CenterBox = styled.div`
 export const AboutPtag = styled.p.attrs(() => ({
     className: 'text-lg'
 })) `
-
+    
+    @media (max-width: 768px) {
+        
+    }
+    
+    @media (max-width: 480px) {
+        font-size: 0.9rem;
+    }
 `
 
 export const AboutText = styled.p.attrs(() => ({
@@ -54,7 +61,7 @@ export const Section = styled.section`
     
     @media (max-width: 480px) {
         grid-template-columns: repeat(1, 1fr);
-        margin: 50px 0 20px 0;
+        margin: 70px 0 20px 0;
     }
 `
 export const Container = styled.div`
@@ -107,6 +114,7 @@ export const HeadlineH1 = styled.h2.attrs(() => ({
 
     @media (max-width: 480px) {
         margin: 25px 0 0 0;
+        font-size: 1.75rem;
     }
 `
 
@@ -115,5 +123,14 @@ export const HeadlineH3 = styled.h3.attrs(() => ({
 
 
 }))`
-    margin:  0 0 30px 0;
+    margin:  0 0 15px 0;
+`
+
+
+export const Chapter = styled.div`
+    margin: 30px 0;
+    
+    @media (max-width: 768px) {
+        margin: 50px 10px;
+    }
 `

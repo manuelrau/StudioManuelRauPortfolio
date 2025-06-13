@@ -33,7 +33,9 @@ const Footer = () => {
             </Container>
             <Wrapp>
                 <Link className={story.content?.Body[0].Imprint.cached_url}
-                      to={story.content?.Body[0].Imprint.cached_url}>{story.content?.Body[0].Imprint.cached_url}</Link>
+
+
+                      to={`/${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url}</Link>
                 <SocialMedia
                     href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
                 <SocialContainer>

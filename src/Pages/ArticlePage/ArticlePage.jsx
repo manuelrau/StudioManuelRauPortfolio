@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Header from "../../Components/Header/index.jsx";
-import { GlobalStyle } from "../../styles.js";
+import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
 import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
@@ -124,7 +124,10 @@ export default function ArticlePage() {
                 <RelatedArticle story={titles}/>
 
             </Wrapper>
-            <Footer/>
+            <FooterContainer>
+                <Footer/>
+            </FooterContainer>
+
         </>
     )
 }

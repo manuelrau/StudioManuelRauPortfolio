@@ -8,6 +8,7 @@ import {
     Images,
     Video,
     Container,
+    Chapter,
     Wrapper,
     Section,
     HeadlineH1,
@@ -56,7 +57,7 @@ const About = () => {
                    <AboutSection>
                        <CenterBox className="container-animate">
                            {story.content.body.map((section, index) => (
-                               <div key={index}>
+                               <Chapter key={index}>
                                    {section.Headline &&
                                        <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
@@ -64,7 +65,7 @@ const About = () => {
                                            <AboutPtag className="container-animate">{section.Text.content[0].content[0].text}</AboutPtag>
                                        </>
                                    )}
-                               </div>
+                               </Chapter>
                            ))}
                        </CenterBox>
                        <Section>
