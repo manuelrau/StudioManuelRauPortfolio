@@ -23,7 +23,7 @@ export const Wrapper = styled.div.attrs(() => ({
     }
 `
 
-export const TextStyle = styled.p.attrs(() => ({
+export const TextStyle = styled.div.attrs(() => ({
     className: "text-2xl",
 }))`
     @media (max-width: 768px) {

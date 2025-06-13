@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import {TextStyle, Wrapper, Tag, LinkWrapper, SVGStyling, TextWrapper} from "./styles.js";
 import {animate, stagger} from "motion";
+import { render } from "storyblok-rich-text-react-renderer";
 
 const Text = ({story, links}) => {
 
     console.log(story);
-    const rawData = story.content[0].content[0]
+    const rawData = story.content[0]
 
     console.log('rawTextData', rawData)
 
@@ -25,10 +26,11 @@ const Text = ({story, links}) => {
     }, [rawData]);
 
     console.log("Links:", links)
+    console.log("Data:", rawData)
     return(
         <TextWrapper>
             <Wrapper className="container-animate">
-                <TextStyle>{rawData.text}</TextStyle>
+                <TextStyle>{render({type: 'doc', content:[rawData]})}</TextStyle>
             </Wrapper>
             {links?.cached_url ? (
             <LinkWrapper>
