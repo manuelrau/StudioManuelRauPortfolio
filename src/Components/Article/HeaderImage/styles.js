@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    
     height: ${window.innerHeight*.8}px; /* oder eine andere Höhe, die du brauchst */
     margin-top: 40px;
     width: 100%;

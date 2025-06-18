@@ -39,7 +39,7 @@ const HeaderBox = () => {
 
         Value = 0.02
 
-    } else if (windowSize.width > 480 && windowSize.width <= 768) {
+    } else if (windowSize.width > 480 && windowSize.width <= 768) { // wird aktuell nicht benutz da es springt in mobile
 
         Value = 0.022;
 
@@ -47,6 +47,8 @@ const HeaderBox = () => {
 
         Value = 0.0255;
     }
+
+
 
     const dynamicHeight = windowSize.height ? `${windowSize.height * Value}px` : 'auto';
     if (!story.content) return <p>Laden...</p>;
@@ -63,7 +65,7 @@ const HeaderBox = () => {
                     <Navigation>
 
                         <Link to="/">
-                            <HeaderLogo src={story.content?.Body[0].Logo.filename} calculatedHeight={dynamicHeight} />
+                            <HeaderLogo src={story.content?.Body[0].Logo.filename} calculatedHeight={dynamicHeight}  />
                         </Link>
 
                         <MenuDesktop>

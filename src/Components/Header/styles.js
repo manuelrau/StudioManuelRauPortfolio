@@ -22,6 +22,11 @@ export const Header = styled.header.attrs(() => ({
         left: 65%;
         width: 60vw;
     }
+    
+    @media (max-width: 768px){
+        left: 50%;
+        width: 90vw;
+    }
 
     @media (max-width: 480px) {
         top: auto;
@@ -108,11 +113,12 @@ export const HeaderLogo = styled.img`
     }
 
     @media (max-width: 768px) {
-        height: ${props => props.calculatedHeight };
+        height: ${window.innerHeight*.025}px;;
         padding: 5px 0 5px 10px;
+        transition: height .5s ease-out;
     }
     @media (max-width: 480px) {
-        height: ${props => props.calculatedHeight };
+        height: ${window.innerHeight*.026}px;
         justify-content: space-between;
         padding: 5px 5px 5px 10px;
     }
