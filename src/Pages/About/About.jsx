@@ -1,6 +1,7 @@
 import Header from '../../Components/Header/index.jsx'
 import Footer from "../../Components/Footer/index.jsx";
 import { useStoryblok } from "@storyblok/react";
+import { render } from "storyblok-rich-text-react-renderer";
 import {
     AboutPtag,
     AboutSection,
@@ -62,7 +63,7 @@ const About = () => {
                                        <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
                                        <>
-                                           <AboutPtag className="container-animate">{section.Text.content[0].content[0].text}</AboutPtag>
+                                           <AboutPtag className="container-animate">{render({ type: 'doc', content:[section.Text.content[0]]})}</AboutPtag>
                                        </>
                                    )}
                                </Chapter>
@@ -80,7 +81,7 @@ const About = () => {
                                        <Container key={index} className="container-animate">
                                            <HeadlineH3>{section.Headline}</HeadlineH3>
                                            <Images key={index} src={section?.Asset?.filename} />
-                                           <AboutText>{section.Text}</AboutText>
+                                           <AboutText>{render({ type: 'doc', content:[section.Text.content[0]]})}</AboutText>
                                        </Container>
 
                                    )
@@ -97,15 +98,11 @@ const About = () => {
                                                loop
                                                playsInline
                                            />
-                                           <AboutText>{section.Text}</AboutText>
+                                           <AboutText> {render({ type: 'doc', content:[section.Text.content[0]]})}</AboutText>
                                        </Container>
                                        )
 
                                }
-                               <Container key={index} className="container-animate">
-                                   <HeadlineH3>{section.Headline}</HeadlineH3>
-                                   <AboutText>{section.Text}</AboutText>
-                               </Container>
                            })}
                        </Section>
                    </AboutSection>

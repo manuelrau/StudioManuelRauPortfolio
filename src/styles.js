@@ -28,6 +28,8 @@ export const GlobalStyle = createGlobalStyle `
     
     a {
         text-decoration: none;
+        font-family: Lars Mono, monospace;
+        text-transform: uppercase;
         color: black;
     }
     h1 {

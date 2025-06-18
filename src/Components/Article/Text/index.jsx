@@ -6,7 +6,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 const Text = ({story, links}) => {
 
     console.log(story);
-    const rawData = story.content[0]
+    const rawData = story.content[0]  // Data um Texte zu bekommen und rendern
 
     console.log('rawTextData', rawData)
 

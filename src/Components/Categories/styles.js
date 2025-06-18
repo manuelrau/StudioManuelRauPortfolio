@@ -50,8 +50,8 @@ export const Tag = styled.span`
   transition: all 0.2s ease;
     
     @media (max-width: 480px) {
-        font-size: 0.9rem;
-        padding: 6px 9px;
+        font-size: 1.13rem;
+        padding: 15px 10px;
     }
     
     

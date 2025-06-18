@@ -40,7 +40,7 @@ export const Wrapper = styled.div `
     .LinkNameHeader {
         color: black;
         font-family: 'Lars Mono', monospace;
-        padding: 40px 0 40px 0;
+        padding: 5px 0 5px 0;
     }
     .LinkNameHeader.visited {
         text-decoration-line: underline;
@@ -98,23 +98,23 @@ export const HeaderLogo = styled.img`
     padding-left: 20px;
     background-attachment: fixed;
     background-size: cover;
-    height: ${window.innerHeight*.0205}px;
+    height: ${props => props.calculatedHeight};
     max-width: 100%;
     object-fit: cover;
     width: auto;
 
     @media (max-width: 1024px) {
-        height: ${window.innerHeight*.02}px;
+        height: ${props => props.calculatedHeight };
     }
 
     @media (max-width: 768px) {
-        height: ${window.innerHeight*.02}px;
-        padding: 5px 0 5px 20px;
+        height: ${props => props.calculatedHeight };
+        padding: 5px 0 5px 10px;
     }
     @media (max-width: 480px) {
-        height: ${window.innerHeight*.024}px;
+        height: ${props => props.calculatedHeight };
         justify-content: space-between;
-        padding: 5px 5px 5px 15px;
+        padding: 5px 5px 5px 10px;
     }
 `
 export const Burger = styled.img`
@@ -182,7 +182,7 @@ export const HamburgerIcon = styled.svg`
 export const MenuDesktop = styled.div`
   display: flex;
   gap: 70px;
-  padding: 0 30px 0 0px;
+  padding: 0 30px 0 0;
 
   a {
     color: black;

@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
 import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuDesktop, Burger, Close} from './styles.js'
 import { useStoryblok } from "@storyblok/react";
+import useWindowSize  from "../../Hook/useWindowSize.jsx"
 
 
 const HeaderBox = () => {
@@ -9,6 +10,7 @@ const HeaderBox = () => {
    const headerRef = useRef(null);
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+    const windowSize = useWindowSize();
 
     useEffect(() => {
         if (!story.content) return;
@@ -27,7 +29,26 @@ const HeaderBox = () => {
         return location.pathname === link ? 'LinkNameHeader visited' : 'LinkNameHeader';
     };
 
+// Berechne die dynamische Höhe, und multiplikator für unterschieldiche viewports
+    let Value = 0.0270
+    if (windowSize.width > 1024) {
 
+        Value = 0.0269
+
+    } else if( windowSize.width > 768 && windowSize.width <= 1024) {
+
+        Value = 0.02
+
+    } else if (windowSize.width > 480 && windowSize.width <= 768) {
+
+        Value = 0.022;
+
+    } else {
+
+        Value = 0.0255;
+    }
+
+    const dynamicHeight = windowSize.height ? `${windowSize.height * Value}px` : 'auto';
     if (!story.content) return <p>Laden...</p>;
 
     const link1Index = `/${story.content?.Body[0].Index.cached_url}`;
@@ -42,7 +63,7 @@ const HeaderBox = () => {
                     <Navigation>
 
                         <Link to="/">
-                            <HeaderLogo src={story.content?.Body[0].Logo.filename} />
+                            <HeaderLogo src={story.content?.Body[0].Logo.filename} calculatedHeight={dynamicHeight} />
                         </Link>
 
                         <MenuDesktop>

@@ -37,10 +37,10 @@ export const AboutPtag = styled.p.attrs(() => ({
     }
 `
 
-export const AboutText = styled.p.attrs(() => ({
+export const AboutText = styled.div.attrs(() => ({
     className: 'text-base'
 }))`
-    text-indent: 15px;
+    
 `
 export const Section = styled.section`
     flex-wrap: wrap;
