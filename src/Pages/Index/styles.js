@@ -61,7 +61,7 @@ export const IndexWrapper = styled.div`
     margin-top: 60px;
     display: grid;
     color: black;
-    font-family: Lars, sans-serif;
+    font-family: IBM Plex Sans, sans-serif;
     justify-content: stretch;
     font-size: 30px;
     padding: 0;

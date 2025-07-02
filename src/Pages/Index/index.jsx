@@ -37,7 +37,7 @@ function Index () {
         fetchTitles();
     }, [story, hasLoaded]);
 
-    if (!story.content?.body) return <p>Laden...</p>;
+    if (!story.content?.body) return <p>Loading...</p>;
 
     console.log(titles)
     return (
@@ -52,7 +52,7 @@ function Index () {
                                 <Link className="LinkClass" to={`/articles/${t.slug.split('/').pop()}`}>{t.name}
 
                                 </Link>
-                                <Tags>{t.tags.join(', ')}</Tags>
+                                 <Tags>{t.tags.join(', ')}</Tags>
                             </Wrapper>
 
 

@@ -44,7 +44,7 @@ export const Wrapper = styled.div `
 
     .LinkNameHeader {
         color: black;
-        font-family: 'Lars Mono', monospace;
+        font-family: IBM Plex Mono, monospace;
         padding: 5px 0 5px 0;
     }
     .LinkNameHeader.visited {

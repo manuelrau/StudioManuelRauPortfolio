@@ -39,7 +39,7 @@ const Categories = () => {
             setClickedTags([...clickedTags, tag])
         }
     }
-    if (!hasLoaded) return <p>Lade Kategorien...</p>;
+    if (!hasLoaded) return <p>Loading...</p>;
 
 
     return(

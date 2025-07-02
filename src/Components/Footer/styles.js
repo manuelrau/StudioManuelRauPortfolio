@@ -10,7 +10,7 @@ export const Wrapper = styled.div.attrs(() => ({
 
     .imprint{
         font-size: 0.875rem;
-        font-family: 'Lars Mono', monospace;
+        font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
     }
 

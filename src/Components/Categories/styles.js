@@ -42,8 +42,8 @@ export const Tag = styled.span`
   padding: 6px 12px;
   margin: 4px;
   border-radius: 20px;
-  font-weight: 500;
-  font-family: Lars Mono, monospace;
+  font-weight: 400;
+  font-family: IBM Plex Mono, monospace;
   font-style: ${({ selected }) => (selected ? 'italic' : 'normal')};
   font-size: 1.05rem;  
   cursor: pointer;

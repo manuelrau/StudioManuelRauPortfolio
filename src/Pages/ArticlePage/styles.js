@@ -32,7 +32,7 @@ export const WrapperTags = styled.div`
 export const HeadlineThree = styled.h3.attrs(()=> ({
     className: 'headline-h3',
 }))`
-    font-family: Lars Mono, monospace;
+    font-family: IBM Plex Mono, monospace;
 
     @media (max-width: 768px) {
         font-size: 1rem;

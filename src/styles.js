@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle `
         height: 100vh;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
-        font-family: 'Lars', sans-serif;
+        font-family: IBM Plex Sans, Helvetica, sans-serif;
         color: #1a1a1a;
         overflow-x: hidden; // verhindert horizontales scrollen 
         background-color: #D6D6D6;
@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle `
     
     a {
         text-decoration: none;
-        font-family: Lars Mono, monospace;
+        font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
         color: black;
     }
@@ -58,17 +58,17 @@ export const GlobalStyle = createGlobalStyle `
     }
     .text-sub-xs { 
         font-size: 0.75rem;
-        font-family: Lars Mono, monospace;
+        font-family: IBM Plex Mono, monospace;
     }
     .text-sub-sm-mono {
         font-size: .9rem;
         color: #404040;
-        font-family: Lars Mono, monospace;
+        font-family: IBM Plex Mono, monospace;
     }
     .text-xs { font-size: 0.75rem; }
     .text-sm { 
         font-size: 0.875rem; 
-        font-family: 'Lars', sans-serif;
+        font-family: IBM Plex Sans, sans-serif;
         line-height: 1.15;
     }
     .text-base { 
@@ -93,11 +93,11 @@ export const GlobalStyle = createGlobalStyle `
     }
     .link-base { 
         font-size: 1.0rem;
-        font-family: Lars Mono, monospace;
+        font-family: IBM Plex Mono, monospace;
     }
     .link-header { 
         font-size: 1rem;
-        font-family: Lars Mono, monospace;
+        font-family: IBM Plex Mono, monospace;
        }
     
     #root {
