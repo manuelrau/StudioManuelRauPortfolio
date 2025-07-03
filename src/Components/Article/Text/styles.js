@@ -44,12 +44,18 @@ export const LinkWrapper = styled.div`
 
     @media (max-width: 768px) {
         padding: 0 10px;
+        max-width: 50%;
+        margin-bottom: 50px;
+    }
+    
+    @media (max-width: 480px) {
+        max-width: 90%;
+        margin-bottom: 60px;
     }
 `
 export const Tag = styled.a.attrs(()=> ({
     className: 'link-base',
 }))`
-    
 `
 
 export const SVGStyling = styled.img`

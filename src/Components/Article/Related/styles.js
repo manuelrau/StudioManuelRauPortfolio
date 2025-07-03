@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-
 `
 
 export const ImageWrapper = styled.div`
@@ -24,6 +23,8 @@ export const Section = styled.section`
     @media (max-width: 768px) {
         grid-template-columns: repeat(1, 1fr);
         max-width: 100%;
+        margin: 20px 0 50px 0;
+        gap: 2%
     }
 `
 

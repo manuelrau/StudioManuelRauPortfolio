@@ -27,4 +27,10 @@ export const ImageDefinition = styled.img`
     max-height: 100%;
     object-fit: cover;
     border-radius: 5px;
+    
+    @media (max-width: 768px) {
+        height: 85%;
+        margin: 0;
+        display: block;
+    }
 `

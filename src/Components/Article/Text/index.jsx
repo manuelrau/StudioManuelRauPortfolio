@@ -3,7 +3,7 @@ import {TextStyle, Wrapper, Tag, LinkWrapper, SVGStyling, TextWrapper} from "./s
 import {animate, stagger} from "motion";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const Text = ({story, links}) => {
+const Text = ({story, links, icon}) => {
 
     console.log(story);
     const rawData = story.content[0]  // Data um Texte zu bekommen und rendern
@@ -26,6 +26,7 @@ const Text = ({story, links}) => {
     }, [rawData]);
 
     console.log("Links:", links)
+    console.log("Icon", icon)
     console.log("Data:", rawData)
     return(
         <TextWrapper>
@@ -33,8 +34,9 @@ const Text = ({story, links}) => {
                 <TextStyle>{render({type: 'doc', content:[rawData]})}</TextStyle>
             </Wrapper>
             {links?.cached_url ? (
+
             <LinkWrapper>
-                <SVGStyling src="../../../public/lsicon_arrow-down-filled.svg" alt="Arrow horizontal"/>
+                <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
                 <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
             </LinkWrapper>
             ) : null}

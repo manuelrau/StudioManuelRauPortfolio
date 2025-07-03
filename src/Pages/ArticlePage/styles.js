@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
 export const WrapperTags = styled.div`
     display: flex;
     width: 100%;
-    justify-content: space-between;
 
     @media (max-width: 768px) {
         
@@ -33,6 +32,7 @@ export const HeadlineThree = styled.h3.attrs(()=> ({
     className: 'headline-h3',
 }))`
     font-family: IBM Plex Mono, monospace;
+    padding-right: 35px;
 
     @media (max-width: 768px) {
         font-size: 1rem;

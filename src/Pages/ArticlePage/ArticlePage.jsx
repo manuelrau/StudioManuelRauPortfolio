@@ -83,8 +83,8 @@ export default function ArticlePage() {
 
 
 
-    if (notFound) return <p>Artikel nicht gefunden</p>;
-    if (!article) return <p>Lade Artikel...</p>;
+    if (notFound) return <p>Article not found</p>;
+    if (!article) return <p>Loading article...</p>;
 
 
     console.log("Article:", article.content?.Link);
@@ -115,6 +115,7 @@ export default function ArticlePage() {
 
                 <Text story = {article?.content?.Text}
                       links = {article.content?.Link}
+                      icon = {article.content?.Icon}
                 />
 
                 <CarouselCompont/>
