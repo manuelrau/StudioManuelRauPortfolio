@@ -74,6 +74,10 @@ export const Container = styled.div`
         justify-content: center;
         margin-bottom: 2rem;
     }
+    
+    @media (max-width: 480px) {
+        
+    }
 
     &.orange {
         background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
@@ -87,14 +91,14 @@ export const SocialMedia = styled.a.attrs(()=> ({
 }))`
     text-decoration: none;
     color: black;
-    padding: 0.6rem 0;
+    padding: 1.5rem 0;
     
 `
 export const LogoAnimation = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 9.9vw;
+    font-size: 9.5vw;
     text-decoration: none;
     font-weight: 100;
     letter-spacing: -3px;
@@ -148,7 +152,7 @@ export const Text = styled.p.attrs(() => ({
 })) `
     color: black;
     
-    max-width: 100%;
+    max-width: 500px;
     margin-bottom: 2.5rem;
     
     @media (max-width: 1024px) {
@@ -167,8 +171,10 @@ export const Text = styled.p.attrs(() => ({
 export const SectionFooter = styled.div`
 
     flex-direction: column;
+    width: 100%;
     
     @media (max-width: 768px) {
         margin-bottom: 6rem;
+        width: 100%;
     }
 `
