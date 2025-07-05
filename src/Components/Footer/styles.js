@@ -7,6 +7,7 @@ export const Wrapper = styled.div.attrs(() => ({
     width: 100%;
     flex-direction: column;
     margin-bottom: 2.5rem;
+    border-bottom: 1px solid #666;
 
     .imprint{
         font-size: 0.875rem;
@@ -16,7 +17,7 @@ export const Wrapper = styled.div.attrs(() => ({
 
     @media (max-width: 1024px) {
         display: flex;
-        padding: 2rem;
+        padding: 0;
         align-items: center;
     }
 
@@ -28,7 +29,7 @@ export const Wrapper = styled.div.attrs(() => ({
         flex-direction: column;
         align-items: center;
         padding: 0;
-        margin-bottom: 8rem;
+        margin-bottom: 2rem;
     }
 `
 export const Wrapp = styled.div`
@@ -91,14 +92,13 @@ export const SocialMedia = styled.a.attrs(()=> ({
 `
 export const LogoAnimation = styled.p`
     display: flex;
-    border-top: 1px solid #666;
     align-items: center;
     justify-content: center;
     font-size: 9.9vw;
     text-decoration: none;
     font-weight: 100;
     letter-spacing: -3px;
-    margin: 0 10px 0 10px;
+    margin: 0;
     white-space: pre;
 
     .word {
@@ -126,6 +126,10 @@ export const LogoAnimation = styled.p`
             font-weight: 200;
         }
     }
+    
+    @media (max-width: 480px) {
+        font-size: 10.7vw;
+    }
 
 `
 
@@ -143,7 +147,8 @@ export const Text = styled.p.attrs(() => ({
     className: 'text-base'
 })) `
     color: black;
-    max-width: 450px;
+    
+    max-width: 100%;
     margin-bottom: 2.5rem;
     
     @media (max-width: 1024px) {
@@ -159,3 +164,11 @@ export const Text = styled.p.attrs(() => ({
 `
 
 
+export const SectionFooter = styled.div`
+
+    flex-direction: column;
+    
+    @media (max-width: 768px) {
+        margin-bottom: 6rem;
+    }
+`

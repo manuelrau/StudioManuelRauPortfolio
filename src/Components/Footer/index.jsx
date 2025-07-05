@@ -1,5 +1,5 @@
 import { useStoryblok } from "@storyblok/react";
-import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation} from "./styles.js"
+import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation, SectionFooter} from "./styles.js"
 import React, {useRef, useEffect} from "react";
 import {useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -41,27 +41,30 @@ const Footer = () => {
     console.log("Footer:", story)
     if (!story.content) return <p>Loading content ...</p>;
     return(
-        <Wrapper>
-            <Container ref={footerRef}>
+        <SectionFooter>
+            <Wrapper>
+                <Container ref={footerRef}>
 
-                <Text>{story.content?.Body[0].Text}</Text>
-            </Container>
-            <Wrapp>
-                <Link className={story.content?.Body[0].Imprint.cached_url}
+                    <Text>{story.content?.Body[0].Text}</Text>
+                </Container>
+                <Wrapp>
+                    <Link className={story.content?.Body[0].Imprint.cached_url}
 
 
-                      to={`/${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url}</Link>
-                <SocialMedia
-                    href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
-                <SocialContainer>
-                    <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>
-                    <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">@manuelrrrau</SocialMedia>
-                </SocialContainer>
+                          to={`/${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url}</Link>
+                    <SocialMedia
+                        href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
+                    <SocialContainer>
+                        <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>
+                        <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">@manuelrrrau</SocialMedia>
+                    </SocialContainer>
 
-            </Wrapp>
-            <Text>{story.content?.Body[0].Copyright}</Text>
+                </Wrapp>
+                <Text>{story.content?.Body[0].Copyright}</Text>
+            </Wrapper>
             <LogoAnimation ref={logoAnimationRef}>{story.content?.Body[0].LogoBig}</LogoAnimation>
-        </Wrapper>
+        </SectionFooter>
+
 
 
     )
