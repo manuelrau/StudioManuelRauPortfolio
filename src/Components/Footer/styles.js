@@ -6,7 +6,7 @@ export const Wrapper = styled.div.attrs(() => ({
     display: flex;
     width: 100%;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 
     .imprint{
         font-size: 0.875rem;
@@ -89,6 +89,45 @@ export const SocialMedia = styled.a.attrs(()=> ({
     padding: 0.6rem 0;
     
 `
+export const LogoAnimation = styled.p`
+    display: flex;
+    border-top: 1px solid #666;
+    align-items: center;
+    justify-content: center;
+    font-size: 9.9vw;
+    text-decoration: none;
+    font-weight: 100;
+    letter-spacing: -3px;
+    margin: 0 10px 0 10px;
+    white-space: pre;
+
+    .word {
+        display: inline-block; /* Behält die Leerzeichen zwischen den Wörtern bei */
+        //white-space: nowrap; /* Verhindert Zeilenumbrüche innerhalb eines Worts */
+    }
+
+
+    .char { /* Splitting.js fügt eine Klasse 'char' hinzu */
+        animation: weight 6s infinite;
+        animation-delay: calc(var(--char-index) * 150ms);
+        display: inline-block; /* Wichtig, damit Transformationen funktionieren */
+    }
+
+    @keyframes weight {
+        from {
+            font-weight: 200;
+        }
+
+        50% {
+            font-weight: 600;
+        }
+
+        to {
+            font-weight: 200;
+        }
+    }
+
+`
 
 export const SocialContainer = styled.div`
     gap: 0.5rem;
@@ -105,6 +144,7 @@ export const Text = styled.p.attrs(() => ({
 })) `
     color: black;
     max-width: 450px;
+    margin-bottom: 2.5rem;
     
     @media (max-width: 1024px) {
         max-width: 70%;
