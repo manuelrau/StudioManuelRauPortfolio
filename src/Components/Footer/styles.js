@@ -153,7 +153,7 @@ export const Text = styled.p.attrs(() => ({
     color: black;
     
     max-width: 500px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     
     @media (max-width: 1024px) {
         max-width: 70%;

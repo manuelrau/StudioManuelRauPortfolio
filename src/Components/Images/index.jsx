@@ -102,6 +102,7 @@ const Images = ({ story , clickedTags = [] }) => {
                                 {photo.Image?.filename.endsWith('.mp4') ? (
                                         <VideoWrapper
                                             src={photo.Image.filename}
+                                            alt={photo.Image.alt || ''}
                                             autoPlay
                                             muted
                                             loop

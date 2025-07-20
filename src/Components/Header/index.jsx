@@ -65,7 +65,7 @@ const HeaderBox = () => {
                     <Navigation>
 
                         <Link to="/">
-                            <HeaderLogo src={story.content?.Body[0].Logo.filename} calculatedHeight={dynamicHeight}  />
+                            <HeaderLogo src={story.content?.Body[0].Logo.filename}  alt={story.content?.Body[0].Logo.alt} calculatedHeight={dynamicHeight}  />
                         </Link>
 
                         <MenuDesktop>
@@ -85,8 +85,8 @@ const HeaderBox = () => {
                         </MenuDesktop>
 
                         <Hamburger onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} >
-                            <Burger isOpen={isOpen} src={story.content?.Body[0].Burger.filename}/>
-                            <Close isOpen={isOpen} src={story.content?.Body[0].Close.filename}/>
+                            <Burger isOpen={isOpen} src={story.content?.Body[0].Burger.filename} alt={story.content?.Body[0].Burger.alt}/>
+                            <Close isOpen={isOpen} src={story.content?.Body[0].Close.filename} alt={story.content?.Body[0].Close.alt}/>
                         </Hamburger>
 
 
