@@ -7,7 +7,7 @@ export const Wrapper = styled.div.attrs(() => ({
     width: 100%;
     flex-direction: column;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #212121;
 
     .imprint{
         font-size: 0.875rem;
@@ -68,7 +68,7 @@ export const Container = styled.div`
     height: 100%;
     justify-content: space-between;
     align-items: center;
-    border-top: solid 1px #666;
+    border-top: solid 1px #212121;
     
     @media (max-width: 768px) {
         justify-content: center;
@@ -80,7 +80,7 @@ export const Container = styled.div`
     }
 
     &.orange {
-        background: #FF926E; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
+        background: #F388CC; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
     
 

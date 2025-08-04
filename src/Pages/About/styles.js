@@ -97,7 +97,7 @@ export const Video = styled.video`
     object-fit: cover;`
 
 export const Wrapper = styled.div`
-    background: #FF926E ;
+    background: #F388CC ;
 `
 
 export const HeadlineH1 = styled.h2.attrs(() => ({

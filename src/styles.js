@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle `
         
     }
     body.orange {
-        background-color: #FF926E ;
+        background-color: #F388CC ;
     }
     
     a {
