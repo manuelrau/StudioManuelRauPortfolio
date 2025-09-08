@@ -24,13 +24,14 @@ function Index () {
 
             if (!isReady || hasLoaded) return;
 
-            const [draft] = await Promise.all([
-                getDataByVersion(uuidsRaw,"draft"),
+            const [published] = await Promise.all([
+               // getDataByVersion(uuidsRaw,"draft"),
                 getDataByVersion(uuidsRaw, "published"),
 
 
             ]);
-            setTitles(draft);
+            const filteredPublish = published.filter(t => !t.error);
+            setTitles(filteredPublish);
             setHasLoaded(true);
 
         };

@@ -24,9 +24,9 @@ export const getDataByVersion = async (uuids, version) => {
             console.error(`Fehler bei UUID ${uuid} (${version}) :`, err);
             return {
                 name: `Fehler bei ${uuid}`,
-                tags: `Fehler bei ${uuid}`,
-                slug: `Fehler bei ${uuid}`
-                //full: null,
+                tags: [],
+                slug: `Fehler bei ${uuid}`,
+                error: true,
             };
         }
     });
