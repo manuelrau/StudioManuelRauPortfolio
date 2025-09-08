@@ -6,10 +6,11 @@ export const AboutSection = styled.div`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin: 0 0 50px 0;
+    margin: 0 0 10px 0;
 
     @media (max-width: 480px) {
         padding: 0;
+        margin: 0 0 50px 0;
     }
 `
 
@@ -45,10 +46,13 @@ export const AboutText = styled.div.attrs(() => ({
 export const Section = styled.section`
     flex-wrap: wrap;
     display: grid;
+    align-items: start;
+    align-content: start;
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(0, auto);
     flex-shrink: 0;
     grid-gap: 1rem;
-    margin: 100px 0 100px 0;
+    margin: 100px 0 10px 0;
 
     @media (max-width: 1024px) {
         grid-template-columns: repeat(2, 1fr);
@@ -65,10 +69,11 @@ export const Section = styled.section`
 `
 export const Container = styled.div`
     display: flex;
-    justify-content: space-around;
+    //justify-content: space-around;
     flex-direction: column;
-    align-items: normal;
-    margin-bottom: 5rem;
+    align-items: start;
+    align-content: start;
+    margin-bottom: 1rem;
     padding: 0 20px 0 20px;
 
     @media (max-width: 480px) {
@@ -78,7 +83,7 @@ export const Container = styled.div`
 `
 export const Images = styled.img`
     max-width: 100%;
-    height: 60%;
+    height: auto;
     margin: 0;
     display: block;
     break-inside: avoid;
