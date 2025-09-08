@@ -27,10 +27,15 @@ export const GlobalStyle = createGlobalStyle `
     }
     
     a {
-        text-decoration: none;
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
         color: black;
+       
+        
+        
+        &:hover{
+            text-decoration-style: dotted;
+        }
     }
     h1 {
         font-size: 2.5rem;

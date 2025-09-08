@@ -4,8 +4,7 @@ import Header from "../../Components/Header/index.jsx"
 import Footer from "../../Components/Footer/index.jsx";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
 import { Link } from 'react-router-dom';
-import {IndexWrapper, StyledLink} from "./styles.js";
-import {Tags, Wrapper, Imagehover} from "./styles.js"
+import {Tags, Wrapper, IndexWrapper, Imagehover} from "./styles.js"
 
 import { getDataByVersion } from "../../Services/fetchingAPI.js"
 

@@ -13,6 +13,7 @@ export const Tags = styled.div.attrs(() => ({
     display: flex;
     justify-content: end;
     align-items: center;
+    margin-bottom: 20px;
     
     @media (max-width: 480px) {
         display: none;
@@ -29,16 +30,10 @@ export const Imagehover = styled.img `
     width: 280px; /* Bildgröße anpassen */
     
 `
-export const StyledLink = styled(Link)`
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-    
-`
 export const Wrapper = styled.div`
     display: flex;
+    flex-direction: column;
     position: relative;
-    flex-direction: row;
     width: 100%;
     border-bottom: 1px solid black;
     justify-content: space-between;
@@ -54,12 +49,15 @@ export const IndexWrapper = styled.div`
     .LinkClass {
         text-decoration: none;
         color: black;
-        padding: 20px 0 20px 0;
+        padding: 20px 0 5px 0;
         width: 100%;
 
         &:hover {
-            text-decoration: underline;
+            
+            text-decoration-style: dotted;
+            text-decoration-thickness: 3px;
         }
+        
     }
     margin-top: 60px;
     display: grid;
@@ -68,6 +66,8 @@ export const IndexWrapper = styled.div`
     justify-content: stretch;
     font-size: 30px;
     padding: 0;
+    
+
     
     @media (max-width: 480px) {
         margin-top: 0;
