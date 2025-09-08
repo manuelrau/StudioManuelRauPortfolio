@@ -1,14 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    border-bottom: 1px solid black;
-    justify-content: space-between;
-    
-`
 
 export const Tags = styled.div.attrs(() => ({
     className: 'text-base', // Style definition Global
@@ -34,19 +26,30 @@ export const Imagehover = styled.img `
     top: 100%;
     left: 0;
     margin-top: 8px;
-    width: 200px; /* Bildgröße anpassen */
+    width: 280px; /* Bildgröße anpassen */
     
 `
 export const StyledLink = styled(Link)`
   position: relative;
   text-decoration: none;
   color: inherit;
-
-  &:hover ${Imagehover} {
-    display: block;
-  }
+    
 `
+export const Wrapper = styled.div`
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
 
+    &:hover ${Imagehover} {
+        display: block;
+        z-index:10;
+
+    }
+    
+`
 export const IndexWrapper = styled.div`
     .LinkClass {
         text-decoration: none;

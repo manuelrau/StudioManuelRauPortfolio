@@ -13,11 +13,11 @@ export const getDataByVersion = async (uuids, version) => {
                 version,
                 find_by:"uuid",
             });
-
             return {
                 name: res.data.story.name,
                 tags: res.data.story.tag_list,
-                slug: res.data.story.full_slug
+                slug: res.data.story.full_slug,
+                img: res.data.story.content.Header.filename,
                 //full: res.data.story,
             };
         } catch (err) {
@@ -26,6 +26,7 @@ export const getDataByVersion = async (uuids, version) => {
                 name: `Fehler bei ${uuid}`,
                 tags: [],
                 slug: `Fehler bei ${uuid}`,
+                img: `Fehler bei ${uuid}`,
                 error: true,
             };
         }

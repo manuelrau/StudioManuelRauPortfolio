@@ -38,7 +38,7 @@ function Index () {
         fetchTitles();
     }, [story, hasLoaded]);
 
-    if (!story.content?.body) return <p>Loading...</p>;
+    if (!story.content?.body) return <p> Content is loading...</p>;
 
     console.log(titles)
     return (
@@ -50,10 +50,13 @@ function Index () {
                         {titles.map((t, index) => (
                             console.log(t),
                             <Wrapper key={index}>
-                                <Link className="LinkClass" to={`/articles/${t.slug.split('/').pop()}`}>{t.name}
 
-                                </Link>
-                                 <Tags>{t.tags.join(', ')}</Tags>
+                                    <Link className="LinkClass" to={`/articles/${t.slug.split('/').pop()}`}>{t.name}
+
+                                    </Link>
+                                    <Imagehover className="ImageHover" src={t.img} alt="" />
+                                    <Tags>{t.tags.join(', ')}</Tags>
+
                             </Wrapper>
 
 
