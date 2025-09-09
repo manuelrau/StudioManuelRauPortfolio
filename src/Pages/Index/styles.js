@@ -70,6 +70,8 @@ export const IndexWrapper = styled.div`
 
     
     @media (max-width: 480px) {
+        
+       
         margin-top: 0;
         display: flex;
         flex-direction: column;
@@ -77,6 +79,7 @@ export const IndexWrapper = styled.div`
         justify-content: center;
         .LinkClass {
             text-align: center;
+            padding: 20px 0 20px 0;
         }
 }
 `

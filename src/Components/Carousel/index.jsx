@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { useState, useRef} from "react";
-import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer} from "./styles.jsx"
+import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer, VideoContainer} from "./styles.jsx"
 import useEmblaCarousel from "embla-carousel-react";
 
 
@@ -80,13 +80,13 @@ const Carousel = ({story}) => {
                                 return isVideo ? (
                                     <EmblaSlide key={index}>
                                         <Link to={section.link?.cached_url}>
-                                            <video
+                                            <VideoContainer
                                                 src={filename}
                                                 autoPlay
                                                 muted
                                                 loop
                                                 playsInline
-                                                style={{ width: '100%', height: 'auto', borderRadius: '0 0 10px 10px', objectFit: 'cover' }}
+                                                alt={section.Image?.alt}
                                             />
                                         </Link>
                                     </EmblaSlide>
@@ -95,7 +95,7 @@ const Carousel = ({story}) => {
                                         <Link to={section.link?.cached_url}>
                                             <ImagesContainer
                                                 src={filename}
-                                                alt={`Foto ${index + 1}`}
+                                                alt={section.Image?.alt}
                                             />
                                         </Link>
                                     </EmblaSlide>

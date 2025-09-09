@@ -38,6 +38,30 @@ export const EmblaSlide = styled.div`
     padding-right: 0.5rem;
     box-sizing: border-box;
 `
+export const VideoContainer = styled.video`
+    width: 100%; 
+    height: auto; 
+    border-radius: 0 0 10px 10px;
+    object-fit: cover;
+
+    @media (max-width: 1024px) {
+        height: 76svh;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+        height: 105svh;
+
+    }
+
+    @media (max-width: 480px) {
+
+        height: ${window.innerHeight}px;
+
+    }
+`
+
 
 export const ImagesContainer = styled.img`
     width: 110svw;
