@@ -73,22 +73,36 @@ const Carousel = ({story}) => {
                 <EmblaViewport ref={emblaRef}>
                     <EmblaContainer>
                         {
-                            photos.map((section, index) =>
+                            photos.map((section, index) => {
+                                const filename = section.Image?.filename || '';
+                                const isVideo = filename.toLowerCase().endsWith('.mp4'); // auf mp4 prüfen
 
-                                section.Image?.filename ? (
-
-                                            <EmblaSlide
-                                                key={index}>
-                                                <Link to={section.link?.cached_url}>
-                                                    <ImagesContainer src={section.Image.filename}
-                                                                     alt={`Foto ${index + 1}`}
-                                                    />
-                                                </Link>
-                                            </EmblaSlide>
-
-                                ) : null
-                            )
+                                return isVideo ? (
+                                    <EmblaSlide key={index}>
+                                        <Link to={section.link?.cached_url}>
+                                            <video
+                                                src={filename}
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                                style={{ width: '100%', height: 'auto', borderRadius: '0 0 10px 10px', objectFit: 'cover' }}
+                                            />
+                                        </Link>
+                                    </EmblaSlide>
+                                ) : (
+                                    <EmblaSlide key={index}>
+                                        <Link to={section.link?.cached_url}>
+                                            <ImagesContainer
+                                                src={filename}
+                                                alt={`Foto ${index + 1}`}
+                                            />
+                                        </Link>
+                                    </EmblaSlide>
+                                );
+                            })
                         }
+
                     </EmblaContainer>
                 </EmblaViewport>
                 <div style={{display: 'flex', justifyContent: 'start', gap: '10px', marginTop: '1rem'}}>
