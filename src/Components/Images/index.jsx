@@ -101,8 +101,8 @@ const Images = ({ story , clickedTags = [] }) => {
                             >
                                 {photo.Image?.filename.endsWith('.mp4') ? (
                                         <VideoWrapper
-                                            src={photo.Image.filename}
-                                            alt={photo.Image.alt || ''}
+                                            src={photo.Image?.filename}
+                                            alt={photo.Image?.alt || 'no information'}
                                             autoPlay
                                             muted
                                             loop
@@ -110,7 +110,7 @@ const Images = ({ story , clickedTags = [] }) => {
                                         />
                                     ) : (
 
-                                        <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || ''} />
+                                        <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || 'no information'} />
                                     )}
                             <HoverInfo className="hover-info">
                                 {photo.Name || "More"}

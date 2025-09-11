@@ -93,7 +93,7 @@ export const Images = styled.img`
 `
 export const Video = styled.video`
     max-width: 100%;
-    height: 60%;
+    //height: 60%;
     margin: 0;
     display: block;
     break-inside: avoid;
