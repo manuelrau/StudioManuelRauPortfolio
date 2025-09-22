@@ -56,7 +56,7 @@ const Footer = () => {
                         href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
                     <SocialContainer>
                         <Icon src={story.content?.Body[0].Icon.filename} alt={story.content?.Body[0].Icon.alt}/>
-                        <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">@manuelrrrau</SocialMedia>
+                        <SocialMedia href={story.content?.Body[0].SocialMedia.url} target="_blank">@Manuelrrrau</SocialMedia>
                     </SocialContainer>
 
                 </Wrapp>

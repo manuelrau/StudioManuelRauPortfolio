@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
-import {TextStyle, Wrapper, Tag, LinkWrapper, SVGStyling, TextWrapper} from "./styles.js";
+import {TextStyle, Wrapper, Tag, LinkWrapper, SVGStyling, TextWrapper, InfoText, Tags} from "./styles.js";
 import {animate, stagger} from "motion";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const Text = ({story, links, icon}) => {
+const Text = ({story, links, icon, Client, Services, Industire}) => {
 
     console.log(story);
     const rawData = story.content[0]  // Data um Texte zu bekommen und rendern
+    const All = story;
 
-    console.log('rawTextData', rawData)
 
     useEffect(() => {
         if (!rawData || !rawData.text) {
@@ -25,23 +25,33 @@ const Text = ({story, links, icon}) => {
         );
     }, [rawData]);
 
-    console.log("Links:", links)
-    console.log("Icon", icon)
-    console.log("Data:", rawData)
+    console.log("Client:", Client)
+    console.log("Services", Services)
+    console.log("Industrie:", Industire)
     return(
-        <TextWrapper>
-            <Wrapper className="container-animate">
-                <TextStyle>{render({type: 'doc', content:[rawData]})}</TextStyle>
-            </Wrapper>
-            {links?.cached_url ? (
+        <>
+            <InfoText>
 
-            <LinkWrapper>
-                <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
-                <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
-            </LinkWrapper>
-            ) : null}
+                <Tags> {Client.cached_url}</Tags>
+                <Tags> {Industire.Industire}</Tags>
+                <Tags> {Services.cached_url}</Tags>
 
-        </TextWrapper>
+            </InfoText>
+            <TextWrapper>
+                <Wrapper className="container-animate">
+                    <TextStyle>{render({type: 'doc', content:[rawData]})}</TextStyle>
+                </Wrapper>
+                {links?.cached_url ? (
+
+                    <LinkWrapper>
+                        <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
+                        <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
+                    </LinkWrapper>
+                ) : null}
+
+            </TextWrapper>
+        </>
+
     )
 }
 

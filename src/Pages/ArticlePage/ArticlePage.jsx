@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
@@ -12,7 +12,6 @@ import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
-import {animate, stagger} from "motion";
 
 
 
@@ -26,6 +25,7 @@ export default function ArticlePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
 
     const [imageData, setImageData] = useState(null);
+
 
 
     useEffect(() => {
@@ -83,12 +83,15 @@ export default function ArticlePage() {
 
 
 
+
+
     if (notFound) return <p>Article not found</p>;
     if (!article) return <p>Loading article...</p>;
 
 
     console.log("Article:", article.content?.Link);
     console.log(setTitles);
+    console.log('AllData----->:', article)
 
 
     return (
@@ -116,6 +119,10 @@ export default function ArticlePage() {
                 <Text story = {article?.content?.Text}
                       links = {article.content?.Link}
                       icon = {article.content?.Icon}
+
+                      Client={article?.content?.info[0]?.Client}
+                      Services={article?.content?.info[0]?.Services}
+                      Industire={article?.content?.info[0]}
                 />
 
                 <CarouselCompont/>

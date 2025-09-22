@@ -74,3 +74,11 @@ export const TextWrapper = styled.span`
         flex-direction: column;
     }
 `
+
+export const InfoText = styled.div`
+    display: flex;
+`
+
+export const Tags = styled.p`
+    
+`

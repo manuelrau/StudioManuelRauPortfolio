@@ -8,6 +8,8 @@ export const  DynamicStyledText = styled.h1.attrs(() => ({
     letter-spacing: ${props => props.currentLetterSpacing}px;
     color: #000;
     margin:0;
+    
+    
     @media (max-width: 768px) {
         
     }
