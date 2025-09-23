@@ -38,6 +38,10 @@ export const Wrapper = styled.div`
     border-bottom: 1px solid black;
     justify-content: space-between;
 
+    &:last-child {
+        border-bottom: none;
+    }
+
     &:hover ${Imagehover} {
         display: block;
         z-index:10;
@@ -54,7 +58,7 @@ export const IndexWrapper = styled.div`
 
         &:hover {
             
-            text-decoration-style: dotted;
+            //text-decoration-style: dotted;
             text-decoration-thickness: 3px;
         }
         

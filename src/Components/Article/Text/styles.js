@@ -77,8 +77,33 @@ export const TextWrapper = styled.span`
 
 export const InfoText = styled.div`
     display: flex;
+    flex-direction: column;
+    min-width: 20%;
+    padding: 50px 0  50px 0;
+    
+    @media (max-width: 768px) {
+        padding: 0 10px 0 10px;
+    }
 `
 
-export const Tags = styled.p`
+export const TagsHeadline = styled.h4.attrs(() => ({
+    className:"headline-h4"
+}))`
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
     
+`
+export const Tags = styled.p`
+ margin: 5px 0 5px 0
+`
+
+
+export const Wrapp = styled.div`
+    display: flex;
+    justify-content: center;
+    
+    @media (max-width: 768px) {
+        display: block;
+    }
 `

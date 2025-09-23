@@ -30,11 +30,12 @@ export const GlobalStyle = createGlobalStyle `
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
         color: black;
+        text-decoration: none;
        
         
         
         &:hover{
-            text-decoration-style: dotted;
+            //text-decoration-style: dotted;
         }
     }
     h1 {
@@ -111,7 +112,7 @@ export const GlobalStyle = createGlobalStyle `
 `
 
 export const FooterContainer = styled.div`
- width: 100%;
+    width: 100%;
     display: flex;
     
 `
