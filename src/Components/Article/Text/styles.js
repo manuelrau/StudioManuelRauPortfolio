@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div.attrs(() => ({
     className: "text-lg",
 }))`
-    width: 60%;
+    width: 75%;
 
     margin-left: auto;
     margin-right: 50px;
@@ -91,11 +91,11 @@ export const TagsHeadline = styled.h4.attrs(() => ({
 }))`
     margin-top: 10px;
     margin-bottom: 5px;
-    text-decoration: none;
+    text-decoration: underline;
     
 `
 export const Tags = styled.p`
- margin: 5px 0 5px 0
+ margin: 0 0 5px 0
 `
 
 

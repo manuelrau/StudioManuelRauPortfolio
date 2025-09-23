@@ -11,7 +11,7 @@ export const  DynamicStyledText = styled.h1.attrs(() => ({
     
     
     @media (max-width: 768px) {
-        
+        padding-left: 10px;
     }
 `
 

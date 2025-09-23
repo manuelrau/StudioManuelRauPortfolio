@@ -106,14 +106,15 @@ export default function ArticlePage() {
                     scrollEndEffect={800}    // Effekt dauert länger an
                     minLetterSpacing={0.5}   // Kleiner Startabstand
                     maxLetterSpacing={20}    // Größerer maximaler Abstand
+
                     >
                     {article.content.Headline}
                 </ScrollLetterSpacing>
-                <WrapperTags>
+                {/*    <WrapperTags>
                     {article.tag_list?.map((tag, index) => (
                         <HeadlineThree key={index}>{tag}</HeadlineThree>
                     ))}
-                </WrapperTags>
+                </WrapperTags> */}
 
 
                 <Text story = {article?.content?.Text}

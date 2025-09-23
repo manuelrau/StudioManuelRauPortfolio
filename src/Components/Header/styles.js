@@ -49,7 +49,6 @@ export const Wrapper = styled.div `
     }
     .LinkNameHeader.visited {
         text-decoration-line: underline;
-        text-decoration-style: dotted;
         text-decoration-skip-ink: auto;
         text-decoration-thickness: 17.5%; /* 3.5px */
         text-underline-offset: 25%; /* 5px */
@@ -114,13 +113,13 @@ export const HeaderLogo = styled.img`
 
     @media (max-width: 768px) {
         height: ${window.innerHeight*.025}px;;
-        padding: 5px 0 5px 10px;
+        padding: 5px 0 5px 15px;
         transition: height .5s ease-out;
     }
     @media (max-width: 480px) {
         height: ${window.innerHeight*.026}px;
         justify-content: space-between;
-        padding: 5px 5px 5px 10px;
+        padding: 5px 5px 5px 15px;
     }
 `
 export const Burger = styled.img`
@@ -215,8 +214,8 @@ export const Menu = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: #D6D6D6;
     z-index: 999;
     transition: transform 0.4s ease;

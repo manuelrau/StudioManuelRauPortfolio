@@ -7,7 +7,7 @@ import { DynamicStyledText } from "./styles.js"
 const ScrollLetterSpacing = ({
         children, // Ermöglicht das Übergeben von Text als Kind-Element
         scrollStartEffect = 0,   // Scroll-Position (Pixel), ab der der Effekt beginnt
-        scrollEndEffect = 500,   // Scroll-Position, bei der der maximale Abstand erreicht ist
+        scrollEndEffect = 400,   // Scroll-Position, bei der der maximale Abstand erreicht ist
         minLetterSpacing = 0,    // Minimaler Buchstabenabstand in Pixeln
         maxLetterSpacing = 20    // Maximaler Buchstabenabstand in Pixeln
     }) => {
