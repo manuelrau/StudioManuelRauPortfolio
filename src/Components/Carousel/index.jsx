@@ -23,9 +23,15 @@ const Carousel = ({story}) => {
 
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
+    // Load Toggle Carousel state
+    const CarouselYN = story.content?.body[0].CaruselYN ?? false;
 
-    const photos = story.content?.body[0]?.Photo || []; // Load Data of Carousel Photos
-    const CarouselYN = story.content?.body[0].CaruselYN ?? false; // Load Toggle Carousel state
+    // Load Data of Carousel Photos
+    const photos = story.content?.body[0]?.Photo || [];
+
+
+
+    // Single Image Data
     const photo = story.content?.body[0]?.Image[0] || []; // Load single Image
     const PhonePhoto = story.content?.body[0].Image[0].ImagePhone //Loading Phone Image
 
@@ -105,7 +111,7 @@ const Carousel = ({story}) => {
         const desktopSRC = photo?.Image.filename || '' ;
         const mobileSRC = PhonePhoto.filename || '';
         // Ist das Bild größer als 768px?
-        const src = width <= 768? mobileSRC : desktopSRC;
+        const src = width <= 768? mobileSRC : desktopSRC; // check welche datei benutzt werden soll
         const isVideo = src.toLowerCase().endsWith(".mp4"); // prüft ob Video
 
         return (
@@ -136,28 +142,31 @@ const Carousel = ({story}) => {
                     <EmblaContainer>
                         {
                             photos.map((section, index) => {
-                                const filename = section.Image?.filename || '';
-                                const isVideo = filename.toLowerCase().endsWith('.mp4'); // auf mp4 prüfen
+                                const desktopSRC = section?.Image?.filename || '' ;
+                                const mobileSRC = section?.PhoneSize?.filename || '';
+                                const src = width <= 768? mobileSRC : desktopSRC;
+
+                                const isVideo = src.toLowerCase().endsWith('.mp4'); // auf mp4 prüfen
 
                                 return isVideo ? (
                                     <EmblaSlide key={index}>
-                                        <Link to={section.link?.cached_url}>
+                                        <Link to={src.cached_url}>
                                             <VideoContainer
-                                                src={filename}
+                                                src={src}
                                                 autoPlay
                                                 muted
                                                 loop
                                                 playsInline
-                                                alt={section.Image?.alt}
+                                                alt={src.alt}
                                             />
                                         </Link>
                                     </EmblaSlide>
                                 ) : (
                                     <EmblaSlide key={index}>
-                                        <Link to={section.link?.cached_url}>
+                                        <Link to={src.cached_url}>
                                             <ImagesContainer
-                                                src={filename}
-                                                alt={section.Image?.alt}
+                                                src={src}
+                                                alt={src.alt}
                                             />
                                         </Link>
                                     </EmblaSlide>
