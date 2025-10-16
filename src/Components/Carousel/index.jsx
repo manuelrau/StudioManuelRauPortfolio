@@ -1,20 +1,34 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import { Link } from 'react-router-dom';
-import { useState, useRef} from "react";
-import {EmblaSlide, EmblaContainer, Embla, EmblaViewport, ImagesContainer, VideoContainer} from "./styles.jsx"
+import {
+    EmblaSlide,
+    EmblaContainer,
+    Embla,
+    EmblaViewport,
+    ImagesContainer,
+    VideoContainer
+} from "./styles.jsx"
 import useEmblaCarousel from "embla-carousel-react";
 
 
 const Carousel = ({story}) => {
     const wrapperRef = useRef(null);
-    const [emblaRef, emblaApi] = useEmblaCarousel({ dragFree: true, loop: false, skipSnaps: false,
-        containScroll: 'trimSnaps', align: 'center' });
+    // Definition of Carousel
+    const [emblaRef, emblaApi] = useEmblaCarousel({
+        dragFree: true,
+        loop: false,
+        skipSnaps: false,
+        containScroll: 'trimSnaps',
+        align: 'center' });
+
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState([]);
-    const photos = story.content?.body[0]?.Photo || [];
-    const pho = story.content?.body[0]?.Photo || [];
-    console.log('Data Carousel:'+ pho);
-    console.log('Data Carousel old:'+ photos);
+
+    const photos = story.content?.body[0]?.Photo || []; // Load Data of Carousel Photos
+    const CarouselYN = story.content?.body[0].CaruselYN ?? false; // Load Toggle Carousel state
+    const photo = story.content?.body[0]?.Image[0] || []; // Load single Image
+    const PhonePhoto = story.content?.body[0].Image[0].ImagePhone //Loading Phone Image
+
 
 
     useEffect(() => {
@@ -66,7 +80,55 @@ const Carousel = ({story}) => {
     }, [emblaApi]);
 
     console.log('Data Carousel old:', photos);
-    console.log('Data Carousel:', pho);
+    console.log('Data Carousel Yes/ NO:', CarouselYN);
+    console.log('Data of Photo:', photo);
+    console.log(' Data of PhonePhoto:', PhonePhoto)
+
+
+    const useWindowWidth = () => {
+        const [width, setWidth] = useState(window.innerWidth);
+
+        useEffect(() => {
+            const handleResize = () => setWidth(window.innerWidth);
+            window.addEventListener("resize", handleResize);
+            return () => window.removeEventListener("resize", handleResize);
+        }, []);
+
+        return width;
+    };
+
+    const width = useWindowWidth();
+
+    if(!CarouselYN) {
+        // Zeige nur ein Bild an
+
+        const desktopSRC = photo?.Image.filename || '' ;
+        const mobileSRC = PhonePhoto.filename || '';
+        // Ist das Bild größer als 768px?
+        const src = width <= 768? mobileSRC : desktopSRC;
+        const isVideo = src.toLowerCase().endsWith(".mp4"); // prüft ob Video
+
+        return (
+                <Link to={photo?.link?.cached_url || "#"}>
+                    {isVideo ? (
+                        <VideoContainer
+                            src={src}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            alt={src?.alt || "Video"}
+                        />
+                    ) : (
+                        <ImagesContainer
+                            src={src}
+                            alt={src?.alt || "Image"}
+                        />
+                    )}
+                </Link>
+        )
+    }
+
     return (
         <>
             <Embla ref={wrapperRef}>
