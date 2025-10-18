@@ -43,7 +43,8 @@ export const GlobalStyle = createGlobalStyle `
         font-weight: 400;
     }
     .headline-h1 {
-        font-size: 4rem;
+        font-size: 6.75rem;
+        line-height: 7rem;
        //font-weight: 400;
         
         @media (max-width: 768px) {
