@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
@@ -7,7 +7,7 @@ import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
 import HeaderImage from "../../Components/Article/HeaderImage";
 import Text from "../../Components/Article/Text/index.jsx";
-import {HeadlineThree, Wrapper, WrapperTags} from "./styles.js";
+import { Wrapper} from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok} from "@storyblok/react";
