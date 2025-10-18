@@ -5,7 +5,7 @@ export const  DynamicStyledText = styled.h1.attrs(() => ({
 }))`
     transition: letter-spacing 0.05s linear;
     /* Wichtig: letter-spacing wird durch Props dynamisch gesetzt */
-    letter-spacing: ${props => props.currentLetterSpacing}px;
+    font-weight: ${props => props.currentFontWeight};
     color: #000;
     margin:0;
     

@@ -110,11 +110,6 @@ export default function ArticlePage() {
                     >
                     {article.content.Headline}
                 </ScrollLetterSpacing>
-                {/*    <WrapperTags>
-                    {article.tag_list?.map((tag, index) => (
-                        <HeadlineThree key={index}>{tag}</HeadlineThree>
-                    ))}
-                </WrapperTags> */}
 
 
                 <Text story = {article?.content?.Text}

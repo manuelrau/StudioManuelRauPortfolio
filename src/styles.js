@@ -44,10 +44,11 @@ export const GlobalStyle = createGlobalStyle `
     }
     .headline-h1 {
         font-size: 4rem;
-        font-weight: 400;
+       //font-weight: 400;
         
         @media (max-width: 768px) {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            line-height: 3.8rem;
         }
     }
     .headline-h2 {

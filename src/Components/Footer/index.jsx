@@ -1,6 +1,6 @@
 import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation, SectionFooter} from "./styles.js"
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useState} from "react";
 import {useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
 import  splitting  from "splitting"
@@ -34,6 +34,7 @@ const Footer = () => {
             // Führe Splitting aus
             const charResults = splitting({ target: wordsResults[0].words, by: 'chars' });
             console.log('Splitting results (words, then chars):', wordsResults, charResults); // Zur Überprüfung
+
         }
     }, [story.content?.Body[0].LogoBig]);
 
@@ -64,7 +65,6 @@ const Footer = () => {
             </Wrapper>
             <LogoAnimation ref={logoAnimationRef}>{story.content?.Body[0].LogoBig}</LogoAnimation>
         </SectionFooter>
-
 
 
     )

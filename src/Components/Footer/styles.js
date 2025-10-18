@@ -119,20 +119,24 @@ export const LogoAnimation = styled.p`
 
     @keyframes weight {
         from {
-            font-weight: 200;
+            font-weight: 300;
         }
 
         50% {
-            font-weight: 600;
+            font-weight: 500;
         }
 
         to {
-            font-weight: 200;
+            font-weight: 300;
         }
     }
     
     @media (max-width: 480px) {
-        font-size: 10.7vw;
+        font-size: 16.7vw;
+        width: 100%;
+        line-height: 3.7rem;
+        white-space: break-spaces; /* Erlaubt Zeilenumbruch auf mobilen Geräten */
+        flex-wrap: wrap; /* Da display:flex, sorgt für Umbruch */
     }
 
 `
