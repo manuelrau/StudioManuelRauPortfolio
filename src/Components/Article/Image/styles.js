@@ -127,13 +127,19 @@ export const ParagraphStyle = styled.p.attrs(() => ({
     className: 'text-sub-sm-mono',
 }))`
     display: flex;
-    margin: 5px 0;
-    width: 100%;
+    margin: 8px 0;
+    padding: 0 15px;
     text-align: left;
     align-self: stretch;
+    
+    @media (max-width: 768px) {
+        margin: 8px 0 25px 0;
+    }
 
     @media (max-width: 480px)  {
         line-height: 1.45;
+        margin: 3px 0 30px 0;
+        padding: 0 15px;
     }
 
 `

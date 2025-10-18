@@ -33,7 +33,7 @@ const Carousel = ({story}) => {
 
     // Single Image Data
     const photo = story.content?.body[0]?.Image[0] || []; // Load single Image
-    const PhonePhoto = story.content?.body[0].Image[0].ImagePhone //Loading Phone Image
+    const PhonePhoto = story.content?.body[0].Image[0]//Loading Phone Image
 
 
 
@@ -88,7 +88,7 @@ const Carousel = ({story}) => {
     console.log('Data Carousel old:', photos);
     console.log('Data Carousel Yes/ NO:', CarouselYN);
     console.log('Data of Photo:', photo);
-    console.log(' Data of PhonePhoto:', PhonePhoto)
+    console.log(' Data of PhonePhoto:', PhonePhoto.PhoneSize)
 
 
     const useWindowWidth = () => {
@@ -106,19 +106,19 @@ const Carousel = ({story}) => {
     const width = useWindowWidth();
 
     if(!CarouselYN) {
-        // Zeige nur ein Bild an
 
-        const desktopSRC = photo?.Image.filename || '' ;
-        const mobileSRC = PhonePhoto.filename || '';
+        // Zeige nur ein Bild an
+        const desktopSRC = photo?.Image || '' ; //Desktop
+        const mobileSRC = PhonePhoto.PhoneSize || ''; //Mobile
         // Ist das Bild größer als 768px?
         const src = width <= 768? mobileSRC : desktopSRC; // check welche datei benutzt werden soll
-        const isVideo = src.toLowerCase().endsWith(".mp4"); // prüft ob Video
+        const isVideo = src.filename.toLowerCase().endsWith(".mp4"); // prüft ob Video
 
         return (
                 <Link to={photo?.link?.cached_url || "#"}>
                     {isVideo ? (
                         <VideoContainer
-                            src={src}
+                            src={src.filename}
                             autoPlay
                             muted
                             loop
@@ -127,7 +127,7 @@ const Carousel = ({story}) => {
                         />
                     ) : (
                         <ImagesContainer
-                            src={src}
+                            src={src.filename}
                             alt={src?.alt || "Image"}
                         />
                     )}
@@ -142,17 +142,17 @@ const Carousel = ({story}) => {
                     <EmblaContainer>
                         {
                             photos.map((section, index) => {
-                                const desktopSRC = section?.Image?.filename || '' ;
-                                const mobileSRC = section?.PhoneSize?.filename || '';
+                                const desktopSRC = section?.Image || '' ;
+                                const mobileSRC = section?.PhoneSize || '';
                                 const src = width <= 768? mobileSRC : desktopSRC;
-
-                                const isVideo = src.toLowerCase().endsWith('.mp4'); // auf mp4 prüfen
+                                console.log(src);
+                                const isVideo = src.filename.toLowerCase().endsWith('.mp4'); // auf mp4 prüfen
 
                                 return isVideo ? (
                                     <EmblaSlide key={index}>
-                                        <Link to={src.cached_url}>
+                                        <Link to={section.link.cached_url}>
                                             <VideoContainer
-                                                src={src}
+                                                src={src.filename}
                                                 autoPlay
                                                 muted
                                                 loop
@@ -163,9 +163,9 @@ const Carousel = ({story}) => {
                                     </EmblaSlide>
                                 ) : (
                                     <EmblaSlide key={index}>
-                                        <Link to={src.cached_url}>
+                                        <Link to={section.link.cached_url}>
                                             <ImagesContainer
-                                                src={src}
+                                                src={src.filename}
                                                 alt={src.alt}
                                             />
                                         </Link>

@@ -67,9 +67,10 @@ export const GlobalStyle = createGlobalStyle `
         font-family: IBM Plex Mono, monospace;
     }
     .text-sub-sm-mono {
-        font-size: .9rem;
+        font-size: 1.05rem;
         color: #404040;
-        font-family: IBM Plex Mono, monospace;
+        font-family: IBM Plex Sans, monospace;
+        
     }
     .text-xs { font-size: 0.75rem; }
     .text-sm { 
