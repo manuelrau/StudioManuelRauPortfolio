@@ -58,6 +58,14 @@ export const GlobalStyle = createGlobalStyle `
     .headline-h2 {
         font-size: 2.5rem;
         font-weight: 600;
+
+        @media (max-width: 768px) {
+            font-size: 1.8rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.5rem;
+        }
     }
     .headline-h3 {
         font-size: 1.3rem;
@@ -99,6 +107,14 @@ export const GlobalStyle = createGlobalStyle `
     .text-3xl {
         font-size: 1.7rem;
         line-height: 1.3;
+        
+        @media (max-width: 768px) {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 1.1rem;
+        }
     }
     
     

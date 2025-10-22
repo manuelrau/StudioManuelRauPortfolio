@@ -22,6 +22,10 @@ export const CenterBox = styled.div`
     justify-content: center;
     align-items: center;
     
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+    
 `
 
 export const AboutPtag = styled.p.attrs(() => ({
@@ -29,7 +33,7 @@ export const AboutPtag = styled.p.attrs(() => ({
 })) `
     
     @media (max-width: 768px) {
-        
+        font-size: 1.2rem;
     }
     
     @media (max-width: 480px) {
