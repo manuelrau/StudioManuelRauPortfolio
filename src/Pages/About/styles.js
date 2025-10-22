@@ -15,8 +15,7 @@ export const AboutSection = styled.div`
 `
 
 export const CenterBox = styled.div`
-    width: 100%;
-    max-width: 550px;
+    max-width: 65%;
     padding: 0; // abstände 
     display: flex;
     flex-direction: column;
@@ -26,7 +25,7 @@ export const CenterBox = styled.div`
 `
 
 export const AboutPtag = styled.p.attrs(() => ({
-    className: 'text-lg'
+    className: 'text-3xl'
 })) `
     
     @media (max-width: 768px) {
@@ -109,7 +108,6 @@ export const HeadlineH1 = styled.h2.attrs(() => ({
     className: 'headline-h2'
 }))`
     display: flex;
-    justify-content: center;
     margin: 100px 0 0 0;
     
     @media (max-width: 768px) {

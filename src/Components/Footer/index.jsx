@@ -1,6 +1,6 @@
 import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation, SectionFooter} from "./styles.js"
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect} from "react";
 import {useLocation} from "react-router-dom";
 import { Link } from "react-router-dom";
 import  splitting  from "splitting"

@@ -31,11 +31,14 @@ export const GlobalStyle = createGlobalStyle `
         text-transform: uppercase;
         color: black;
         text-decoration: none;
+        font-weight: 400;
+        transition: font-weight 0.5s ease, transform 0.3s ease;
        
         
         
         &:hover{
-            //text-decoration-style: dotted;
+            font-weight: 700;
+            //transform: scale(1.05);
         }
     }
     h1 {
@@ -54,11 +57,11 @@ export const GlobalStyle = createGlobalStyle `
     }
     .headline-h2 {
         font-size: 2.5rem;
-        font-weight: 400;
+        font-weight: 600;
     }
     .headline-h3 {
         font-size: 1.3rem;
-        font-weight: 400;
+        font-weight: 600;
     }
     .headline-h4 {
         font-size: 1.2rem;
@@ -92,6 +95,10 @@ export const GlobalStyle = createGlobalStyle `
     .text-xl { font-size: 1.25rem; }
     .text-2xl { 
         font-size: clamp(1rem, .94rem + .26vw, 1.5rem)
+    }
+    .text-3xl {
+        font-size: 1.7rem;
+        line-height: 1.3;
     }
     
     
