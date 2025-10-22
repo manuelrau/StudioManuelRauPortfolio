@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const AboutSection = styled.div`
     display: flex;
@@ -29,7 +29,7 @@ export const CenterBox = styled.div`
 `
 
 export const AboutPtag = styled.p.attrs(() => ({
-    className: 'text-3xl'
+    className: 'text-2xl'
 })) `
     
     @media (max-width: 768px) {
@@ -108,11 +108,22 @@ export const Wrapper = styled.div`
     background: #F388CC ;
 `
 
+const kerningIncrease = keyframes`
+  from {
+    letter-spacing: 0;
+  }
+  to {
+    letter-spacing: 0.3em;
+  }
+`;
+
 export const HeadlineH1 = styled.h2.attrs(() => ({
     className: 'headline-h2'
 }))`
     display: flex;
+    justify-content: center;
     margin: 100px 0 0 0;
+    animation: ${kerningIncrease} 1s ease forwards;
     
     @media (max-width: 768px) {
         margin: 75px 0 0 0;
