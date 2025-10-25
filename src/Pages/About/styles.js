@@ -7,6 +7,7 @@ export const AboutSection = styled.div`
     align-items: center;
     padding: 20px;
     margin: 0 0 10px 0;
+    
 
     @media (max-width: 480px) {
         padding: 0;
@@ -37,13 +38,19 @@ export const AboutPtag = styled.p.attrs(() => ({
     }
     
     @media (max-width: 480px) {
-        font-size: 0.9rem;
+        
+        font-size: clamp(1rem, 1.1rem + .26vw, 1.5rem);
+        line-height: 1.5rem;
     }
 `
 
 export const AboutText = styled.div.attrs(() => ({
     className: 'text-base'
 }))`
+    
+    @media (max-width: 480px) {
+        font-size: 1.2rem;
+    }
     
 `
 export const Section = styled.section`
@@ -85,8 +92,8 @@ export const Container = styled.div`
     }
 `
 export const Images = styled.img`
+    max-height: 50%;
     max-width: 100%;
-    height: auto;
     margin: 0;
     display: block;
     break-inside: avoid;
@@ -105,7 +112,9 @@ export const Video = styled.video`
     object-fit: cover;`
 
 export const Wrapper = styled.div`
-    background: #F388CC ;
+    //background: #F388CC ;
+    
+    background: #FBFF89;
 `
 
 const kerningIncrease = keyframes`

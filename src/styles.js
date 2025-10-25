@@ -23,7 +23,8 @@ export const GlobalStyle = createGlobalStyle `
         
     }
     body.orange {
-        background-color: #F388CC ;
+        //background-color: #F388CC ;
+        background-color: #FBFF89;
     }
     
     a {
@@ -102,7 +103,7 @@ export const GlobalStyle = createGlobalStyle `
     }
     .text-xl { font-size: 1.25rem; }
     .text-2xl { 
-        font-size: clamp(1rem, .94rem + .26vw, 1.5rem)
+        font-size: clamp(1rem, .99rem + .26vw, 1.5rem)
     }
     .text-3xl {
         font-size: 1.7rem;

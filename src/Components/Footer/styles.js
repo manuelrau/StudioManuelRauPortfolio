@@ -80,7 +80,8 @@ export const Container = styled.div`
     }
 
     &.orange {
-        background: #F388CC; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
+        //background: #F388CC; /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
+        background: #FBFF89;
     }
     
 
