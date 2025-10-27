@@ -1,60 +1,54 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
 import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuDesktop, Burger, Close} from './styles.js'
-import { useStoryblok } from "@storyblok/react";
 import useWindowSize  from "../../Hook/useWindowSize.jsx"
+import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 
 const HeaderBox = () => {
-    const story = useStoryblok("header", {version: "draft"})
-   const headerRef = useRef(null);
+    const headerRef = useRef(null);
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
     const windowSize = useWindowSize();
+    const { lang } = useParams(); // Sprache aus der URL holen
+    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
+    const { story, loading, error } = useStoryblokfetch("header", activeLang);
 
+
+    // Header-Farbwechsel je nach Pfad
     useEffect(() => {
-        if (!story.content) return;
-        const header = headerRef.current;
-        console.log('HeaderRef:', header);
-        if(!header) return;
 
-        if(location.pathname ==="/about") {
+        if (!story?.content) return;
+        const header = headerRef.current;
+        if (!header) return;
+
+        if (location.pathname.includes("/about")) {
             header.classList.add("orange");
         } else {
             header.classList.remove("orange");
         }
-    }, [location, story.content])
+    }, [location, story]);
 
-    const getLinkClass = (link) => {
-        return location.pathname === link ? 'LinkNameHeader visited' : 'LinkNameHeader';
-    };
-
-// Berechne die dynamische Höhe, und multiplikator für unterschieldiche viewports
-    let Value = 0.0270
-    if (windowSize.width > 1024) {
-
-        Value = 0.0269
-
-    } else if( windowSize.width > 768 && windowSize.width <= 1024) {
-
-        Value = 0.02
-
-    } else if (windowSize.width > 480 && windowSize.width <= 768) { // wird aktuell nicht benutz da es springt in mobile
-
-        Value = 0.022;
-
-    } else {
-
-        Value = 0.0255;
-    }
+    // Dynamische Größenberechnung
+    let value = 0.027;
+    if (windowSize.width > 1024) value = 0.0269;
+    else if (windowSize.width > 768) value = 0.02;
+    else value = 0.0255;
 
 
 
-    const dynamicHeight = windowSize.height ? `${windowSize.height * Value}px` : 'auto';
-    if (!story.content) return <p>Laden...</p>;
+    const dynamicHeight = windowSize?.height ? `${windowSize?.height * value}px` : 'auto';
 
-    const link1Index = `/${story.content?.Body[0].Index.cached_url}`;
-    const link2About = `/${story.content?.Body[0].Link.cached_url}`;
+    if (!story?.content) return <p>Laden...</p>;
+
+    // Sprachbezogene Links automatisch prependen (`/${lang}`)
+    const linkPrefix = `/${lang}`;
+    const linkHome = `${linkPrefix}/${story?.content.Body[0].Index.cached_url}`;
+    const linkAbout = `${linkPrefix}/${story?.content.Body[0].Link.cached_url}`;
+
+    if (loading) return <p>Laden...</p>;
+    if (error) return <p>Fehler: {error.message}</p>;
+    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
     return (
         <>
@@ -64,21 +58,21 @@ const HeaderBox = () => {
                 <Wrapper>
                     <Navigation>
 
-                        <Link to="/">
+                        <Link to={`${linkPrefix}/`}>
                             <HeaderLogo src={story.content?.Body[0].Logo.filename}  alt={story.content?.Body[0].Logo.alt} calculatedHeight={dynamicHeight}  />
                         </Link>
 
                         <MenuDesktop>
                             <Link
-                                to={link1Index}
-                                className={getLinkClass(link1Index)}
+                                to={linkHome}
+                                className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                             >
                                 {story.content?.Body[0].Index.cached_url}
                             </Link>
 
                             <Link
-                                to={link2About}
-                                className={getLinkClass(link2About)}
+                                to={linkAbout}
+                                className={location.pathname === linkAbout ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                             >
                                 {story.content?.Body[0].Link.cached_url}
                             </Link>
@@ -97,17 +91,17 @@ const HeaderBox = () => {
 
             <Menu isOpen={isOpen} >
                 <Link
-                    to={link1Index}
+                    to={linkHome}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClass(link1Index)}
+                    className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                 >
                     {story.content?.Body[0].Index.cached_url}
                 </Link>
 
                 <Link
-                    to={link2About}
+                    to={linkAbout}
                     onClick={() => setIsOpen(false)}
-                    className={getLinkClass(link2About)}
+                    className={location.pathname === linkAbout ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                 >
                     {story.content?.Body[0].Link.cached_url}
                 </Link>

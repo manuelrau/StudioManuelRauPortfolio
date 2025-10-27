@@ -8,8 +8,9 @@ import Index from "./Pages/Index/index.jsx";
 import Imprint from "./Pages/Imprint/index.jsx";
 
 const router = createBrowserRouter ([
+
     {
-        path: '/',
+        path: "/:lang", // Sprache als Teil der URL
         element: <App />,
         errorElement: <NotFound />,
         children: [
