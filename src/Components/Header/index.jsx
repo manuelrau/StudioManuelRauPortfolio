@@ -9,6 +9,7 @@ const HeaderBox = () => {
     const headerRef = useRef(null);
     const location = useLocation();
     const [isOpen, setIsOpen] = useState(false);
+
     const windowSize = useWindowSize();
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
@@ -63,6 +64,7 @@ const HeaderBox = () => {
                         </Link>
 
                         <MenuDesktop>
+                            <Link >{activeLang}</Link>
                             <Link
                                 to={linkHome}
                                 className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}

@@ -10,6 +10,7 @@ export function useStoryblokfetch (slug, language, options = {}) {
 
     useEffect(() => {
         if (!slug || !language) return;
+
         console.log("Lang:", language)
         console.log("Was ist der Slug: ",slug)
         console.log("Was sind die Optionen: ",options)

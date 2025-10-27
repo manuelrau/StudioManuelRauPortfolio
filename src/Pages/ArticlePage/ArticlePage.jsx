@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
@@ -12,6 +12,7 @@ import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
+import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 
 
@@ -20,26 +21,37 @@ export default function ArticlePage() {
     const [article, setArticle] = useState(null);
     const [notFound, setNotFound] = useState(false);
 
-    const story = useStoryblok("index", {version:"draft"})
     const [titles, setTitles] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
 
+    //const story = useStoryblok("index", {version:"draft"})
+
+    const { lang } = useParams(); // Sprache aus der URL holen
+    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
+    const combinedSlug = `articles/${slug || ''}`; //zusätzlich zum articles pfad wird der der pfad zum articel benötigtt
+    const { story, loading, error } = useStoryblokfetch(combinedSlug , activeLang); //hier wird alles der  hook übergeben
+
     const [imageData, setImageData] = useState(null);
+
+    console.log("SLUUUUG:",slug, story);
 
 
 
     useEffect(() => {
         const loadArticle = async () => {
             try {
-                const story = await getSlugArticle(slug);
-                setArticle(story);
+                const content = story;
+                setArticle(content);
+
+
             } catch (err) {
                 setNotFound(true);
             }
         };
         loadArticle();
-    }, [slug]);
+    }, [story]);
 
+    console.log("Teeeeeeeeeeest:",article)
     useEffect(() => {
         const fetchTitles = async () => {
 
@@ -87,6 +99,10 @@ export default function ArticlePage() {
 
     if (notFound) return <p>Article not found</p>;
     if (!article) return <p>Loading article...</p>;
+
+    if (loading) return <p>Laden...</p>;
+    if (error) return <p>Fehler: {error.message}</p>;
+    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
 
     console.log("Article:", article.content?.Link);
