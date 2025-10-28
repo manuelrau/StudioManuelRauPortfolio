@@ -12,7 +12,6 @@ import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
-import NotFound from "../NotFound/NotFound.jsx"
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 
@@ -98,11 +97,11 @@ export default function ArticlePage() {
 
 
 
-    if (notFound) return <NotFound></NotFound>;
-    if (!article) return <NotFound></NotFound>;
+    if (notFound) return <p>Article not found</p>;
+    if (!article) return <p>Loading article...</p>;
 
-    if (loading) return <NotFound></NotFound>;
-    if (error) return <NotFound></NotFound>;
+    if (loading) return <p>Laden...</p>;
+    if (error) return <p>Fehler: {error.message}</p>;
     if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
 

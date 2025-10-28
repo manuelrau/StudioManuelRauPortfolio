@@ -15,13 +15,21 @@ import {
     HeadlineH1,
     AboutText, HeadlineH3
 } from "./styles.js"
-import  {useEffect} from "react";
+import React, {useEffect} from "react";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
 import { animate, stagger  } from "motion"
+import {useParams} from "react-router-dom";
+import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
+
+
 
 
 const About = () => {
-        const story = useStoryblok( "about", {version:"online"})
+
+    // Sprache
+    const { lang } = useParams(); // Sprache aus der URL holen
+    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
+    const { story, loading, error } = useStoryblokfetch("about", activeLang);
     console.log(story)
 
     useEffect(() => {
@@ -33,7 +41,7 @@ const About = () => {
     }, []);
 
     useEffect(() => {
-        if (!story.content) return;
+        if (!story?.content) return;
         animate(
             ".container-animate",
             { opacity: [0, 1], y: [40, 0] },
@@ -43,11 +51,14 @@ const About = () => {
                 easing: "ease-in"
             }
         );
-    }, [story.content]);
+    }, [story?.content]);
 
-    if (!story.content) return <p>Laden...</p>;
+    if (!story?.content) return <p>Laden...</p>;
+    if (loading) return <p>Laden...</p>;
+    if (error) return <p>Fehler: {error.message}</p>;
+    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
-    const content = story.content.body[1].OverviewComponent
+    const content = story?.content.body[1].OverviewComponent
 
        return (
            <>

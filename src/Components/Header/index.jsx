@@ -11,6 +11,8 @@ const HeaderBox = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const windowSize = useWindowSize();
+
+    // Sprache
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
     const { story, loading, error } = useStoryblokfetch("header", activeLang);
