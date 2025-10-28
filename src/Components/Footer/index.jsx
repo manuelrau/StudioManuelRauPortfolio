@@ -63,7 +63,7 @@ const Footer = () => {
                     <Link className={story.content?.Body[0].Imprint.cached_url}
 
 
-                          to={`/${lang}/${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url}</Link>
+                          to={`/${lang}/${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url.split('/').pop()}</Link>
                     <SocialMedia
                         href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
                     <SocialContainer>
