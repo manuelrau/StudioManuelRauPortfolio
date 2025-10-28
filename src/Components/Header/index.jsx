@@ -68,17 +68,17 @@ const HeaderBox = () => {
                         <MenuDesktop>
                             <Link >{activeLang}</Link>
                             <Link
-                                to={linkHome}
+                                to={`/${lang}/${linkHome.split('/').pop()}`}
                                 className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                             >
-                                {story.content?.Body[0].Index.cached_url}
+                                {story.content?.Body[0].Index.cached_url.split('/').pop()}
                             </Link>
 
                             <Link
-                                to={linkAbout}
+                                to={`/${lang}/${linkAbout.split('/').pop()}`}
                                 className={location.pathname === linkAbout ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                             >
-                                {story.content?.Body[0].Link.cached_url}
+                                {story.content?.Body[0].Link.cached_url.split('/').pop()}
                             </Link>
                         </MenuDesktop>
 

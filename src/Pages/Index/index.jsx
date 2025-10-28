@@ -3,14 +3,19 @@ import { useStoryblok} from "@storyblok/react";
 import Header from "../../Components/Header/index.jsx"
 import Footer from "../../Components/Footer/index.jsx";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
-import { Link } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {Tags, Wrapper, IndexWrapper, Imagehover} from "./styles.js"
 
 import { getDataByVersion } from "../../Services/fetchingAPI.js"
+import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 function Index () {
 
-    const story = useStoryblok("index", {version:"draft"})
+    // Sprache
+    const { lang } = useParams(); // Sprache aus der URL holen
+    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
+    const { story, loading, error } = useStoryblokfetch("index", activeLang);
+
     const [titles, setTitles] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
     console.log(story)
@@ -37,7 +42,11 @@ function Index () {
         fetchTitles();
     }, [story, hasLoaded]);
 
-    if (!story.content?.body) return <p> Content is loading...</p>;
+    if (!story?.content?.body) return <p> Content is loading...</p>;
+
+    if (loading) return <p>Laden...</p>;
+    if (error) return <p>Fehler: {error.message}</p>;
+    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
     console.log(titles)
     return (
@@ -50,7 +59,7 @@ function Index () {
                             console.log(t),
                             <Wrapper key={index}>
 
-                                    <Link className="LinkClass" to={`/articles/${t.slug.split('/').pop()}`}>{t.name}
+                                    <Link className="LinkClass" to={`/${lang}/articles/${t.slug.split('/').pop()}`}>{t.name}
 
                                     </Link>
                                     <Imagehover className="ImageHover" src={t.img} alt="" />
