@@ -3,6 +3,17 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     border-top: solid 1px black;
     margin-top: 20px;
+    
+    padding: 0 20px 0 20px;
+    
+    @media (max-height: 768px) {
+    
+        padding: 0 10px 0 10px;
+}
+    
+    @media(max-width: 480px) {
+        padding: 0 5px 0 5px;
+    }
 `
 
 export const ImageWrapper = styled.div`

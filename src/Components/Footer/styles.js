@@ -7,12 +7,12 @@ export const Wrapper = styled.div.attrs(() => ({
     width: 100%;
     flex-direction: column;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid beige;
-    color: beige !important;
+    border-bottom: 1px solid #fff;
+    color: #fff !important;
 
     .imprint{
         font-size: 0.875rem;
-        color: beige !important;
+        color: #fff !important;
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
     }
@@ -93,7 +93,7 @@ export const SocialMedia = styled.a.attrs(()=> ({
     className: 'text-base'
 }))`
     text-decoration: none;  
-    color: beige !important;
+    color: #fff !important;
     padding: 1.5rem 0;
     
 `
@@ -148,7 +148,7 @@ export const SocialContainer = styled.div`
     gap: 0.5rem;
     display: flex;
     align-items: center;
-    color: beige !important;
+    color: #fff !important;
     
 `
 export const Icon = styled.img`
@@ -158,7 +158,7 @@ export const Icon = styled.img`
 export const Text = styled.p.attrs(() => ({
     className: 'text-base'
 })) `
-    color: beige !important;
+    color: #fff !important;
     
     max-width: 500px;
     margin-bottom: 2rem;
@@ -182,16 +182,16 @@ export const SectionFooter = styled.div`
     width: 100%;
     background-color: #000;
     padding: 0 20px; 
-    color: beige;
+    color: #fff;
     
     @media (max-width: 768px) {
-        margin-bottom: 6rem;
+        //margin-bottom: 6rem;
         width: 100%;
-        padding: 0 10px;
+        padding: 0 10px 200px 10px;
     }
     
     @media (max-width: 480px) {
-        padding: 0 5px 100px 5px;
-        margin-bottom: 5rem;
+        padding: 0 5px 200px 5px;
+      
     }
 `

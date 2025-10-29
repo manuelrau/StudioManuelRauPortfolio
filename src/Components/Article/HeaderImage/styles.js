@@ -6,20 +6,26 @@ export const Wrapper = styled.div`
     align-items: flex-start;
     
     height: ${window.innerHeight*.8}px; /* oder eine andere Höhe, die du brauchst */
-    margin-top: 40px;
+    
+    margin: 60px 20px 0 20px;
     width: 100%;
     overflow: hidden;
     object-fit: cover;
     
     @media (max-width: 1024px) {
-        margin-top: 10px;
+        margin-top: 20px;
+        
         height:  ${window.innerHeight*.8}px ;
     }
     
     
     @media (max-width: 480px) {
-        margin-top: 10px;
-        height:  ${window.innerHeight}px ;
+        margin: 20px 0 0 0;
+        padding: 0 5px 20px 5px;
+        width: 100%;
+        height:  ${window.innerHeight - 20}px  ;
+        box-sizing: border-box;
+        
     }
 `
 export const ImageDefinition = styled.img`
@@ -32,5 +38,10 @@ export const ImageDefinition = styled.img`
         height: 85%;
         margin: 0;
         display: block;
+    }
+    
+    @media (max-width: 480px) {
+        width: 100%;
+        margin: 0;
     }
 `

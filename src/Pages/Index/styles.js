@@ -29,6 +29,7 @@ export const Imagehover = styled.img `
     margin-top: 8px;
     width: 280px; /* Bildgröße anpassen */
     
+    
 `
 export const Wrapper = styled.div`
     display: flex;
@@ -45,6 +46,10 @@ export const Wrapper = styled.div`
     &:hover ${Imagehover} {
         display: block;
         z-index:10;
+
+        @media (max-width: 480px) {
+            display: none;
+        }
 
     }
     

@@ -15,6 +15,7 @@ export const Img = styled.img`
     }
 
     @media (max-width: 480px) {
+        border-radius: 5px;
         height: auto
     }
 `
@@ -41,22 +42,23 @@ export const ImageWrapper = styled.div`
     align-items: center;
     row-gap: .5rem;
     column-gap: 6rem;
-    padding: 2rem;
+    //padding: 2rem;
 
     @media (max-width: 1024px) {
     }
 
     @media (max-width: 768px) {
         column-count: 1;
-
-        padding: 0;
+        
         margin-bottom: 25px;
         display: block;
         
     }
 
     @media (max-width: 480px) {
-        margin-bottom: 40px;
+        
+        margin: 0 5px 0 5px;
+        box-sizing: border-box;
     }
 
     
@@ -85,6 +87,11 @@ export const FullSizeWrapper = styled(ImageWrapper)`
     width: 100%;
     row-gap: 0;
     
+    @media (max-width: 480px) {
+        margin: 0;
+        padding-bottom: 60px;
+    }
+    
 `
 export const RightWrapper = styled(ImageWrapper)` 
     grid-column: span 2;
@@ -92,6 +99,7 @@ export const RightWrapper = styled(ImageWrapper)`
     max-width: 60%;
     justify-self: end;
     margin-bottom: 40px;
+    
 
     @media (max-width: 768px)  {
         max-width: 100%;
@@ -99,7 +107,9 @@ export const RightWrapper = styled(ImageWrapper)`
     
     @media (max-width: 480px)  {
         max-width: 100%;
-        margin-bottom: 20px;
+        margin: 0 5px 40px 0;
+        
+        
     }
 `
 export const VerticalWrapper = styled(ImageWrapper)`
@@ -108,6 +118,8 @@ export const VerticalWrapper = styled(ImageWrapper)`
     
     @media (max-width: 480px)  {
         width: 100%;
+        margin: 0;
+        padding-bottom: 40px;
     }
 `
 export const Wrapper = styled.div`
