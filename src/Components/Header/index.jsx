@@ -76,6 +76,7 @@ const HeaderBox = () => {
     if (error) return <p>Fehler: {error.message}</p>;
     if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
+    console.log('Link:', story.content?.Body[0].IndexListe)
     return (
         <>
             <Header ref={headerRef}>
@@ -96,14 +97,14 @@ const HeaderBox = () => {
                                 to={`/${lang}/${linkHome.split('/').pop()}`}
                                 className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                             >
-                                {story.content?.Body[0].Index.cached_url.split('/').pop()}
+                                {story.content?.Body[0].IndexListe}
                             </Link>
 
                             <Link
                                 to={`/${lang}/${linkAbout.split('/').pop()}`}
                                 className={location.pathname === linkAbout ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                             >
-                                {story.content?.Body[0].Link.cached_url.split('/').pop()}
+                                {story.content?.Body[0].About}
                             </Link>
                         </MenuDesktop>
 
