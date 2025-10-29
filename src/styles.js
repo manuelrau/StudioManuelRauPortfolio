@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle `
     
     body {
         margin: 0;
-        padding: 0 20px 0 20px;
+       // padding: 0 20px 0 20px;
         height: 100vh;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;

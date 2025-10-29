@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+    border-top: solid 1px black;
+    margin-top: 20px;
 `
 
 export const ImageWrapper = styled.div`
@@ -35,6 +37,7 @@ export const Component = styled.section`
 export const HeadlineTwo = styled.h2.attrs(() => ({
     className: 'headline-h2',
 }))` 
+    padding-top: 50px;
     margin: 0;
 `
 

@@ -7,9 +7,11 @@ const RelatedArticle = ({story} ) =>  {
 
     const [randomStories, setRandomStories] = useState([]);
 
+    console.log('Related Article:', story)
+
     useEffect(() => {
         // Stelle sicher, dass story ein Array ist und Elemente enthält
-        if(story && Array.isArray(story) && story.length > 0) {
+        if(story && Array.isArray(story) && story?.length > 0) {
             // Shuffle-Funktion
             const getRandomTwo = (arr) => {
                 return [...arr]
@@ -25,7 +27,7 @@ const RelatedArticle = ({story} ) =>  {
 
 
     useEffect(() => {
-        if (!story || !story.ArticlePage?.alt) {
+        if (!story || !story?.ArticlePage?.alt) {
             return; // Frühzeitiger Ausstieg, wenn keine Daten vorhanden sind
         }
         animate(
@@ -39,7 +41,7 @@ const RelatedArticle = ({story} ) =>  {
         );
     }, [story]);
 
-    if (!randomStories || randomStories.length === 0) {
+    if (!randomStories || randomStories?.length === 0) {
         // Optional: Ladezustand oder nichts anzeigen, wenn keine Stories da sind
         return <p>Loading article ...</p>
     }

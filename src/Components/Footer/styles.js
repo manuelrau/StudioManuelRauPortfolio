@@ -7,10 +7,12 @@ export const Wrapper = styled.div.attrs(() => ({
     width: 100%;
     flex-direction: column;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid #212121;
+    border-bottom: 1px solid beige;
+    color: beige !important;
 
     .imprint{
         font-size: 0.875rem;
+        color: beige !important;
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
     }
@@ -62,7 +64,7 @@ export const Container = styled.div`
     flex-direction: row;
     gap: 0.75rem;
     padding-top: 1.5rem;
-    background-color: #D6D6D6;
+    //background-color: #D6D6D6;
     font-size: 26px;
     width: 100%; 
     height: 100%;
@@ -90,8 +92,8 @@ export const Container = styled.div`
 export const SocialMedia = styled.a.attrs(()=> ({
     className: 'text-base'
 }))`
-    text-decoration: none;
-    color: black;
+    text-decoration: none;  
+    color: beige !important;
     padding: 1.5rem 0;
     
 `
@@ -146,6 +148,7 @@ export const SocialContainer = styled.div`
     gap: 0.5rem;
     display: flex;
     align-items: center;
+    color: beige !important;
     
 `
 export const Icon = styled.img`
@@ -155,7 +158,7 @@ export const Icon = styled.img`
 export const Text = styled.p.attrs(() => ({
     className: 'text-base'
 })) `
-    color: black;
+    color: beige !important;
     
     max-width: 500px;
     margin-bottom: 2rem;
@@ -177,6 +180,9 @@ export const SectionFooter = styled.div`
 
     flex-direction: column;
     width: 100%;
+    background-color: #000;
+    padding: 0 20px; 
+    color: beige;
     
     @media (max-width: 768px) {
         margin-bottom: 6rem;

@@ -1,6 +1,16 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
-import {Wrapper, HeaderLogo, Header, Hamburger, Menu, Navigation, MenuDesktop, Burger, Close} from './styles.js'
+import {Wrapper,
+    HeaderLogo,
+    Header,
+    Hamburger,
+    Menu,
+    Navigation,
+    MenuDesktop,
+    Burger,
+    Close,
+    Button
+} from './styles.js'
 import useWindowSize  from "../../Hook/useWindowSize.jsx"
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
@@ -8,7 +18,10 @@ import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 const HeaderBox = () => {
     const headerRef = useRef(null);
     const location = useLocation();
+    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
+
+
 
     const windowSize = useWindowSize();
 
@@ -16,8 +29,8 @@ const HeaderBox = () => {
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
     const { story, loading, error } = useStoryblokfetch("header", activeLang);
-
-
+    const languages = ['de-de', 'en'];
+    const currentLang = lang || 'de';
     // Header-Farbwechsel je nach Pfad
     useEffect(() => {
 
@@ -38,6 +51,16 @@ const HeaderBox = () => {
     else if (windowSize.width > 768) value = 0.02;
     else value = 0.0255;
 
+
+// switchLangauge logik
+    const switchLanguage = () => {
+        const otherLang = languages.find(l => l !== currentLang);
+        console.log(otherLang)
+        const pathParts = location.pathname.split('/');
+        pathParts[1] = otherLang; // Annahme: Sprachcode ist der zweite Teil der URL
+        const newPath = pathParts.join('/');
+        navigate(newPath);
+    };
 
 
     const dynamicHeight = windowSize?.height ? `${windowSize?.height * value}px` : 'auto';
@@ -66,7 +89,9 @@ const HeaderBox = () => {
                         </Link>
 
                         <MenuDesktop>
-                            <Link >{activeLang}</Link>
+                            <Button onClick={switchLanguage} >
+                                {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
+                            </Button>
                             <Link
                                 to={`/${lang}/${linkHome.split('/').pop()}`}
                                 className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}

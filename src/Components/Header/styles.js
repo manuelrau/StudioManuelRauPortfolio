@@ -10,16 +10,22 @@ export const Header = styled.header.attrs(() => ({
     border-radius: 5px;
     z-index: 1000;
     width: 50vw;
-    background-color: oklab(0.96 0 0 / 0.7);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px); // für Safari
+    background-color: oklab(0.96 0 0 / 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); // für Safari
 
     &.orange {
         background-color: oklab(0.96 0 0 / 0.7);
         backdrop-filter: blur(24px); /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
+    
+    @media (max-width: 1440px) {
+        transform: translateX(-60%);
+        width: 70vw;
+    }
+    
     @media (max-width: 1024px) {
-        left: 65%;
+        left: 72%;
         width: 60vw;
     }
     
@@ -99,13 +105,24 @@ export const Wrapper = styled.div `
 `
 
 export const HeaderLogo = styled.img`
-    padding-left: 20px;
+    margin-left: 10px;
     background-attachment: fixed;
     background-size: cover;
     height: ${props => props.calculatedHeight};
     max-width: 100%;
     object-fit: cover;
     width: auto;
+    border-radius: 5px;
+    padding: 5px;
+    outline: 2px solid transparent; /* Start ohne sichtbare Outline */
+    transition: outline-color 0.5s ease;
+
+    &:hover {
+        
+        outline-color:rgba(251, 251, 251, 0.33);
+    }
+
+
 
     @media (max-width: 1024px) {
         height: ${props => props.calculatedHeight };
@@ -250,4 +267,22 @@ export const Navigation = styled.nav.attrs(() => ({
         
     }
 
+`
+
+export const Button = styled.button`
+    border: none;
+    color: #000;
+    font-size: 0.9rem;
+    background: rgba(251, 251, 251, 0.25);
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: 2px solid transparent; /* Start ohne sichtbare Outline */
+    transition: outline-color 0.5s ease;
+    cursor: pointer; /* Hand-Cursor aktivieren */
+    
+    &:hover {
+
+        outline-color:rgba(251, 251, 251, 0.33);
+    }
+    
 `

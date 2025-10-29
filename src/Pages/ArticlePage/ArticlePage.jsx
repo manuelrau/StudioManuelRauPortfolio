@@ -21,6 +21,8 @@ export default function ArticlePage() {
     const [article, setArticle] = useState(null);
     const [notFound, setNotFound] = useState(false);
 
+
+
     const [titles, setTitles] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
 
@@ -33,8 +35,8 @@ export default function ArticlePage() {
 
     const [imageData, setImageData] = useState(null);
 
-    console.log("SLUUUUG:",slug, story);
-
+    //--Data for "Other Projects--
+    const OterArticle = useStoryblok("index", {version:"published"})
 
 
     useEffect(() => {
@@ -51,18 +53,20 @@ export default function ArticlePage() {
         loadArticle();
     }, [story]);
 
-    console.log("Teeeeeeeeeeest:",article)
+    //-- Data for Other Article --
     useEffect(() => {
         const fetchTitles = async () => {
 
-            const uuidsRaw = story?.content?.body?.[0]?.Title;
+            const uuidsRaw = OterArticle?.content?.body?.[0]?.Title;
+
+
 
             const isReady = Array.isArray(uuidsRaw) && uuidsRaw.length > 0;
 
             if (!isReady || hasLoaded) return;
 
             const [draft] = await Promise.all([
-                fetchArticlePageRandom(uuidsRaw,"draft"),
+                //fetchArticlePageRandom(uuidsRaw,"draft"),
                 fetchArticlePageRandom(uuidsRaw, "published"),
 
 
