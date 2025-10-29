@@ -14,11 +14,11 @@ export const GlobalStyle = createGlobalStyle `
         background-color: #D6D6D6;
         
         @media (max-width: 768px) {
-            padding: 0 20px 0 20px;
+            //padding: 0 20px 0 20px;
         }
 
         @media (max-width: 480px) {
-            padding: 0 5px 0 5px;
+            //padding: 0 5px 0 5px;
         }
         
     }

@@ -120,21 +120,28 @@ const HeaderBox = () => {
             </Header>
 
             <Menu isOpen={isOpen} >
+
+
                 <Link
-                    to={linkHome}
+                    to={`/${lang}/${linkHome.split('/').pop()}`}
                     onClick={() => setIsOpen(false)}
                     className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                 >
-                    {story.content?.Body[0].Index.cached_url}
+                    {story.content?.Body[0].IndexListe}
                 </Link>
 
                 <Link
-                    to={linkAbout}
+                    to={`/${lang}/${linkAbout.split('/').pop()}`}
                     onClick={() => setIsOpen(false)}
                     className={location.pathname === linkAbout ? 'LinkNameHeader visited' : 'LinkNameHeader'}
                 >
-                    {story.content?.Body[0].Link.cached_url}
+                    {story.content?.Body[0].About}
                 </Link>
+
+                <Button onClick={switchLanguage} >
+                    {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
+                </Button>
+
             </Menu>
         </>
     )

@@ -17,6 +17,9 @@ export const Wrapper = styled.div`
             display: none;
         }
     }
+    @media(max-width: 480px) {
+        padding: 0 5px 0 5px;
+    }
 `
 
 const getTagColor = (tag) => {

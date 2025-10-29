@@ -71,6 +71,12 @@ export const IndexWrapper = styled.div`
     justify-content: stretch;
     font-size: 30px;
     
+    
+    @media (max-width: 768px) {
+        
+        padding: 10px 0;
+    }
+    
 
     
     @media (max-width: 480px) {
@@ -78,6 +84,7 @@ export const IndexWrapper = styled.div`
        
         margin-top: 0;
         display: flex;
+        padding: 0;
         flex-direction: column;
         width: 100vw;
         justify-content: center;
