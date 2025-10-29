@@ -113,8 +113,16 @@ export const Video = styled.video`
 
 export const Wrapper = styled.div`
     //background: #F388CC ;
+    padding: 0 20px 0 20px;
     
     background: #FBFF89;
+    
+    @media(max-width: 768px) {
+    padding: 0 10px 0 10px;
+}
+    @media(max-width: 480px) {
+    padding: 0 5px 0 5px;
+}
 `
 
 const kerningIncrease = keyframes`

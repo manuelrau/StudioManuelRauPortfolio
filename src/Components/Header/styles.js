@@ -227,12 +227,13 @@ export const Menu = styled.div`
     justify-content: center;
     align-items: center;
     gap: 60px;
-
+    
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    max-height: 100dvh; /* statt 100% */
+    min-height: 100vh; /* als Fallback */
     background: #D6D6D6;
     z-index: 999;
     transition: transform 0.4s ease;
