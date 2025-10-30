@@ -30,7 +30,7 @@ export const Header = styled.header.attrs(() => ({
     }
     
     @media (max-width: 768px){
-        left: 50%;
+        left: 60%;
         width: 90vw;
     }
 
@@ -115,7 +115,7 @@ export const HeaderLogo = styled.img`
     border-radius: 5px;
     padding: 5px;
     outline: 2px solid transparent; /* Start ohne sichtbare Outline */
-    transition: outline-color 0.5s ease;
+    transition: outline-color 0.5s ease; // Animation 
 
     &:hover {
         
@@ -134,9 +134,9 @@ export const HeaderLogo = styled.img`
         transition: height .5s ease-out;
     }
     @media (max-width: 480px) {
-        height: ${window.innerHeight*.026}px;
+        height: ${window.innerHeight*.025}px;
         justify-content: space-between;
-        padding: 5px 5px 5px 15px;
+        padding: 5px 5px 5px 5px;
     }
 `
 export const Burger = styled.img`

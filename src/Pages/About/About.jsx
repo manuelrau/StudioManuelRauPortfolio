@@ -74,7 +74,10 @@ const About = () => {
                                        <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
                                        <>
-                                           <AboutPtag className="container-animate">{render({ type: 'doc', content:[section.Text.content[0]]})}</AboutPtag>
+                                       {section.Text?.content.map((node, index) => (
+                                           <AboutPtag className="container-animate" key={index}>{render({ type: 'doc', content:[node]})}</AboutPtag>
+
+                                       ))}
                                        </>
                                    )}
                                </Chapter>
@@ -92,7 +95,9 @@ const About = () => {
                                        <Container key={index} className="container-animate">
                                            <HeadlineH3>{section.Headline}</HeadlineH3>
                                            <Images key={index} src={section?.Asset?.filename} />
-                                           <AboutText>{render({ type: 'doc', content:[section.Text.content[0]]})}</AboutText>
+                                           {section.Text?.content.map((node, index) => (
+                                                <AboutText key={index}>{render({ type: 'doc', content:[node]})}</AboutText>
+                                           ))}
                                        </Container>
 
                                    )
@@ -109,7 +114,9 @@ const About = () => {
                                                loop
                                                playsInline
                                            />
-                                           <AboutText> {render({ type: 'doc', content:[section.Text.content[0]]})}</AboutText>
+                                           {section.Text?.content.map((node, index) => (
+                                            <AboutText key={index}> {render({ type: 'doc', content:[node]})}</AboutText>
+                                           ))}
                                        </Container>
                                        )
 

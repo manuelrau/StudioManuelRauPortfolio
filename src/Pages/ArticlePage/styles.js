@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
     }
 
     @media (max-width: 768px) {
-        padding: 0;
+        padding: 20px 20px 0 20px;
     }
 
     @media (max-width: 480px) {
-        padding: 0;
+        padding: 5px 5px 0 5px;
     }
 `
 export const WrapperTags = styled.div`
