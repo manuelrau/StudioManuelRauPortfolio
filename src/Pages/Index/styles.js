@@ -50,6 +50,9 @@ export const Wrapper = styled.div`
         @media (max-width: 480px) {
             display: none;
         }
+        @media (max-width: 768px) {
+            display: none;
+        }
 
     }
     

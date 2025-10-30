@@ -70,7 +70,6 @@ export const Container = styled.div`
     height: 100%;
     justify-content: space-between;
     align-items: center;
-    border-top: solid 1px #212121;
     
     @media (max-width: 768px) {
         justify-content: center;
@@ -181,7 +180,8 @@ export const SectionFooter = styled.div`
     flex-direction: column;
     width: 100%;
     background-color: #000;
-    padding: 0 20px; 
+    
+    padding: 70px 20px; 
     color: #fff;
     
     @media (max-width: 768px) {
@@ -191,7 +191,7 @@ export const SectionFooter = styled.div`
     }
     
     @media (max-width: 480px) {
-        padding: 0 5px 200px 5px;
+        padding: 20px 5px 200px 5px;
       
     }
 `

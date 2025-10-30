@@ -33,6 +33,7 @@ export const AboutPtag = styled.p.attrs(() => ({
     className: 'text-2xl'
 })) `
     
+    
     @media (max-width: 768px) {
         font-size: 1.2rem;
     }
@@ -115,7 +116,8 @@ export const Wrapper = styled.div`
     //background: #F388CC ;
     padding: 0 20px 0 20px;
     
-    background: #FBFF89;
+    //background: #FBFF89;
+    background: #F55321;
     
     @media(max-width: 768px) {
     padding: 0 10px 0 10px;

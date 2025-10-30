@@ -63,7 +63,7 @@ const Footer = () => {
                     <Link className={story.content?.Body[0].Imprint.cached_url}
 
 
-                          to={`/${lang}/${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url.split('/').pop()}</Link>
+                          to={`${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url.split('/').pop()}</Link>
                     <SocialMedia
                         href={`mailto:${story.content?.Body[0].email.url}`}> {story.content?.Body[0].email.cached_url}</SocialMedia>
                     <SocialContainer>
@@ -72,7 +72,10 @@ const Footer = () => {
                     </SocialContainer>
 
                 </Wrapp>
-                <Text>{story.content?.Body[0].Copyright}</Text>
+                <Container>
+                    <Text>{story.content?.Body[0].Copyright}</Text>
+                </Container>
+
             </Wrapper>
             <LogoAnimation ref={logoAnimationRef}>{story.content?.Body[0].LogoBig}</LogoAnimation>
         </SectionFooter>
