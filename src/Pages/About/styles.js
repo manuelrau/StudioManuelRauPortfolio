@@ -67,10 +67,14 @@ export const Section = styled.section`
 
     @media (max-width: 1024px) {
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 0.5rem;
+        grid-auto-rows: auto;
+
+        /* ggf. feste Höhe für Bilder oder Kinder setzen */
     }
     
     @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 70px 0 20px 0;
     }
     
     @media (max-width: 480px) {

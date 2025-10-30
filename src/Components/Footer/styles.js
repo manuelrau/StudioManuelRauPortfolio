@@ -11,10 +11,15 @@ export const Wrapper = styled.div.attrs(() => ({
     color: #fff !important;
 
     .imprint{
-        font-size: 0.875rem;
+        font-size: 1rem;
+        padding: 1.5rem 0;
         color: #fff !important;
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
+        
+        @media (max-width: 480px) {
+            font-size: 1.2rem;
+        }
     }
 
     @media (max-width: 1024px) {
@@ -29,6 +34,7 @@ export const Wrapper = styled.div.attrs(() => ({
     }
     @media (max-width: 480px) {
         flex-direction: column;
+        border-bottom: 0 solid #fff;
         align-items: center;
         padding: 0;
         margin-bottom: 2rem;
@@ -95,6 +101,10 @@ export const SocialMedia = styled.a.attrs(()=> ({
     color: #fff !important;
     padding: 1.5rem 0;
     
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+    
 `
 export const LogoAnimation = styled.p`
     display: flex;
@@ -134,6 +144,7 @@ export const LogoAnimation = styled.p`
     }
     
     @media (max-width: 480px) {
+        display: none;
         font-size: 16.7vw;
         width: 100%;
         line-height: 3.7rem;
@@ -171,6 +182,7 @@ export const Text = styled.p.attrs(() => ({
     }
     @media (max-width: 480px) {
         max-width: 100%;
+        font-size: 1.1rem;
     }
 `
 
@@ -191,7 +203,7 @@ export const SectionFooter = styled.div`
     }
     
     @media (max-width: 480px) {
-        padding: 20px 5px 200px 5px;
+        padding: 20px 5px 70px 5px;
       
     }
 `

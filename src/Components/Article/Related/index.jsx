@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {HeadlineTwo, HeadlineFour, Image, ImageWrapper, Wrapper, Section, Component} from "./styles.js";
 import {animate, stagger} from "motion";
 
 const RelatedArticle = ({story} ) =>  {
 
     const [randomStories, setRandomStories] = useState([]);
+    const { lang } = useParams();
 
     console.log('Related Article:', story)
 
@@ -55,7 +56,7 @@ const RelatedArticle = ({story} ) =>  {
                 {randomStories.map((story, i) => (
 
                         <Component className="container-animate">
-                            <Link to={`/articles/${story.ArticlePage.slug.split('/').pop()}`}
+                            <Link to={`/${lang}/articles/${story.ArticlePage.slug.split('/').pop()}`}
                                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                             >
                                 <ImageWrapper>

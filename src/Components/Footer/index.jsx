@@ -60,7 +60,7 @@ const Footer = () => {
                     <Text>{story.content?.Body[0].Text}</Text>
                 </Container>
                 <Wrapp>
-                    <Link className={story.content?.Body[0].Imprint.cached_url}
+                    <Link className={story.content?.Body[0].Imprint.cached_url.split('/').pop()}
 
 
                           to={`${story.content?.Body[0].Imprint.cached_url}`}>{story.content?.Body[0].Imprint.cached_url.split('/').pop()}</Link>
