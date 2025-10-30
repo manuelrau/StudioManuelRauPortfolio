@@ -43,6 +43,7 @@ export const Section = styled.section`
 
 export const Component = styled.section`
     display: flex;
+    
 `
 
 export const HeadlineTwo = styled.h2.attrs(() => ({
@@ -56,5 +57,15 @@ export const HeadlineTwo = styled.h2.attrs(() => ({
 export const HeadlineFour = styled.h4.attrs(() => ({
     className: 'headline-h4',
 }))`
+    text-decoration: none;
     margin: 10px 0 10px 0;
+    font-weight: 400;
+    transition: font-weight 0.5s ease, transform 0.3s ease;
+
+
+
+    &:hover{
+        font-weight: 700;
+        //transform: scale(1.05);
+    }
 `

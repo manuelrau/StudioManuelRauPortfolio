@@ -187,7 +187,7 @@ export const SectionFooter = styled.div`
     @media (max-width: 768px) {
         //margin-bottom: 6rem;
         width: 100%;
-        padding: 0 10px 200px 10px;
+        padding: 0 10px 100px 10px;
     }
     
     @media (max-width: 480px) {
