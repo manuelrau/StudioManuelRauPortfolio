@@ -4,7 +4,7 @@ import Header from "../../Components/Header/index.jsx"
 import Footer from "../../Components/Footer/index.jsx";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
 import {Link, useParams} from 'react-router-dom';
-import {Tags, Wrapper, IndexWrapper, Imagehover} from "./styles.js"
+import {Tags, Wrapper, IndexWrapper, Imagehover, SkeletonLine} from "./styles.js"
 
 import { getDataByVersion } from "../../Services/fetchingAPI.js"
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
@@ -12,66 +12,52 @@ import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 function Index () {
 
     // Sprache
-    const { lang } = useParams(); // Sprache aus der URL holen
-    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
+    const { lang } = useParams();
+    const activeLang = lang === "de" ? "de-de" : (lang || "en");
     const { story, loading, error } = useStoryblokfetch("index", activeLang);
 
     const [titles, setTitles] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
-    console.log(story)
+
     useEffect(() => {
         const fetchTitles = async () => {
-
             const uuidsRaw = story?.content?.body?.[0]?.Title;
-
             const isReady = Array.isArray(uuidsRaw) && uuidsRaw.length > 0;
-
             if (!isReady || hasLoaded) return;
 
-            const [published] = await Promise.all([
-               // getDataByVersion(uuidsRaw,"draft"),
-                getDataByVersion(uuidsRaw, "published"),
-
-
-            ]);
-            const filteredPublish = published.filter(t => !t.error);
-            setTitles(filteredPublish);
+            const results = await getDataByVersion(uuidsRaw, "published");
+            setTitles(results);
             setHasLoaded(true);
-
         };
         fetchTitles();
     }, [story, hasLoaded]);
 
-    if (!story?.content?.body) return <p> Content is loading...</p>;
-
-    if (loading) return <p>Laden...</p>;
     if (error) return <p>Fehler: {error.message}</p>;
-    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
-    console.log(titles)
+    const isReady = !loading && titles.length > 0;
+
     return (
         <>
             <GlobalStyle />
             <Header />
-
-                <IndexWrapper>
-                        {titles.map((t, index) => (
-                            console.log(t),
-                            <Wrapper key={index}>
-
-                                    <Link className="LinkClass" to={`/${lang}/articles/${t.slug.split('/').pop()}`}>{t.name}
-
-                                    </Link>
-                                    <Imagehover className="ImageHover" src={t.img} alt="" />
-                                    <Tags>{t.tags.join(', ')}</Tags>
-
-                            </Wrapper>
-
-
-                                ))}
-
-
-                </IndexWrapper>
+            <IndexWrapper>
+                {isReady
+                    ? titles.map((t, index) => (
+                        <Wrapper key={index}>
+                            <Link className="LinkClass" to={`/${lang}/articles/${t.slug.split('/').pop()}`}>
+                                {t.name}
+                            </Link>
+                            <Imagehover className="ImageHover" src={t.img} alt="" />
+                            <Tags>{t.tags.join(', ')}</Tags>
+                        </Wrapper>
+                    ))
+                    : Array.from({ length: 6 }).map((_, i) => (
+                        <Wrapper key={i}>
+                            <SkeletonLine />
+                        </Wrapper>
+                    ))
+                }
+            </IndexWrapper>
             <FooterContainer>
                 <Footer />
             </FooterContainer>

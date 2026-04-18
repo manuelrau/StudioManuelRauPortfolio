@@ -6,32 +6,22 @@ const SbClient = new StoryblokClient ({
 });
 
 export const getDataByVersion = async (uuids, version) => {
-    //console.log("getTitlesByVersion INPUT:", uuids, typeof uuids, Array.isArray(uuids));
-    const titlePromises = uuids.map(async (uuid) => {
-        try {
-            const res = await SbClient.get(`cdn/stories/${uuid}`, {
-                version,
-                find_by:"uuid",
-            });
-            return {
-                name: res.data.story.name,
-                tags: res.data.story.tag_list,
-                slug: res.data.story.full_slug,
-                img: res.data.story.content.Header.filename,
-                //full: res.data.story,
-            };
-        } catch (err) {
-            console.error(`Fehler bei UUID ${uuid} (${version}) :`, err);
-            return {
-                name: `Fehler bei ${uuid}`,
-                tags: [],
-                slug: `Fehler bei ${uuid}`,
-                img: `Fehler bei ${uuid}`,
-                error: true,
-            };
-        }
-    });
-    return await Promise.all(titlePromises);
+    try {
+        const res = await SbClient.get("cdn/stories", {
+            version,
+            by_uuids: uuids.join(","),
+            per_page: 100,
+        });
+        return res.data.stories.map((story) => ({
+            name: story.name,
+            tags: story.tag_list,
+            slug: story.full_slug,
+            img: story.content.Header.filename,
+        }));
+    } catch (err) {
+        console.error("Fehler beim Laden der Artikel:", err);
+        return [];
+    }
 }
 
 export const fetchArticlePageRandom = async (uuids, version) => {

@@ -1,5 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from 'react-router-dom';
+
+const shimmer = keyframes`
+    0%   { opacity: 0.4; }
+    50%  { opacity: 0.9; }
+    100% { opacity: 0.4; }
+`
+
+export const SkeletonLine = styled.div`
+    height: 1.2em;
+    width: 60%;
+    margin: 22px 0;
+    background: #c8c8c8;
+    border-radius: 4px;
+    animation: ${shimmer} 1.4s ease-in-out infinite;
+
+    @media (max-width: 480px) {
+        width: 80%;
+        margin: 22px auto;
+    }
+`
 
 
 export const Tags = styled.div.attrs(() => ({

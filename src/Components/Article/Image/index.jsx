@@ -43,7 +43,7 @@ const Image = ({story}) => {
                     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(filename);
 
                     const WrapperComponent = isFullSize ? FullSizeWrapper : isRight ? RightWrapper : (isVertical ? VerticalWrapper : Wrapper);
-                    console.log(WrapperComponent)
+                    console.log('DATA:', s)
 
                     if (isImage) {
                         return (
@@ -56,7 +56,7 @@ const Image = ({story}) => {
                                     alt={s.Image.alt || "No Alt-text"}
                                     key={i}
                                 />
-                                <ParagraphStyle>{s?.Image?.name}</ParagraphStyle>
+                                <ParagraphStyle>{s?.Text ||" "}</ParagraphStyle>
                                 </WrapperComponentPackage>
                             </WrapperComponent>
                         );
@@ -76,7 +76,7 @@ const Image = ({story}) => {
                                     Dein Browser unterstützt das Video-Tag nicht.
                                 </Video>
 
-                                <ParagraphStyle>{s?.Image?.name}</ParagraphStyle>
+                                <ParagraphStyle>{s?.Text ||" "}</ParagraphStyle>
 
                             </WrapperComponent>
 

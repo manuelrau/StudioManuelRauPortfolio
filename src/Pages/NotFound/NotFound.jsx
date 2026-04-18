@@ -13,9 +13,9 @@ function NotFoundPage() {
             <Header />
             <GlobalStyle />
             <Frame>
-                <h1>Da ist etwas schief gelaufen </h1>
-                <p>Leider konnten wir die Seite nicht finden</p>
-                <pre>{error.statusText || error.message}</pre>
+                <h1>Something went wrong :(</h1>
+                {/*<p>Leider konnten wir die Seite nicht finden</p>
+                <pre>{error.statusText || error.message}</pre>*/}
             </Frame>
             <Footer />
         </>

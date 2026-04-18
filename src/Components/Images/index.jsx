@@ -103,6 +103,7 @@ const Images = ({ story , clickedTags = [] }) => {
                                         <VideoWrapper
                                             src={photo.Image?.filename}
                                             alt={photo.Image?.alt || 'no information'}
+                                            title={photo.Image?.title || 'no information'}
                                             autoPlay
                                             muted
                                             loop
@@ -110,7 +111,7 @@ const Images = ({ story , clickedTags = [] }) => {
                                         />
                                     ) : (
 
-                                        <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || 'no information'} />
+                                        <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || 'no information'} title={photo.Image?.title || 'no information'}/>
                                     )}
                             <HoverInfo className="hover-info">
                                 {photo.Name || "More"}
