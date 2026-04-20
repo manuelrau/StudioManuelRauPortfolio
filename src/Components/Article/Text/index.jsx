@@ -26,6 +26,7 @@ const Text = ({story, links, icon, Client, Services, Industire}) => {
     }, [rawData]);
 
     console.log("Client:", Client)
+    console.log("links", links)
     console.log("Services", Services)
     console.log("Industrie:", Industire)
     console.log("Headline01", Industire.Headline01)
@@ -34,20 +35,18 @@ const Text = ({story, links, icon, Client, Services, Industire}) => {
             <InfoText>
                 <TagsHeadline>{Industire.Headline01}</TagsHeadline>
                 <Tags> {Client}</Tags>
-
+                {links?.cached_url ? (
+                    <LinkWrapper>
+                        <TagsHeadline>Link</TagsHeadline>
+                        <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
+                        <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
+                    </LinkWrapper>
+                ) : null}
             </InfoText>
             <TextWrapper>
                 <Wrapper className="container-animate">
                     <TextStyle>{render({type: 'doc', content:[rawData]})}</TextStyle>
                 </Wrapper>
-                {links?.cached_url ? (
-
-                    <LinkWrapper>
-                        <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
-                        <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
-                    </LinkWrapper>
-                ) : null}
-
             </TextWrapper>
         </Wrapp>
 
