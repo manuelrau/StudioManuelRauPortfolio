@@ -48,6 +48,7 @@ export const Imagehover = styled.img `
     left: 0;
     margin-top: 8px;
     width: 280px; /* Bildgröße anpassen */
+    border-radius: 16px;
     
     
 `

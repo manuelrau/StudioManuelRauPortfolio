@@ -54,7 +54,7 @@ export const LinkWrapper = styled.div`
     }
 `
 export const Tag = styled.a.attrs(()=> ({
-    className: 'link-base',
+    className: 'link-base-small',
 }))`
 `
 
@@ -94,8 +94,10 @@ export const TagsHeadline = styled.h4.attrs(() => ({
     text-decoration: underline;
     
 `
-export const Tags = styled.p`
- margin: 0 0 5px 0
+export const Tags = styled.p.attrs(() => ({
+    className: 'tags',
+}))`
+ margin: 0 0 5px 0;
 `
 
 

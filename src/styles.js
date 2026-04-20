@@ -128,6 +128,14 @@ export const GlobalStyle = createGlobalStyle `
         font-size: 1.0rem;
         font-family: IBM Plex Mono, monospace;
     }
+    .link-base-small {
+        font-size: 0.85rem;
+        font-family: IBM Plex Mono, monospace;
+    }
+    .tags {
+        font-size: 0.85rem;
+        font-family: IBM Plex Sans, sans-serif;
+    }
     .link-header { 
         font-size: 1rem;
         font-family: IBM Plex Mono, monospace;
