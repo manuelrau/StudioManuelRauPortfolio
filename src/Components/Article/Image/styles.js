@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Img = styled.img`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 10px;
+    border-radius: 16px;
     
     
     @media (max-width: 1024px) {
@@ -24,7 +24,7 @@ export const Img = styled.img`
 export const Video = styled.video`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 5px;
+    border-radius: 16px;
 
     @media (max-width: 768px) {
         display: block;
@@ -140,7 +140,8 @@ export const ParagraphStyle = styled.p.attrs(() => ({
     className: 'text-sub-sm-mono',
 }))`
     display: flex;
-    margin: 8px 0;
+    width: 100%;
+    margin: 12px 0;
     padding: 0 15px;
     text-align: left;
     align-self: stretch;

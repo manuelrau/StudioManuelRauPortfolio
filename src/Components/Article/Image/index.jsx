@@ -1,9 +1,32 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Img, ImageWrapper, Video, Wrapper, ParagraphStyle, FullSizeWrapper, RightWrapper, VerticalWrapper, WrapperComponentPackage} from "./styles.js";
 import {animate, stagger} from "motion";
 
 
 const Image = ({story}) => {
+    const wrapperRefs = useRef([]);
+    const videoRefs = useRef([]);
+
+    useEffect(() => {
+        const threshold = 400;
+        const onScroll = () => {
+            const progress = Math.min(window.scrollY / threshold, 1);
+            const scale = 1 - 0.1 * progress;
+            const radius = Math.round(16 + 16 * progress);
+            wrapperRefs.current.forEach(el => {
+                if (!el) return;
+                el.style.transform = `scale(${scale})`;
+                el.style.transformOrigin = 'center center';
+            });
+            videoRefs.current.forEach(el => {
+                if (!el) return;
+                el.style.borderRadius = `${radius}px`;
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     useEffect(() => {
         if (!story || !story.Image?.filename) {
             return; // Frühzeitiger Ausstieg, wenn keine Daten vorhanden sind
@@ -63,9 +86,10 @@ const Image = ({story}) => {
                     }
                         else if(isVideo) {
                         return (
-                            <WrapperComponent>
+                            <WrapperComponent ref={el => wrapperRefs.current[i] = el}>
                                 <Video
                                     key={i}
+                                    ref={el => videoRefs.current[i] = el}
                                     autoPlay
                                     muted
                                     loop
