@@ -38,8 +38,10 @@ const Text = ({story, links, icon, Client, Services, Industire}) => {
                 {links?.cached_url ? (
                     <LinkWrapper>
                         <TagsHeadline>Link</TagsHeadline>
-                        <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
-                        <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
+                        <div>
+                            <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
+                            <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
+                        </div>
                     </LinkWrapper>
                 ) : null}
             </InfoText>

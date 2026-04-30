@@ -24,7 +24,8 @@ export const GlobalStyle = createGlobalStyle `
     }
     body.orange {
         //background-color: #F388CC ;
-        background-color: #F55321;
+        //background-color: #F55321;
+        background-color: #FFCCEC;
     }
     
     a {
@@ -81,7 +82,7 @@ export const GlobalStyle = createGlobalStyle `
         font-family: IBM Plex Mono, monospace;
     }
     .text-sub-sm-mono {
-        font-size: 0.75rem;
+        font-size: 1rem;
         color: #404040;
         font-family: IBM Plex Mono, monospace;
         
@@ -103,7 +104,7 @@ export const GlobalStyle = createGlobalStyle `
     }
     .text-xl { font-size: 1.25rem; }
     .text-2xl { 
-        font-size: clamp(1rem, .99rem + .26vw, 1.5rem)
+        font-size: clamp(1rem, .99rem + .2vw, 1.1rem)
     }
     .text-3xl {
         font-size: 1.7rem;
@@ -111,6 +112,7 @@ export const GlobalStyle = createGlobalStyle `
         
         @media (max-width: 768px) {
             font-size: 1.2rem;
+            line-height: 1.5;
         }
 
         @media (max-width: 480px) {

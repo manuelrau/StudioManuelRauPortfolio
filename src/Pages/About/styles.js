@@ -121,7 +121,8 @@ export const Wrapper = styled.div`
     padding: 0 20px 0 20px;
     
     //background: #FBFF89;
-    background: #F55321;
+    //background: #F55321;
+    background-color: #FFCCEC;
     
     @media(max-width: 768px) {
     padding: 0 10px 0 10px;

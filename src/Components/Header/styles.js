@@ -112,13 +112,15 @@ export const HeaderLogo = styled.img`
     max-width: 100%;
     object-fit: cover;
     width: auto;
-    border-radius: 5px;
+    border-radius: 2px;
     padding: 5px;
     outline: 2px solid transparent; /* Start ohne sichtbare Outline */
-    transition: outline-color 0.5s ease; // Animation 
+    //transition: outline-color 0.5s ease, transform 0.3s ease; // Animation
 
     &:hover {
         
+        transition:  background-color 0.5s ease, transform 0.3s ease;
+        background-color: rgba(251, 251, 251, 0.33) ;
         outline-color:rgba(251, 251, 251, 0.33);
     }
 
@@ -130,7 +132,7 @@ export const HeaderLogo = styled.img`
 
     @media (max-width: 768px) {
         height: ${window.innerHeight*.025}px;;
-        padding: 5px 0 5px 15px;
+        padding: 6px 6px 6px 6px;
         transition: height .5s ease-out;
     }
     @media (max-width: 480px) {
@@ -140,11 +142,15 @@ export const HeaderLogo = styled.img`
     }
 `
 export const Burger = styled.img`
-    display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};
+    grid-area: 1 / 1;
     height: 3.6vh;
     width: auto;
-    padding:10px;
+    padding: 10px;
     margin-right: 10px;
+    opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg) scale(0.7)' : 'rotate(0deg) scale(1)')};
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: ${({ isOpen }) => (isOpen ? 'none' : 'auto')};
 
     @media (max-width: 768px) {
         height: 4vh;
@@ -156,14 +162,17 @@ export const Burger = styled.img`
 `
 
 export const Close = styled.img`
-    display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+    grid-area: 1 / 1;
     background: #0000000a;
     border-radius: 50%;
     padding: 15px 10px;
     margin-right: 10px;
-    transition: background .2s ease 0s;
     height: 3.6vh;
     width: auto;
+    opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
+    transform: ${({ isOpen }) => (isOpen ? 'rotate(0deg) scale(1)' : 'rotate(-45deg) scale(0.7)')};
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+    pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
 
     @media (max-width: 768px) {
         height: 4vh;
@@ -171,21 +180,18 @@ export const Close = styled.img`
     }
     @media (max-width: 480px) {
         height: 3.6vh;
-   
     }
-    
 `
 
 export const Hamburger = styled.div`
     display: none;
-    flex-direction: column;
     cursor: pointer;
     z-index: 20;
-    
+
     @media (max-width: 768px) {
-    display: flex;
-}
-    
+        display: grid;
+        place-items: center;
+    }
 `
 
 export const HamburgerIcon = styled.svg`
@@ -257,6 +263,7 @@ export const Navigation = styled.nav.attrs(() => ({
     padding: 10px 0;
     width: 100%;
     height: 40px;
+    transition: height 0.3s ease, padding 0.3s ease;
     color: white;
     display: flex;
     justify-content: space-between;

@@ -18,7 +18,7 @@ export const Wrapper = styled.div.attrs(() => ({
     }
 
     @media (max-width: 480px) {
-        padding: 20px 0 20px 0;
+        padding:  0;
         flex-direction: column;
     }
 `
@@ -36,6 +36,7 @@ export const TextStyle = styled.div.attrs(() => ({
 `
 export const LinkWrapper = styled.div` 
     display: flex;
+    flex-direction: column;
     gap: 5px;
     padding: 50px 0 50px 0;
     max-width: 25%;
@@ -43,14 +44,14 @@ export const LinkWrapper = styled.div`
     overflow-wrap: break-word;
 
     @media (max-width: 768px) {
-        padding: 0 10px;
+        padding: 0;
         max-width: 50%;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
     }
     
     @media (max-width: 480px) {
         max-width: 90%;
-        margin-bottom: 60px;
+        margin-bottom: 10px;
     }
 `
 export const Tag = styled.a.attrs(()=> ({
@@ -107,5 +108,6 @@ export const Wrapp = styled.div`
     
     @media (max-width: 768px) {
         display: block;
+        padding: 0;
     }
 `

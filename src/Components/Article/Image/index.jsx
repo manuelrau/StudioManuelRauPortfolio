@@ -8,19 +8,22 @@ const Image = ({story}) => {
     const videoRefs = useRef([]);
 
     useEffect(() => {
-        const threshold = 400;
         const onScroll = () => {
-            const progress = Math.min(window.scrollY / threshold, 1);
-            const scale = 1 - 0.1 * progress;
-            const radius = Math.round(16 + 16 * progress);
-            wrapperRefs.current.forEach(el => {
+            const viewportHeight = window.innerHeight;
+            const startTrigger = viewportHeight * 0.9; // Effekt startet wenn Element 10% sichtbar
+            const range = viewportHeight * 0.4;        // Effekt läuft über 40% des Viewports
+
+            wrapperRefs.current.forEach((el, i) => {
                 if (!el) return;
-                el.style.transform = `scale(${scale})`;
+                const rect = el.getBoundingClientRect();
+                const progress = Math.max(0, Math.min((startTrigger - rect.top) / range, 1));
+                el.style.transform = `scale(${0.9 + 0.1 * progress})`; // Größe des videos
                 el.style.transformOrigin = 'center center';
-            });
-            videoRefs.current.forEach(el => {
-                if (!el) return;
-                el.style.borderRadius = `${radius}px`;
+
+                const videoEl = videoRefs.current[i];
+                if (videoEl) {
+                    videoEl.style.borderRadius = `${Math.round(16 * progress)}px`;
+                }
             });
         };
         window.addEventListener('scroll', onScroll, { passive: true });

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Img = styled.img`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 16px;
+    border-radius: 4px;
     
     
     @media (max-width: 1024px) {
@@ -15,7 +15,7 @@ export const Img = styled.img`
     }
 
     @media (max-width: 480px) {
-        border-radius: 5px;
+        border-radius: 4px;
         height: auto
     }
 `
@@ -141,8 +141,8 @@ export const ParagraphStyle = styled.p.attrs(() => ({
 }))`
     display: flex;
     width: 100%;
-    margin: 12px 0;
-    padding: 0 15px;
+    margin: 8px 0;
+    padding: 0;
     text-align: left;
     align-self: stretch;
     
@@ -151,9 +151,10 @@ export const ParagraphStyle = styled.p.attrs(() => ({
     }
 
     @media (max-width: 480px)  {
+        font-size: 0.75rem;
         line-height: 1.45;
         margin: 3px 0 30px 0;
-        padding: 0 15px;
+        padding: 0;
     }
 
 `
