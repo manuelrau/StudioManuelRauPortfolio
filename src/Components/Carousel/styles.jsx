@@ -41,7 +41,7 @@ export const EmblaSlide = styled.div`
 export const VideoContainer = styled.video`
     width: 100%; 
     height: auto; 
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 4px 4px;
     object-fit: cover;
 
     @media (max-width: 1024px) {
@@ -70,7 +70,7 @@ export const ImagesContainer = styled.img`
     display: block;
     max-width: 100%;
     margin: 0;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 4px 4px;
 
     @media (max-width: 1024px) {
         height: 76svh;

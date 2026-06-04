@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-    border-top: solid 1px black;
+   // border-top: solid 1px black;
     margin-top: 20px;
+
     
     padding: 0 20px 0 20px;
     
@@ -23,7 +24,7 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img`
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 4px;
 `
 
 export const Section = styled.section`
@@ -46,8 +47,8 @@ export const Component = styled.section`
     
 `
 
-export const HeadlineTwo = styled.h2.attrs(() => ({
-    className: 'headline-h2',
+export const HeadlineTwo = styled.h3.attrs(() => ({
+    className: 'headline-h3',
 }))` 
     padding-top: 50px;
     margin: 0;

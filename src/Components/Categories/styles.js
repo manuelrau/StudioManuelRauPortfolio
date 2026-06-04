@@ -45,7 +45,7 @@ export const Tag = styled.span`
     
   padding: 6px 12px;
   margin: 4px;
-  border-radius: 20px;
+  border-radius: 8px;
   font-weight: 400;
   font-family: IBM Plex Mono, monospace;
   font-style: ${({ selected }) => (selected ? 'italic' : 'normal')};

@@ -103,7 +103,7 @@ export const Images = styled.img`
     display: block;
     break-inside: avoid;
     transition: transform 0.3s ease;
-    border-radius: 5px;
+    border-radius: 4px;
     object-fit: cover;
 `
 export const Video = styled.video`
@@ -113,7 +113,7 @@ export const Video = styled.video`
     display: block;
     break-inside: avoid;
     transition: transform 0.3s ease;
-    border-radius: 5px;
+    border-radius: 4px;
     object-fit: cover;`
 
 export const Wrapper = styled.div`

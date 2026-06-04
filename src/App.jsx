@@ -6,6 +6,7 @@ import Footer from './Components/Footer'
 import About from './Pages/About/About.jsx'
 import Index from './Pages/Index/index.jsx'
 import Imprint from './Pages/Imprint/index.jsx'
+import {HelmetProvider} from "react-helmet-async";
 
 
 
@@ -25,7 +26,10 @@ function App() {
 
   return (
     <>
-        <Outlet />
+        <HelmetProvider>
+            <Outlet />
+        </HelmetProvider>
+
     </>
   )
 }

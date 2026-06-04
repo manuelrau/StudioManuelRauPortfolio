@@ -7,7 +7,7 @@ export const Header = styled.header.attrs(() => ({
     left: 70%;
     transform: translateX(-50%);
     top: 10px;
-    border-radius: 5px;
+    border-radius: 4px;
     z-index: 1000;
     width: 50vw;
     background-color: oklab(0.96 0 0 / 0.4);

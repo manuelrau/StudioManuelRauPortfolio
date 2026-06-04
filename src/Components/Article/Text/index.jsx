@@ -1,5 +1,17 @@
 import React, {useEffect} from 'react';
-import {TextStyle, Wrapper, Tag, LinkWrapper, SVGStyling, TextWrapper, InfoText, TagsHeadline, Tags, Wrapp} from "./styles.js";
+import {
+    TextStyle,
+    Wrapper,
+    Tag,
+    LinkWrapper,
+    SVGStyling,
+    TextWrapper,
+    InfoText,
+    TagsHeadline,
+    Tags,
+    Wrapp,
+    StyleLink
+} from "./styles.js";
 import {animate, stagger} from "motion";
 import { render } from "storyblok-rich-text-react-renderer";
 
@@ -38,10 +50,10 @@ const Text = ({story, links, icon, Client, Services, Industire}) => {
                 {links?.cached_url ? (
                     <LinkWrapper>
                         <TagsHeadline>Link</TagsHeadline>
-                        <div>
+                        <StyleLink>
                             <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
                             <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
-                        </div>
+                        </StyleLink>
                     </LinkWrapper>
                 ) : null}
             </InfoText>

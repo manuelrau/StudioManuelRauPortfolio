@@ -34,7 +34,7 @@ export const Tags = styled.div.attrs(() => ({
     justify-content: end;
     align-items: center;
     margin-bottom: 20px;
-    
+
     @media (max-width: 480px) {
         display: none;
     }
@@ -48,9 +48,9 @@ export const Imagehover = styled.img `
     left: 0;
     margin-top: 8px;
     width: 280px; /* Bildgröße anpassen */
-    border-radius: 16px;
-    
-    
+    border-radius: 4px;
+
+
 `
 export const Wrapper = styled.div`
     display: flex;
@@ -76,7 +76,7 @@ export const Wrapper = styled.div`
         }
 
     }
-    
+
 `
 export const IndexWrapper = styled.div`
     .LinkClass {
@@ -86,31 +86,31 @@ export const IndexWrapper = styled.div`
         width: 100%;
 
         &:hover {
-            
+
             //text-decoration-style: dotted;
             text-decoration-thickness: 3px;
         }
-        
+
     }
     margin-top: 60px;
-    padding: 0 20px 0 20px; 
+    padding: 0 20px 0 20px;
     display: grid;
     color: black;
     font-family: IBM Plex Sans, sans-serif;
     justify-content: stretch;
     font-size: 30px;
-    
-    
+
+
     @media (max-width: 768px) {
-        
+
         padding: 10px 0;
     }
-    
 
-    
+
+
     @media (max-width: 480px) {
-        
-       
+
+
         margin-top: 0;
         display: flex;
         padding: 0;

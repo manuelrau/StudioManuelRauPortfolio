@@ -23,6 +23,16 @@ export const Wrapper = styled.div.attrs(() => ({
     }
 `
 
+export const StyleLink = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    
+    @media (max-width: 768px) {
+        width: auto;
+    }
+`
+
 export const TextStyle = styled.div.attrs(() => ({
     className: "text-2xl",
 }))`
@@ -61,6 +71,7 @@ export const Tag = styled.a.attrs(()=> ({
 
 export const SVGStyling = styled.img`
     width: 16px;
+    padding-right: 4px;
     
 `
 

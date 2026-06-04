@@ -40,26 +40,29 @@ export const GlobalStyle = createGlobalStyle `
         
         &:hover{
             font-weight: 700;
-            //transform: scale(1.05);
         }
     }
     h1 {
-        font-size: 2.5rem;
+        font-size: 42px;
         font-weight: 400;
     }
     .headline-h1 {
-        font-size: 6.75rem;
-        line-height: 7rem;
+        font-size: 4.7rem;
+        line-height: 5.4rem;
        //font-weight: 400;
         
         @media (max-width: 768px) {
-            font-size: 3.5rem;
+            font-size: 42px;
+            line-height: 3.8rem;
+        }
+        @media (max-width: 480px) {
+            font-size: 2.25rem;
             line-height: 3.8rem;
         }
     }
     .headline-h2 {
-        font-size: 2.5rem;
-        font-weight: 600;
+        font-size: 36px;
+        font-weight: 400;
 
         @media (max-width: 768px) {
             font-size: 1.8rem;
@@ -74,7 +77,7 @@ export const GlobalStyle = createGlobalStyle `
         font-weight: 600;
     }
     .headline-h4 {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 400;
     }
     .text-sub-xs { 
@@ -135,7 +138,7 @@ export const GlobalStyle = createGlobalStyle `
         font-family: IBM Plex Mono, monospace;
     }
     .tags {
-        font-size: 0.85rem;
+        font-size: 14px;
         font-family: IBM Plex Sans, sans-serif;
     }
     .link-header { 

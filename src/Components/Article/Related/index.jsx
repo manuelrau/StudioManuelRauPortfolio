@@ -51,7 +51,7 @@ const RelatedArticle = ({story} ) =>  {
     return(
 
             <Wrapper className="container-animate">
-                <HeadlineTwo>Other Projects</HeadlineTwo>
+                <HeadlineTwo>weitere Projekte</HeadlineTwo>
                 <Section>
                 {randomStories.map((story, i) => (
 

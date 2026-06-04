@@ -20,6 +20,7 @@ import {FooterContainer, GlobalStyle} from "../../styles.js";
 import { animate, stagger  } from "motion"
 import {useParams} from "react-router-dom";
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
+import {Helmet} from "react-helmet-async";
 
 
 
@@ -63,14 +64,20 @@ const About = () => {
        return (
            <>
                <GlobalStyle />
+               <Helmet>
+                   <title>Studio Manuel Rau – UX/UI & Motion Design | Freelance Designer</title>
+                   <meta name="description"
+                         content="Manuel Rau – Freelance UX/UI & Motion Designer aus Deutschland. Branding, App-Design und Motion Concepts für Agenturen und Startups."
+                   />
+               </Helmet>
                <Wrapper>
 
-                   <Header />
+                   <Header/>
                    <AboutSection>
                        <CenterBox className="container-animate">
                            {story.content.body.map((section, index) => (
                                <Chapter key={index}>
-                                   {section.Headline &&
+                               {section.Headline &&
                                        <HeadlineH1>{section.Headline}</HeadlineH1>}
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
                                        <>

@@ -24,7 +24,7 @@ export const Img = styled.img`
 export const Video = styled.video`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 16px;
+    border-radius: 4px;
 
     @media (max-width: 768px) {
         display: block;
