@@ -1,5 +1,3 @@
-import React from 'react';
-
 export async function loadTheme() {
     const token = import.meta.env.VITE_STORYBLOK_TOKEN;
     const slugs = ["background", "text-color"]; // deine Slugs aus Storyblok
