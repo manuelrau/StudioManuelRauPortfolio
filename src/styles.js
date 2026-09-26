@@ -1,7 +1,29 @@
 import styled, {createGlobalStyle} from "styled-components";
 
 export const GlobalStyle = createGlobalStyle `
-    
+    :root{
+        // Generall Color
+        --color-Background-Primary: #D6D6D6;
+        --color-About-Background: #FFCCEC;
+        --color-Footer-Background: #111111;
+        
+        // Darkmode
+        --color-Backround-Darkmode-Primary: #111111;
+        --color-About-Darkmode-Background: #111111;
+        --color-Footer-Darkmode-Background: #111111;
+        
+        // Text Color
+        --color-text-primary: #1a1a1a;
+        --color-text-secondary: #ffffff;
+        --color-text-link: #111111;
+        
+        // Text Color Darkmode
+
+        --color-text-Darkmode-primary: #ffffff;
+        --color-text-Darkmode-secondary: #ffffff;
+        --color-text-Darkmode-link: #ffffff
+ 
+    }
     body {
         margin: 0;
        // padding: 0 20px 0 20px;
@@ -9,9 +31,9 @@ export const GlobalStyle = createGlobalStyle `
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         font-family: IBM Plex Sans, Helvetica, sans-serif;
-        color: #1a1a1a;
+        color: var(--color-text-primary);
         overflow-x: hidden; // verhindert horizontales scrollen 
-        background-color: #D6D6D6;
+        background-color: var(--color-Background-Primary);
         
         @media (max-width: 768px) {
             //padding: 0 20px 0 20px;
@@ -25,13 +47,13 @@ export const GlobalStyle = createGlobalStyle `
     body.orange {
         //background-color: #F388CC ;
         //background-color: #F55321;
-        background-color: #FFCCEC;
+        background-color: var(--color-About-Background);
     }
     
     a {
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
-        color: black;
+        color: var(--color-text-link);
         text-decoration: none;
         font-weight: 400;
         transition: font-weight 0.5s ease, transform 0.3s ease;

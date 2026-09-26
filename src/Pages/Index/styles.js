@@ -11,7 +11,7 @@ export const SkeletonLine = styled.div`
     height: 1.2em;
     width: 60%;
     margin: 22px 0;
-    background: #c8c8c8;
+    background: var(--color-Background-Primary);
     border-radius: 4px;
     animation: ${shimmer} 1.4s ease-in-out infinite;
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Wrapper = styled.div.attrs(() => ({
     className: 'footer',
 }))`
@@ -7,13 +8,13 @@ export const Wrapper = styled.div.attrs(() => ({
     width: 100%;
     flex-direction: column;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid #fff;
-    color: #fff !important;
+    border-bottom: 1px solid var(--color-text-secondary);
+    color: var(--color-text-secondary) !important;
 
     .imprint{
         font-size: 1rem;
         padding: 1.5rem 0;
-        color: #fff !important;
+        color: var(--color-text-secondary) !important;
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
         
@@ -34,7 +35,7 @@ export const Wrapper = styled.div.attrs(() => ({
     }
     @media (max-width: 480px) {
         flex-direction: column;
-        border-bottom: 0 solid #fff;
+        border-bottom: 0 solid var(--color-text-secondary);
         align-items: center;
         padding: 0;
         margin-bottom: 2rem;
@@ -98,7 +99,7 @@ export const SocialMedia = styled.a.attrs(()=> ({
     className: 'text-base'
 }))`
     text-decoration: none;  
-    color: #fff !important;
+    color: var(--color-text-secondary) !important;
     padding: 1.5rem 0;
     
     @media (max-width: 768px) {
@@ -158,7 +159,7 @@ export const SocialContainer = styled.div`
     gap: 0.5rem;
     display: flex;
     align-items: center;
-    color: #fff !important;
+    color: var(--color-text-secondary) !important;
     
 `
 export const Icon = styled.img`
@@ -168,7 +169,7 @@ export const Icon = styled.img`
 export const Text = styled.p.attrs(() => ({
     className: 'text-base'
 })) `
-    color: #fff !important;
+    color: var(--color-text-secondary) !important;
     
     max-width: 500px;
     margin-bottom: 2rem;
@@ -191,10 +192,10 @@ export const SectionFooter = styled.div`
 
     flex-direction: column;
     width: 100%;
-    background-color: #000;
+    background-color: var(--color-Footer-Background);
     
     padding: 70px 20px; 
-    color: #fff;
+    color: var(--color-text-secondary);
     
     @media (max-width: 768px) {
         //margin-bottom: 6rem;

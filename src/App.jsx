@@ -11,7 +11,7 @@ import {HelmetProvider} from "react-helmet-async";
 
 
 storyblokInit({
-    accessToken: "k25cvE9zCKOuhJ3vCQgCCAtt",
+    accessToken: import.meta.env.VITE_STORYBLOK_TOKEN,
     use: [apiPlugin],
     components: {
         header: Header,

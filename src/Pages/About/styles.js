@@ -122,7 +122,7 @@ export const Wrapper = styled.div`
     
     //background: #FBFF89;
     //background: #F55321;
-    background-color: #FFCCEC;
+    background-color: var(--color-About-Background);
     
     @media(max-width: 768px) {
     padding: 0 10px 0 10px;
