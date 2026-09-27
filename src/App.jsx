@@ -5,7 +5,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import About from './Pages/About/About.jsx'
 import Index from './Pages/Index/index.jsx'
-import Imprint from './Pages/Imprint/index.jsx'
+import Imprint from './Pages/Imprint/Index.jsx'
 import {HelmetProvider} from "react-helmet-async";
 
 
