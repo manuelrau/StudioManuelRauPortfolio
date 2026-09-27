@@ -4,8 +4,8 @@ import Home from "./Pages/Home/Home.jsx"
 import App from "./App.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import ArticlePage from "./Pages/ArticlePage/ArticlePage.jsx";
-import Index from "./Pages/Index/Index.jsx";
-import Imprint from "./Pages/Imprint/index.jsx";
+import Index from "./Pages/Index/index.jsx";
+import Imprint from "./Pages/Imprint/Index.jsx";
 // Funktion zum Erkennen der Sprache
 function getUserLanguage() {
     const language = navigator.language || navigator.userLanguage;
