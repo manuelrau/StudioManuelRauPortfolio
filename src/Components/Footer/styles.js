@@ -8,13 +8,13 @@ export const Wrapper = styled.div.attrs(() => ({
     width: 100%;
     flex-direction: column;
     margin-bottom: 2.5rem;
-    border-bottom: 1px solid var(--color-text-secondary);
-    color: var(--color-text-secondary) !important;
+    border-bottom: 1px solid var(--color-text-footer);
+    color: var(--color-text-footer) !important;
 
     .imprint{
         font-size: 1rem;
         padding: 1.5rem 0;
-        color: var(--color-text-secondary) !important;
+        color: var(--color-text-footer) !important;
         font-family: IBM Plex Mono, monospace;
         text-transform: uppercase;
         
@@ -35,7 +35,7 @@ export const Wrapper = styled.div.attrs(() => ({
     }
     @media (max-width: 480px) {
         flex-direction: column;
-        border-bottom: 0 solid var(--color-text-secondary);
+        border-bottom: 0 solid var(--color-text-footer);
         align-items: center;
         padding: 0;
         margin-bottom: 2rem;
@@ -99,7 +99,7 @@ export const SocialMedia = styled.a.attrs(()=> ({
     className: 'text-base'
 }))`
     text-decoration: none;  
-    color: var(--color-text-secondary) !important;
+    color: var(--color-text-footer) !important;
     padding: 1.5rem 0;
     
     @media (max-width: 768px) {
@@ -159,7 +159,7 @@ export const SocialContainer = styled.div`
     gap: 0.5rem;
     display: flex;
     align-items: center;
-    color: var(--color-text-secondary) !important;
+    color: var(--color-text-footer) !important;
     
 `
 export const Icon = styled.img`
@@ -169,7 +169,7 @@ export const Icon = styled.img`
 export const Text = styled.p.attrs(() => ({
     className: 'text-base'
 })) `
-    color: var(--color-text-secondary) !important;
+    color: var(--color-text-footer) !important;
     
     max-width: 500px;
     margin-bottom: 2rem;
@@ -195,7 +195,7 @@ export const SectionFooter = styled.div`
     background-color: var(--color-Footer-Background);
     
     padding: 70px 20px; 
-    color: var(--color-text-secondary);
+    color: var(--color-text-footer);
     
     @media (max-width: 768px) {
         //margin-bottom: 6rem;

@@ -16,12 +16,14 @@ export const GlobalStyle = createGlobalStyle `
         --color-text-primary: #1a1a1a;
         --color-text-secondary: #ffffff;
         --color-text-link: #111111;
+        --color-text-footer: #ffffff;
         
         // Text Color Darkmode
 
         --color-text-Darkmode-primary: #ffffff;
         --color-text-Darkmode-secondary: #ffffff;
-        --color-text-Darkmode-link: #ffffff
+        --color-text-Darkmode-link: #ffffff;
+        --color-text-Darkmode-footer: #ffffff;
  
     }
     body {

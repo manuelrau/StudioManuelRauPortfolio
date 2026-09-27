@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { loadTheme } from "./lib/loadTheme";
+import { loadTheme } from "./lib/loadtheme";
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from "react-router-dom";
 import './index.css'
