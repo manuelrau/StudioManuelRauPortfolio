@@ -10,7 +10,7 @@ import Text from "../../Components/Article/Text/index.jsx";
 import { Wrapper} from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
-import {useStoryblok} from "@storyblok/react";
+import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
@@ -132,14 +132,17 @@ export default function ArticlePage() {
                 </ScrollLetterSpacing>
 
 
-                <Text story = {article?.content?.Text}
-                      links = {article.content?.Link}
-                      icon = {article.content?.Icon}
-
-                      Client={article?.content?.info[0]?.Client}
-                      Services={article?.content?.info[0]?.Services}
-                      Industire={article?.content?.info[0]}
-                />
+                {article?.content?.Content?.map((blok) => (
+                    <StoryblokComponent
+                        blok={blok}
+                        key={blok._uid}
+                        links={article.content?.Link}
+                        icon={article.content?.Icon}
+                        Client={article?.content?.info[0]?.Client}
+                        Services={article?.content?.info[0]?.Services}
+                        Industire={article?.content?.info[0]}
+                    />
+                ))}
 
                 <CarouselCompont/>
 

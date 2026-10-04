@@ -15,17 +15,13 @@ import {
 import {animate, stagger} from "motion";
 import { render } from "storyblok-rich-text-react-renderer";
 
-const Text = ({story, links, icon, Client, Services, Industire}) => {
+const Text = ({blok, links, icon, Client, Services, Industire}) => {
 
-    console.log(story);
-    const rawData = story.content[0]  // Data um Texte zu bekommen und rendern
-    const All = story;
-
+    const richText = blok?.InfoText;
+    console.log("Zeige den Text an:", blok);
 
     useEffect(() => {
-        if (!rawData || !rawData.text) {
-            return; // Frühzeitiger Ausstieg, wenn keine Daten vorhanden sind
-        }
+        if (!richText?.content?.length) return;
         animate(
             ".container-animate",
             { opacity: [0, 1], y: [50, 0] },
@@ -35,23 +31,21 @@ const Text = ({story, links, icon, Client, Services, Industire}) => {
                 easing: "ease-in"
             }
         );
-    }, [rawData]);
+    }, [richText]);
 
-    console.log("Client:", Client)
-    console.log("links", links)
-    console.log("Services", Services)
-    console.log("Industrie:", Industire)
-    console.log("Headline01", Industire.Headline01)
+    console.log("blok:", blok)
+    console.log("richText:", richText)
+    console.log("Industire:", Industire)
     return(
         <Wrapp>
             <InfoText>
-                <TagsHeadline>{Industire.Headline01}</TagsHeadline>
+                <TagsHeadline>{Industire?.Headline01}</TagsHeadline>
                 <Tags> {Client}</Tags>
                 {links?.cached_url ? (
                     <LinkWrapper>
                         <TagsHeadline>Link</TagsHeadline>
                         <StyleLink>
-                            <SVGStyling src={icon.filename} alt="Arrow horizontal"/>
+                            <SVGStyling src={icon?.filename} alt="Arrow horizontal"/>
                             <Tag href={links?.cached_url} target={links?.target}>{links?.title}</Tag>
                         </StyleLink>
                     </LinkWrapper>
@@ -59,7 +53,7 @@ const Text = ({story, links, icon, Client, Services, Industire}) => {
             </InfoText>
             <TextWrapper>
                 <Wrapper className="container-animate">
-                    <TextStyle>{render({type: 'doc', content:[rawData]})}</TextStyle>
+                    <TextStyle>{render(richText)}</TextStyle>
                 </Wrapper>
             </TextWrapper>
         </Wrapp>

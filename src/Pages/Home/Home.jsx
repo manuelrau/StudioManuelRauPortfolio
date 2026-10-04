@@ -5,10 +5,13 @@ import Categories from "../../Components/Categories/index.jsx";
 import LandingPage from '../../Components/LandingPage/index.jsx'
 import {Helmet} from "react-helmet-async";
 import {GlobalStyle, FooterContainer} from '../../styles.js'
+import { StoryblokComponent, useStoryblok } from "@storyblok/react";
 
 
 
 function Home() {
+    const story = useStoryblok("home", { version: "draft" });
+    console.log("Home story:", story);
 
     return(
         <>
@@ -20,8 +23,12 @@ function Home() {
                 />
             </Helmet>
             <Header/>
-            <LandingPage/>
+            <LandingPage story={story}/>
             <Categories/>
+
+            {story?.content?.Content?.map((blok) => (
+                <StoryblokComponent blok={blok} key={blok._uid} />
+            ))}
 
             <FooterContainer>
                 <Footer/>
