@@ -6,8 +6,8 @@ import Footer from "../../Components/Footer/index.jsx";
 import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
 import HeaderImage from "../../Components/Article/HeaderImage";
-import Text from "../../Components/Article/Text/index.jsx";
 import { Wrapper} from "./styles.js";
+import { Wrapp } from "../../Components/Article/Text/styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok, StoryblokComponent} from "@storyblok/react";
@@ -132,17 +132,11 @@ export default function ArticlePage() {
                 </ScrollLetterSpacing>
 
 
-                {article?.content?.Content?.map((blok) => (
-                    <StoryblokComponent
-                        blok={blok}
-                        key={blok._uid}
-                        links={article.content?.Link}
-                        icon={article.content?.Icon}
-                        Client={article?.content?.info[0]?.Client}
-                        Services={article?.content?.info[0]?.Services}
-                        Industire={article?.content?.info[0]}
-                    />
-                ))}
+                <Wrapp>
+                    {article?.content?.Content?.map((blok) => (
+                        <StoryblokComponent blok={blok} key={blok._uid} />
+                    ))}
+                </Wrapp>
 
                 <CarouselCompont/>
 

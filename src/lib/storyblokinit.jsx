@@ -7,7 +7,8 @@ import Footer from "../Components/Footer/index.jsx";
 import About from "../Pages/About/About.jsx";
 import Index from "../Pages/Index/index.jsx";
 import Imprint from "../Pages/Imprint/Index.jsx";
-import Tags from "../Components/Tags/index.jsx"
+import Tags from "../Components/Tags/index.jsx";
+import InformationBlock from "../Components/Article/InformationBlock/index.jsx";
 
 storyblokInit({
     accessToken: import.meta.env.VITE_STORYBLOK_TOKEN,
@@ -16,7 +17,7 @@ storyblokInit({
         image_block: ImageBlock,
         carousel: Carousel,
         Text: Text,
-        "Information Block": () => null,
+        "Information Block": InformationBlock,
         header: Header,
         footer: Footer,
         about: About,

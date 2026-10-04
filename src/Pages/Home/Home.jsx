@@ -6,6 +6,7 @@ import LandingPage from '../../Components/LandingPage/index.jsx'
 import {Helmet} from "react-helmet-async";
 import {GlobalStyle, FooterContainer} from '../../styles.js'
 import { StoryblokComponent, useStoryblok } from "@storyblok/react";
+import { Wrapp } from "../../Components/Article/Text/styles.js";
 
 
 
@@ -24,11 +25,13 @@ function Home() {
             </Helmet>
             <Header/>
             <LandingPage story={story}/>
+            <Wrapp>
+                {story?.content?.Content?.map((blok) => (
+                    <StoryblokComponent blok={blok} key={blok._uid} />
+                ))}
+            </Wrapp>
             <Categories/>
 
-            {story?.content?.Content?.map((blok) => (
-                <StoryblokComponent blok={blok} key={blok._uid} />
-            ))}
 
             <FooterContainer>
                 <Footer/>
