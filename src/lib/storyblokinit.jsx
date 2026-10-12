@@ -9,6 +9,8 @@ import Index from "../Pages/Index/index.jsx";
 import Imprint from "../Pages/Imprint/Index.jsx";
 import Tags from "../Components/Tags/index.jsx";
 import InformationBlock from "../Components/Article/InformationBlock/index.jsx";
+import HeroImage from "../Components/Article/HeroImage/index.jsx";
+import Headline from "../Components/Article/Headline/index.jsx";
 
 storyblokInit({
     accessToken: import.meta.env.VITE_STORYBLOK_TOKEN,
@@ -18,6 +20,8 @@ storyblokInit({
         carousel: Carousel,
         Text: Text,
         "Information Block": InformationBlock,
+        HeaderImage: HeroImage,
+        Headline: Headline,
         header: Header,
         footer: Footer,
         about: About,
@@ -25,4 +29,5 @@ storyblokInit({
         imprint: Imprint,
         Tags: Tags,
     },
+
 });

@@ -76,26 +76,22 @@ export const SVGStyling = styled.img`
 `
 
 export const TextWrapper = styled.span`
-    order: 2;
     display: flex;
     align-items: baseline;
 
     @media (max-width: 768px) {
-        order: 2;
         padding: 0 10px;
         flex-direction: column;
     }
 `
 
 export const InfoText = styled.div`
-    order: 1;
     display: flex;
     flex-direction: column;
     min-width: 20%;
     padding: 50px 0 50px 0;
 
     @media (max-width: 768px) {
-        order: 1;
         padding: 0 10px 0 10px;
     }
 `
@@ -117,8 +113,9 @@ export const Tags = styled.p.attrs(() => ({
 
 export const Wrapp = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    
+
     @media (max-width: 768px) {
         display: block;
         padding: 0;

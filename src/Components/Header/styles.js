@@ -108,7 +108,8 @@ export const HeaderLogo = styled.img`
     margin-left: 10px;
     background-attachment: fixed;
     background-size: cover;
-    height: ${props => props.calculatedHeight};
+    height: 20px;
+    /*height: ${props => props.calculatedHeight};*/
     max-width: 100%;
     object-fit: cover;
     width: auto;
@@ -127,7 +128,8 @@ export const HeaderLogo = styled.img`
 
 
     @media (max-width: 1024px) {
-        height: ${props => props.calculatedHeight };
+        height: 16px;
+        /*height: ${props => props.calculatedHeight };*/
     }
 
     @media (max-width: 768px) {
