@@ -3,14 +3,14 @@ import styled, {createGlobalStyle} from "styled-components";
 export const GlobalStyle = createGlobalStyle `
     :root{
         // Generall Color
-        --color-Background-Primary: #D6D6D6;
-        --color-About-Background: #FFCCEC;
-        --color-Footer-Background: #111111;
+        --color-Background-Primary: #25211B;
+        --color-About-Background: #25211B;
+        --color-Footer-Background: #25211B;
         
         // Darkmode
-        --color-Backround-Darkmode-Primary: #111111;
-        --color-About-Darkmode-Background: #111111;
-        --color-Footer-Darkmode-Background: #111111;
+        --color-Backround-Darkmode-Primary: #25211B;
+        --color-About-Darkmode-Background: #25211B;
+        --color-Footer-Darkmode-Background: #25211B;
         
         // Text Color
         --color-text-primary: #1a1a1a;
@@ -24,8 +24,22 @@ export const GlobalStyle = createGlobalStyle `
         --color-text-Darkmode-secondary: #ffffff;
         --color-text-Darkmode-link: #ffffff;
         --color-text-Darkmode-footer: #ffffff;
- 
+
     }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-Background-Primary: var(--color-Backround-Darkmode-Primary);
+            --color-About-Background: var(--color-About-Darkmode-Background);
+            --color-Footer-Background: var(--color-Footer-Darkmode-Background);
+
+            --color-text-primary: var(--color-text-Darkmode-primary);
+            --color-text-secondary: var(--color-text-Darkmode-secondary);
+            --color-text-link: var(--color-text-Darkmode-link);
+            --color-text-footer: var(--color-text-Darkmode-footer);
+        }
+    }
+
     body {
         margin: 0;
        // padding: 0 20px 0 20px;

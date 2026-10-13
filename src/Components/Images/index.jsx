@@ -1,8 +1,9 @@
-import {Container, HoverInfo, ImageWrapper, LinkWrapper, VideoWrapper} from "./styles.js";
+import {Column, Container, HoverInfo, ImageWrapper, LinkWrapper, VideoWrapper} from "./styles.js";
 import { Link } from 'react-router-dom';
 import {useEffect, useRef, useState} from "react";
 import {animate} from "motion";
 import { motion } from "framer-motion"
+import useWindowSize from "../../Hook/useWindowSize.jsx";
 
 
 
@@ -17,6 +18,13 @@ const Images = ({ story , clickedTags = [] }) => {
     const itemsPerPage = 6; // wie viele elemente sollen immer nachgeladen werden
 
     const maxPage = Math.ceil(allPhotos.length / itemsPerPage);
+
+    const { width } = useWindowSize();
+    const columnCount = !width || width > 1024 ? 4 : width > 480 ? 2 : 1;
+    const columns = Array.from({ length: columnCount }, () => []);
+    visiblePhotos.forEach((photo, index) => {
+        columns[index % columnCount].push({ photo, index });
+    });
 
 
     console.log('DATA', photoData, maxPage, visiblePhotos, itemsPerPage);
@@ -86,47 +94,50 @@ const Images = ({ story , clickedTags = [] }) => {
 
 
     return (
-
+        <>
             <Container>
 
-                {visiblePhotos.map((photo, index) => (
+                {columns.map((columnItems, columnIndex) => (
+                    <Column key={columnIndex}>
+                        {columnItems.map(({ photo, index }) => (
 
-                    <LinkWrapper key={photo._uid}>
-                        <Link to={photo.link?.cached_url} className="LinkClass" >
-                            <motion.div
-                                id={`photo-${photo._uid}`}
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, delay: index * 0.1 }}
-                            >
-                                {photo.Image?.filename.endsWith('.mp4') ? (
-                                        <VideoWrapper
-                                            src={photo.Image?.filename}
-                                            alt={photo.Image?.alt || 'no information'}
-                                            title={photo.Image?.title || 'no information'}
-                                            autoPlay
-                                            muted
-                                            loop
-                                            playsInline
-                                        />
-                                    ) : (
+                            <LinkWrapper key={photo._uid}>
+                                <Link to={photo.link?.cached_url} className="LinkClass" >
+                                    <motion.div
+                                        id={`photo-${photo._uid}`}
+                                        initial={{ opacity: 0, y: 30 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.7, delay: index * 0.1 }}
+                                    >
+                                        {photo.Image?.filename.endsWith('.mp4') ? (
+                                                <VideoWrapper
+                                                    src={photo.Image?.filename}
+                                                    alt={photo.Image?.alt || 'no information'}
+                                                    title={photo.Image?.title || 'no information'}
+                                                    autoPlay
+                                                    muted
+                                                    loop
+                                                    playsInline
+                                                />
+                                            ) : (
 
-                                        <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || 'no information'} title={photo.Image?.title || 'no information'}/>
-                                    )}
-                            <HoverInfo className="hover-info">
-                                {photo.Name || "More"}
-                            </HoverInfo>
-                            </motion.div>
-                        </Link>
+                                                <ImageWrapper src={photo.Image?.filename} alt={photo.Image?.alt || 'no information'} title={photo.Image?.title || 'no information'}/>
+                                            )}
+                                    <HoverInfo className="hover-info">
+                                        {photo.Name || "More"}
+                                    </HoverInfo>
+                                    </motion.div>
+                                </Link>
 
-                    </LinkWrapper>
+                            </LinkWrapper>
+                        ))}
+                    </Column>
                 ))}
-                {page < maxPage && (
-                    <div ref={loaderRef} style={{ height: '1px' }}></div>
-                )}
             </Container>
-
-
+            {page < maxPage && (
+                <div ref={loaderRef} style={{ height: '1px' }}></div>
+            )}
+        </>
     )
 }
 

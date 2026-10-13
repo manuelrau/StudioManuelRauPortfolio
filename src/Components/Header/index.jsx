@@ -13,6 +13,7 @@ import {Wrapper,
 } from './styles.js'
 import useWindowSize  from "../../Hook/useWindowSize.jsx"
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
+import useDarkMode from "../../Hook/useDarkMode.jsx";
 
 
 const HeaderBox = () => {
@@ -27,6 +28,7 @@ const HeaderBox = () => {
 
 
     const windowSize = useWindowSize();
+    const [theme, toggleTheme] = useDarkMode();
 
     // Sprache
     const { lang } = useParams(); // Sprache aus der URL holen
@@ -96,6 +98,9 @@ const HeaderBox = () => {
                             <Button onClick={switchLanguage} >
                                 {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
                             </Button>
+                            <Button onClick={toggleTheme} >
+                                {theme === 'dark' ? 'LIGHT' : 'DARK'}
+                            </Button>
                             <Link
                                 to={`/${lang}/${linkHome.split('/').pop()}`}
                                 className={location.pathname === linkHome ? 'LinkNameHeader visited' : 'LinkNameHeader'}
@@ -143,6 +148,10 @@ const HeaderBox = () => {
 
                 <Button onClick={switchLanguage} >
                     {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
+                </Button>
+
+                <Button onClick={toggleTheme} >
+                    {theme === 'dark' ? 'LIGHT' : 'DARK'}
                 </Button>
 
             </Menu>

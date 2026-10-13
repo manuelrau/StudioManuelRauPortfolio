@@ -5,7 +5,7 @@ export const  DynamicStyledText = styled.h1.attrs(() => ({
 }))`
     transition: font-weight 0.05s linear;
     font-weight: ${props => props.currentFontWeight};
-    color: #000;
+    color: var(--color-text-primary);
     margin:0;
     
     
