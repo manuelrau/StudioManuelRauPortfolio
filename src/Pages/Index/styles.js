@@ -81,7 +81,6 @@ export const Wrapper = styled.div`
 export const IndexWrapper = styled.div`
     .LinkClass {
         text-decoration: none;
-        color: black;
         padding: 20px 0 5px 0;
         width: 100%;
 
@@ -95,7 +94,6 @@ export const IndexWrapper = styled.div`
     margin-top: 60px;
     padding: 0 20px 0 20px;
     display: grid;
-    color: black;
     font-family: IBM Plex Sans, sans-serif;
     justify-content: stretch;
     font-size: 30px;

@@ -137,7 +137,7 @@ export const GlobalStyle = createGlobalStyle `
     .text-base { 
         font-size: 1rem; 
         line-height: 1.3;
-        color: black;
+        color: var(--color-text-primary);
     }
     .text-lg { 
         font-size: 1.125rem;
@@ -165,7 +165,7 @@ export const GlobalStyle = createGlobalStyle `
     .bigText {
         font-size: 1.6rem;
         line-height: 1.15;
-        color: black;
+        color: var(--color-text-primary);
     }
     .link-base { 
         font-size: 1.0rem;

@@ -1,7 +1,7 @@
 import Header from '../../Components/Header/index.jsx'
 import Footer from "../../Components/Footer/index.jsx";
 import { useStoryblok } from "@storyblok/react";
-import { render } from "storyblok-rich-text-react-renderer";
+import { render, MARK_TEXT_STYLE } from "storyblok-rich-text-react-renderer";
 import {
     AboutPtag,
     AboutSection,
@@ -24,6 +24,15 @@ import {Helmet} from "react-helmet-async";
 
 
 
+
+// Storyblok speichert im Rich-Text-Editor gewählte Textfarben als inline
+// `style="color: ..."` auf einem <span>. Das überschreibt die Theme-Variable
+// var(--color-text-primary) im Dark Mode, deshalb wird die Farbe hier ignoriert.
+const richTextOptions = {
+    markResolvers: {
+        [MARK_TEXT_STYLE]: (children) => children,
+    },
+};
 
 const About = () => {
 
@@ -82,7 +91,7 @@ const About = () => {
                                    {section.Text?.content?.[0]?.content?.[0]?.text && (
                                        <>
                                        {section.Text?.content.map((node, index) => (
-                                           <AboutPtag className="container-animate" key={index}>{render({ type: 'doc', content:[node]})}</AboutPtag>
+                                           <AboutPtag className="container-animate" key={index}>{render({ type: 'doc', content:[node]}, richTextOptions)}</AboutPtag>
 
                                        ))}
                                        </>
@@ -103,7 +112,7 @@ const About = () => {
                                            <HeadlineH3>{section.Headline}</HeadlineH3>
                                            <Images key={index} src={section?.Asset?.filename} />
                                            {section.Text?.content.map((node, index) => (
-                                                <AboutText key={index}>{render({ type: 'doc', content:[node]})}</AboutText>
+                                                <AboutText key={index}>{render({ type: 'doc', content:[node]}, richTextOptions)}</AboutText>
                                            ))}
                                        </Container>
 
@@ -122,7 +131,7 @@ const About = () => {
                                                playsInline
                                            />
                                            {section.Text?.content.map((node, index) => (
-                                            <AboutText key={index}> {render({ type: 'doc', content:[node]})}</AboutText>
+                                            <AboutText key={index}> {render({ type: 'doc', content:[node]}, richTextOptions)}</AboutText>
                                            ))}
                                        </Container>
                                        )
