@@ -5,11 +5,9 @@ import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
 import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
-import HeaderImage from "../../Components/Article/HeaderImage";
 import { Wrapper} from "./styles.js";
 import { Wrapp } from "../../Components/Article/Text/styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
-import ScrollLetterSpacing from "../../Components/AnimationText/index.jsx"
 import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
@@ -119,17 +117,8 @@ export default function ArticlePage() {
             <GlobalStyle/>
             <Header/>
 
-            <HeaderImage story={article.content?.Header}/>
-            <Wrapper>
-                <ScrollLetterSpacing
-                    scrollStartEffect={100}  // Beginnt etwas später
-                    scrollEndEffect={800}    // Effekt dauert länger an
-                    minLetterSpacing={0.5}   // Kleiner Startabstand
-                    maxLetterSpacing={20}    // Größerer maximaler Abstand
 
-                    >
-                    {article.content.Headline}
-                </ScrollLetterSpacing>
+            <Wrapper>
 
 
                 <Wrapp>

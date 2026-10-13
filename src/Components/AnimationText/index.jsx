@@ -8,27 +8,27 @@ const ScrollLetterSpacing = ({
         children, // Ermöglicht das Übergeben von Text als Kind-Element
         scrollStartEffect = 0,   // Scroll-Position (Pixel), ab der der Effekt beginnt
         scrollEndEffect = 400,   // Scroll-Position, bei der der maximale Abstand erreicht ist
-        minFontWeight = 100,    // Minimaler Buchstabenabstand in Pixeln
-        maxFontWeight = 800    // Maximaler Buchstabenabstand in Pixeln
+        minLetterSpacing = 0,    // Minimaler Buchstabenabstand in Pixeln
+        maxLetterSpacing = 20    // Maximaler Buchstabenabstand in Pixeln
     }) => {
-        const [currentFontWeight, setCurrentFontWeight] = useState(minFontWeight);
+        const [currentLetterSpacing, setCurrentLetterSpacing] = useState(minLetterSpacing);
 
         const handleScroll = useCallback(() => {
             const scrollY = window.scrollY;
-            let newFontWeight;
+            let newLetterSpacing;
 
             if(scrollY <= scrollStartEffect) {
-                newFontWeight = minFontWeight;
+                newLetterSpacing = minLetterSpacing;
             } else if (scrollY >= scrollEndEffect) {
-                newFontWeight = maxFontWeight;
+                newLetterSpacing = maxLetterSpacing;
             } else {
                 // Berechnen von Werten zwischen im bereich zwischen 0 und 1
                 const progress = (scrollY - scrollStartEffect) / (scrollEndEffect - scrollStartEffect );
-                newFontWeight = minFontWeight + progress * (maxFontWeight - minFontWeight);
+                newLetterSpacing = minLetterSpacing + progress * (maxLetterSpacing - minLetterSpacing);
             }
             // aktualisiere den State
-            setCurrentFontWeight(newFontWeight);
-        }, [scrollStartEffect, scrollEndEffect, minFontWeight, maxFontWeight])
+            setCurrentLetterSpacing(newLetterSpacing);
+        }, [scrollStartEffect, scrollEndEffect, minLetterSpacing, maxLetterSpacing])
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -42,7 +42,7 @@ const ScrollLetterSpacing = ({
 
     return (
         <>
-            <DynamicStyledText currentFontWeight={currentFontWeight}>
+            <DynamicStyledText currentLetterSpacing={currentLetterSpacing}>
                 {children || "Dieser Text zieht sich auseinander."}
             </DynamicStyledText>
         </>
