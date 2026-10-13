@@ -4,9 +4,9 @@ export const Header = styled.header.attrs(() => ({
     className: 'header',
 }))`
     position: fixed;
-    left: 70%;
+    left: 50%;
     transform: translateX(-50%);
-    top: 10px;
+    bottom: 50px;
     border-radius: 4px;
     z-index: 1000;
     width: 50vw;
@@ -20,28 +20,22 @@ export const Header = styled.header.attrs(() => ({
     }
     
     @media (max-width: 1440px) {
-        transform: translateX(-60%);
         width: 70vw;
     }
-    
+
     @media (max-width: 1024px) {
-        left: 72%;
         width: 60vw;
     }
-    
+
     @media (max-width: 768px){
-        left: 60%;
         width: 90vw;
     }
 
     @media (max-width: 480px) {
-        top: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 20px;
+        bottom: 100px;
         width: 90%;
         margin-right: 10px;
-        
+
     }
  `
 
