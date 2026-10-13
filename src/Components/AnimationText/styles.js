@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const  DynamicStyledText = styled.h1.attrs(() => ({
     className: 'headline-h1'
 }))`
-    transition: letter-spacing 0.05s linear;
-    /* Wichtig: letter-spacing wird durch Props dynamisch gesetzt */
-    letter-spacing: ${props => props.currentLetterSpacing}px;
+    transition: font-weight 0.05s linear;
+    font-weight: ${props => props.currentFontWeight};
     color: #000;
     margin:0;
     

@@ -1,51 +1,42 @@
-import React, {useCallback, useState} from 'react';
-import {useEffect} from "react";
+import React, {useCallback, useEffect, useState} from 'react';
 import { DynamicStyledText } from "./styles.js"
+import useWindowSize from "../../Hook/useWindowSize.jsx";
 
-
+const MOBILE_BREAKPOINT = 768;
+const MOBILE_FONT_WEIGHT = 400;
 
 const ScrollLetterSpacing = ({
         children, // Ermöglicht das Übergeben von Text als Kind-Element
-        scrollStartEffect = 0,   // Scroll-Position (Pixel), ab der der Effekt beginnt
-        scrollEndEffect = 400,   // Scroll-Position, bei der der maximale Abstand erreicht ist
-        minLetterSpacing = 0,    // Minimaler Buchstabenabstand in Pixeln
-        maxLetterSpacing = 20    // Maximaler Buchstabenabstand in Pixeln
+        minFontWeight = 100,  // Font-Gewicht, wenn der Cursor ganz links im Fenster ist
+        maxFontWeight = 700   // Font-Gewicht, wenn der Cursor ganz rechts im Fenster ist
     }) => {
-        const [currentLetterSpacing, setCurrentLetterSpacing] = useState(minLetterSpacing);
+        const { width: windowWidth } = useWindowSize();
+        const isMobile = windowWidth !== undefined && windowWidth <= MOBILE_BREAKPOINT;
+        const [currentFontWeight, setCurrentFontWeight] = useState(minFontWeight);
 
-        const handleScroll = useCallback(() => {
-            const scrollY = window.scrollY;
-            let newLetterSpacing;
+        const handleMouseMove = useCallback((event) => {
+            const progress = Math.min(Math.max(event.clientX / window.innerWidth, 0), 1);
+            setCurrentFontWeight(minFontWeight + progress * (maxFontWeight - minFontWeight));
+        }, [minFontWeight, maxFontWeight]);
 
-            if(scrollY <= scrollStartEffect) {
-                newLetterSpacing = minLetterSpacing;
-            } else if (scrollY >= scrollEndEffect) {
-                newLetterSpacing = maxLetterSpacing;
-            } else {
-                // Berechnen von Werten zwischen im bereich zwischen 0 und 1
-                const progress = (scrollY - scrollStartEffect) / (scrollEndEffect - scrollStartEffect );
-                newLetterSpacing = minLetterSpacing + progress * (maxLetterSpacing - minLetterSpacing);
+        useEffect(() => {
+            if (isMobile) {
+                return;
             }
-            // aktualisiere den State
-            setCurrentLetterSpacing(newLetterSpacing);
-        }, [scrollStartEffect, scrollEndEffect, minLetterSpacing, maxLetterSpacing])
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
+            window.addEventListener('mousemove', handleMouseMove);
 
-        handleScroll()
-
-        return() => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [handleScroll]);
+            return () => {
+                window.removeEventListener('mousemove', handleMouseMove);
+            };
+        }, [isMobile, handleMouseMove]);
 
     return (
-        <>
-            <DynamicStyledText currentLetterSpacing={currentLetterSpacing}>
-                {children || "Dieser Text zieht sich auseinander."}
-            </DynamicStyledText>
-        </>
+        <DynamicStyledText
+            currentFontWeight={isMobile ? MOBILE_FONT_WEIGHT : currentFontWeight}
+        >
+            {children || "Dieser Text zieht sich auseinander."}
+        </DynamicStyledText>
     )
 }
 
