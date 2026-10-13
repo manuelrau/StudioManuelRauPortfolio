@@ -20,26 +20,6 @@ const HeaderBox = () => {
     const logoRef = useRef(null);
     const navRef = useRef(null);
 
-    useEffect(() => {
-        const onScroll = () => {
-            if (window.innerWidth <= 768) return;
-            const progress = Math.min(window.scrollY / 200, 1);
-            const scale = 1 - 0.2 * progress;
-            if (logoRef.current) {
-                logoRef.current.style.transform = `scale(${scale})`;
-                logoRef.current.style.transformOrigin = 'left center';
-            }
-            if (navRef.current) {
-                const height = Math.round(40 - 8 * progress);   // 40px → 32px
-                const padding = Math.round(10 - 4 * progress);  // 10px → 6px
-                navRef.current.style.height = `${height}px`;
-                navRef.current.style.paddingTop = `${padding}px`;
-                navRef.current.style.paddingBottom = `${padding}px`;
-            }
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
     const location = useLocation();
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
