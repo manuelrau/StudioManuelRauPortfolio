@@ -32,7 +32,7 @@ export const Header = styled.header.attrs(() => ({
     }
 
     @media (max-width: 480px) {
-        bottom: 100px;
+        bottom: 20px;
         width: 90%;
         margin-right: 10px;
 
@@ -132,7 +132,7 @@ export const HeaderLogo = styled.img`
         transition: height .5s ease-out;
     }
     @media (max-width: 480px) {
-        height: ${window.innerHeight*.025}px;
+        height: 16px;
         justify-content: space-between;
         padding: 5px 5px 5px 5px;
     }

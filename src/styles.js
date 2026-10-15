@@ -8,9 +8,9 @@ export const GlobalStyle = createGlobalStyle `
         --color-Footer-Background: #25211B;
         
         // Darkmode
-        --color-Backround-Darkmode-Primary: #25211B;
-        --color-About-Darkmode-Background: #25211B;
-        --color-Footer-Darkmode-Background: #25211B;
+        --color-Backround-Darkmode-Primary: #190601;
+        --color-About-Darkmode-Background: #190601;
+        --color-Footer-Darkmode-Background: #190601;
         
         // Text Color
         --color-text-primary: #1a1a1a;
