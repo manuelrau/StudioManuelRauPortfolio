@@ -6,11 +6,13 @@ export const GlobalStyle = createGlobalStyle `
         --color-Background-Primary: #25211B;
         --color-About-Background: #25211B;
         --color-Footer-Background: #25211B;
+        --color-Background-Menu: #D6D6D6;
         
         // Darkmode
         --color-Backround-Darkmode-Primary: #190601;
         --color-About-Darkmode-Background: #190601;
         --color-Footer-Darkmode-Background: #190601;
+        --color-Background-Darkmode-Menu: #302a2a;
         
         // Text Color
         --color-text-primary: #1a1a1a;
@@ -32,6 +34,7 @@ export const GlobalStyle = createGlobalStyle `
             --color-Background-Primary: var(--color-Backround-Darkmode-Primary);
             --color-About-Background: var(--color-About-Darkmode-Background);
             --color-Footer-Background: var(--color-Footer-Darkmode-Background);
+            --color-Background-Menu: var(--color-Background-Darkmode-Menu);
 
             --color-text-primary: var(--color-text-Darkmode-primary);
             --color-text-secondary: var(--color-text-Darkmode-secondary);
@@ -124,7 +127,7 @@ export const GlobalStyle = createGlobalStyle `
     }
     .text-sub-sm-mono {
         font-size: 1rem;
-        color: #404040;
+        color: var(--color-text-Darkmode-primary);
         font-family: IBM Plex Mono, monospace;
         
     }

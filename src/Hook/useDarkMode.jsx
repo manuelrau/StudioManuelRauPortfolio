@@ -14,6 +14,7 @@ const DARK_VARIABLES = {
     "--color-text-secondary": "#C8C8C8",
     "--color-text-link": "#C8C8C8",
     "--color-text-footer": "#C8C8C8",
+    "--color-Background-Menu": "#302a2a",
 };
 
 // Modul-Ebene statt useRef: document.documentElement überlebt Seitenwechsel

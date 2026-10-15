@@ -236,12 +236,12 @@ export const Menu = styled.div`
     width: 100%;
     max-height: 100dvh; /* statt 100% */
     min-height: 100vh; /* als Fallback */
-    background: #D6D6D6;
+    background: var(--color-Background-Menu);
     z-index: 999;
     transition: transform 0.4s ease;
     transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   a {
-    color: black;
+    color: var(--color-text-Darkmode-link);
     font-size: 2.25rem;
     transition: transform 0.4s ease;  
     text-decoration: none;
