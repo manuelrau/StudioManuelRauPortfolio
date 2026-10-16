@@ -31,7 +31,7 @@ export const WrapperTags = styled.div`
 export const HeadlineThree = styled.h3.attrs(()=> ({
     className: 'headline-h3',
 }))`
-    font-family: IBM Plex Mono, monospace;
+    font-family: IBM Plex, Helvetica, sans-serif;
     padding-right: 35px;
 
     @media (max-width: 768px) {

@@ -39,9 +39,9 @@ const getTagColor = (tag) => {
 
 export const Tag = styled.span`
   display: inline-block;
-  background-color: #D6D6D6;
+  //background-color: #D6D6D6;
   color: ${({ selected,tag }) =>
-          (selected ? getTagColor(tag)  : '#123123')};
+          (selected ? getTagColor(tag) : 'var(--color-tags-secondary)')};
     
   padding: 6px 12px;
   margin: 4px;

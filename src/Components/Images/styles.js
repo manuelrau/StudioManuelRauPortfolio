@@ -93,5 +93,5 @@ export const HoverInfo = styled.div`
     transition: opacity 0.3s ease;
     z-index: 2;
     font-size: 0.9rem;
-    font-family: IBM Plex Mono, monospace;
+    font-family: IBM Plex, Helvetica;
 `;

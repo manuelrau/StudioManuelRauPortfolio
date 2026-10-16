@@ -137,7 +137,7 @@ export const Wrapper = styled.div`
 `
 
 export const ParagraphStyle = styled.p.attrs(() => ({
-    className: 'text-sub-sm-mono',
+    className: 'text-sm',
 }))`
     display: flex;
     width: 100%;

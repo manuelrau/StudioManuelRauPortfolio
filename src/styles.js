@@ -7,18 +7,21 @@ export const GlobalStyle = createGlobalStyle `
         --color-About-Background: #25211B;
         --color-Footer-Background: #25211B;
         --color-Background-Menu: #D6D6D6;
+       
         
         // Darkmode
         --color-Backround-Darkmode-Primary: #190601;
         --color-About-Darkmode-Background: #190601;
         --color-Footer-Darkmode-Background: #190601;
         --color-Background-Darkmode-Menu: #302a2a;
-        
+        --color-tags-Darkmode-secondary: #ffffff;
+
         // Text Color
         --color-text-primary: #1a1a1a;
         --color-text-secondary: #ffffff;
         --color-text-link: #111111;
         --color-text-footer: #ffffff;
+        --color-tags-secondary: #000000;
         
         // Text Color Darkmode
 
@@ -127,7 +130,7 @@ export const GlobalStyle = createGlobalStyle `
     }
     .text-sub-sm-mono {
         font-size: 1rem;
-        color: var(--color-text-Darkmode-primary);
+        color: var(--color-text-primary);
         font-family: IBM Plex Mono, monospace;
         
     }

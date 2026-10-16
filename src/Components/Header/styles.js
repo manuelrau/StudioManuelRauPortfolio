@@ -6,7 +6,7 @@ export const Header = styled.header.attrs(() => ({
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 50px;
+    bottom: 24px;
     border-radius: 4px;
     z-index: 1000;
     width: 50vw;
@@ -241,7 +241,7 @@ export const Menu = styled.div`
     transition: transform 0.4s ease;
     transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(100%)')};
   a {
-    color: var(--color-text-Darkmode-link);
+    color: var(--color-text-link);
     font-size: 2.25rem;
     transition: transform 0.4s ease;  
     text-decoration: none;
