@@ -18,6 +18,15 @@ const DARK_VARIABLES = {
     "--color-tags-secondary": "#ffffff",
 };
 
+// Nicht von Storyblok verwaltete Properties: müssen im Light-Modus explizit
+// gesetzt werden, sonst gewinnt bei OS-Dark-Preference die
+// @media (prefers-color-scheme: dark) Regel aus src/styles.js wieder, obwohl
+// der Nutzer manuell "light" gewählt hat.
+const LIGHT_VARIABLES = {
+    "--color-Background-Menu": "#D6D6D6",
+    "--color-tags-secondary": "#000000",
+};
+
 // Modul-Ebene statt useRef: document.documentElement überlebt Seitenwechsel
 // innerhalb der SPA, einzelne Header-Instanzen (und ihre Refs) nicht. Der Cache
 // darf deshalb nur einmal pro vollständigem Page-Load befüllt werden, nicht bei
@@ -58,6 +67,9 @@ function useDarkMode() {
                 } else {
                     root.style.removeProperty(property);
                 }
+            });
+            Object.entries(LIGHT_VARIABLES).forEach(([property, value]) => {
+                root.style.setProperty(property, value);
             });
         }
 
