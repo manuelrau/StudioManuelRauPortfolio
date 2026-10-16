@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-    InfoText,
+    Wrapper,
     TagsHeadline,
     Tags,
     LinkWrapper,
     StyleLink,
     SVGStyling,
     Tag,
-} from "../Text/styles.js";
+} from "./styles.js";
 
 const formatDate = (datum) => {
     const date = new Date(datum);
@@ -19,7 +19,7 @@ const formatDate = (datum) => {
 
 const InformationBlock = ({ blok }) => {
     return (
-        <InfoText>
+        <Wrapper>
             {blok?.Client && <Tags>{blok.Client}</Tags>}
             {blok?.Datum && <Tags>{formatDate(blok.Datum)}</Tags>}
             {blok?.Link?.cached_url ? (
@@ -31,7 +31,7 @@ const InformationBlock = ({ blok }) => {
                     </StyleLink>
                 </LinkWrapper>
             ) : null}
-        </InfoText>
+        </Wrapper>
     );
 };
 
