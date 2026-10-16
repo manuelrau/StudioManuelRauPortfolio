@@ -8,4 +8,9 @@ export const  HeaderImage = styled.div`
     max-width: 100%;
     will-change: transform;
     transform-origin: center;
+    transform: scale(0.80);
+
+    @media (max-width: 768px) {
+        transform: none;
+    }
 `;

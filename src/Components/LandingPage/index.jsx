@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Carousel from '../../Components/Carousel/index.jsx'
 import {HeaderImage} from "./styles.js";
 
-const MIN_SCALE = 0.85;
+const MIN_SCALE = 0.8;
 const MAX_SCALE = 1;
 const DESKTOP_BREAKPOINT = 768;
 
