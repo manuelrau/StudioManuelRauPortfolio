@@ -19,11 +19,9 @@ function LandingPage({ story }) {
                 return;
             }
 
-            const rect = el.getBoundingClientRect();
-            const elementCenter = rect.top + rect.height / 2;
+            // 0 ganz oben, 1 sobald um eine halbe Bildschirmhöhe nach unten gescrollt wurde
             const viewportCenter = window.innerHeight / 2;
-            const distance = Math.abs(elementCenter - viewportCenter);
-            const progress = 1 - Math.min(distance / viewportCenter, 1);
+            const progress = Math.min(Math.max(window.scrollY / viewportCenter, 0), 1);
             const scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * progress;
 
             el.style.transform = `scale(${scale})`;
