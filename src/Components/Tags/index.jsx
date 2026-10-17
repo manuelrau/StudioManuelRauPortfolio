@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagItem, Wrapper } from './styles.jsx';
+import { TagItem, Wrapper, Section } from './styles.jsx';
 
 const Tags = ({ blok }) => {
     const rawValue = blok?.Tags?.value ?? blok?.Tags;
@@ -14,13 +14,16 @@ const Tags = ({ blok }) => {
 
     return (
         <>
-            <p>Tags</p>
-            <Wrapper>
-                {tagList.map((tag, index) => (
-                    <TagItem key={`${tag}-${index}`}>{tag}</TagItem>
-                ))}
+            <Section>
+                <p>Tags</p>
+                <Wrapper>
+                    {tagList.map((tag, index) => (
+                        <TagItem key={`${tag}-${index}`}>{tag}</TagItem>
+                    ))}
 
-            </Wrapper>
+                </Wrapper>
+            </Section>
+
         </>
     );
 };

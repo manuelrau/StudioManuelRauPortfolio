@@ -18,9 +18,12 @@ const formatDate = (datum) => {
 };
 
 const InformationBlock = ({ blok }) => {
+
     return (
         <Wrapper>
+            {blok?.Headline01 && <TagsHeadline>{blok.Headline01}</TagsHeadline>}
             {blok?.Client && <Tags>{blok.Client}</Tags>}
+            {blok?.HeadlineDatum && <TagsHeadline>{blok.HeadlineDatum}</TagsHeadline>}
             {blok?.Datum && <Tags>{formatDate(blok.Datum)}</Tags>}
             {blok?.Link?.cached_url ? (
                 <LinkWrapper>
