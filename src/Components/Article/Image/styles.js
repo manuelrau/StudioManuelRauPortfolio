@@ -3,19 +3,17 @@ import styled from "styled-components";
 export const Img = styled.img`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 4px;
-    
-    
+
+
     @media (max-width: 1024px) {
     }
-    
+
     @media (max-width: 768px) {
         height: auto;
-        
+
     }
 
     @media (max-width: 480px) {
-        border-radius: 4px;
         height: auto
     }
 `
@@ -24,7 +22,6 @@ export const Img = styled.img`
 export const Video = styled.video`
     max-width: 100%;
     max-height: 100%;
-    border-radius: 4px;
 
     @media (max-width: 768px) {
         display: block;

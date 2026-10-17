@@ -24,7 +24,6 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img`
     width: 100%;
     height: auto;
-    border-radius: 4px;
 `
 
 export const Section = styled.section`

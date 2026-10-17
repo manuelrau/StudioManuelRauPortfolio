@@ -30,7 +30,6 @@ export const Img = styled.img`
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    border-radius: 5px;
 
     @media (max-width: 768px) {
         height: 80svh;

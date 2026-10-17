@@ -30,7 +30,6 @@ export const ImageWrapper = styled.img`
     display: block;
     break-inside: avoid;
     transition: transform 0.3s ease;
-    border-radius: 4px;
 
     @media (max-width: 1024px) {
         
@@ -51,7 +50,6 @@ export const VideoWrapper = styled.video`
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 4px;
 `
 
 export const LinkWrapper = styled.div`

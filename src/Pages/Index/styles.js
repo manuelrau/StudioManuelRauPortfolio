@@ -48,9 +48,6 @@ export const Imagehover = styled.img `
     left: 0;
     margin-top: 8px;
     width: 280px; /* Bildgröße anpassen */
-    border-radius: 4px;
-
-
 `
 export const Wrapper = styled.div`
     display: flex;

@@ -10,3 +10,7 @@ export const TagItem = styled.p.attrs(() => ({
     border-radius: 4px;
     display: inline-block;
 `;
+
+export const Wrapper = styled.div`
+    display: inline-block;
+`;
