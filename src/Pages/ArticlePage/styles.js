@@ -15,6 +15,16 @@ export const Wrapper = styled.div`
         padding: 5px 5px 0 5px;
     }
 `
+export const ArticleContentWrap = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        display: block;
+        padding: 0;
+    }
+`
 export const WrapperTags = styled.div`
     display: flex;
     width: 100%;

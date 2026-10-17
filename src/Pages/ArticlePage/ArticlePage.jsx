@@ -5,8 +5,7 @@ import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
 import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
-import { Wrapper} from "./styles.js";
-import { Wrapp } from "../../Components/Article/Text/styles.js";
+import { Wrapper, ArticleContentWrap } from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
@@ -121,11 +120,11 @@ export default function ArticlePage() {
             <Wrapper>
 
 
-                <Wrapp>
+                <ArticleContentWrap>
                     {article?.content?.Content?.map((blok) => (
                         <StoryblokComponent blok={blok} key={blok._uid} />
                     ))}
-                </Wrapp>
+                </ArticleContentWrap>
 
                 <CarouselCompont/>
 
