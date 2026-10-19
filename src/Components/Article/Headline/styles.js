@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     flex: 1 0 100%;
     width: 100%;
     padding: 20px 0;
+    order: -2;
 
     @media (max-width: 768px) {
         padding: 10px 0;

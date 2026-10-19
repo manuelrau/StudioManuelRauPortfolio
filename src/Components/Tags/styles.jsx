@@ -15,8 +15,10 @@ export const TagItem = styled.p.attrs(() => ({
 
 export const Wrapper = styled.div`
     display: inline-block;
+    text-align: left;
 `;
 
 export const Section = styled.div`
-    display: inline-block;
+    display: block;
+    text-align: left;
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { TextWrapper, Wrapper as TextInnerWrapper } from "../../Components/Article/Text/styles.js";
 
 export const Wrapper = styled.div`
     padding: 50px 50px 0 50px;
@@ -20,9 +21,34 @@ export const ArticleContentWrap = styled.div`
     flex-wrap: wrap;
     justify-content: center;
 
+    ${TextWrapper} {
+        flex: 1 1 60%;
+        min-width: 0;
+    }
+
+    ${TextInnerWrapper} {
+        width: 100%;
+        margin: 0;
+    }
+
     @media (max-width: 768px) {
-        display: block;
+        flex-direction: column;
         padding: 0;
+
+        ${TextWrapper} {
+            flex: 1 1 auto;
+        }
+    }
+`
+export const ArticleSidebar = styled.div`
+    display: flex;
+    flex-direction: column;
+    min-width: 20%;
+    order: -1;
+
+    @media (max-width: 768px) {
+        order: 1;
+        width: 100%;
     }
 `
 export const WrapperTags = styled.div`

@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    flex: 1 0 100%;
+    width: 100%;
 
     height: ${window.innerHeight*.8}px;
 

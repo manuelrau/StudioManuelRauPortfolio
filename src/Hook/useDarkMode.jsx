@@ -45,6 +45,18 @@ function useDarkMode() {
     const [theme, setTheme] = useState(getInitialTheme);
 
     useEffect(() => {
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleSystemChange = (event) => {
+            // Nur automatisch dem System folgen, solange der Nutzer nicht manuell umgeschaltet hat
+            if (!localStorage.getItem(STORAGE_KEY)) {
+                setTheme(event.matches ? "dark" : "light");
+            }
+        };
+        media.addEventListener("change", handleSystemChange);
+        return () => media.removeEventListener("change", handleSystemChange);
+    }, []);
+
+    useEffect(() => {
         const root = document.documentElement;
 
         if (cachedOriginalValues === null) {
@@ -74,11 +86,14 @@ function useDarkMode() {
         }
 
         root.setAttribute("data-theme", theme);
-        localStorage.setItem(STORAGE_KEY, theme);
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(prevTheme => (prevTheme === "dark" ? "light" : "dark"));
+        setTheme(prevTheme => {
+            const nextTheme = prevTheme === "dark" ? "light" : "dark";
+            localStorage.setItem(STORAGE_KEY, nextTheme);
+            return nextTheme;
+        });
     };
 
     return [theme, toggleTheme];

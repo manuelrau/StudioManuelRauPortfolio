@@ -3,12 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    min-width: 20%;
-    padding: 50px 0 50px 0;
-    order: -1;
+    padding: 50px 0 0 0;
 
     @media (max-width: 768px) {
-        order: 0;
         width: 100%;
         padding: 0 10px 0 10px;
     }
@@ -32,7 +29,7 @@ export const LinkWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 50px 0 50px 0;
+    padding: 10px 0 10px 0;
     max-width: 25%;
     align-items: flex-start;
     overflow-wrap: break-word;

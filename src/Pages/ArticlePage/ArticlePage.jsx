@@ -5,7 +5,7 @@ import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
 import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
-import { Wrapper, ArticleContentWrap } from "./styles.js";
+import { Wrapper, ArticleContentWrap, ArticleSidebar } from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
@@ -110,6 +110,13 @@ export default function ArticlePage() {
     console.log(setTitles);
     console.log('AllData----->:', article)
 
+    const SIDEBAR_ORDER = { "Information Block": 0, "Tags": 1 };
+    const contentBloks = article?.content?.Content ?? [];
+    const sidebarBloks = contentBloks
+        .filter((blok) => SIDEBAR_ORDER[blok.component] !== undefined)
+        .sort((a, b) => SIDEBAR_ORDER[a.component] - SIDEBAR_ORDER[b.component]);
+    const mainBloks = contentBloks.filter((blok) => SIDEBAR_ORDER[blok.component] === undefined);
+
 
     return (
         <>
@@ -121,9 +128,16 @@ export default function ArticlePage() {
 
 
                 <ArticleContentWrap>
-                    {article?.content?.Content?.map((blok) => (
+                    {mainBloks.map((blok) => (
                         <StoryblokComponent blok={blok} key={blok._uid} />
                     ))}
+                    {sidebarBloks.length > 0 && (
+                        <ArticleSidebar>
+                            {sidebarBloks.map((blok) => (
+                                <StoryblokComponent blok={blok} key={blok._uid} />
+                            ))}
+                        </ArticleSidebar>
+                    )}
                 </ArticleContentWrap>
 
                 <CarouselCompont/>
