@@ -2,20 +2,25 @@ import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "theme";
 
-// Hinweis: src/lib/loadtheme.jsx setzt Storyblok-Farben als Inline-Style auf
-// document.documentElement. Inline-Styles gewinnen gegen jede Stylesheet-Regel,
+// Hinweis: src/lib/loadtheme.jsx setzt Storyblok-Farben (Light- UND Dark-Werte,
+// z.B. "Background-DARKMODE-Primary") als Inline-Style auf document.documentElement,
+// bevor React überhaupt mountet. Inline-Styles gewinnen gegen jede Stylesheet-Regel,
 // deshalb muss der Darkmode-Override hier ebenfalls per Inline-Style passieren —
 // im Light-Modus wird dafür der von Storyblok gesetzte Ursprungswert wiederhergestellt.
-const DARK_VARIABLES = {
-    "--color-Background-Primary": "#190601",
-    "--color-About-Background": "#190601",
-    "--color-Footer-Background": "#190601",
-    "--color-text-primary": "#C8C8C8",
-    "--color-text-secondary": "#C8C8C8",
-    "--color-text-link": "#C8C8C8",
-    "--color-text-footer": "#C8C8C8",
-    "--color-Background-Menu": "#302a2a",
-    "--color-tags-secondary": "#ffffff",
+//
+// Für jede Ziel-Variable wird hier - falls vorhanden - der von Storyblok gelieferte
+// "-DARKMODE-" Wert verwendet (statt eines statischen Hex-Codes). Felder, die in
+// Storyblok (noch) keinen Dark-Mode-Eintrag haben, fallen auf einen festen Wert zurück.
+const DARK_VARIABLE_SOURCES = {
+    "--color-Background-Primary": { storyblokVar: "--color-Background-DARKMODE-Primary", fallback: "#190601" },
+    "--color-About-Background": { storyblokVar: "--color-About-DARKMODE-Background", fallback: "#190601" },
+    "--color-Footer-Background": { storyblokVar: "--color-Footer-DARKMODE-Background", fallback: "#190601" },
+    "--color-text-primary": { storyblokVar: "--color-Tex-DARKMODE", fallback: "#C8C8C8" },
+    "--color-text-secondary": { storyblokVar: null, fallback: "#C8C8C8" },
+    "--color-text-link": { storyblokVar: null, fallback: "#C8C8C8" },
+    "--color-text-footer": { storyblokVar: null, fallback: "#C8C8C8" },
+    "--color-Background-Menu": { storyblokVar: null, fallback: "#302a2a" },
+    "--color-tags-secondary": { storyblokVar: null, fallback: "#ffffff" },
 };
 
 // Nicht von Storyblok verwaltete Properties: müssen im Light-Modus explizit
@@ -41,6 +46,11 @@ function getInitialTheme() {
     return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
+function resolveDarkValue(root, { storyblokVar, fallback }) {
+    const storyblokValue = storyblokVar ? root.style.getPropertyValue(storyblokVar).trim() : "";
+    return storyblokValue || fallback;
+}
+
 function useDarkMode() {
     const [theme, setTheme] = useState(getInitialTheme);
 
@@ -61,7 +71,7 @@ function useDarkMode() {
 
         if (cachedOriginalValues === null) {
             cachedOriginalValues = Object.fromEntries(
-                Object.keys(DARK_VARIABLES).map(property => [
+                Object.keys(DARK_VARIABLE_SOURCES).map(property => [
                     property,
                     root.style.getPropertyValue(property),
                 ])
@@ -69,8 +79,8 @@ function useDarkMode() {
         }
 
         if (theme === "dark") {
-            Object.entries(DARK_VARIABLES).forEach(([property, value]) => {
-                root.style.setProperty(property, value);
+            Object.entries(DARK_VARIABLE_SOURCES).forEach(([property, source]) => {
+                root.style.setProperty(property, resolveDarkValue(root, source));
             });
         } else {
             Object.entries(cachedOriginalValues).forEach(([property, value]) => {
