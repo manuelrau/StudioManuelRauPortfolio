@@ -166,6 +166,28 @@ export const Icon = styled.img`
     height: 24px;
 
 `
+export const Button = styled.button`
+    align-self: flex-start;
+    width: auto;
+    border: none;
+    color: var(--color-text-footer);
+    font-size: 0.9rem;
+    background: rgba(251, 251, 251, 0.25);
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: 2px solid transparent;
+    transition: outline-color 0.5s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &:hover {
+        outline-color: rgba(251, 251, 251, 0.33);
+    }
+
+    @media (max-width: 768px) {
+        align-self: center;
+    }
+`
 export const Text = styled.p.attrs(() => ({
     className: 'text-base'
 })) `

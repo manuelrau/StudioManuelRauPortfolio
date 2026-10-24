@@ -1,7 +1,7 @@
 import { useStoryblok } from "@storyblok/react";
-import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation, SectionFooter} from "./styles.js"
+import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation, SectionFooter, Button} from "./styles.js"
 import React, {useRef, useEffect} from "react";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
 import  splitting  from "splitting"
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
@@ -12,6 +12,18 @@ const Footer = () => {
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
     const { story, loading, error } = useStoryblokfetch("footer", activeLang);
+
+    const navigate = useNavigate();
+    const languages = ['de-de', 'en'];
+    const currentLang = lang || 'de';
+
+    const switchLanguage = () => {
+        const otherLang = languages.find(l => l !== currentLang);
+        const pathParts = location.pathname.split('/');
+        pathParts[1] = otherLang; // Annahme: Sprachcode ist der zweite Teil der URL
+        const newPath = pathParts.join('/');
+        navigate(newPath);
+    };
 
     console.log(story);
 
@@ -72,6 +84,9 @@ const Footer = () => {
                     </SocialContainer>
 
                 </Wrapp>
+                <Button onClick={switchLanguage}>
+                    {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
+                </Button>
                 <Container>
                     <Text>{story.content?.Body[0].Copyright}</Text>
                 </Container>

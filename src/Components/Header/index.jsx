@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import React, { useRef, useEffect, useState} from "react";
 import {Wrapper,
     HeaderLogo,
@@ -22,7 +22,6 @@ const HeaderBox = () => {
     const navRef = useRef(null);
 
     const location = useLocation();
-    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
 
 
@@ -34,8 +33,6 @@ const HeaderBox = () => {
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
     const { story, loading, error } = useStoryblokfetch("header", activeLang);
-    const languages = ['de-de', 'en'];
-    const currentLang = lang || 'de';
     // Header-Farbwechsel je nach Pfad
     useEffect(() => {
 
@@ -55,17 +52,6 @@ const HeaderBox = () => {
     if (windowSize.width > 1024) value = 0.0269;
     else if (windowSize.width > 768) value = 0.02;
     else value = 0.0255;
-
-
-// switchLangauge logik
-    const switchLanguage = () => {
-        const otherLang = languages.find(l => l !== currentLang);
-        console.log(otherLang)
-        const pathParts = location.pathname.split('/');
-        pathParts[1] = otherLang; // Annahme: Sprachcode ist der zweite Teil der URL
-        const newPath = pathParts.join('/');
-        navigate(newPath);
-    };
 
 
     const dynamicHeight = windowSize?.height ? `${windowSize?.height * value}px` : 'auto';
@@ -95,9 +81,6 @@ const HeaderBox = () => {
                         </Link>
 
                         <MenuDesktop>
-                            <Button onClick={switchLanguage} >
-                                {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
-                            </Button>
                             <Button onClick={toggleTheme} >
                                 {theme === 'dark' ? 'LIGHT' : 'DARK'}
                             </Button>
@@ -145,10 +128,6 @@ const HeaderBox = () => {
                 >
                     {story.content?.Body[0].About}
                 </Link>
-
-                <Button onClick={switchLanguage} >
-                    {languages.find(l => l !== currentLang).split('-').pop().toUpperCase()}
-                </Button>
 
                 <Button onClick={toggleTheme} >
                     {theme === 'dark' ? 'LIGHT' : 'DARK'}
