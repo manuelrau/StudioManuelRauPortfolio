@@ -47,6 +47,14 @@ const HeaderBox = () => {
         }
     }, [location, story]);
 
+    // Scrollen verhindern, solange das mobile Menü offen ist
+    useEffect(() => {
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
     // Dynamische Größenberechnung
     let value = 0.027;
     if (windowSize.width > 1024) value = 0.0269;
