@@ -5,7 +5,7 @@ export const Header = styled.header.attrs(() => ({
 }))`
     position: fixed;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(0);
     bottom: 24px;
     border-radius: 4px;
     z-index: 1000;
@@ -13,12 +13,13 @@ export const Header = styled.header.attrs(() => ({
     background-color: oklab(0.96 0 0 / 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px); // für Safari
+    transition: transform 0.3s ease;
 
     &.orange {
         background-color: oklab(0.96 0 0 / 0.7);
         backdrop-filter: blur(24px); /* Überschreibe, wenn die Klasse "orange" vorhanden ist */
     }
-    
+
     @media (max-width: 1440px) {
         width: 70vw;
     }
@@ -29,6 +30,10 @@ export const Header = styled.header.attrs(() => ({
 
     @media (max-width: 768px){
         width: 90vw;
+
+        &.hidden {
+            transform: translateX(-50%) translateY(150%);
+        }
     }
 
     @media (max-width: 480px) {

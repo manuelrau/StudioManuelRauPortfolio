@@ -55,6 +55,35 @@ const HeaderBox = () => {
         };
     }, [isOpen]);
 
+    // Header beim Runterscrollen ausblenden, beim Hochscrollen einblenden (nur mobile)
+    useEffect(() => {
+        if (windowSize.width > 768) {
+            headerRef.current?.classList.remove('hidden');
+            return;
+        }
+
+        let lastScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const header = headerRef.current;
+            if (!header || isOpen) return;
+
+            const currentScrollY = window.scrollY;
+            const scrollingDown = currentScrollY > lastScrollY;
+
+            if (scrollingDown && currentScrollY > 50) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+
+            lastScrollY = currentScrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [windowSize.width, isOpen]);
+
     // Dynamische Größenberechnung
     let value = 0.027;
     if (windowSize.width > 1024) value = 0.0269;
