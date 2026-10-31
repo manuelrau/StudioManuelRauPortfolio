@@ -22,7 +22,8 @@ export const GlobalStyle = createGlobalStyle `
         --color-text-link: #111111;
         --color-text-footer: #ffffff;
         --color-tags-secondary: #000000;
-        
+        --color-Tags-Color: #1a1a1a;
+
         // Text Color Darkmode
 
         --color-text-Darkmode-primary: #ffffff;

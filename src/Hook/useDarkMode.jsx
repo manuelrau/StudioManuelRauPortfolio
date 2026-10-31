@@ -21,6 +21,7 @@ const DARK_VARIABLE_SOURCES = {
     "--color-text-footer": { storyblokVar: null, fallback: "#C8C8C8" },
     "--color-Background-Menu": { storyblokVar: "--color-Background-Menu-DARKMODE", fallback: "#302a2a" },
     "--color-tags-secondary": { storyblokVar: null, fallback: "#ffffff" },
+    "--color-Tags-Color": { storyblokVar: "--color-Tags-Color-DARKMODE", fallback: "#ffffff" },
 };
 
 // Nicht von Storyblok verwaltete Properties: müssen im Light-Modus explizit

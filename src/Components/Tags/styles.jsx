@@ -4,19 +4,20 @@ export const TagsHeadline = styled.h4.attrs(() => ({
     className: "headline-h4"
 }))`
     margin-top: 10px;
+    font-family: IBM Plex Mono, monospace;
     margin-bottom: 5px;
-    text-decoration: underline;
+    color: var(--color-Tags-Color);
 `
 
 export const TagItem = styled.p.attrs(() => ({
     className: 'tags',
 }))`
     margin: 0 8px 8px 0;
-    color: var(--color-tags-primary);
+    color: #474747;
     min-width: 48px;
     display: inline-block;
-    padding: 8px 8px;
-    background: var(--color-tags-secondary);
+    padding: 8px 4px 8px 4px;
+    background: #B7B7B7;
     border-radius: 4px;
     text-align: center;
 

@@ -29,8 +29,9 @@ export const TagsHeadline = styled.h4.attrs(() => ({
     className: "headline-h4"
 }))`
     margin-top: 10px;
+    font-family: IBM Plex Mono, monospace;
     margin-bottom: 5px;
-    text-decoration: underline;
+    color: var(--color-Tags-Color);
 `
 
 export const Tags = styled.p.attrs(() => ({
