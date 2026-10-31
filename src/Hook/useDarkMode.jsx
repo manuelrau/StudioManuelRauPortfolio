@@ -15,11 +15,11 @@ const DARK_VARIABLE_SOURCES = {
     "--color-Background-Primary": { storyblokVar: "--color-Background-DARKMODE-Primary", fallback: "#190601" },
     "--color-About-Background": { storyblokVar: "--color-About-DARKMODE-Background", fallback: "#190601" },
     "--color-Footer-Background": { storyblokVar: "--color-Footer-DARKMODE-Background", fallback: "#190601" },
-    "--color-text-primary": { storyblokVar: "--color-Tex-DARKMODE", fallback: "#C8C8C8" },
+    "--color-text-primary": { storyblokVar: "--color-Text-DARKMODE", fallback: "#C8C8C8" },
     "--color-text-secondary": { storyblokVar: null, fallback: "#C8C8C8" },
     "--color-text-link": { storyblokVar: null, fallback: "#C8C8C8" },
     "--color-text-footer": { storyblokVar: null, fallback: "#C8C8C8" },
-    "--color-Background-Menu": { storyblokVar: null, fallback: "#302a2a" },
+    "--color-Background-Menu": { storyblokVar: "--color-Background-Menu-DARKMODE", fallback: "#302a2a" },
     "--color-tags-secondary": { storyblokVar: null, fallback: "#ffffff" },
 };
 
@@ -28,7 +28,6 @@ const DARK_VARIABLE_SOURCES = {
 // @media (prefers-color-scheme: dark) Regel aus src/styles.js wieder, obwohl
 // der Nutzer manuell "light" gewählt hat.
 const LIGHT_VARIABLES = {
-    "--color-Background-Menu": "#D6D6D6",
     "--color-tags-secondary": "#000000",
 };
 
