@@ -10,6 +10,7 @@ import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
 import InformationBlock from "../../Components/Article/InformationBlock/index.jsx";
+import Breadcrumb from "../../Components/Breadcrumb/index.jsx";
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 export default function ArticlePage() {
@@ -59,6 +60,10 @@ export default function ArticlePage() {
         <>
             <GlobalStyle/>
             <Header/>
+            <Breadcrumb items={[
+                { label: "Home", to: `/${lang}` },
+                { label: story.name },
+            ]}/>
 
             <Wrapper>
                 <ArticleContentWrap>

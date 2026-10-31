@@ -134,7 +134,7 @@ export const Wrapper = styled.div`
 `
 
 export const ParagraphStyle = styled.p.attrs(() => ({
-    className: 'text-sm',
+    className: 'text-base',
 }))`
     display: flex;
     width: 100%;
