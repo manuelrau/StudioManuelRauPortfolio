@@ -148,7 +148,6 @@ export const ParagraphStyle = styled.p.attrs(() => ({
     }
 
     @media (max-width: 480px)  {
-        font-size: 0.75rem;
         line-height: 1.45;
         margin: 3px 0 30px 0;
         padding: 0;
