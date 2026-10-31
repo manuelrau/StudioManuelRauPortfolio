@@ -6,23 +6,29 @@ import {animate, stagger} from "motion";
 const RelatedArticle = ({story} ) =>  {
 
     const [randomStories, setRandomStories] = useState([]);
-    const { lang } = useParams();
+    const { lang, slug } = useParams();
 
     useEffect(() => {
         // Stelle sicher, dass story ein Array ist und Elemente enthält
         if(story && Array.isArray(story) && story?.length > 0) {
-            // zufällig 2 der geladenen Artikel für "weitere Projekte" auswählen
+            // den gerade angezeigten Artikel aus der Auswahl ausschließen,
+            // sonst könnte er sich selbst als "weiteres Projekt" vorschlagen
+            const otherArticles = story.filter(
+                (s) => s?.ArticlePage?.slug?.split('/').pop() !== slug
+            );
+
+            // zufällig 2 der verbleibenden Artikel für "weitere Projekte" auswählen
             const getRandomTwo = (arr) => {
                 return [...arr]
                     .sort(() => Math.random() - 0.5) // mischt das Array
                     .slice(0, 2); // nimmt nur zwei Einträge
             };
-            setRandomStories(getRandomTwo(story));
+            setRandomStories(getRandomTwo(otherArticles));
         } else {
             setRandomStories([]); // setze leere Array, wenn story ungültig
         }
 
-    }, [story]);  // Nur neu mischen, wenn sich ` story `prop ändert
+    }, [story, slug]);  // Nur neu mischen, wenn sich `story` oder der aktuelle Artikel ändert
 
 
     useEffect(() => {
