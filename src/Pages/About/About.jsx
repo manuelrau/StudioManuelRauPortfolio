@@ -1,6 +1,5 @@
 import Header from '../../Components/Header/index.jsx'
 import Footer from "../../Components/Footer/index.jsx";
-import { useStoryblok } from "@storyblok/react";
 import { render, MARK_TEXT_STYLE } from "storyblok-rich-text-react-renderer";
 import {
     AboutPtag,
@@ -40,8 +39,9 @@ const About = () => {
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
     const { story, loading, error } = useStoryblokfetch("about", activeLang);
-    console.log(story)
 
+    // "body.orange" setzt in GlobalStyle (styles.js) den Hintergrund auf
+    // --color-About-Background - nur auf der About-Seite aktiv, deshalb cleanup beim Unmount
     useEffect(() => {
         document.body.classList.add('orange')
 
@@ -63,10 +63,8 @@ const About = () => {
         );
     }, [story?.content]);
 
-    if (!story?.content) return <p>Laden...</p>;
-    if (loading) return <p>Laden...</p>;
+    if (loading || !story?.content) return <p>Laden...</p>;
     if (error) return <p>Fehler: {error.message}</p>;
-    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
     const content = story?.content.body[1].OverviewComponent
 
@@ -100,8 +98,9 @@ const About = () => {
                            ))}
                        </CenterBox>
                        <Section>
+                           {/* Storyblok liefert hier nur ein generisches "Asset"-Feld (Bild oder Video),
+                               deshalb wird der Typ anhand der Dateiendung erkannt statt per Component-Typ */}
                            {content.map((section, index) => {
-                               console.log(section)
                                const filename = section?.Asset?.filename;
                                const isImage = /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(filename);
                                const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(filename);

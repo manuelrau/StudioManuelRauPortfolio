@@ -56,9 +56,10 @@ const Carousel = ({story}) => {
         const threshold = 150; // wie schnell es zappen soll
         let lastScrollTime = 5;
 
+        // Horizontales Mausrad/Trackpad-Scrollen auf das Carousel umleiten, mit
+        // 300ms-Throttle damit ein einzelner Swipe nicht mehrere Slides überspringt
         const onWheel = (e) => {
             const now = Date.now();
-            console.log('wheel event triggered', e);
             if (now - lastScrollTime < 300) return;
 
             const delta =e.deltaX;
@@ -76,7 +77,6 @@ const Carousel = ({story}) => {
                 }
             }
         };
-        console.log("Embla API:", emblaApi);
 
         node.addEventListener("wheel", onWheel, { passive: false });
 
@@ -84,12 +84,6 @@ const Carousel = ({story}) => {
             node.removeEventListener("wheel", onWheel);
         };
     }, [emblaApi]);
-
-    console.log('Data Carousel old:', photos);
-    console.log('Data Carousel Yes/ NO:', CarouselYN);
-    console.log('Data of Photo:', photo);
-    console.log(' Data of PhonePhoto:', PhonePhoto.PhoneSize)
-
 
     const useWindowWidth = () => {
         const [width, setWidth] = useState(window.innerWidth);
@@ -105,6 +99,8 @@ const Carousel = ({story}) => {
 
     const width = useWindowWidth();
 
+    // Storyblok-Toggle "CaruselYN": Editor entscheidet pro Artikel, ob ein Embla-Carousel
+    // mit mehreren Bildern angezeigt wird, oder nur ein einzelnes Headerbild/-video
     if(!CarouselYN) {
 
         // Zeige nur ein Bild an
@@ -145,7 +141,6 @@ const Carousel = ({story}) => {
                                 const desktopSRC = section?.Image || '' ;
                                 const mobileSRC = section?.PhoneSize || '';
                                 const src = width <= 768? mobileSRC : desktopSRC;
-                                console.log(src);
                                 const isVideo = src.filename.toLowerCase().endsWith('.mp4'); // auf mp4 prüfen
 
                                 return isVideo ? (

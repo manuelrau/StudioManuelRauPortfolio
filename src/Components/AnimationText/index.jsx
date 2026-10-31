@@ -14,6 +14,7 @@ const ScrollLetterSpacing = ({
         const isMobile = windowWidth !== undefined && windowWidth <= MOBILE_BREAKPOINT;
         const [currentFontWeight, setCurrentFontWeight] = useState(minFontWeight);
 
+        // Variable Font: Schriftgewicht folgt der Maus-X-Position (links dünn, rechts fett)
         const handleMouseMove = useCallback((event) => {
             const progress = Math.min(Math.max(event.clientX / window.innerWidth, 0), 1);
             setCurrentFontWeight(minFontWeight + progress * (maxFontWeight - minFontWeight));

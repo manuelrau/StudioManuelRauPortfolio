@@ -8,12 +8,10 @@ const RelatedArticle = ({story} ) =>  {
     const [randomStories, setRandomStories] = useState([]);
     const { lang } = useParams();
 
-    console.log('Related Article:', story)
-
     useEffect(() => {
         // Stelle sicher, dass story ein Array ist und Elemente enthält
         if(story && Array.isArray(story) && story?.length > 0) {
-            // Shuffle-Funktion
+            // zufällig 2 der geladenen Artikel für "weitere Projekte" auswählen
             const getRandomTwo = (arr) => {
                 return [...arr]
                     .sort(() => Math.random() - 0.5) // mischt das Array

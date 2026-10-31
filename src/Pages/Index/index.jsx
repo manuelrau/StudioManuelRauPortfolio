@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useStoryblok} from "@storyblok/react";
 import Header from "../../Components/Header/index.jsx"
 import Footer from "../../Components/Footer/index.jsx";
 import {FooterContainer, GlobalStyle} from "../../styles.js";
@@ -42,6 +41,7 @@ function Index () {
             <Header />
             <IndexWrapper>
                 {isReady
+                    // echte Artikel-Kacheln, sobald geladen
                     ? titles.map((t, index) => (
                         <Wrapper key={index}>
                             <Link className="LinkClass" to={`/${lang}/articles/${t.slug.split('/').pop()}`}>
@@ -51,6 +51,7 @@ function Index () {
                             <Tags>{t.tags.join(', ')}</Tags>
                         </Wrapper>
                     ))
+                    // Platzhalter während des Ladens, damit das Layout nicht springt
                     : Array.from({ length: 6 }).map((_, i) => (
                         <Wrapper key={i}>
                             <SkeletonLine />

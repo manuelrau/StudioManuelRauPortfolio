@@ -8,12 +8,11 @@ export function useStoryblokfetch (slug, language, options = {}) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    // Hinweis: "options" steht bewusst nicht in den Dependencies - wird meist als neues
+    // Inline-Objekt übergeben, das würde den Effect bei jedem Render erneut auslösen.
+    // Lädt also nur neu, wenn sich slug oder language ändern.
     useEffect(() => {
         if (!slug || !language) return;
-
-        console.log("Lang:", language)
-        console.log("Was ist der Slug: ",slug)
-        console.log("Was sind die Optionen: ",options)
 
         setLoading(true);
         storyblokApi.get(`cdn/stories/${slug}`, {
@@ -22,7 +21,6 @@ export function useStoryblokfetch (slug, language, options = {}) {
             language: language,
         })
             .then(({ data }) => {
-                console.log(data);
                 setStory(data.story);
                 setError(null);
             })

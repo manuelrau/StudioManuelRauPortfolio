@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Header from "../../Components/Header/index.jsx";
 import { GlobalStyle, FooterContainer } from "../../styles.js";
 import Footer from "../../Components/Footer/index.jsx";
-import {fetchArticlePageRandom, getImagesofArticle, getSlugArticle} from "../../Services/fetchingAPI.js";
+import {fetchArticlePageRandom, getImagesofArticle} from "../../Services/fetchingAPI.js";
 import CarouselCompont from "../../Components/Article/CarouselCompont /index.jsx";
 import { Wrapper, ArticleContentWrap, ArticleSidebar } from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
@@ -11,122 +11,55 @@ import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
-
-
 export default function ArticlePage() {
-    const { slug } = useParams();
-    const [article, setArticle] = useState(null);
-    const [notFound, setNotFound] = useState(false);
+    const { slug, lang } = useParams(); // Sprache + Artikel-Slug aus der URL
+    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
+    const combinedSlug = `articles/${slug || ''}`; // Storyblok legt Artikel unter "articles/" ab
+    const { story, loading, error } = useStoryblokfetch(combinedSlug, activeLang);
 
-
-
+    const [imageData, setImageData] = useState(null);
     const [titles, setTitles] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
 
-    //const story = useStoryblok("index", {version:"draft"})
-
-    const { lang } = useParams(); // Sprache aus der URL holen
-    const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
-    const combinedSlug = `articles/${slug || ''}`; //zusätzlich zum articles pfad wird der der pfad zum articel benötigtt
-    const { story, loading, error } = useStoryblokfetch(combinedSlug , activeLang); //hier wird alles der  hook übergeben
-
-    const [imageData, setImageData] = useState(null);
-
-    //--Data for "Other Projects--
-    const OterArticle = useStoryblok("index", {version:"published"})
-
+    // Für die "weitere Artikel"-Vorschau am Seitenende wird separat die komplette
+    // Artikelübersicht (index-Story) geladen, aus der die UUIDs für fetchArticlePageRandom kommen
+    const indexStory = useStoryblok("index", {version: "published"})
 
     useEffect(() => {
-        const loadArticle = async () => {
-            try {
-                const content = story;
-                setArticle(content);
+        const uuidsRaw = indexStory?.content?.body?.[0]?.Title;
+        const isReady = Array.isArray(uuidsRaw) && uuidsRaw.length > 0;
+        if (!isReady || hasLoaded) return;
 
-
-            } catch (err) {
-                setNotFound(true);
-            }
-        };
-        loadArticle();
-    }, [story]);
-
-    //-- Data for Other Article --
-    useEffect(() => {
-        const fetchTitles = async () => {
-
-            const uuidsRaw = OterArticle?.content?.body?.[0]?.Title;
-
-
-
-            const isReady = Array.isArray(uuidsRaw) && uuidsRaw.length > 0;
-
-            if (!isReady || hasLoaded) return;
-
-            const [draft] = await Promise.all([
-                //fetchArticlePageRandom(uuidsRaw,"draft"),
-                fetchArticlePageRandom(uuidsRaw, "published"),
-
-
-            ]);
-            setTitles(draft);
+        fetchArticlePageRandom(uuidsRaw, "published").then((results) => {
+            setTitles(results);
             setHasLoaded(true);
-
-        };
-        fetchTitles();
-    }, [story, hasLoaded]);
+        });
+    }, [indexStory, hasLoaded]);
 
     useEffect(() => {
-        const loadImages = async () => {
-
-            if (!article) return; // Sicherheitscheck
-
-            const Data = article.content
-            console.log(Data)
-            try {
-                const Imageload = await getImagesofArticle(Data)
-                console.log('ImagesLoad was kommt an', Imageload)
-                setImageData(Imageload);
-            }catch (err) {
-                setNotFound(true);
-            }
-
-        };
-        loadImages();
-    }, [article]);
-
-
-
-
-
-    if (notFound) return <p>Article not found</p>;
-    if (!article) return <p>Loading article...</p>;
+        if (!story?.content) return;
+        getImagesofArticle(story.content).then(setImageData);
+    }, [story]);
 
     if (loading) return <p>Laden...</p>;
     if (error) return <p>Fehler: {error.message}</p>;
     if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
-
-    console.log("Article:", article.content?.Link);
-    console.log(setTitles);
-    console.log('AllData----->:', article)
-
+    // Information Block & Tags gehören immer in die Sidebar (in dieser Reihenfolge),
+    // alle anderen Content-Bausteine landen im Hauptbereich
     const SIDEBAR_ORDER = { "Information Block": 0, "Tags": 1 };
-    const contentBloks = article?.content?.Content ?? [];
+    const contentBloks = story.content?.Content ?? [];
     const sidebarBloks = contentBloks
         .filter((blok) => SIDEBAR_ORDER[blok.component] !== undefined)
         .sort((a, b) => SIDEBAR_ORDER[a.component] - SIDEBAR_ORDER[b.component]);
     const mainBloks = contentBloks.filter((blok) => SIDEBAR_ORDER[blok.component] === undefined);
-
 
     return (
         <>
             <GlobalStyle/>
             <Header/>
 
-
             <Wrapper>
-
-
                 <ArticleContentWrap>
                     {mainBloks.map((blok) => (
                         <StoryblokComponent blok={blok} key={blok._uid} />
@@ -145,12 +78,11 @@ export default function ArticlePage() {
                 <Images story={imageData}/>
 
                 <RelatedArticle story={titles}/>
-
             </Wrapper>
+
             <FooterContainer>
                 <Footer/>
             </FooterContainer>
-
         </>
     )
 }

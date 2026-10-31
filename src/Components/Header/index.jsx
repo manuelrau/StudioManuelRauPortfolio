@@ -93,18 +93,14 @@ const HeaderBox = () => {
 
     const dynamicHeight = windowSize?.height ? `${windowSize?.height * value}px` : 'auto';
 
-    if (!story?.content) return <p>Laden...</p>;
+    if (loading || !story?.content) return <p>Laden...</p>;
+    if (error) return <p>Fehler: {error.message}</p>;
 
     // Sprachbezogene Links automatisch prependen (`/${lang}`)
     const linkPrefix = `/${lang}`;
-    const linkHome = `${linkPrefix}/${story?.content.Body[0].Index.cached_url}`;
-    const linkAbout = `${linkPrefix}/${story?.content.Body[0].Link.cached_url}`;
+    const linkHome = `${linkPrefix}/${story.content.Body[0].Index.cached_url}`;
+    const linkAbout = `${linkPrefix}/${story.content.Body[0].Link.cached_url}`;
 
-    if (loading) return <p>Laden...</p>;
-    if (error) return <p>Fehler: {error.message}</p>;
-    if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
-
-    console.log('Link:', story.content?.Body[0].IndexListe)
     return (
         <>
             <Header ref={headerRef}>

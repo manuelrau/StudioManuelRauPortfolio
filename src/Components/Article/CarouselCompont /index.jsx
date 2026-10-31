@@ -1,12 +1,9 @@
 import React from 'react';
-import useEmblaCarousel from "embla-carousel-react";
 
-const CarouselComponts = ({story}) => {
-    console.log(story)
-    return (
-        <>
-        </>
-    )
+// Noch nicht implementiert - Platzhalter, damit <CarouselCompont/> in ArticlePage.jsx
+// schon fest eingebaut werden kann; rendert aktuell bewusst nichts.
+const CarouselComponts = () => {
+    return null;
 }
 
 export default CarouselComponts;

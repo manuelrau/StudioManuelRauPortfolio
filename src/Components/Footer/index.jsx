@@ -1,4 +1,3 @@
-import { useStoryblok } from "@storyblok/react";
 import {Container, SocialMedia, SocialContainer, Icon, Text, Wrapper, Wrapp, LogoAnimation, SectionFooter, Button} from "./styles.js"
 import React, {useRef, useEffect} from "react";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
@@ -7,8 +6,6 @@ import  splitting  from "splitting"
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 const Footer = () => {
-    //const story = useStoryblok("footer", {version: "draft"})
-
     const { lang } = useParams(); // Sprache aus der URL holen
     const activeLang = lang === "de" ? "de-de" : (lang || "en"); // Englisch als Fallback
     const { story, loading, error } = useStoryblokfetch("footer", activeLang);
@@ -25,8 +22,6 @@ const Footer = () => {
         navigate(newPath);
     };
 
-    console.log(story);
-
     const footerRef = useRef(null);
     const location = useLocation();
 
@@ -35,7 +30,6 @@ const Footer = () => {
     useEffect(() => {
         if (!story?.content) return;
         const footer = footerRef.current;
-        console.log('FooterRef:', footer);
         if(!footer) return;
 
         if(location.pathname ==="/about") {
@@ -45,21 +39,17 @@ const Footer = () => {
         }
     }, [location, story?.content])
 
+    // Zerlegt das große Footer-Logo in einzelne Wort-/Buchstaben-Spans (Splitting.js),
+    // damit die CSS-Animation in LogoAnimation jeden Buchstaben separat ansteuern kann
     useEffect(() => {
         if (story?.content && logoAnimationRef.current) {
             logoAnimationRef.current.innerHTML = story.content.Body[0].LogoBig;
 
             const wordsResults = splitting({ target: logoAnimationRef.current, by: 'words' });
-
-            // Führe Splitting aus
-            const charResults = splitting({ target: wordsResults[0].words, by: 'chars' });
-            console.log('Splitting results (words, then chars):', wordsResults, charResults); // Zur Überprüfung
-
+            splitting({ target: wordsResults[0].words, by: 'chars' });
         }
     }, [story?.content?.Body[0].LogoBig]);
 
-
-    console.log("Footer:", story)
     if (loading) return <p>Laden...</p>;
     if (error) return <p>Fehler: {error.message}</p>;
 

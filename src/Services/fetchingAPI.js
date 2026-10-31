@@ -1,10 +1,12 @@
-
 import StoryblokClient from "storyblok-js-client";
 
-const SbClient = new StoryblokClient ({
-    accessToken: "k25cvE9zCKOuhJ3vCQgCCAtt",
+// gleicher Token wie in storyblokinit.jsx/loadtheme.jsx, aus der .env statt hart codiert
+const SbClient = new StoryblokClient({
+    accessToken: import.meta.env.VITE_STORYBLOK_TOKEN,
 });
 
+// Lädt mehrere Storys per UUID (z.B. für die Index-Liste) und reduziert sie auf die
+// Felder, die die UI tatsächlich braucht.
 export const getDataByVersion = async (uuids, version) => {
     try {
         const res = await SbClient.get("cdn/stories", {
@@ -24,6 +26,9 @@ export const getDataByVersion = async (uuids, version) => {
     }
 }
 
+// Lädt pro UUID eine einzelne Story (für die "weitere Artikel"-Vorschau am Seitenende).
+// Einzelabfragen statt Batch, weil wir hier nur Titel+Bild brauchen und die Reihenfolge
+// der UUIDs erhalten bleiben soll (Promise.all behält die Reihenfolge, by_uuids nicht garantiert).
 export const fetchArticlePageRandom = async (uuids, version) => {
     const titlePromises = uuids.map(async (uuid) => {
         try {
@@ -56,50 +61,11 @@ export const fetchArticlePageRandom = async (uuids, version) => {
     return await Promise.all(titlePromises);
 }
 
-export const getArticlesWithTags = async () => {
-    try {
-        const res = await SbClient.get("cdn/stories", {
-            version: "draft",
-            starts_with: "articles/", // oder dein Pfad
-            per_page: 100,
-        });
-
-        // filter only stories with tag_list
-        const storiesWithTags = res.data.stories.filter((story) => story.tag_list && story.tag_list.length > 0);
-
-        return storiesWithTags.map((story) => ({
-            name: story.name,
-            slug: story.slug,
-            tags: story.tag_list,
-
-
-        }));
-    } catch (err) {
-        console.error("Fehler beim Laden der Kategorien:", err);
-        return [];
-    }
-};
-
-export const getSlugArticle = async (slug) => {
-    try {
-        const res = await SbClient.get(`cdn/stories/articles/${slug}`, {
-            version: "draft",
-        });
-        return res.data.story;
-    } catch (err) {
-        console.error("Artikel nicht gefunden:", err);
-        throw err;
-    }
-
-};
-
+// Filtert aus dem Content-Baum eines Artikels die Bildergalerie-Bausteine heraus.
 export const getImagesofArticle = async (content) => {
-
-    console.log(content)
     if (!content || !Array.isArray(content.Wrapper)) {
         return ['no Image'];
     }
 
     return content.Wrapper.filter(item => item.component === "ImagesArticle");
-
 }

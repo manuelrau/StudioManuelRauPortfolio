@@ -45,8 +45,6 @@ const Image = ({story}) => {
         );
     }, [story]);
 
-    console.log('Test ob daten da sind', story);
-
     if (!Array.isArray(story)) {
         return <p>Keine Bilddaten vorhanden.</p>;
     }
@@ -55,7 +53,6 @@ const Image = ({story}) => {
             <ImageWrapper className="container-animate">
                 {story.map((s, i) => {
 
-                    console.log(s);
                     const filename = s?.Image?.filename;
                     const isFullSize = s?.Fullsize;
                     const isRight = s?.right;
@@ -68,8 +65,9 @@ const Image = ({story}) => {
                     const isImage = /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(filename);
                     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(filename);
 
+                    // Layout-Variante pro Bild kommt aus Storyblok-Checkboxen (Fullsize/right/vertical),
+                    // Fullsize hat Vorrang vor right, das wiederum Vorrang vor vertical
                     const WrapperComponent = isFullSize ? FullSizeWrapper : isRight ? RightWrapper : (isVertical ? VerticalWrapper : Wrapper);
-                    console.log('DATA:', s)
 
                     if (isImage) {
                         return (

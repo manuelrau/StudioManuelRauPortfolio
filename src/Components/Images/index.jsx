@@ -14,6 +14,8 @@ const Images = ({ story }) => {
     const [page, setPage] = useState(1);
     const itemsPerPage = 6; // wie viele elemente sollen immer nachgeladen werden
 
+    // sichtbare Fotos werden direkt aus photoData + page abgeleitet (kein eigener State),
+    // dadurch bleibt page die einzige Quelle der Wahrheit für die Pagination
     const maxPage = Math.ceil(photoData.length / itemsPerPage);
     const visiblePhotos = photoData.slice(0, page * itemsPerPage);
 
@@ -24,6 +26,8 @@ const Images = ({ story }) => {
         columns[index % columnCount].push({ photo, index });
     });
 
+    // Infinite Scroll: lädt eine weitere Seite, sobald der unsichtbare Ladebalken
+    // (loaderRef) am Ende der Liste in den Viewport scrollt
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {

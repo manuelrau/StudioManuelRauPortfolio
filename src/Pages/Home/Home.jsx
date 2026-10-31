@@ -6,13 +6,11 @@ import Images from "../../Components/Images/index.jsx";
 import {Helmet} from "react-helmet-async";
 import {GlobalStyle, FooterContainer} from '../../styles.js'
 import { StoryblokComponent, useStoryblok } from "@storyblok/react";
+// Wrapp ist eigentlich ein Article/Text-Style, wird hier nur für das Layout wiederverwendet
 import { Wrapp } from "../../Components/Article/Text/styles.js";
-
-
 
 function Home() {
     const story = useStoryblok("home", { version: "draft" });
-    console.log("Home story:", story);
 
     return(
         <>
@@ -31,6 +29,7 @@ function Home() {
                 ))}
             </Wrapp>
 
+            {/* Fotogalerie liest aus story.content.body[1].ImageData */}
             <Images story={story}/>
 
             <FooterContainer>
