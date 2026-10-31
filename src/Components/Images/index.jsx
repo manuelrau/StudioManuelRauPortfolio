@@ -1,23 +1,21 @@
 import {Column, Container, HoverInfo, ImageWrapper, LinkWrapper, VideoWrapper} from "./styles.js";
 import { Link } from 'react-router-dom';
 import {useEffect, useRef, useState} from "react";
-import {animate} from "motion";
 import { motion } from "framer-motion"
 import useWindowSize from "../../Hook/useWindowSize.jsx";
 
 
 
 
-const Images = ({ story , clickedTags = [] }) => {
+const Images = ({ story }) => {
     const photoData = story.content?.body[1]?.ImageData || [];
-    const [allPhotos, setAllPhotos] = useState([]);
-    const [visiblePhotos, setVisiblePhotos] = useState([]);
     const loaderRef = useRef(null)
 
     const [page, setPage] = useState(1);
     const itemsPerPage = 6; // wie viele elemente sollen immer nachgeladen werden
 
-    const maxPage = Math.ceil(allPhotos.length / itemsPerPage);
+    const maxPage = Math.ceil(photoData.length / itemsPerPage);
+    const visiblePhotos = photoData.slice(0, page * itemsPerPage);
 
     const { width } = useWindowSize();
     const columnCount = !width || width > 1024 ? 4 : width > 480 ? 2 : 1;
@@ -25,51 +23,6 @@ const Images = ({ story , clickedTags = [] }) => {
     visiblePhotos.forEach((photo, index) => {
         columns[index % columnCount].push({ photo, index });
     });
-
-
-    console.log('DATA', photoData, maxPage, visiblePhotos, itemsPerPage);
-    useEffect(() => {
-        if (photoData.length > 0) {
-            setVisiblePhotos(photoData)
-        }
-    }, [photoData])
-
-    useEffect(() => {
-        if (photoData.length === 0) return;
-
-        const filterPhotoData = clickedTags.length > 0 ? photoData.filter((photo) =>
-            photo.Tags?.some((tag) => clickedTags.includes(tag))
-        ) : photoData
-
-        // IDs merken
-
-        setAllPhotos(filterPhotoData);
-        setPage(1);
-
-        const newIDs = new Set(filterPhotoData.map(photo => photo._uid));
-        const exiting = visiblePhotos.filter(photo => !newIDs.has(photo._uid));
-        // Ausblenden & danach entfernen
-        exiting.forEach(photo => {
-
-            const el = document.getElementById(`photo-${photo._uid}`);
-            if (el) {
-                animate(el, { opacity: 0, y: 30 }, { duration: 0.4 }).finished.then(() => {
-                    setVisiblePhotos(current =>
-                        current.filter(p => p._uid !== photo._uid)
-                    );})
-            }
-        })
-        const added = filterPhotoData.filter(p => !visiblePhotos.find(v=>v._uid === p._uid))
-        if(added.length > 0) {
-            setVisiblePhotos(current => [...current, ...added])
-        }
-
-    }, [clickedTags, photoData]);
-
-    useEffect(() => {
-        const newVisible = allPhotos.slice(0, page * itemsPerPage);
-        setVisiblePhotos(newVisible);
-    }, [allPhotos, page]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -104,7 +57,6 @@ const Images = ({ story , clickedTags = [] }) => {
                             <LinkWrapper key={photo._uid}>
                                 <Link to={photo.link?.cached_url} className="LinkClass" >
                                     <motion.div
-                                        id={`photo-${photo._uid}`}
                                         initial={{ opacity: 0, y: 30 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.7, delay: index * 0.1 }}

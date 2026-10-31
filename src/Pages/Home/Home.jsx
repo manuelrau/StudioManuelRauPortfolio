@@ -1,8 +1,8 @@
 
 import Header from '../../Components/Header/index.jsx'
 import Footer from '../../Components/Footer/index.jsx'
-import Categories from "../../Components/Categories/index.jsx";
 import LandingPage from '../../Components/LandingPage/index.jsx'
+import Images from "../../Components/Images/index.jsx";
 import {Helmet} from "react-helmet-async";
 import {GlobalStyle, FooterContainer} from '../../styles.js'
 import { StoryblokComponent, useStoryblok } from "@storyblok/react";
@@ -30,8 +30,8 @@ function Home() {
                     <StoryblokComponent blok={blok} key={blok._uid} />
                 ))}
             </Wrapp>
-            <Categories/>
 
+            <Images story={story}/>
 
             <FooterContainer>
                 <Footer/>
