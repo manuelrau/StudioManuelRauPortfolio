@@ -1,5 +1,5 @@
 import React from 'react';
-import { TagItem, Wrapper, Section } from './styles.jsx';
+import { TagItem, Wrapper, Section, TagsHeadline } from './styles.jsx';
 
 const Tags = ({ blok }) => {
     // Storyblok liefert Multi-Options-Felder als { value: [...] }, einfache Text-/Options-Felder
@@ -17,7 +17,7 @@ const Tags = ({ blok }) => {
     return (
         <>
             <Section>
-                <p>Tags</p>
+                <TagsHeadline>Tags</TagsHeadline>
                 <Wrapper>
                     {tagList.map((tag, index) => (
                         <TagItem key={`${tag}-${index}`}>{tag}</TagItem>

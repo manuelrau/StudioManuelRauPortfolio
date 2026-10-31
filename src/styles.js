@@ -74,7 +74,7 @@ export const GlobalStyle = createGlobalStyle `
     
     a {
         font-family: IBM Plex Mono, monospace;
-        text-transform: uppercase;
+        //text-transform: uppercase;
         color: var(--color-text-link);
         text-decoration: none;
         font-weight: 400;
@@ -182,7 +182,7 @@ export const GlobalStyle = createGlobalStyle `
         font-family: IBM Plex Mono, monospace;
     }
     .tags {
-        font-size: 14px;
+        font-size: 1rem;
         font-family: IBM Plex Sans, sans-serif;
     }
     .link-header { 

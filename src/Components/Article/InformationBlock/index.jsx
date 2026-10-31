@@ -9,6 +9,7 @@ import {
     SVGStyling,
     Tag,
 } from "./styles.js";
+import TagsBlock from "../../Tags/index.jsx";
 
 const formatDate = (datum) => {
     const date = new Date(datum);
@@ -18,7 +19,7 @@ const formatDate = (datum) => {
     return `${day}.${month}.${year}`;
 };
 
-const InformationBlock = ({ blok }) => {
+const InformationBlock = ({ blok, tagsBlok }) => {
 
     return (
         <Wrapper>
@@ -43,6 +44,7 @@ const InformationBlock = ({ blok }) => {
                     </StyleLink>
                 </LinkWrapper>
             ) : null}
+            {tagsBlok && <TagsBlock blok={tagsBlok} />}
         </Wrapper>
     );
 };

@@ -9,6 +9,7 @@ import { Wrapper, ArticleContentWrap, ArticleSidebar } from "./styles.js";
 import RelatedArticle from "../../Components/Article/Related/index.jsx";
 import {useStoryblok, StoryblokComponent} from "@storyblok/react";
 import Images from "../../Components/Article/Image/index.jsx";
+import InformationBlock from "../../Components/Article/InformationBlock/index.jsx";
 import {useStoryblokfetch} from "../../Hook/useStoryblokfetch.jsx";
 
 export default function ArticlePage() {
@@ -45,14 +46,14 @@ export default function ArticlePage() {
     if (error) return <p>Fehler: {error.message}</p>;
     if (!story?.content) return <p>Kein Inhalt gefunden.</p>;
 
-    // Information Block & Tags gehören immer in die Sidebar (in dieser Reihenfolge),
+    // Information Block & Tags gehören immer in die Sidebar - die Tags werden dabei
+    // direkt innerhalb von InformationBlock mitgerendert (siehe tagsBlok weiter unten),
     // alle anderen Content-Bausteine landen im Hauptbereich
-    const SIDEBAR_ORDER = { "Information Block": 0, "Tags": 1 };
+    const SIDEBAR_COMPONENTS = ["Information Block", "Tags"];
     const contentBloks = story.content?.Content ?? [];
-    const sidebarBloks = contentBloks
-        .filter((blok) => SIDEBAR_ORDER[blok.component] !== undefined)
-        .sort((a, b) => SIDEBAR_ORDER[a.component] - SIDEBAR_ORDER[b.component]);
-    const mainBloks = contentBloks.filter((blok) => SIDEBAR_ORDER[blok.component] === undefined);
+    const informationBlockBlok = contentBloks.find((blok) => blok.component === "Information Block");
+    const tagsBlok = contentBloks.find((blok) => blok.component === "Tags");
+    const mainBloks = contentBloks.filter((blok) => !SIDEBAR_COMPONENTS.includes(blok.component));
 
     return (
         <>
@@ -64,11 +65,9 @@ export default function ArticlePage() {
                     {mainBloks.map((blok) => (
                         <StoryblokComponent blok={blok} key={blok._uid} />
                     ))}
-                    {sidebarBloks.length > 0 && (
+                    {(informationBlockBlok || tagsBlok) && (
                         <ArticleSidebar>
-                            {sidebarBloks.map((blok) => (
-                                <StoryblokComponent blok={blok} key={blok._uid} />
-                            ))}
+                            <InformationBlock blok={informationBlockBlok} tagsBlok={tagsBlok} />
                         </ArticleSidebar>
                     )}
                 </ArticleContentWrap>

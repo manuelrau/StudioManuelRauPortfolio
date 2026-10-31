@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const TagsHeadline = styled.h4.attrs(() => ({
+    className: "headline-h4"
+}))`
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+`
+
 export const TagItem = styled.p.attrs(() => ({
     className: 'tags',
 }))`

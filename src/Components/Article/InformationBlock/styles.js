@@ -84,6 +84,6 @@ export const SVGStyling = styled.img`
 `
 
 export const Tag = styled.a.attrs(() => ({
-    className: 'link-base-small',
+    className: 'link-bas',
 }))`
 `
