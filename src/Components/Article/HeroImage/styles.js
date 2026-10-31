@@ -19,6 +19,11 @@ export const Wrapper = styled.div`
         height: ${window.innerHeight*.8}px;
     }
 
+    @media (max-width: 768px) {
+        /* Bild auf Mobile ans Ende stellen, nach Fließtext und Zusatzinformationen */
+        order: 1;
+    }
+
     @media (max-width: 480px) {
         margin: 20px 0px 0px 0px;
         padding: 0 5px 20px 5px;

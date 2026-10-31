@@ -36,12 +36,16 @@ export const StyleLink = styled.div`
 export const TextStyle = styled.div.attrs(() => ({
     className: "text-2xl",
 }))`
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+
     @media (max-width: 768px) {
         font-size: 1rem;
     }
-    
+
     @media (max-width: 480px) {
-      
+
     }
 `
 export const LinkWrapper = styled.div` 

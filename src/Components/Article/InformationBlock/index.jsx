@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     Wrapper,
+    Group,
     TagsHeadline,
     Tags,
     LinkWrapper,
@@ -21,10 +22,18 @@ const InformationBlock = ({ blok }) => {
 
     return (
         <Wrapper>
-            {blok?.Headline01 && <TagsHeadline>{blok.Headline01}</TagsHeadline>}
-            {blok?.Client && <Tags>{blok.Client}</Tags>}
-            {blok?.HeadlineDatum && <TagsHeadline>{blok.HeadlineDatum}</TagsHeadline>}
-            {blok?.Datum && <Tags>{formatDate(blok.Datum)}</Tags>}
+            {blok?.Headline01 && (
+                <Group>
+                    <TagsHeadline>{blok.Headline01}</TagsHeadline>
+                    {blok?.Client && <Tags>{blok.Client}</Tags>}
+                </Group>
+            )}
+            {blok?.HeadlineDatum && (
+                <Group>
+                    <TagsHeadline>{blok.HeadlineDatum}</TagsHeadline>
+                    {blok?.Datum && <Tags>{formatDate(blok.Datum)}</Tags>}
+                </Group>
+            )}
             {blok?.Link?.cached_url ? (
                 <LinkWrapper>
                     <TagsHeadline>Link</TagsHeadline>

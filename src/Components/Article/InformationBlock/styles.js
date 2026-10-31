@@ -6,8 +6,22 @@ export const Wrapper = styled.div`
     padding: 50px 0 0 0;
 
     @media (max-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px 20px;
         width: 100%;
         padding: 0 10px 0 10px;
+    }
+`
+
+// Headline + Wert gehören zusammen und sollen auf Mobile als Einheit nebeneinander
+// umbrechen können, statt einzeln auseinandergerissen zu werden
+export const Group = styled.div`
+    display: contents;
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
     }
 `
 
@@ -56,9 +70,17 @@ export const StyleLink = styled.div`
     }
 `
 
+// useDarkMode.jsx setzt data-theme="dark" auf <html>, sobald der Dark Mode aktiv ist.
+// Das Icon ist schwarz auf transparent - invert(1) dreht es auf Weiß, passend zur
+// hellen Textfarbe im Dark Mode (robuster als eine CSS-mask mit externer SVG-URL,
+// die je nach Browser nicht zuverlässig geladen wird)
 export const SVGStyling = styled.img`
     width: 16px;
     padding-right: 4px;
+
+    [data-theme="dark"] & {
+        filter: invert(1);
+    }
 `
 
 export const Tag = styled.a.attrs(() => ({

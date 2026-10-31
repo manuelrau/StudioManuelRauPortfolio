@@ -47,7 +47,8 @@ export const ArticleSidebar = styled.div`
     order: -1;
 
     @media (max-width: 768px) {
-        order: 1;
+        /* Zusatzinformationen auf Mobile direkt nach dem Fließtext, vor dem Bild */
+        order: 0;
         width: 100%;
     }
 `

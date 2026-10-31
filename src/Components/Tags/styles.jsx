@@ -10,12 +10,22 @@ export const TagItem = styled.p.attrs(() => ({
     padding: 8px 8px;
     background: rgba(251, 251, 251, 0.25);
     border-radius: 4px;
-    display: inline-block;
+    text-align: center;
+
+    @media (max-width: 768px) {
+        margin: 0;
+    }
 `;
 
 export const Wrapper = styled.div`
     display: inline-block;
     text-align: left;
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 `;
 
 export const Section = styled.div`
