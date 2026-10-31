@@ -29,10 +29,11 @@ const InformationBlock = ({ blok, tagsBlok }) => {
                     {blok?.Client && <Tags>{blok.Client}</Tags>}
                 </Group>
             )}
-            {blok?.HeadlineDatum && (
+            {blok?.Datum && (
                 <Group>
-                    <TagsHeadline>{blok.HeadlineDatum}</TagsHeadline>
-                    {blok?.Datum && <Tags>{formatDate(blok.Datum)}</Tags>}
+                    {/* Fällt auf "Datum" zurück, falls im Storyblok-Feld HeadlineDatum kein eigenes Label gesetzt wurde */}
+                    <TagsHeadline>{blok.HeadlineDatum || "Datum"}</TagsHeadline>
+                    <Tags>{formatDate(blok.Datum)}</Tags>
                 </Group>
             )}
             {blok?.Link?.cached_url ? (

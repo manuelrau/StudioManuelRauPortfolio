@@ -12,11 +12,11 @@ export const TagItem = styled.p.attrs(() => ({
     className: 'tags',
 }))`
     margin: 0 8px 8px 0;
-    color: black;
+    color: var(--color-tags-primary);
     min-width: 48px;
     display: inline-block;
     padding: 8px 8px;
-    background: rgba(251, 251, 251, 0.25);
+    background: var(--color-tags-secondary);
     border-radius: 4px;
     text-align: center;
 
