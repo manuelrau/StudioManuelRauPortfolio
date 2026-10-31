@@ -10,10 +10,6 @@ export const Wrapper = styled.div.attrs(() => ({
     padding: 50px 0 50px 0;
 
     @media (max-width: 1024px) {
-
-    }
-
-    @media (max-width: 768px) {
         width: 100%;
     }
 
@@ -40,7 +36,7 @@ export const TextStyle = styled.div.attrs(() => ({
     word-break: break-word;
     min-width: 0;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         font-size: 1rem;
     }
 
@@ -83,7 +79,7 @@ export const TextWrapper = styled.span`
     display: flex;
     align-items: baseline;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         padding: 0 10px;
         flex-direction: column;
     }

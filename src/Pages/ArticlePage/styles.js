@@ -31,7 +31,7 @@ export const ArticleContentWrap = styled.div`
         margin: 0;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         flex-direction: column;
         padding: 0;
 
